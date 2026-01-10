@@ -1,11 +1,12 @@
-import './App.css'
+import { Nav } from './components/Nav/Nav'
 
 function App() {
 
 
   return (
     <>
-    <p className="text-6xl font-bold text-red-300">Hello, Event Chef!</p>
+    <Nav />
+    
     </>
   )
 }
