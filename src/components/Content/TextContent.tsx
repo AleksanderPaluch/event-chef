@@ -1,4 +1,5 @@
 import { FiArrowUpRight } from "react-icons/fi";
+import { Chip } from "./Chip";
 
 interface TextContentProps {
   textTitle: string;
@@ -16,44 +17,42 @@ export const TextContent: React.FC<TextContentProps> = ({
   chips,
   secondaryChipsTitle,
   secondaryChips,
-}) => (
-  <div className="mx-auto flex flex-col max-w-6xl md:flex-row gap-4 md:gap-2 px-1 md:px-6  lg:pb-24 lg:pt-12 ">
-    <div className="flex flex-col gap-4 w-full ">
-      <h2 className=" text-3xl font-bold ">{textTitle}</h2>
-      <button className="w-full  bg-zinc-800 px-9 py-4 text-xl  transition-colors hover:bg-neutral-700 md:w-fit">
-        Więcej <FiArrowUpRight className="inline" />
-      </button>
-    </div>
+}) => {
+  const hasSecondary = secondaryChipsTitle && secondaryChips;
 
-    <div className="">
-      <p className=" text-xl  md:text-2xl text-justify">{text}</p>
-      <p className="mt-4 text-xl font-semibold">{chipsTitle}</p>
-      <div>
-        {chips.map((chip, index) => (
-          <span
-            key={index} 
-            className="inline-block bg-zinc-800 px-4 py-2 text-sm font-medium text-white rounded-full"
-          >
-            {chip}
-          </span>
-        ))}
+  return (
+    <div className="flex flex-col md:max-w-[90%] lg:max-w-5xl mx-auto py-4 md:py-8 ">
+      <div className="flex flex-col md:flex-row gap-2 md:gap-6 lg:gap-20  ">
+        <div className=" flex flex-col gap-2 lg:gap-4  md:min-w-[338px] ">
+          <h2 className=" text-3xl font-bold ">{textTitle}</h2>
+          <button className="bg-zinc-800 py-2 text-xl  transition-colors hover:bg-zinc-700 ">
+            Więcej <FiArrowUpRight className="inline" />
+          </button>
+        </div>
+        <div className="flex ">
+          <p className="text-lg md:text-xl lg:text-2xl text-justify">{text}</p>
+        </div>
       </div>
-
-        {secondaryChipsTitle && secondaryChips && (
-          <div className="mt-4">
-            <p className="mt-4 text-xl font-semibold">{secondaryChipsTitle}</p>
-            <div>
+      {/* <div className="flex flex-col md:flex-row">
+        <div className="flex-1">
+          <p>{chipsTitle}</p>
+          <div className="flex flex-wrap gap-2">
+            {chips.map((chip, index) => (
+              <Chip key={index}>{chip}</Chip>
+            ))}
+          </div>
+        </div>
+        {hasSecondary && (
+          <div className="flex-1">
+            <p>{secondaryChipsTitle}</p>
+            <div className="flex flex-wrap gap-2">
               {secondaryChips.map((chip, index) => (
-                <span
-                  key={index}
-                  className="inline-block bg-zinc-800 px-4 py-2 text-sm font-medium text-white rounded-full"
-                >
-                  {chip}
-                </span>
+                <Chip key={index}>{chip}</Chip>
               ))}
             </div>
           </div>
         )}
+      </div> */}
     </div>
-  </div>
-);
+  );
+};
