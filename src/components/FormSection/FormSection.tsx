@@ -1,5 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { type Dispatch, type SetStateAction, useState } from "react";
+import type { Transition } from "framer-motion";
+
 
 export const FormSection = () => {
   const [selected, setSelected] = useState<"company" | "individual">(
@@ -194,6 +196,7 @@ const Images = ({ selected }: { selected: "company" | "individual" }) => {
   );
 };
 
-
-
-const BASE_TRANSITION = { ease: "anticipate", duration: 0.75 };
+const BASE_TRANSITION: Transition = {
+  ease: "anticipate",
+  duration: 0.75,
+};

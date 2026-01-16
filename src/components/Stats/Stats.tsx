@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { animate, useInView } from "framer-motion";
 
 export const Stats = () => {
