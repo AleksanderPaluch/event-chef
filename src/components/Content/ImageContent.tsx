@@ -4,15 +4,16 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 
 
+
 const IMG_PADDING = 12;
 
 export const ImageContent = ({
-  imgUrl,
+   imgUrl={image},
   subheading,
   heading,
   children,
 }: {
-  imgUrl: string;
+  imgUrl: any;
   subheading: string;
   heading: string;
   children: ReactNode;
@@ -46,7 +47,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
   return (
     <motion.div
       style={{
-        backgroundImage: `url(${imgUrl})`,
+        backgroundImage: `url(${imgUrl})`, // <- важливо
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: `calc(100vh - ${IMG_PADDING * 2}px)`,
@@ -65,6 +66,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
     </motion.div>
   );
 };
+
 
 const OverlayCopy = ({
   subheading,

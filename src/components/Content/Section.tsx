@@ -2,7 +2,7 @@ import { ImageContent } from "./ImageContent";
 import { TextContent } from "./TextContent";
 
 interface SectionProps {
-  imgUrl: string;
+  imgUrl: any;
   subheading: string;
   heading: string;
   textTitle: string;
