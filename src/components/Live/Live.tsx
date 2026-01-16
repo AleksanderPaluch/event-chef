@@ -35,6 +35,10 @@ export const Live = () => {
       heading={data.heading}
       textTitle={data.textTitle}
       text={data.text}
+      chipsTitle={data.chipsTitle}
+      chips={data.chips}
+      secondaryChipsTitle={data.secondaryChipsTitle}
+      secondaryChips={data.secondaryChips}
     />
   );
 };

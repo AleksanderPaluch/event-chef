@@ -27,6 +27,8 @@ export const Mastercalss = () => {
       heading={data.heading}
       textTitle={data.textTitle}
       text={data.text}
+      chipsTitle={data.chipsTitle}
+      chips={data.chips}
     />
   );
 };

@@ -3,11 +3,19 @@ import { FiArrowUpRight } from "react-icons/fi";
 interface TextContentProps {
   textTitle: string;
   text: string;
+  chipsTitle: string;
+  chips: string[];
+  secondaryChipsTitle?: string;
+  secondaryChips?: string[];
 }
 
 export const TextContent: React.FC<TextContentProps> = ({
   textTitle,
   text,
+  chipsTitle,
+  chips,
+  secondaryChipsTitle,
+  secondaryChips,
 }) => (
   <div className="mx-auto flex flex-col max-w-6xl md:flex-row gap-4 md:gap-2 px-1 md:px-6  lg:pb-24 lg:pt-12 ">
     <div className="flex flex-col gap-4 w-full ">
@@ -19,6 +27,33 @@ export const TextContent: React.FC<TextContentProps> = ({
 
     <div className="">
       <p className=" text-xl  md:text-2xl text-justify">{text}</p>
+      <p className="mt-4 text-xl font-semibold">{chipsTitle}</p>
+      <div>
+        {chips.map((chip, index) => (
+          <span
+            key={index} 
+            className="inline-block bg-zinc-800 px-4 py-2 text-sm font-medium text-white rounded-full"
+          >
+            {chip}
+          </span>
+        ))}
+      </div>
+
+        {secondaryChipsTitle && secondaryChips && (
+          <div className="mt-4">
+            <p className="mt-4 text-xl font-semibold">{secondaryChipsTitle}</p>
+            <div>
+              {secondaryChips.map((chip, index) => (
+                <span
+                  key={index}
+                  className="inline-block bg-zinc-800 px-4 py-2 text-sm font-medium text-white rounded-full"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
     </div>
   </div>
 );
