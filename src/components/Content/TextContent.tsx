@@ -37,20 +37,21 @@ export const TextContent: React.FC<TextContentProps> = ({
         </div>
       </Motion>
       <Motion>
-        <div className="flex flex-col md:flex-row pb-4 md:pb-8  md:max-w-[90%]  lg:max-w-full mx-auto lg:mx-0 gap-4">
-          <div className=" lg:min-w-[650px] ">
-            <p className="text-lg md:text-xl lg:text-3xl font-bold  mb-2 lg:mb-4">
+        <div className="flex flex-col lg:flex-row pb-4 md:pb-8  md:max-w-[90%]  lg:max-w-full mx-auto lg:mx-0 gap-4">
+          <div className={`${hasSecondary ? "lg:w-[60%] lg:min-w-[650px]" : "w-full"} `}>
+               {/* <div className= " lg:w-[60%] lg:min-w-[650px] "></div> */}
+            <p className="text-2xl md:text-3xl font-bold  mb-2 lg:mb-4">
               {chipsTitle}
             </p>
-            <div className="grid  grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
               {chips.map((chip, index) => (
                 <Chip key={index}>{chip}</Chip>
               ))}
             </div>
           </div>
           {hasSecondary && (
-            <div className="w-[70%] flex-1 flex flex-col md:items-end ">
-              <p className="text-lg md:text-xl lg:text-3xl font-bold mb-2 lg:mb-4 md:text-right">
+            <div className="lg:w-[70%] flex-1 flex flex-col lg:items-end ">
+              <p className="text-2xl md:text-3xl font-bold  mb-2 lg:mb-4 lg:text-right">
                 {secondaryChipsTitle}
               </p>
               <div className="grid  grid-cols-2 gap-2">
