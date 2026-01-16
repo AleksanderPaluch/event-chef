@@ -35,8 +35,8 @@ export const TextContent: React.FC<TextContentProps> = ({
           </p>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row pb-4 md:pb-12">
-        <div className="flex-1">
+      <div className="flex flex-col md:flex-row pb-4 md:pb-8  md:max-w-[82%]  lg:max-w-5xl mx-auto lg:mx-0 gap-4">
+        <div className="flex-1 ">
           <p className="text-lg md:text-xl lg:text-2xl font-bold  mb-2 lg:mb-4">
             {chipsTitle}
           </p>
@@ -47,11 +47,11 @@ export const TextContent: React.FC<TextContentProps> = ({
           </div>
         </div>
         {hasSecondary && (
-          <div className="flex-1">
-            <p className="text-lg md:text-xl lg:text-2xl font-bold  mb-2 lg:mb-4">
+          <div className="flex-1 flex flex-col md:items-end ">
+            <p className="text-lg md:text-xl lg:text-2xl font-bold mb-2 lg:mb-4 md:text-right">
               {secondaryChipsTitle}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap md:justify-end gap-2">
               {secondaryChips.map((chip, index) => (
                 <Chip key={index}>{chip}</Chip>
               ))}
