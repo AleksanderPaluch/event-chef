@@ -26,7 +26,7 @@ export const Section: React.FC<SectionProps> = ({
 }) => {
   return (
     <ImageContent imgUrl={imgUrl} heading={heading} subheading={subheading}>
-      <TextContent textTitle={textTitle} text={text} chipsTitle={chipsTitle} chips={chips} secondaryChipsTitle={secondaryChipsTitle} secondaryChips={secondaryChips} P
+      <TextContent textTitle={textTitle} text={text} chipsTitle={chipsTitle} chips={chips} secondaryChipsTitle={secondaryChipsTitle} secondaryChips={secondaryChips} 
       />
     </ImageContent>
   );
