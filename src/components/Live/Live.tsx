@@ -14,16 +14,16 @@ const data = {
     "Targi",
     "Konferencje",
     "Wigilie",
-    "Gale...",
+    "Gale",
     "Premiery produktów",
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",
   secondaryChips: [
     "Wesela",
-    "Urodziny..",
-    "Domówki...",
+    "Urodziny",
+    "Domówki",
     "Wieczory panieńskie",
-    "Garden party",
+ 
   ],
 };
 

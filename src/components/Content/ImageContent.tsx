@@ -1,22 +1,20 @@
 import { type ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-
-
-
-
-const IMG_PADDING = 12;
-
-export const ImageContent = ({
-   imgUrl={image},
-  subheading,
-  heading,
-  children,
-}: {
-  imgUrl: any;
+interface ImageContentProps {
+  imgUrl: string;
   subheading: string;
   heading: string;
   children: ReactNode;
+}
+
+const IMG_PADDING = 12;
+
+export const ImageContent: React.FC<ImageContentProps> = ({
+  imgUrl,
+  subheading,
+  heading,
+  children,
 }) => {
   return (
     <div
@@ -41,13 +39,13 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
     offset: ["end end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <motion.div
       style={{
-        backgroundImage: `url(${imgUrl})`, // <- важливо
+        backgroundImage: `url(${imgUrl})`, 
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: `calc(100vh - ${IMG_PADDING * 2}px)`,
@@ -58,7 +56,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
       className="sticky z-0 overflow-hidden rounded-3xl"
     >
       <motion.div
-        className="absolute inset-0 bg-neutral-950/70"
+        className="absolute inset-0 bg-zinc-950/75"
         style={{
           opacity,
         }}
@@ -66,7 +64,6 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
     </motion.div>
   );
 };
-
 
 const OverlayCopy = ({
   subheading,
@@ -100,5 +97,3 @@ const OverlayCopy = ({
     </motion.div>
   );
 };
-
-

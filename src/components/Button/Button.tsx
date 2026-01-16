@@ -1,5 +1,3 @@
-
-
 import React, { useRef } from "react";
 import {
   motion,
@@ -7,12 +5,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-
-
-
-interface ChipProps {
-  children: React.ReactNode;
-}
+import { FiArrowRight } from "react-icons/fi";
 
 const SPRING_OPTIONS = {
   mass: 1.5,
@@ -20,7 +13,7 @@ const SPRING_OPTIONS = {
   damping: 100,
 };
 
-export const Chip = ({ children }: ChipProps) => {
+export const Button = ({ text }: { text: string }) => {
   const ref = useRef<HTMLButtonElement | null>(null);
 
   const x = useMotionValue(0);
@@ -54,8 +47,8 @@ export const Chip = ({ children }: ChipProps) => {
 
   return (
     <section className="">
-      <div className=" w-full min-w-[72px] bg-zinc-700">
-        <motion.span
+      <div className=" w-full  bg-zinc-700">
+        <motion.button
           ref={ref}
           style={{
             transform,
@@ -63,19 +56,17 @@ export const Chip = ({ children }: ChipProps) => {
           onMouseMove={handleMove}
           onMouseLeave={handleReset}
           onMouseDown={handleReset}
-          className="group flex h-full w-full items-center justify-between py-2 px-3  bg-zinc-800  text-xl font-semibold"
+          className="py-2 group flex h-full w-full items-center justify-between  bg-zinc-800 px-8 text-xl font-semibold"
         >
-          <Copy>
-            {children}
-          </Copy>
-  
-        </motion.span>
+          <Copy>{text}</Copy>
+          <Arrow />
+        </motion.button>
       </div>
     </section>
   );
 };
 
-const Copy = ({ children }: { children: React.ReactNode }) => {
+const Copy = ({ children }: { children: string }) => {
   return (
     <span className="relative overflow-hidden">
       <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
@@ -87,4 +78,11 @@ const Copy = ({ children }: { children: React.ReactNode }) => {
     </span>
   );
 };
+
+const Arrow = () => (
+  <div className="pointer-events-none flex h-6 w-6 overflow-hidden text-2xl">
+    <FiArrowRight className="shrink-0 -translate-x-full text-zinc-100 transition-transform duration-300 group-hover:translate-x-0" />
+    <FiArrowRight className="shrink-0 -translate-x-full text-zinc-300 transition-transform duration-300 group-hover:translate-x-0" />
+  </div>
+);
 

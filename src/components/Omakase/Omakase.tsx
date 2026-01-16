@@ -10,7 +10,7 @@ const data = {
   textTitle: "Czym jest Omakase?",
   text: "Omakase to wyjątkowe doświadczenie kulinarne, które pozwala Ci zaufać szefowi kuchni i cieszyć się starannie dobranym menu.",
   chipsTitle: "Dlaczego Omakase?",
-  chips: ["Unikalne doświadczenie kulinarne", "Sezonowe i świeże składniki"],
+  chips: ["Unikalne doświadczenie kulinarne", "Sezonowe i świeże składniki", "Idealne na specjalne okazje"],
 };
 
 export const Omakase = () => {
