@@ -22,22 +22,22 @@ export const TextContent: React.FC<TextContentProps> = ({
   const hasSecondary = secondaryChipsTitle && secondaryChips;
 
   return (
-    <div className="flex flex-col   mx-auto py-4 md:py-8 md:max-w-[90%]  lg:max-w-6xl mx-auto gap-4 md:gap-24">
+    <div className="flex flex-col   mx-auto py-4 md:py-8 md:max-w-[90%]  lg:max-w-6xl mx-auto gap-8 md:gap-20">
       <Motion>
         <div className="flex flex-col md:flex-row gap-2 md:gap-6 lg:gap-20 md:max-w-[90%]  lg:max-w-6xl mx-auto ">
           <div className=" flex flex-col gap-2 lg:gap-4  md:min-w-[338px] ">
-            <h2 className=" text-3xl font-bold ">{textTitle}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold ">{textTitle}</h2>
             <Button text="Więcej" />
           </div>
           <div className="flex align-middle items-center  ">
-            <p className="text-lg md:text-xl lg:text-2xl text-justify italic">
+            <p className="text-xl lg:text-2xl text-justify italic">
               &ldquo;{text}&rdquo;
             </p>
           </div>
         </div>
       </Motion>
       <Motion>
-        <div className="flex flex-col lg:flex-row pb-4 md:pb-8  md:max-w-[90%]  lg:max-w-full mx-auto lg:mx-0 gap-4">
+        <div className="flex flex-col lg:flex-row pb-16 md:pb-24  md:max-w-[90%]  lg:max-w-full mx-auto lg:mx-0 gap-6 ">
           <div className={`${hasSecondary ? "lg:w-[60%] lg:min-w-[650px]" : "w-full"} `}>
                {/* <div className= " lg:w-[60%] lg:min-w-[650px] "></div> */}
             <p className="text-2xl md:text-3xl font-bold  mb-2 lg:mb-4">

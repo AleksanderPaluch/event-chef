@@ -8,7 +8,7 @@ export const Chip: React.FC<ChipProps> = ({ children }) => {
       className="
         inline-block
         bg-zinc-900
-        text-sm lg:text-xl
+        text-md lg:text-xl
         py-2 px-0 md:px-2
         font-semibold 
         transition-transform duration-200 ease-out

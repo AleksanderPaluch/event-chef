@@ -13,9 +13,9 @@ const data = {
   chips: [
     "indywidualne stanowiska",
     "produkty premium",
-    "przyjazną atmosferę",
     "naukę technik sushi krok po kroku",
     "sushi przygotowane przez uczestników",
+    "przyjazną atmosferę",
   ],
 };
 

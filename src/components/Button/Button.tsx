@@ -56,7 +56,7 @@ export const Button = ({ text }: { text: string }) => {
           onMouseMove={handleMove}
           onMouseLeave={handleReset}
           onMouseDown={handleReset}
-          className="py-2 group flex h-full w-full items-center justify-between  bg-zinc-800 px-8 text-xl font-semibold"
+          className="py-2 group flex h-full w-full items-center justify-between  bg-zinc-800 px-8 text-md md:text-xl font-semibold"
         >
           <Copy>{text}</Copy>
           <Arrow />
