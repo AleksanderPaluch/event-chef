@@ -15,7 +15,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen }) => {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="block lg:hidden text-zinc-50 text-2xl"
+        className="block lg:hidden text-zinc-50 text-3xl"
         onClick={() => setIsOpen((pv) => !pv)}
       >
         <FiMenu />

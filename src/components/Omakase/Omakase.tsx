@@ -16,6 +16,7 @@ const data = {
 export const Omakase = () => {
   return (
     <Section
+    id={data.id}
       imgUrl={data.imgUrl}
       subheading={data.subheading}
       heading={data.heading}

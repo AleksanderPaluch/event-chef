@@ -39,7 +39,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
     offset: ["end end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (

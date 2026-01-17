@@ -22,6 +22,7 @@ const data = {
 export const Mastercalss = () => {
   return (
     <Section
+      id={data.id}
       imgUrl={data.imgUrl}
       subheading={data.subheading}
       heading={data.heading}

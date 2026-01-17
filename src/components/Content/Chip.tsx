@@ -13,7 +13,7 @@ export const Chip: React.FC<ChipProps> = ({ children }) => {
         font-semibold 
         transition-transform duration-200 ease-out
         hover:scale-110
-      
+      border border-zinc-950
         text-center
       "
     >

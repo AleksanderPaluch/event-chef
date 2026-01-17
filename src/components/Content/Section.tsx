@@ -2,6 +2,7 @@ import { ImageContent } from "./ImageContent";
 import { TextContent } from "./TextContent";
 
 interface SectionProps {
+  id: string;
   imgUrl: string;
   subheading: string;
   heading: string;
@@ -14,6 +15,7 @@ interface SectionProps {
 }
 
 export const Section: React.FC<SectionProps> = ({
+  id,
   imgUrl,
   subheading,
   heading,
@@ -25,9 +27,17 @@ export const Section: React.FC<SectionProps> = ({
   secondaryChips,
 }) => {
   return (
-    <ImageContent imgUrl={imgUrl} heading={heading} subheading={subheading}>
-      <TextContent textTitle={textTitle} text={text} chipsTitle={chipsTitle} chips={chips} secondaryChipsTitle={secondaryChipsTitle} secondaryChips={secondaryChips} 
-      />
-    </ImageContent>
+    <section id={id}>
+      <ImageContent imgUrl={imgUrl} heading={heading} subheading={subheading}>
+        <TextContent
+          textTitle={textTitle}
+          text={text}
+          chipsTitle={chipsTitle}
+          chips={chips}
+          secondaryChipsTitle={secondaryChipsTitle}
+          secondaryChips={secondaryChips}
+        />
+      </ImageContent>
+    </section>
   );
 };

@@ -18,18 +18,13 @@ const data = {
     "Premiery produktów",
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",
-  secondaryChips: [
-    "Wesela",
-    "Urodziny",
-    "Domówki",
-    "Wieczory panieńskie",
- 
-  ],
+  secondaryChips: ["Wesela", "Urodziny", "Domówki", "Wieczory panieńskie"],
 };
 
 export const Live = () => {
   return (
     <Section
+      id={data.id}
       imgUrl={data.imgUrl}
       subheading={data.subheading}
       heading={data.heading}
