@@ -2,7 +2,7 @@ import { Section } from "../Content/Section";
 import image from "../../assets/sushak.jpg";
 
 const data = {
-  id: "Mastercalss",
+  id: "Masterclass",
   imgUrl: image,
   subheading: "Warsztaty, które uczą, bawią i integrują",
   heading: "Sushi Masterclass",
