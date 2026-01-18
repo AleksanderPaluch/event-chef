@@ -1,13 +1,14 @@
 import { type ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Stats } from "../Stats/Stats";
 
 interface ImageContentProps {
   imgUrl: string;
   subheading: string;
   heading: string;
-  children: ReactNode;
+  children?: ReactNode;
+  stats: boolean;
 }
-
 
 const IMG_PADDING = 12;
 
@@ -16,6 +17,7 @@ export const ImageContent: React.FC<ImageContentProps> = ({
   subheading,
   heading,
   children,
+  stats,
 }) => {
   return (
     <div
@@ -26,7 +28,7 @@ export const ImageContent: React.FC<ImageContentProps> = ({
     >
       <div className="relative h-[150vh]">
         <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy heading={heading} subheading={subheading} />
+        <OverlayCopy heading={heading} subheading={subheading} stats={stats} />
       </div>
       {children}
     </div>
@@ -40,13 +42,13 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
     offset: ["end end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.80]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <motion.div
       style={{
-        backgroundImage: `url(${imgUrl})`, 
+        backgroundImage: `url(${imgUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: `calc(100vh - ${IMG_PADDING * 2}px)`,
@@ -69,6 +71,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
 const OverlayCopy = ({
   subheading,
   heading,
+  stats,
 }: {
   subheading: string;
   heading: string;
@@ -95,6 +98,7 @@ const OverlayCopy = ({
         {subheading}
       </p>
       <p className="text-center text-4xl font-bold md:text-7xl">{heading}</p>
+      {stats && <Stats />}
     </motion.div>
   );
 };
