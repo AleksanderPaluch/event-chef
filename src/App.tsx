@@ -4,7 +4,7 @@ import { Mastercalss } from "./components/Masterclass/Mastercalss";
 import { Nav } from "./components/Nav/Nav";
 
 import { Omakase } from "./components/Omakase/Omakase";
-import { Stats } from "./components/Stats/Stats";
+
 
 function App() {
 
