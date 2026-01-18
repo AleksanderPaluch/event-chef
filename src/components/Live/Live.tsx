@@ -1,8 +1,8 @@
 import { Section } from "../Content/Section";
-import image from "../../assets/sushak.jpg";
+import image from "../../assets/heroChef2.png";
 
 const data = {
-  id: "Live",
+  id: "Live Cooking",
   imgUrl: image,
   subheading: "Wyjątkowe Doświadczenie Kulinarne na Twoim Wydarzeniu",
   heading: "Sushi Live Cooking",

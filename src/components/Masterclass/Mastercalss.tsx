@@ -1,8 +1,8 @@
 import { Section } from "../Content/Section";
-import image from "../../assets/sushak.jpg";
+import image from "../../assets/LiveChef.png";
 
 const data = {
-  id: "Masterclass",
+  id: "Sushi Masterclass",
   imgUrl: image,
   subheading: "Warsztaty, które uczą, bawią i integrują",
   heading: "Sushi Masterclass",

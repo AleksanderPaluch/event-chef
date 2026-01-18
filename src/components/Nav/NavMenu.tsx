@@ -19,6 +19,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen }) => {
     >
       <MenuLink text="Live Cooking" />
       <MenuLink text="Sushi Masterclass" />
+        <MenuLink text="Omakase" />
       <MenuLink text="Oferta" />
       <MenuLink text="O nas" />
     </motion.div>
