@@ -1,5 +1,6 @@
 import { ImageContent } from "../Content/ImageContent";
 import image from "../../assets/nigiri.jpeg";
+import { Testimonials } from "../Testimonials/Testimonials";
 
 const data = {
   imgUrl: image,
@@ -15,8 +16,8 @@ export const About = () => {
       heading={data.heading}
       subheading={data.subheading}
       stats={data.stats}
-    />
-   
-  
+    >
+      <Testimonials />
+    </ImageContent>
   );
 };

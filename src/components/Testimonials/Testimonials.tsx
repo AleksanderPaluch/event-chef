@@ -1,26 +1,17 @@
 import { useState, type Dispatch, type SetStateAction } from "react";
 import { motion } from "framer-motion";
-import type { IconType } from "react-icons";
-import {
-  SiAtlassian,
-  SiDribbble,
-  SiGrubhub,
-  SiKaggle,
-  SiSlack,
-  SiNike,
-} from "react-icons/si";
+
+
 
 export const Testimonials = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className=" py-24 px-4 lg:px-8 grid items-center grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 overflow-hidden">
-      <div className="p-4">
-        <h3 className="text-5xl font-semibold">What our customers think</h3>
-        <p className="text-slate-500 my-4">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus
-          commodi sint, similique cupiditate possimus suscipit delectus illum
-          eos iure magnam!
+    <section className=" md:max-w-[90%]  lg:max-w-6xl mx-auto  grid items-center grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 overflow-hidden py-24">
+      <div className="">
+        <h3 className="text-3xl font-semibold">Co o nas myślą nasi klienci</h3>
+        <p className="text-zinc-300 my-4">
+   Zawsze staramy się zapewnić naszym klientom najlepszą obsługę i najwyższą jakość usług. Oto, co mówią o nas niektórzy z naszych zadowolonych klientów:
         </p>
         <SelectBtns
           numTracks={testimonials.length}
@@ -57,7 +48,7 @@ const SelectBtns = ({
           >
             {selected === n ? (
               <motion.span
-                className="absolute top-0 left-0 bottom-0 bg-slate-950"
+                className="absolute top-0 left-0 bottom-0 bg-zinc-700"
                 initial={{
                   width: "0%",
                 }}
@@ -73,7 +64,7 @@ const SelectBtns = ({
               />
             ) : (
               <span
-                className="absolute top-0 left-0 bottom-0 bg-slate-950"
+                className="absolute top-0 left-0 bottom-0 bg-zinc-300"
                 style={{
                   width: selected > n ? "100%" : "0%",
                 }}
@@ -96,7 +87,7 @@ const Cards = ({
   setSelected: Dispatch<SetStateAction<number>>;
 }) => {
   return (
-    <div className="p-4 relative h-[450px] lg:h-[500px] shadow-xl">
+    <div className=" relative h-[140px] shadow-xl ">
       {testimonials.map((t, i) => {
         return (
           <Card
@@ -113,7 +104,7 @@ const Cards = ({
 };
 
 const Card = ({
-  Icon,
+ 
   description,
   name,
   title,
@@ -127,8 +118,8 @@ const Card = ({
 }) => {
   const scale = position <= selected ? 1 : 1 + 0.015 * (position - selected);
   const offset = position <= selected ? 0 : 95 + (position - selected) * 3;
-  const background = position % 2 ? "black" : "white";
-  const color = position % 2 ? "white" : "black";
+  const background = position % 2 ? "black" : "grey";
+  const color = position % 2 ? "grey" : "black";
 
   return (
     <motion.div
@@ -151,10 +142,10 @@ const Card = ({
         ease: "easeOut",
       }}
       onClick={() => setSelected(position)}
-      className="absolute top-0 left-0 w-full min-h-full p-8 lg:p-12 cursor-pointer flex flex-col justify-between"
+      className="absolute top-0 left-0 w-full min-h-full p-2 pl-4 rounded-md cursor-pointer flex flex-col justify-between"
     >
-      <Icon className="text-7xl mx-auto" />
-      <p className="text-lg lg:text-xl font-light italic my-8">
+   
+      <p className="text-lg lg:text-xl font-light italic ">
         "{description}"
       </p>
       <div>
@@ -167,53 +158,33 @@ const Card = ({
 
 
 interface Testimonial {
-  Icon: IconType;
-  title: string;
+
+  title?: string;
   name: string;
   description: string;
 }
 
 const testimonials = [
   {
-    Icon: SiNike,
+  
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita sequi cupiditate harum repellendus ipsum dignissimos? Officiis ipsam dolorum magnam assumenda.",
-    name: "Jane Dodson",
-    title: "Marketing Director, Nike",
+      "Polecam serdecznie, wszystko zgodnie z umową, profesjonalne podejście do klienta i szybka realizacja.",
+    name: "Gabriella",
+    title: "Goldman Sachs",
   },
   {
-    Icon: SiAtlassian,
+   
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita sequi cupiditate harum repellendus ipsum dignissimos? Officiis ipsam dolorum magnam assumenda.",
-    name: "Johnathan Rodriguez",
-    title: "UX Research, Atlassian",
+      "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
+    name: "Daniel",
+  
   },
   {
-    Icon: SiDribbble,
+ 
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita sequi cupiditate harum repellendus ipsum dignissimos? Officiis ipsam dolorum magnam assumenda.",
-    name: "Phil Heath",
-    title: "Staff Engineer, Dribbble",
+      "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+    name: "Paweł",
+   
   },
-  {
-    Icon: SiGrubhub,
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita sequi cupiditate harum repellendus ipsum dignissimos? Officiis ipsam dolorum magnam assumenda.",
-    name: "Andrea Beck",
-    title: "Marketing Manager, GrubHub",
-  },
-  {
-    Icon: SiKaggle,
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita sequi cupiditate harum repellendus ipsum dignissimos? Officiis ipsam dolorum magnam assumenda.",
-    name: "Daniel Henderson",
-    title: "Engineering Manager, Kaggle",
-  },
-  {
-    Icon: SiSlack,
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita sequi cupiditate harum repellendus ipsum dignissimos? Officiis ipsam dolorum magnam assumenda.",
-    name: "Anderson Lima",
-    title: "Product Manager, Slack",
-  },
+
 ];

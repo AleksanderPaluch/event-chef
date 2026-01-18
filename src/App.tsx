@@ -15,12 +15,12 @@ function App() {
   return (
     <>
       {/* <Nav /> */}
-      <Live />
+      {/* <Live />
       <Mastercalss />
-      <Omakase />
+      <Omakase /> */}
       {/* <Stats /> */}
       <About />
-            <Omakase />
+            {/* <Omakase /> */}
       {/* <Table />
       <Testimonials />
       <FormSection /> */}

@@ -23,7 +23,7 @@ export const TextContent: React.FC<TextContentProps> = ({
   const hasSecondary = secondaryChipsTitle && secondaryChips;
     
   return (
-    <div className="flex flex-col   mx-auto py-4 md:py-8 md:max-w-[90%]  lg:max-w-6xl mx-auto gap-8 md:gap-20">
+    <div className="flex flex-col   mx-auto py-4 md:py-8 md:max-w-[90%]  lg:max-w-6xl  gap-8 md:gap-20">
       <Motion>
         <div className="flex flex-col md:flex-row gap-2 md:gap-6 lg:gap-20 md:max-w-[90%]  lg:max-w-6xl mx-auto ">
           <div className=" flex flex-col gap-2 lg:gap-4  md:min-w-[338px] ">

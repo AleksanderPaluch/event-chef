@@ -23,7 +23,7 @@ export const Stats = () => {
 
         <Stat
           num={10}
-          suffix="lat"
+          suffix="lat+"
           subheading="Doświadczenia zawodowego"
         />
       </div>
