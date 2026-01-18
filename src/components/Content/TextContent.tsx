@@ -41,11 +41,12 @@ export const TextContent: React.FC<TextContentProps> = ({
       <Motion>
         <div className="flex flex-col lg:flex-row pb-16 md:pb-24  md:max-w-[90%]  lg:max-w-full mx-auto lg:mx-0 gap-6 ">
           <div className={`${hasSecondary ? "lg:w-[60%] lg:min-w-[650px]" : "w-full"} `}>
-               {/* <div className= " lg:w-[60%] lg:min-w-[650px] "></div> */}
+       
             <p className="text-2xl md:text-3xl font-bold  mb-2 lg:mb-4">
               {chipsTitle}
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+             <div className={ `grid md:grid-cols-3 gap-2  ${hasSecondary ? " grid-cols-2  " : " grid-cols-1 "}  `}>
+        
               {chips.map((chip, index) => (
                 <Chip key={index}>{chip}</Chip>
               ))}

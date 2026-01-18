@@ -1,5 +1,5 @@
 import { Section } from "../Content/Section";
-import image from "../../assets/LiveChef.png";
+import image from "../../assets/masterclass1.jpg";
 
 const data = {
   id: "Sushi Masterclass",

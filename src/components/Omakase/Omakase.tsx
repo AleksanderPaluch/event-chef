@@ -1,5 +1,5 @@
 import { Section } from "../Content/Section";
-import image from "../../assets/sushak.jpg";
+import image from "../../assets/nigiri.jpeg";
 
 const data = {
   id: "Omakase",

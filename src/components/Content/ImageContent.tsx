@@ -7,7 +7,7 @@ interface ImageContentProps {
   subheading: string;
   heading: string;
   children?: ReactNode;
-  stats: boolean;
+  stats?: boolean;
 }
 
 const IMG_PADDING = 12;
@@ -17,7 +17,7 @@ export const ImageContent: React.FC<ImageContentProps> = ({
   subheading,
   heading,
   children,
-  stats,
+  stats = false,
 }) => {
   return (
     <div
@@ -75,6 +75,7 @@ const OverlayCopy = ({
 }: {
   subheading: string;
   heading: string;
+  stats: boolean;
 }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({

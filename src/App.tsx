@@ -2,9 +2,7 @@ import { useEffect } from "react";
 import { Live } from "./components/Live/Live";
 import { Mastercalss } from "./components/Masterclass/Mastercalss";
 import { Nav } from "./components/Nav/Nav";
-
 import { Omakase } from "./components/Omakase/Omakase";
-import { Stats } from "./components/Stats/Stats";
 import { About } from "./components/About/About";
 
 function App() {
@@ -14,15 +12,13 @@ function App() {
 
   return (
     <>
-      {/* <Nav /> */}
-      {/* <Live />
+      <Nav />
+      <Live />
       <Mastercalss />
-      <Omakase /> */}
-      {/* <Stats /> */}
+      <Omakase />
       <About />
-            {/* <Omakase /> */}
+
       {/* <Table />
-      <Testimonials />
       <FormSection /> */}
       {/* <Links /> */}
     </>

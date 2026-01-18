@@ -7,7 +7,7 @@ export const Testimonials = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className=" md:max-w-[90%]  lg:max-w-6xl mx-auto  grid items-center grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 overflow-hidden py-24">
+    <section className=" md:max-w-[90%]  lg:max-w-6xl mx-auto  grid items-center grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 overflow-hidden pb-24 md:pt-12 lg:pb-24">
       <div className="">
         <h3 className="text-3xl font-semibold">Co o nas myślą nasi klienci</h3>
         <p className="text-zinc-300 my-4">
@@ -116,7 +116,7 @@ const Card = ({
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
 }) => {
-  const scale = position <= selected ? 1 : 1 + 0.015 * (position - selected);
+  const scale = position <= selected ? 1 : 1 + 0.0 * (position - selected);
   const offset = position <= selected ? 0 : 95 + (position - selected) * 3;
   const background = position % 2 ? "black" : "grey";
   const color = position % 2 ? "grey" : "black";
@@ -142,7 +142,7 @@ const Card = ({
         ease: "easeOut",
       }}
       onClick={() => setSelected(position)}
-      className="absolute top-0 left-0 w-full min-h-full p-2 pl-4 rounded-md cursor-pointer flex flex-col justify-between"
+      className="absolute top-0 left-0 w-full min-h-full p-2 pl-4  cursor-pointer flex flex-col justify-between"
     >
    
       <p className="text-lg lg:text-xl font-light italic ">

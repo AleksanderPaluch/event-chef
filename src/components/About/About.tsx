@@ -1,8 +1,9 @@
 import { ImageContent } from "../Content/ImageContent";
-import image from "../../assets/nigiri.jpeg";
+import image from "../../assets/chefknife2.jpg";
 import { Testimonials } from "../Testimonials/Testimonials";
 
 const data = {
+  id: "O nas",
   imgUrl: image,
   subheading: " Dlaczego warto wybrać",
   heading: "EventChef",
@@ -11,13 +12,15 @@ const data = {
 
 export const About = () => {
   return (
-    <ImageContent
-      imgUrl={data.imgUrl}
-      heading={data.heading}
-      subheading={data.subheading}
-      stats={data.stats}
-    >
-      <Testimonials />
-    </ImageContent>
+    <section id={data.id}>
+      <ImageContent
+        imgUrl={data.imgUrl}
+        heading={data.heading}
+        subheading={data.subheading}
+        stats={data.stats}
+      >
+        <Testimonials />
+      </ImageContent>
+    </section>
   );
 };
