@@ -1,9 +1,4 @@
-import {
-  type Dispatch,
-  type SetStateAction,
-  type ReactNode,
-  useEffect,
-} from "react";
+import { type Dispatch, type SetStateAction, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import useMeasure from "react-use-measure";
 import {
@@ -26,19 +21,17 @@ export const Modal = ({ open, setOpen, children }: Props) => {
   const y = useMotionValue(0);
   const controls = useDragControls();
 
-
-//   useEffect(() => {
-//     document.body.style.overflow = open ? "hidden" : "";
-//     return () => {
-//       document.body.style.overflow = "";
-//     };
-//   }, [open]);
+  //   useEffect(() => {
+  //     document.body.style.overflow = open ? "hidden" : "";
+  //     return () => {
+  //       document.body.style.overflow = "";
+  //     };
+  //   }, [open]);
 
   const handleClose = async () => {
     await animate(scope.current, { opacity: 0 }, { duration: 0.2 });
 
     const yStart = typeof y.get() === "number" ? y.get() : 0;
-
 
     await animate("#drawer", {
       y: [yStart, window.innerHeight],
