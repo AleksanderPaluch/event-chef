@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   motion,
   useMotionTemplate,
@@ -6,6 +6,7 @@ import {
   useSpring,
 } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
+import { Modal } from "../Modal/Modal";
 
 const SPRING_OPTIONS = {
   mass: 1.5,
@@ -14,6 +15,8 @@ const SPRING_OPTIONS = {
 };
 
 export const Button = ({ text }: { text: string }) => {
+  const [open, setOpen] = useState(false);
+
   const ref = useRef<HTMLButtonElement | null>(null);
 
   const x = useMotionValue(0);
@@ -53,6 +56,7 @@ export const Button = ({ text }: { text: string }) => {
           style={{
             transform,
           }}
+          onClick={() => setOpen(true)}
           onMouseMove={handleMove}
           onMouseLeave={handleReset}
           onMouseDown={handleReset}
@@ -62,6 +66,7 @@ export const Button = ({ text }: { text: string }) => {
           <Arrow />
         </motion.button>
       </div>
+      <Modal open={open} setOpen={setOpen} />
     </section>
   );
 };

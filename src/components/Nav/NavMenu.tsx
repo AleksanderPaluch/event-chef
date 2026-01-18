@@ -19,7 +19,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen }) => {
     >
       <MenuLink text="Live Cooking" />
       <MenuLink text="Sushi Masterclass" />
-        <MenuLink text="Omakase" />
+      <MenuLink text="Omakase" />
       <MenuLink text="Oferta" />
       <MenuLink text="O nas" />
     </motion.div>
@@ -31,7 +31,7 @@ const MenuLink: React.FC<MenuLinkProps> = ({ text }) => {
     <motion.a
       variants={menuLinkVariants}
       rel="nofollow"
-       href={`#${text}`}
+      href={`#${text}`}
       className="h-[30px] overflow-hidden font-medium text-lg flex items-start gap-2"
     >
       <motion.span variants={menuLinkArrowVariants}>
@@ -39,9 +39,7 @@ const MenuLink: React.FC<MenuLinkProps> = ({ text }) => {
       </motion.span>
       <motion.div whileHover={{ y: -30 }}>
         <span className="flex items-center h-[30px] text-gray-400">{text}</span>
-        <span className="flex items-center h-[30px] text-zinc-100">
-          {text}
-        </span>
+        <span className="flex items-center h-[30px] text-zinc-100">{text}</span>
       </motion.div>
     </motion.a>
   );

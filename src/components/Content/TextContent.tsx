@@ -2,6 +2,7 @@ import { Chip } from "./Chip";
 import { Motion } from "../Motion/Motion";
 import { Button } from "../Button/Button";
 
+
 interface TextContentProps {
   textTitle: string;
   text: string;
@@ -20,14 +21,15 @@ export const TextContent: React.FC<TextContentProps> = ({
   secondaryChips,
 }) => {
   const hasSecondary = secondaryChipsTitle && secondaryChips;
-
+    
   return (
     <div className="flex flex-col   mx-auto py-4 md:py-8 md:max-w-[90%]  lg:max-w-6xl mx-auto gap-8 md:gap-20">
       <Motion>
         <div className="flex flex-col md:flex-row gap-2 md:gap-6 lg:gap-20 md:max-w-[90%]  lg:max-w-6xl mx-auto ">
           <div className=" flex flex-col gap-2 lg:gap-4  md:min-w-[338px] ">
             <h2 className="text-2xl md:text-3xl font-bold ">{textTitle}</h2>
-            <Button text="Więcej" />
+            <Button  text="Więcej" />
+             
           </div>
           <div className="flex align-middle items-center  ">
             <p className="text-xl lg:text-2xl text-justify italic">

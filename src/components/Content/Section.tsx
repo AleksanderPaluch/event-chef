@@ -1,3 +1,4 @@
+
 import { ImageContent } from "./ImageContent";
 import { TextContent } from "./TextContent";
 
@@ -38,6 +39,7 @@ export const Section: React.FC<SectionProps> = ({
           secondaryChips={secondaryChips}
         />
       </ImageContent>
+     
     </section>
   );
 };
