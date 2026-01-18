@@ -8,6 +8,7 @@ interface ImageContentProps {
   children: ReactNode;
 }
 
+
 const IMG_PADDING = 12;
 
 export const ImageContent: React.FC<ImageContentProps> = ({
