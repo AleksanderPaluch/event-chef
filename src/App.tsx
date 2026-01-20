@@ -16,12 +16,11 @@ function App() {
     <>
       <Nav />
       <Live />
-      {/* <Mastercalss /> */}
-      {/* <Omakase /> */}
-      {/* <About /> */}
+      <Mastercalss />
+      <Omakase />
+      <About />
 
       <Offer />
-            <Live />
 
       {/* <FormSection /> */}
       {/* <Links /> */}
