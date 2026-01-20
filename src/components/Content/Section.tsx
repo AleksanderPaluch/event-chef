@@ -31,7 +31,7 @@ export const Section: React.FC<SectionProps> = ({
 }) => {
   return (
     <section id={id}>
-      <ImageContent imgUrl={imgUrl} heading={heading} subheading={subheading}>
+      <ImageContent imgUrl={imgUrl} heading={heading} subheading={subheading} stats={stats} >
         <TextContent
           stats={stats} 
           textTitle={textTitle}

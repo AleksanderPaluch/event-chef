@@ -5,6 +5,8 @@ import { Nav } from "./components/Nav/Nav";
 import { Omakase } from "./components/Omakase/Omakase";
 import { About } from "./components/About/About";
 
+import { Offer } from "./components/Offer/Offer";
+
 function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -14,12 +16,14 @@ function App() {
     <>
       <Nav />
       <Live />
-      <Mastercalss />
-      <Omakase />
-      <About />
-  
-      {/* <Table />
-      <FormSection /> */}
+      {/* <Mastercalss /> */}
+      {/* <Omakase /> */}
+      {/* <About /> */}
+
+      <Offer />
+            <Live />
+
+      {/* <FormSection /> */}
       {/* <Links /> */}
     </>
   );

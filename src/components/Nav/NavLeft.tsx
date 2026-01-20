@@ -2,9 +2,6 @@ import { motion } from "framer-motion";
 import { FiMenu } from "react-icons/fi";
 import { NavLink } from "./NavLink";
 
-
-
-
 interface NavLeftProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -24,10 +21,8 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen }) => {
       <NavLink text="Live Cooking" />
       <NavLink text="Sushi Masterclass" />
       <NavLink text="Omakase" />
-      <NavLink text="Oferta" />
       <NavLink text="O nas" />
+      <NavLink text="Oferta" />
     </div>
   );
 };
-
-
