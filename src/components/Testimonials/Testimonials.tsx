@@ -116,8 +116,8 @@ const Card = ({
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
 }) => {
-  const scale = position <= selected ? 1 : 1 + 0.0 * (position - selected);
-  const offset = position <= selected ? 0 : 95 + (position - selected) * 3;
+  const scale = position <= selected ? 1 : 1 - 0.0 * (position - selected);
+  const offset = position <= selected ? 0 : 95 + (position - selected) * 2;
   const background = position % 2 ? "black" : "grey";
   const color = position % 2 ? "grey" : "black";
 
@@ -142,7 +142,7 @@ const Card = ({
         ease: "easeOut",
       }}
       onClick={() => setSelected(position)}
-      className="absolute top-0 left-0 w-full min-h-full p-2 pl-4  cursor-pointer flex flex-col justify-between"
+      className="absolute top-0 left-0 w-full min-h-full p-2 pl-6  cursor-pointer flex flex-col justify-between"
     >
    
       <p className="text-lg lg:text-xl font-light italic ">
@@ -168,7 +168,7 @@ const testimonials = [
   {
   
     description:
-      "Polecam serdecznie, wszystko zgodnie z umową, profesjonalne podejście do klienta i szybka realizacja.",
+      "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
     name: "Gabriella",
     title: "Goldman Sachs",
   },

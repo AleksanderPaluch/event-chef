@@ -13,11 +13,11 @@ function App() {
   return (
     <>
       <Nav />
-      <Live />
+      {/* <Live />
       <Mastercalss />
-      <Omakase />
+      <Omakase /> */}
       <About />
-
+      <About />
       {/* <Table />
       <FormSection /> */}
       {/* <Links /> */}
