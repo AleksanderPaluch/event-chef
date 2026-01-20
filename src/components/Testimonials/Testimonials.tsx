@@ -104,7 +104,6 @@ const Cards = ({
 };
 
 const Card = ({
- 
   description,
   name,
   title,
@@ -116,10 +115,11 @@ const Card = ({
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
 }) => {
-  const scale = position <= selected ? 1 : 1 - 0.0 * (position - selected);
+  const scale = position <= selected ? 1 : 1;
   const offset = position <= selected ? 0 : 95 + (position - selected) * 2;
-  const background = position % 2 ? "black" : "grey";
-  const color = position % 2 ? "grey" : "black";
+
+  const bgClass = position % 2 ? "bg-zinc-900" : "bg-zinc-300";
+  const textClass = position % 2 ? "text-zinc-300" : "text-zinc-900";
 
   return (
     <motion.div
@@ -127,8 +127,6 @@ const Card = ({
       style={{
         zIndex: position,
         transformOrigin: "left bottom",
-        background,
-        color,
       }}
       animate={{
         x: `${offset}%`,
@@ -142,15 +140,15 @@ const Card = ({
         ease: "easeOut",
       }}
       onClick={() => setSelected(position)}
-      className="absolute top-0 left-0 w-full min-h-full p-2 pl-6  cursor-pointer flex flex-col justify-between"
+      className={`absolute top-0 left-0 w-full min-h-full p-2 pl-6 cursor-pointer 
+      flex flex-col justify-between ${bgClass} ${textClass}`}
     >
-   
-      <p className="text-lg lg:text-xl font-light italic ">
+      <p className="text-lg lg:text-xl font-light italic">
         "{description}"
       </p>
       <div>
         <span className="block font-semibold text-lg">{name}</span>
-        <span className="block text-sm">{title}</span>
+        {title && <span className="block text-sm">{title}</span>}
       </div>
     </motion.div>
   );
@@ -180,6 +178,13 @@ const testimonials = [
   
   },
   {
+ 
+    description:
+      "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+    name: "Paweł",
+   
+  },
+    {
  
     description:
       "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
