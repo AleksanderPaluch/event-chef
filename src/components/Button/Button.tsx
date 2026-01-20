@@ -50,7 +50,7 @@ export const Button = ({ text }: { text: string }) => {
 
   return (
     <section className="">
-      <div className=" w-full  bg-zinc-700">
+      <div className=" w-full  bg-zinc-700 rounded">
         <motion.button
           ref={ref}
           style={{
@@ -60,7 +60,7 @@ export const Button = ({ text }: { text: string }) => {
           onMouseMove={handleMove}
           onMouseLeave={handleReset}
           onMouseDown={handleReset}
-          className="py-2 group flex h-full w-full items-center justify-between  bg-zinc-900 px-8 text-md md:text-xl font-semibold"
+          className="py-2 group flex h-full w-full items-center justify-between  bg-zinc-900 px-8 text-md md:text-xl font-semibold rounded"
         >
           <Copy>{text}</Copy>
           <Arrow />

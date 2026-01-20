@@ -15,7 +15,7 @@ export const Chip: React.FC<ChipProps> = ({ children }) => {
         font-semibold 
         transition-transform duration-200 ease-out
 
-        
+        rounded
        border-zinc-950
         text-center
       "
