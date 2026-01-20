@@ -7,11 +7,11 @@ export const Testimonials = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className=" md:max-w-[90%]  lg:max-w-6xl mx-auto  grid items-center grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 overflow-hidden pb-24 md:pt-12 lg:pb-24">
+    <section className="  grid items-center grid-cols-1 lg:grid-cols-2 lg:gap-4 overflow-hidden gap-2 md:gap-4">
       <div className="">
         <h3 className="text-3xl font-semibold">Co o nas myślą nasi klienci</h3>
-        <p className="text-zinc-300 my-4">
-   Zawsze staramy się zapewnić naszym klientom najlepszą obsługę i najwyższą jakość usług. Oto, co mówią o nas niektórzy z naszych zadowolonych klientów:
+        <p className="text-zinc-300  my-4">
+   Zawsze staramy się zapewnić naszym klientom najlepszą obsługę i najwyższą jakość usług. Oto, co mówią o nas niektórzy z naszych  klientów:
         </p>
         <SelectBtns
           numTracks={testimonials.length}
@@ -44,11 +44,11 @@ const SelectBtns = ({
           <button
             key={n}
             onClick={() => setSelected(n)}
-            className="h-1.5 w-full bg-slate-300 relative"
+            className="h-1.5 w-full bg-slate-300 relative rounded-sm"
           >
             {selected === n ? (
               <motion.span
-                className="absolute top-0 left-0 bottom-0 bg-zinc-700"
+                className="absolute top-0 left-0 bottom-0 bg-zinc-700 rounded-sm"
                 initial={{
                   width: "0%",
                 }}
@@ -64,7 +64,7 @@ const SelectBtns = ({
               />
             ) : (
               <span
-                className="absolute top-0 left-0 bottom-0 bg-zinc-300"
+                className="absolute top-0 left-0 bottom-0 bg-zinc-300 rounded-sm"
                 style={{
                   width: selected > n ? "100%" : "0%",
                 }}
@@ -140,7 +140,7 @@ const Card = ({
         ease: "easeOut",
       }}
       onClick={() => setSelected(position)}
-      className={`absolute top-0 left-0 w-full min-h-full p-2 pl-6 cursor-pointer 
+      className={`absolute top-0 left-0 w-full min-h-full p-2 pl-6 cursor-pointer  rounded-xl border-2 border-zinc-900
       flex flex-col justify-between ${bgClass} ${textClass}`}
     >
       <p className="text-lg lg:text-xl font-light italic">

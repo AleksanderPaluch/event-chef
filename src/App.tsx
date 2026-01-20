@@ -12,10 +12,10 @@ function App() {
 
   return (
     <>
-      <Nav />
+      {/* <Nav />
       <Live />
       <Mastercalss />
-      <Omakase />
+      <Omakase /> */}
       <About />
   
       {/* <Table />

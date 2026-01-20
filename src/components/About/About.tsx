@@ -1,6 +1,6 @@
-import { ImageContent } from "../Content/ImageContent";
 import image from "../../assets/chefknife2.jpg";
-import { Testimonials } from "../Testimonials/Testimonials";
+
+import { Section } from "../Content/Section";
 
 const data = {
   id: "O nas",
@@ -12,15 +12,12 @@ const data = {
 
 export const About = () => {
   return (
-    <section id={data.id}>
-      <ImageContent
-        imgUrl={data.imgUrl}
-        heading={data.heading}
-        subheading={data.subheading}
-        stats={data.stats}
-      >
-        <Testimonials />
-      </ImageContent>
-    </section>
+    <Section
+      id={data.id}
+      imgUrl={data.imgUrl}
+      subheading={data.subheading}
+      heading={data.heading}
+      stats={data.stats}
+    />
   );
 };

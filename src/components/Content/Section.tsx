@@ -7,12 +7,13 @@ interface SectionProps {
   imgUrl: string;
   subheading: string;
   heading: string;
-  textTitle: string;
-  text: string;
-  chipsTitle: string;
-  chips: string[];
+  textTitle?: string;
+  text?: string;
+  chipsTitle?: string;
+  chips?: string[];
   secondaryChipsTitle?: string;
   secondaryChips?: string[];
+  stats?: boolean;
 }
 
 export const Section: React.FC<SectionProps> = ({
@@ -26,11 +27,13 @@ export const Section: React.FC<SectionProps> = ({
   chips,
   secondaryChipsTitle,
   secondaryChips,
+  stats = false,
 }) => {
   return (
     <section id={id}>
       <ImageContent imgUrl={imgUrl} heading={heading} subheading={subheading}>
         <TextContent
+          stats={stats} 
           textTitle={textTitle}
           text={text}
           chipsTitle={chipsTitle}
