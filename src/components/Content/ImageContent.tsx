@@ -26,7 +26,7 @@ export const ImageContent: React.FC<ImageContentProps> = ({
         paddingRight: IMG_PADDING,
       }}
     >
-      <div className="relative h-[150vh]">
+      <div className="relative h-[120vh]">
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} stats={stats} />
       </div>
