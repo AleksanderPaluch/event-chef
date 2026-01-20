@@ -9,7 +9,7 @@ export const Testimonials = () => {
   return (
     <section className="  grid items-center grid-cols-1 lg:grid-cols-2 lg:gap-4 overflow-hidden gap-2 md:gap-4">
       <div className="">
-        <h3 className="text-3xl font-semibold">Co o nas myślą nasi klienci</h3>
+        <h3 className="text-2xl md:text-3xl font-semibold">Co o nas myślą nasi klienci</h3>
         <p className="text-zinc-300  my-4">
    Zawsze staramy się zapewnić naszym klientom najlepszą obsługę i najwyższą jakość usług. Oto, co mówią o nas niektórzy z naszych  klientów:
         </p>
