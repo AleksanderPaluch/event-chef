@@ -2,5 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  @apply bg-zinc-950 text-zinc-100 scroll-smooth ;
+  @apply bg-zinc-400 text-zinc-100 scroll-smooth ;
 }
