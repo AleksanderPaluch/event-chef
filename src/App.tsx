@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import { About } from "./components/About/About";
 import { Live } from "./components/Live/Live";
 import { Mastercalss } from "./components/Masterclass/Mastercalss";
