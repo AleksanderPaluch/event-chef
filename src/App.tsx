@@ -1,4 +1,5 @@
 
+import { About } from "./components/About/About";
 import { Live } from "./components/Live/Live";
 import { Mastercalss } from "./components/Masterclass/Mastercalss";
 import { Nav } from "./components/Nav/Nav";
@@ -19,7 +20,7 @@ function App() {
       <Live />
       <Mastercalss />
       <Omakase />
-      {/* <About /> */}
+      <About />
 
       {/* <Offer /> */}
 
