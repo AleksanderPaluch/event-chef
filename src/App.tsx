@@ -21,7 +21,7 @@ function App() {
       <Omakase />
       <About />
 
-      <Offer />
+      {/* <Offer /> */}
 
       {/* <FormSection /> */}
       {/* <Links /> */}
