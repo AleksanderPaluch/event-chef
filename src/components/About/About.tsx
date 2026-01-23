@@ -1,4 +1,4 @@
-import image from "../../assets/chefknife2.jpg";
+import image from "../../assets/logo.jpg";
 
 import { Section } from "../Content/Section";
 

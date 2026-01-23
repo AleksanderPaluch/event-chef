@@ -1,5 +1,5 @@
 import { Section } from "../Content/Section";
-import image from "../../assets/heroChef2.png";
+import image from "../../assets/logo.jpg";
 
 const data = {
   id: "Live Cooking",
