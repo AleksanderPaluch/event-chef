@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { Live } from "./components/Live/Live";
 import { Mastercalss } from "./components/Masterclass/Mastercalss";
 import { Nav } from "./components/Nav/Nav";
@@ -8,9 +8,9 @@ import { About } from "./components/About/About";
 // import { Offer } from "./components/Offer/Offer";
 
 function App() {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "auto" });
+  // }, []);
 
   return (
     <>

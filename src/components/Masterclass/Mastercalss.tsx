@@ -1,5 +1,5 @@
 import { Section } from "../Content/Section";
-import image from "../../assets/logo.jpg";
+import image from "../../assets/photo-1522202176988-66273c2fd55f.avif";
 
 const data = {
   id: "Sushi Masterclass",
