@@ -10,9 +10,9 @@ import { Omakase } from "./components/Omakase/Omakase";
 // import { Offer } from "./components/Offer/Offer";
 
 function App() {
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, behavior: "auto" });
-  // }, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
 
   return (
     <>
