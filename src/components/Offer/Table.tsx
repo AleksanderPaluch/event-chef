@@ -1,33 +1,40 @@
 import { AnimatePresence, motion } from "framer-motion";
-
 import { type Dispatch, type SetStateAction, useState } from "react";
 
-export const Table = () => {
+/* =======================
+   TABLE (ROOT COMPONENT)
+======================= */
+
+export const Table = (  ) => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className="">
-      <div className="mx-auto ">
+    <section>
+      <div className="mx-auto">
         <Tabs selected={selected} setSelected={setSelected} />
 
         <AnimatePresence mode="wait">
-          {FEATURES.map((tab, index) => {
-            return selected === index ? (
+          {FEATURES.map((feature, index) =>
+            selected === index ? (
               <motion.div
+                key={feature.title}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                key={index}
               >
-                <tab.Feature />
+                <ExampleFeature rows={feature.rows} />
               </motion.div>
-            ) : undefined;
-          })}
+            ) : null
+          )}
         </AnimatePresence>
       </div>
     </section>
   );
 };
+
+/* =======================
+   TABS
+======================= */
 
 interface TabsProps {
   selected: number;
@@ -36,18 +43,16 @@ interface TabsProps {
 
 const Tabs = ({ selected, setSelected }: TabsProps) => {
   return (
-    <div className="flex mb-4 md:mb-12 ">
-      {FEATURES.map((tab, index) => {
-        return (
-          <Tab
-            key={index}
-            setSelected={setSelected}
-            selected={selected === index}
-            title={tab.title}
-            tabNum={index}
-          />
-        );
-      })}
+    <div className="flex mb-4 md:mb-12">
+      {FEATURES.map((tab, index) => (
+        <Tab
+          key={tab.title}
+          title={tab.title}
+          selected={selected === index}
+          tabNum={index}
+          setSelected={setSelected}
+        />
+      ))}
     </div>
   );
 };
@@ -55,95 +60,113 @@ const Tabs = ({ selected, setSelected }: TabsProps) => {
 interface TabProps {
   selected: boolean;
   title: string;
-  setSelected: Function;
+  setSelected: (value: number) => void;
   tabNum: number;
 }
 
 const Tab = ({ selected, title, setSelected, tabNum }: TabProps) => {
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full">
       <button
         onClick={() => setSelected(tabNum)}
-        className="relative z-0 flex w-full flex-row items-center justify-center gap-4   bg-zinc-900 px-1 py-2 md:p-6 transition-colors hover:bg-zinc-800 md:flex-col"
+        className="relative z-0 flex w-full items-center justify-center bg-zinc-900 px-1 py-2 md:p-6 transition-colors hover:bg-zinc-800"
       >
-        <span className=" text-lg md:text-xl lg:text-2xl transition-opacity text-center font-semibold">
+        <span className="text-lg md:text-xl lg:text-2xl font-semibold text-center">
           {title}
         </span>
       </button>
+
       {selected && (
         <motion.span
           layoutId="tabs-features-underline"
-          className="absolute bottom-0 left-0 right-0 z-10 h-1  md:h-2 bg-zinc-300 "
+          className="absolute bottom-0 left-0 right-0 h-1 md:h-2 bg-zinc-300"
         />
       )}
     </div>
   );
 };
 
-const ExampleFeature = () => (
-  <div className="rounded bg-white/10 ">
-  <table className="w-full mx-auto border border-zinc-900 text-left ">
-          <thead className="bg-zinc-900 text-sm  tracking-wide ">
-            <tr className="text-lg ">
-              <th className="px-2 py-1 md:px-6 md:py-4">Liczba osób</th>
-              <th className="px-2 py-1 md:px-6 md:py-4 ">Basic</th>
-              <th className="px-2 py-1 md:px-6 md:py-4">Premium</th>
+/* =======================
+   TABLE VIEW (PRESENTATIONAL)
+======================= */
 
-            </tr>
-          </thead>
+interface Row {
+  people: string;
+  basic: string;
+  premium: string;
+}
 
-          <tbody className="divide-y divide-zinc-900">
-            <tr className=" text-md ">
-              <td className="px-2 py-1 md:px-6 md:py-4">6 – 9 osób</td>
-              <td className="px-2 py-1 md:px-6 md:py-4">130 / osoba</td>
-              <td className="px-2 py-1 md:px-6 md:py-4">150 / osoba</td>
-         
-            </tr>
+const ExampleFeature = ({ rows }: { rows: Row[] }) => (
+  <div className="flex flex-col gap-2 md:flex-row">
+    <table className="w-full mx-auto border border-zinc-900 text-left font-light">
+      <thead className="bg-zinc-900 tracking-wide">
+        <tr className="text-lg md:text-xl lg:text-2xl">
+          {["Liczba osób", "Basic", "Premium"].map((header) => (
+            <th
+              key={header}
+              className="px-2 py-1 md:px-4 md:py-2 lg:px-6 lg:py-4 font-normal"
+            >
+              {header}
+            </th>
+          ))}
+        </tr>
+      </thead>
 
-            <tr className=" text-md ">
-              <td className="px-2 py-1 md:px-6 md:py-4">10 – 14 osób</td>
-              <td className="px-2 py-1 md:px-6 md:py-4">120 / osoba</td>
-              <td className="px-2 py-1 md:px-6 md:py-4 ">140 / osoba</td>
-    
-            </tr>
+      <tbody className="divide-y divide-zinc-900 bg-zinc-100/10">
+        {rows.map((row, index) => (
+          <tr key={index} className="text-sm md:text-md lg:text-lg">
+            <td className="px-2 py-1 md:px-4 md:py-2 lg:px-6 lg:py-4">
+              {row.people}
+            </td>
+            <td className="px-2 py-1 md:px-4 md:py-2 lg:px-6 lg:py-4">
+              {row.basic}
+            </td>
+            <td className="px-2 py-1 md:px-4 md:py-2 lg:px-6 lg:py-4">
+              {row.premium}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
 
-            <tr className=" text-md ">
-              <td className="px-2 py-1 md:px-6 md:py-4">15– 19 osób</td>
-              <td className="px-2 py-1 md:px-6 md:py-4">110 / osoba</td>
-              <td className="px-2 py-1 md:px-6 md:py-4">130 / osoba</td>
-        
-            </tr>
-            <tr className=" text-md ">
-              <td className="px-2 py-1 md:px-6 md:py-4">20-25 osób</td>
-              <td className="px-2 py-1 md:px-6 md:py-4">100 / osoba</td>
-              <td className="px-2 py-1 md:px-6 md:py-4">120 / osoba</td>
-        
-            </tr>
-              <tr className=" text-md">
-              <td className="px-2 py-1 md:px-6 md:py-4">25+ osób</td>
-              <td className="px-2 py-1 md:px-6 md:py-4">Indywidualnie</td>
-              <td className="px-2 py-1 md:px-6 md:py-4">Indywidualnie</td>
-        
-            </tr>
-          </tbody>
-        </table>
+    <div className="bg-zinc-800 w-full md:max-w-72 lg:max-w-md min-h-40" >
+      <div ></div>
+      <div></div>
+    </div>
   </div>
 );
+
+/* =======================
+   FEATURES DATA (SOURCE OF TRUTH)
+======================= */
 
 const FEATURES = [
   {
     title: "Live Cooking",
-
-    Feature: () => <ExampleFeature />,
+    rows: [
+      { people: "6–9 osób", basic: "130 / osoba", premium: "150 / osoba" },
+      { people: "10–14 osób", basic: "120 / osoba", premium: "140 / osoba" },
+      { people: "15–19 osób", basic: "110 / osoba", premium: "130 / osoba" },
+      { people: "20–25 osób", basic: "100 / osoba", premium: "120 / osoba" },
+      { people: "25+ osób", basic: "Indywidualnie", premium: "Indywidualnie" },
+    ],
   },
   {
     title: "Masterclass",
-
-    Feature: () => <ExampleFeature />,
+    rows: [
+      { people: "6–9 osób", basic: "150 / osoba", premium: "170 / osoba" },
+      { people: "10–14 osób", basic: "140 / osoba", premium: "160 / osoba" },
+      { people: "15–19 osób", basic: "130 / osoba", premium: "150 / osoba" },
+      { people: "20–25 osób", basic: "120 / osoba", premium: "140 / osoba" },
+      { people: "25+ osób", basic: "Indywidualnie", premium: "Indywidualnie" },
+    ],
   },
   {
     title: "Omakase",
-
-    Feature: () => <ExampleFeature />,
+    rows: [
+      { people: "1–4 osoby", basic: "300 / osoba", premium: "350 / osoba" },
+      { people: "5–8 osób", basic: "260 / osoba", premium: "300 / osoba" },
+      { people: "9+ osób", basic: "Indywidualnie", premium: "Indywidualnie" },
+    ],
   },
 ];

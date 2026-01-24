@@ -18,14 +18,14 @@ function App() {
 
   return (
     <>
-      <Nav />
+      {/* <Nav />
       <Live />
       <Mastercalss />
       <Omakase />
-      <About />
+      <About /> */}
 
       <Offer />
-
+             <Offer />
 
       {/* <FormSection /> */}
       {/* <Links /> */}
