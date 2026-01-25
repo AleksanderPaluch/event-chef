@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { type Dispatch, type SetStateAction } from "react";
-
+import type { Feature } from "./OfferTypes";
 
 interface TabsProps {
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
-  FEATURES: any;
+   FEATURES: Feature[]; 
 }
 
 

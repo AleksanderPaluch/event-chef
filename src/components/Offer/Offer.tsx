@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { type Dispatch, type SetStateAction, useState } from "react";
+import {  useState } from "react";
 import { Tabs } from "./Tabs";
 import { Table } from "./Table";
 
