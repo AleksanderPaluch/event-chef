@@ -8,8 +8,8 @@ export const FormSection = () => {
     "individual"
   );
   return (
-    <section className="p-4 ">
-      <div className="w-full max-w-6xl mx-auto shadow-lg flex flex-col-reverse lg:flex-row rounded-lg overflow-hidden">
+    <section className="px-3 mb-60">
+      <div className="     md:max-w-[90%]  lg:max-w-8xl  mx-auto shadow-lg flex flex-col-reverse lg:flex-row rounded-3xl overflow-hidden">
         <Form selected={selected} setSelected={setSelected} />
         <Images selected={selected} />
       </div>
@@ -28,7 +28,7 @@ const Form = ({
     <form
       onSubmit={(e) => e.preventDefault()}
       className={`p-8 w-full text-white transition-colors duration-[750ms] ${
-        selected === "company" ? "bg-indigo-600" : "bg-violet-600"
+        selected === "company" ? "bg-zinc-900/20" : "bg-zinc-800"
       }`}
     >
       <h3 className="text-4xl font-bold mb-6">Contact us</h3>
@@ -40,7 +40,7 @@ const Form = ({
           type="text"
           placeholder="Your name..."
           className={`${
-            selected === "company" ? "bg-indigo-700" : "bg-violet-700"
+            selected === "company" ? "bg-zinc-700" : "bg-zinc-800"
           } transition-colors duration-[750ms] placeholder-white/70 p-2 rounded-md w-full focus:outline-0`}
         />
       </div>
@@ -184,7 +184,7 @@ const Images = ({ selected }: { selected: "company" | "individual" }) => {
           x: selected === "company" ? "0%" : "-100%",
         }}
         transition={BASE_TRANSITION}
-        className="absolute inset-0 bg-slate-200"
+        className="absolute inset-0 bg-slate-100"
         style={{
           backgroundImage:
             "url(https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80)",

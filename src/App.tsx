@@ -6,6 +6,7 @@ import { Mastercalss } from "./components/Masterclass/Mastercalss";
 import { Nav } from "./components/Nav/Nav";
 import { Omakase } from "./components/Omakase/Omakase";
 import { Offer } from "./components/Offer/Offer";
+import { FormSection } from "./components/FormSection/FormSection";
 
 
 
@@ -18,16 +19,16 @@ function App() {
 
   return (
     <>
-      {/* <Nav />
+      <Nav />
       <Live />
       <Mastercalss />
       <Omakase />
-      <About /> */}
+      <About />
 
       <Offer />
-             <Offer />
+         
 
-      {/* <FormSection /> */}
+      <FormSection />
       {/* <Links /> */}
     </>
   );
