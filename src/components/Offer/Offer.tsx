@@ -1,16 +1,18 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Tabs } from "./Tabs";
-import { Table } from "./Table";
+import { Cards } from "./Cards";
 
 const FEATURES = [
   {
     title: "Live Cooking",
     rows: [
-      { people: "6 – 9 osób", basic: "130", premium: "150" },
-      { people: "10 – 14 osób", basic: "120", premium: "140" },
-      { people: "15 – 19 osób", basic: "110", premium: "130" },
+      { people: "Wesela", basic: "50", premium: "60" },
       { people: "20 – 25 osób", basic: "100", premium: "120" },
+      { people: "15 – 19 osób", basic: "110", premium: "130" },
+      { people: "10 – 14 osób", basic: "120", premium: "140" },
+      { people: "6 – 9 osób", basic: "130", premium: "150" },
+
       // { people: "25+ osób", basic: "Indywidualnie", premium: "Indywidualnie" },
     ],
   },
@@ -37,7 +39,7 @@ export const Offer = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section id="Oferta" className="px-3 my-36 md:my-44 lg:my-60">
+    <section id="Oferta" className="px-3 my-36 md:my-44 lg:my-80 ">
       <div className="  mx-auto   md:max-w-[90%]  lg:max-w-7xl     ">
         <h3 className="mb-6 text-5xl font-semibold text-center lg:text-7xl">
           Cennik usług
@@ -62,7 +64,7 @@ export const Offer = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
               >
-                <Table rows={feature.rows} />
+                <Cards rows={feature.rows} />
               </motion.div>
             ) : null,
           )}

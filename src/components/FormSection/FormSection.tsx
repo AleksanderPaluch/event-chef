@@ -8,7 +8,7 @@ export const FormSection = () => {
     "individual"
   );
   return (
-    <section className="px-3 mb-60">
+    <section id="Form" className="px-3 my-60 ">
       <div className="     md:max-w-[90%]  lg:max-w-8xl  mx-auto shadow-lg flex flex-col-reverse lg:flex-row rounded-3xl overflow-hidden">
         <Form selected={selected} setSelected={setSelected} />
         <Images selected={selected} />
@@ -28,14 +28,14 @@ const Form = ({
     <form
       onSubmit={(e) => e.preventDefault()}
       className={`p-8 w-full text-white transition-colors duration-[750ms] ${
-        selected === "company" ? "bg-zinc-900/20" : "bg-zinc-800"
+        selected === "company" ? "bg-zinc-900/20" : "bg-zinc-900/20"
       }`}
     >
-      <h3 className="text-4xl font-bold mb-6">Contact us</h3>
+      <h3 className="mb-6 text-4xl font-bold">Contact us</h3>
 
       {/* Name input */}
       <div className="mb-6">
-        <p className="text-2xl mb-2">Hi 👋! My name is...</p>
+        <p className="mb-2 text-2xl">Hi 👋! My name is...</p>
         <input
           type="text"
           placeholder="Your name..."
@@ -47,7 +47,7 @@ const Form = ({
 
       {/* Company/individual toggle */}
       <div className="mb-6">
-        <p className="text-2xl mb-2">and I represent...</p>
+        <p className="mb-2 text-2xl">and I represent...</p>
         <FormSelect selected={selected} setSelected={setSelected} />
       </div>
 
@@ -74,12 +74,12 @@ const Form = ({
             transition={BASE_TRANSITION}
             className="mb-6"
           >
-            <p className="text-2xl mb-2">by the name of...</p>
+            <p className="mb-2 text-2xl">by the name of...</p>
             <input
               type="text"
               placeholder="Your company name..."
               className={`${
-                selected === "company" ? "bg-indigo-700" : "bg-violet-700"
+                selected === "company" ? "bg-zinc-700" : "bg-zinc-700"
               } transition-colors duration-[750ms] placeholder-white/70 p-2 rounded-md w-full focus:outline-0`}
             />
           </motion.div>
@@ -88,11 +88,11 @@ const Form = ({
 
       {/* Info */}
       <div className="mb-6">
-        <p className="text-2xl mb-2">I'd love to ask about...</p>
+        <p className="mb-2 text-2xl">I'd love to ask about...</p>
         <textarea
           placeholder="Whatever your heart desires :)"
           className={`${
-            selected === "company" ? "bg-indigo-700" : "bg-violet-700"
+            selected === "company" ? "bg-zinc-700" : "bg-zinc-700"
           } transition-colors duration-[750ms] min-h-[150px] resize-none placeholder-white/70 p-2 rounded-md w-full focus:outline-0`}
         />
       </div>
@@ -108,8 +108,8 @@ const Form = ({
         type="submit"
         className={`${
           selected === "company"
-            ? "bg-white text-indigo-600"
-            : "bg-white text-violet-600"
+            ? "bg-zinc-500 text-indigo-600"
+            : "bg-zinc-600 text-violet-600"
         } transition-colors duration-[750ms] text-lg text-center rounded-lg w-full py-3 font-semibold`}
       >
         Submit
@@ -138,13 +138,13 @@ const FormSelect = ({
           <motion.div
             transition={BASE_TRANSITION}
             layoutId="form-tab"
-            className="absolute inset-0 bg-white z-0"
+            className="absolute inset-0 z-0 bg-zinc-400"
           />
         )}
       </button>
       <button
         className={`${
-          selected === "company" ? "text-indigo-600" : "text-white"
+          selected === "company" ? "text-zinc-600" : "text-white"
         } text-sm px-3 py-1.5 transition-colors duration-[750ms] relative`}
         onClick={() => setSelected("company")}
       >
@@ -153,7 +153,7 @@ const FormSelect = ({
           <motion.div
             transition={BASE_TRANSITION}
             layoutId="form-tab"
-            className="absolute inset-0 bg-white z-0"
+            className="absolute inset-0 z-0 bg-zinc-500"
           />
         )}
       </button>

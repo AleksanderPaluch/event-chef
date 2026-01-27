@@ -38,7 +38,11 @@ const Tab = ({ selected, title, setSelected, tabNum }: TabProps) => {
     <div className="relative w-full ">
       <button
         onClick={() => setSelected(tabNum)}
-        className="relative z-0 flex items-center justify-center w-full px-1 py-2 transition-colors rounded-lg bg-zinc-900/30 md:p-6 hover:bg-zinc-800"
+       className={`
+          relative z-0 flex items-center justify-center w-full px-1 py-2 md:p-6
+          transition-colors rounded-lg
+          ${selected ? "bg-black/30" : "bg-zinc-900/30 hover:bg-zinc-800"}
+        `}
       >
         <span className="font-semibold text-center text-md md:text-xl lg:text-2xl ">
           {title}
