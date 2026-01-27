@@ -12,7 +12,7 @@ interface TabsProps {
 
 export const Tabs = ({ selected, setSelected, FEATURES }: TabsProps) => {
   return (
-    <div className="flex mb-4 md:mb-12">
+    <div className="flex mb-4 md:mb-12 lg:max-w-[80%] mx-auto gap-2">
       {FEATURES.map((tab, index) => (
         <Tab
           key={tab.title}
@@ -35,12 +35,12 @@ interface TabProps {
 
 const Tab = ({ selected, title, setSelected, tabNum }: TabProps) => {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full ">
       <button
         onClick={() => setSelected(tabNum)}
-        className="relative z-0 flex w-full items-center justify-center bg-zinc-900 px-1 py-2 md:p-6 transition-colors hover:bg-zinc-800"
+        className="relative z-0 flex items-center justify-center w-full px-1 py-2 transition-colors rounded-lg bg-zinc-900/30 md:p-6 hover:bg-zinc-800"
       >
-        <span className="text-md md:text-xl lg:text-2xl font-semibold text-center">
+        <span className="font-semibold text-center text-md md:text-xl lg:text-2xl ">
           {title}
         </span>
       </button>
@@ -48,7 +48,7 @@ const Tab = ({ selected, title, setSelected, tabNum }: TabProps) => {
       {selected && (
         <motion.span
           layoutId="tabs-features-underline"
-          className="absolute bottom-0 left-0 right-0 h-1 md:h-2 bg-zinc-300"
+          className="absolute bottom-0 left-0 right-0 h-1 rounded-b-md md:h-2 bg-zinc-300"
         />
       )}
     </div>

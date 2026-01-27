@@ -33,26 +33,26 @@ export const TextContent: React.FC<TextContentProps> = ({
           <>
             {" "}
             <Motion>
-              <div className="flex flex-col md:flex-row gap-2 md:gap-6 lg:gap-20  mx-auto ">
+              <div className="flex flex-col gap-2 mx-auto md:flex-row md:gap-6 lg:gap-20 ">
                 <div className=" flex flex-col gap-2 lg:gap-4  md:min-w-[338px] ">
-                  <h2 className="text-2xl md:text-3xl font-bold ">
+                  <h2 className="text-2xl font-bold md:text-3xl ">
                     {textTitle}
                   </h2>
                   <Button text="Więcej" />
                 </div>
-                <div className="flex align-middle items-center  ">
-                  <p className="text-lg lg:text-2xl text-justify italic font-light">
+                <div className="flex items-center align-middle ">
+                  <p className="text-lg italic font-light text-justify lg:text-2xl">
                     &ldquo;{text}&rdquo;
                   </p>
                 </div>
               </div>
             </Motion>
             <Motion>
-              <div className="flex flex-col lg:flex-row     mx-auto  gap-6 ">
+              <div className="flex flex-col gap-6 mx-auto lg:flex-row ">
                 <div
                   className={`${hasSecondary ? "lg:w-[60%] lg:min-w-[650px]" : "w-full"} `}
                 >
-                  <p className="text-2xl md:text-3xl font-bold  mb-2 lg:mb-4">
+                  <p className="mb-2 text-2xl font-bold md:text-3xl lg:mb-4">
                     {chipsTitle}
                   </p>
                   <div
@@ -65,10 +65,10 @@ export const TextContent: React.FC<TextContentProps> = ({
                 </div>
                 {hasSecondary && (
                   <div className="lg:w-[70%] flex-1 flex flex-col lg:items-end ">
-                    <p className="text-2xl md:text-3xl font-bold  mb-2 lg:mb-4 lg:text-right">
+                    <p className="mb-2 text-2xl font-bold md:text-3xl lg:mb-4 lg:text-right">
                       {secondaryChipsTitle}
                     </p>
-                    <div className="grid  grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-2">
                       {secondaryChips.map((chip, index) => (
                         <Chip key={index}>{chip}</Chip>
                       ))}

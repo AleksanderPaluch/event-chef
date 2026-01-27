@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { About } from "./components/About/About";
 import { Live } from "./components/Live/Live";
@@ -7,8 +6,7 @@ import { Nav } from "./components/Nav/Nav";
 import { Omakase } from "./components/Omakase/Omakase";
 import { Offer } from "./components/Offer/Offer";
 import { FormSection } from "./components/FormSection/FormSection";
-
-
+import SlidePricing from "./components/Pricing/Pricing";
 
 // import { Offer } from "./components/Offer/Offer";
 
@@ -19,16 +17,15 @@ function App() {
 
   return (
     <>
-      <Nav />
+      {/* <Nav />
       <Live />
       <Mastercalss />
       <Omakase />
-      <About />
-
+      <About /> */}
+       <About />
       <Offer />
-         
-
-      <FormSection />
+      <SlidePricing />
+      {/* <FormSection /> */}
       {/* <Links /> */}
     </>
   );

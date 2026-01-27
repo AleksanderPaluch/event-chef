@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-import {  useState } from "react";
+import { useState } from "react";
 import { Tabs } from "./Tabs";
 import { Table } from "./Table";
-
 
 const FEATURES = [
   {
@@ -30,38 +29,44 @@ const FEATURES = [
     rows: [
       { people: "1 – 4 osoby", basic: "300", premium: "350" },
       { people: "5 – 8 osób", basic: "260", premium: "300" },
-     
     ],
   },
 ];
 
-
-
-
 export const Offer = () => {
-
-    const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(0);
 
   return (
-    <section id="Oferta" className="px-3">
-      <div className="py-4  px-4 md:py-10 lg:py-20 md:px-12  lg:px-16 mb-12  md:mb-16 md:mt-8 lg:mb-28 lg:mt-10  mx-auto   md:max-w-[90%]  lg:max-w-7xl   bg-zinc-900/20 rounded-3xl  ">
-       <Tabs selected={selected} setSelected={setSelected} FEATURES={FEATURES} />
+    <section id="Oferta" className="px-3 my-36 md:my-44 lg:my-60">
+      <div className="  mx-auto   md:max-w-[90%]  lg:max-w-7xl     ">
+        <h3 className="mb-6 text-5xl font-semibold text-center lg:text-7xl">
+          Cennik usług
+        </h3>
+        <p className="max-w-lg mx-auto mb-8 text-center">
+          Lorem ipsum dolor sit amet consectetur. Pulvinar eu rhoncus tincidunt
+          eget mattis netus ridiculus.
+        </p>
+
+        <Tabs
+          selected={selected}
+          setSelected={setSelected}
+          FEATURES={FEATURES}
+        />
 
         <AnimatePresence mode="wait">
-                {FEATURES.map((feature, index) =>
-                  selected === index ? (
-                    <motion.div
-                      key={feature.title}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                    >
-                      <Table rows={feature.rows} />
-                    </motion.div>
-                  ) : null
-                )}
-              </AnimatePresence>
-
+          {FEATURES.map((feature, index) =>
+            selected === index ? (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+              >
+                <Table rows={feature.rows} />
+              </motion.div>
+            ) : null,
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

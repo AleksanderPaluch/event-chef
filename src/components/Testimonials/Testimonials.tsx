@@ -1,17 +1,19 @@
 import { useState, type Dispatch, type SetStateAction } from "react";
 import { motion } from "framer-motion";
 
-
-
 export const Testimonials = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className="  grid items-center grid-cols-1 lg:grid-cols-2 lg:gap-4 overflow-hidden gap-2 md:gap-4">
+    <section className="grid items-center grid-cols-1 gap-2 overflow-hidden lg:grid-cols-2 lg:gap-4 md:gap-4">
       <div className="">
-        <h3 className="text-2xl md:text-3xl font-semibold">Co o nas myślą nasi klienci</h3>
-        <p className="text-zinc-300  my-4">
-   Zawsze staramy się zapewnić naszym klientom najlepszą obsługę i najwyższą jakość usług. Oto, co mówią o nas niektórzy z naszych  klientów:
+        <h3 className="text-2xl font-semibold md:text-3xl ">
+          Co o nas myślą nasi klienci
+        </h3>
+        <p className="my-4 text-zinc-300 ">
+          Zawsze staramy się zapewnić naszym klientom najlepszą obsługę i
+          najwyższą jakość usług. Oto, co mówią o nas niektórzy z naszych
+          klientów:
         </p>
         <SelectBtns
           numTracks={testimonials.length}
@@ -48,7 +50,7 @@ const SelectBtns = ({
           >
             {selected === n ? (
               <motion.span
-                className="absolute top-0 left-0 bottom-0 bg-zinc-700 rounded-sm"
+                className="absolute top-0 bottom-0 left-0 rounded-sm bg-zinc-700"
                 initial={{
                   width: "0%",
                 }}
@@ -64,7 +66,7 @@ const SelectBtns = ({
               />
             ) : (
               <span
-                className="absolute top-0 left-0 bottom-0 bg-zinc-300 rounded-sm"
+                className="absolute top-0 bottom-0 left-0 rounded-sm bg-zinc-300"
                 style={{
                   width: selected > n ? "100%" : "0%",
                 }}
@@ -143,20 +145,16 @@ const Card = ({
       className={`absolute top-0 left-0 w-full min-h-full p-2 pl-6 cursor-pointer  rounded-xl border-2 border-zinc-900
       flex flex-col justify-between ${bgClass} ${textClass}`}
     >
-      <p className="text-lg lg:text-xl font-light italic">
-        "{description}"
-      </p>
+      <p className="text-lg italic font-light lg:text-xl">"{description}"</p>
       <div>
-        <span className="block font-semibold text-lg">{name}</span>
+        <span className="block text-lg font-semibold">{name}</span>
         {title && <span className="block text-sm">{title}</span>}
       </div>
     </motion.div>
   );
 };
 
-
 interface Testimonial {
-
   title?: string;
   name: string;
   description: string;
@@ -164,32 +162,24 @@ interface Testimonial {
 
 const testimonials = [
   {
-  
     description:
       "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
     name: "Gabriella",
     title: "Goldman Sachs",
   },
   {
-   
     description:
       "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
     name: "Daniel",
-  
   },
   {
- 
     description:
       "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
     name: "Paweł",
-   
   },
-    {
- 
+  {
     description:
       "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
     name: "Paweł",
-   
   },
-
 ];
