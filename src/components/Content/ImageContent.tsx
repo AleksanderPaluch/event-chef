@@ -59,7 +59,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
       className="sticky z-0 overflow-hidden rounded-3xl"
     >
       <motion.div
-        className="absolute inset-0 bg-zinc-950/75"
+        className="absolute inset-0 bg-zinc-950/85"
         style={{
           opacity,
         }}
@@ -95,10 +95,11 @@ const OverlayCopy = ({
       ref={targetRef}
       className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-white"
     >
-      <p className="mb-2 text-xl text-center md:mb-4 md:text-3xl">
+
+      <h2 className="mb-6 text-5xl font-bold text-center lg:text-8xl">{heading}</h2>
+            <h3 className="max-w-xl mx-auto mb-8 text-xl text-center md:mb-12 md:text-3xl">
         {subheading}
-      </p>
-      <p className="text-4xl font-bold text-center md:text-7xl">{heading}</p>
+      </h3>
       {stats && <Stats />}
     </motion.div>
   );

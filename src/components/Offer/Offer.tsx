@@ -40,7 +40,7 @@ export const Offer = () => {
 
   return (
     <section id="Oferta" className="px-3 my-36 md:my-44 lg:my-80 ">
-      <div className="  mx-auto   md:max-w-[90%]  lg:max-w-7xl     ">
+      <div className="  mx-auto   md:max-w-[90%]  lg:max-w-6xl     ">
         <h3 className="mb-6 text-5xl font-semibold text-center lg:text-7xl">
           Cennik usług
         </h3>

@@ -6,7 +6,7 @@ const data = {
   id: "O nas",
   imgUrl: image,
   subheading: " Dlaczego warto wybrać",
-  heading: "EventChef",
+  heading: "Event Chef",
   stats: true,
 };
 
