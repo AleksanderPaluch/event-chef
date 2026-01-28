@@ -50,7 +50,7 @@ export const Button = ({ text }: { text: string }) => {
 
   return (
     <section className="">
-      <div className=" w-full  bg-zinc-700 rounded">
+      <div className="w-full rounded bg-black/20">
         <motion.button
           ref={ref}
           style={{
@@ -60,7 +60,7 @@ export const Button = ({ text }: { text: string }) => {
           onMouseMove={handleMove}
           onMouseLeave={handleReset}
           onMouseDown={handleReset}
-          className="py-2 group flex h-full w-full items-center justify-between  bg-zinc-900 px-8 text-md md:text-xl font-semibold rounded"
+          className="flex items-center justify-between w-full h-full px-8 py-2 font-semibold border rounded border-white/5 group bg-black/40 text-md md:text-xl"
         >
           <Copy>{text}</Copy>
           <Arrow />
@@ -77,7 +77,7 @@ const Copy = ({ children }: { children: string }) => {
       <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
         {children}
       </span>
-      <span className="absolute left-0 top-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+      <span className="absolute top-0 left-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0">
         {children}
       </span>
     </span>
@@ -85,9 +85,9 @@ const Copy = ({ children }: { children: string }) => {
 };
 
 const Arrow = () => (
-  <div className="pointer-events-none flex h-6 w-6 overflow-hidden text-2xl">
-    <FiArrowRight className="shrink-0 -translate-x-full text-zinc-100 transition-transform duration-300 group-hover:translate-x-0" />
-    <FiArrowRight className="shrink-0 -translate-x-full text-zinc-300 transition-transform duration-300 group-hover:translate-x-0" />
+  <div className="flex w-6 h-6 overflow-hidden text-2xl pointer-events-none">
+    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-300 group-hover:translate-x-0" />
+    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-300 group-hover:translate-x-0" />
   </div>
 );
 

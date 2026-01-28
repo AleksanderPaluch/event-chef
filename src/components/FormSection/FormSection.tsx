@@ -9,7 +9,7 @@ export const FormSection = () => {
   );
   return (
     <section id="Form" className="px-3 my-60 ">
-      <div className="     md:max-w-[90%]  lg:max-w-8xl  mx-auto shadow-lg flex flex-col-reverse lg:flex-row rounded-3xl overflow-hidden">
+      <div className="     md:max-w-[90%]  lg:max-w-8xl  mx-auto shadow-lg flex flex-col-reverse lg:flex-row rounded-3xl overflow-hidden border border-white/5">
         <Form selected={selected} setSelected={setSelected} />
         <Images selected={selected} />
       </div>
@@ -28,7 +28,7 @@ const Form = ({
     <form
       onSubmit={(e) => e.preventDefault()}
       className={`p-8 w-full text-white transition-colors duration-[750ms] ${
-        selected === "company" ? "bg-zinc-900/20" : "bg-zinc-900/20"
+        selected === "company" ? "" : ""
       }`}
     >
       <h3 className="mb-6 text-4xl font-bold">Contact us</h3>
