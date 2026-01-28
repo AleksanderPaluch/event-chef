@@ -19,7 +19,7 @@ function App() {
       <Mastercalss />
       <Omakase />
       <About />
-      <About />
+
       <Offer />
       <FormSection />
     </>
