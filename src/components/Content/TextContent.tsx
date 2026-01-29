@@ -38,11 +38,11 @@ export const TextContent: React.FC<TextContentProps> = ({
               {textTitle}
             </h3>
 
-            <p className="max-w-2xl mx-auto mb-6 italic font-light text-center lg:mb-16 lg:text-xl text-zinc-300">
+            <p className="max-w-2xl mx-auto mb-6 italic font-light text-center lg:mb-24 lg:text-xl text-zinc-500">
               "{text}"
             </p>
 
-<div className="flex flex-col items-center gap-3 mx-auto mb-6 text-2xl lg:mb-8 md:flex-row text-zinc-300 max-w-fit">
+<div className="flex flex-col items-center gap-3 mx-auto mb-6 text-3xl text-center lg:mb-8 md:flex-row max-w-fit">
   {process?.map((step, index) => (
     <React.Fragment key={index}>
       <span>{step}</span>
@@ -51,7 +51,7 @@ export const TextContent: React.FC<TextContentProps> = ({
   ))}
 </div>
 
-<p className="max-w-xl mx-auto mb-6 text-sm text-center lg:mb-16 text-zinc-400">
+<p className="max-w-xl mx-auto mb-6 text-center text-md lg:text-md lg:mb-16 text-zinc-500">
   {description}
 </p>
 

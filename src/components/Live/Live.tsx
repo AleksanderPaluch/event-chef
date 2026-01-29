@@ -9,7 +9,7 @@ const data = {
   textTitle: "Czym jest Live Cooking?",
   text: "Live cooking to pokaz przygotowywania sushi na żywo, prosto przed Twoimi gośćmi. To połączenie gotowania i efektownego show.",
   description:
-    "Pracujemy na świeżych produktach i dopasujemy menu do harakteru wydarzenia",
+    "Pracujemy na produktach premium i dopasujemy menu do harakteru wydarzenia",
   process: [
     "Przygotowanie stanowiska",
     "Live sushi show",

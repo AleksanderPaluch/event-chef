@@ -55,8 +55,8 @@ export const Button:React.FC<ButtonProps> = ({text, ghost = false }) => {
 
     if (ghost) {
     return (
-      <div className="rounded bg-black/20 w-[350px]">
-          <a href="#Form" className="inline-flex group w-[350px]">
+      <div className="rounded bg-black/20 w-[300px]">
+          <a href="#Form" className="inline-flex group w-[300px]">
          <motion.button
           ref={ref}
           style={{
@@ -66,7 +66,7 @@ export const Button:React.FC<ButtonProps> = ({text, ghost = false }) => {
           onMouseMove={handleMove}
           onMouseLeave={handleReset}
           onMouseDown={handleReset}
-          className="flex items-center justify-between w-full h-full px-8 py-2 font-semibold border rounded hover:border-white/30 border-white/5 group bg-zinc-950 text-md md:text-xl"
+          className="flex items-center justify-between w-full h-full px-8 py-2 text-sm font-semibold border rounded hover:border-white/30 border-white/5 group bg-zinc-950 md:text-md"
         >
           <Copy>{text}</Copy>
           <Arrow />
@@ -79,7 +79,7 @@ export const Button:React.FC<ButtonProps> = ({text, ghost = false }) => {
 
   return (
     <section className="">
-      <div className="rounded bg-black/20 w-[350px]">
+      <div className="rounded bg-black/20 w-[300px]">
         <motion.button
           ref={ref}
           style={{
@@ -89,7 +89,7 @@ export const Button:React.FC<ButtonProps> = ({text, ghost = false }) => {
           onMouseMove={handleMove}
           onMouseLeave={handleReset}
           onMouseDown={handleReset}
-          className="flex items-center justify-between w-full h-full px-8 py-2 font-semibold border rounded border-white/5 hover:border-white/30 group bg-black/40 text-md md:text-xl"
+          className="flex items-center justify-between w-full h-full px-8 py-2 text-sm font-semibold border rounded border-white/5 hover:border-white/30 group bg-black/40 md:text-md"
         >
           <Copy>{text}</Copy>
           <Arrow />

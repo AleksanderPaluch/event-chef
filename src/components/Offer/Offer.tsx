@@ -39,7 +39,7 @@ export const Offer = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section id="Oferta" className="px-3 my-36 md:my-44 lg:my-80 ">
+    <section id="Oferta" className="px-3 my-16 md:my-24 lg:my-36 ">
       <div className="  mx-auto   md:max-w-[90%]  lg:max-w-6xl     ">
         <h3 className="mb-6 text-5xl font-semibold text-center lg:text-7xl">
           Cennik usług

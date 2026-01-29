@@ -10,11 +10,12 @@ const data = {
   textTitle: "Czym jest Omakase?",
   text: "Omakase to wyjątkowe doświadczenie kulinarne, które pozwala Ci zaufać szefowi kuchni i cieszyć się starannie dobranym menu.",
   description:
-    "Pracujemy na świeżych produktach i dopasujemy menu do harakteru wydarzenia",
+    "Omakase to kameralna kolacja, w której goście powierzają wybór dań szefowi kuchni, odkrywając smaki starannie dobrane specjalnie na ten wieczór.",
+
   process: [
-    "Przygotowanie stanowiska",
-    "Live sushi show",
-    "Degustacja & interakcja",
+    "Najlepsze produkty",
+    "Menu degustacyjne",
+    "Unikalne doświadczenie",
   ],
   chipsTitle: "Dlaczego Omakase?",
   chips: [

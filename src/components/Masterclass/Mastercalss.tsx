@@ -9,11 +9,12 @@ const data = {
   textTitle: "Czym jest Masterclass?",
   text: "Masterclass sushi to praktyczne warsztaty, podczas których uczestnicy tworzą własne rolki pod okiem doświadczonego sushi chefa",
   description:
-    "Pracujemy na świeżych produktach i dopasujemy menu do harakteru wydarzenia",
-  process: [
-    "Przygotowanie stanowiska",
-    "Live sushi show",
-    "Degustacja & interakcja",
+    "Podczas masterclass szef kuchni krok po kroku pokaże techniki przygotowywania sushi, dzieląc się swoimi sekretami i poradami kulinarnymi.",
+    process: [
+    "Wprowadzenie",
+    "Pokaz",
+    "Praktyka",
+    "Degustacja"
   ],
   chipsTitle: "W ramach warsztatów zapewniamy:",
   chips: [
