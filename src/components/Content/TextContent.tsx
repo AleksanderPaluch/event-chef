@@ -21,10 +21,7 @@ export const TextContent: React.FC<TextContentProps> = ({
   text,
   process,
   description,
-  chipsTitle,
-  chips = [],
-  secondaryChipsTitle,
-  secondaryChips = [],
+
   stats = false,
 }) => {
   return (
