@@ -1,11 +1,14 @@
-import { Chip } from "./Chip";
+
 import { Motion } from "../Motion/Motion";
 import { Button } from "../Button/Button";
 import { Testimonials } from "../Testimonials/Testimonials";
+import React from "react";
 
 interface TextContentProps {
   textTitle?: string;
   text?: string;
+  process?: string[];
+  description?: string;
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
@@ -16,14 +19,14 @@ interface TextContentProps {
 export const TextContent: React.FC<TextContentProps> = ({
   textTitle,
   text,
+  process,
+  description,
   chipsTitle,
   chips = [],
   secondaryChipsTitle,
   secondaryChips = [],
   stats = false,
 }) => {
-  const hasSecondary = secondaryChipsTitle && secondaryChips;
-
   return (
     <Motion>
       <div className="py-40 mx-auto   md:max-w-[90%]  lg:max-w-6xl ">
@@ -31,22 +34,35 @@ export const TextContent: React.FC<TextContentProps> = ({
           <Testimonials />
         ) : (
           <>
-        <h3 className="mb-6 text-5xl font-semibold text-center lg:text-7xl">
-         {textTitle}
-        </h3>
-        <p className="max-w-lg mx-auto mb-8 text-center">
-{text}
-        </p>
-            <Button text="Więcej" />
+            <h3 className="mb-6 text-5xl font-semibold text-center lg:text-7xl">
+              {textTitle}
+            </h3>
+
+            <p className="max-w-2xl mx-auto mb-6 italic font-light text-center lg:mb-16 lg:text-xl text-zinc-300">
+              "{text}"
+            </p>
+
+<div className="flex flex-col items-center gap-3 mx-auto mb-6 text-2xl lg:mb-8 md:flex-row text-zinc-300 max-w-fit">
+  {process?.map((step, index) => (
+    <React.Fragment key={index}>
+      <span>{step}</span>
+      {index < process.length - 1 && <span>•</span>}
+    </React.Fragment>
+  ))}
+</div>
+
+<p className="max-w-xl mx-auto mb-6 text-sm text-center lg:mb-16 text-zinc-400">
+  {description}
+</p>
+
+
+            <div className="flex flex-col gap-3 mx-auto text-center md:flex-row max-w-fit ">
+              <Button text="Poznaj doświadczenie" />
+              <Button ghost={true} text="Zapytaj o termin i ofertę" />
+            </div>
           </>
         )}
       </div>
     </Motion>
-
-
-
-
-
-
   );
 };

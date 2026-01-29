@@ -58,7 +58,7 @@ export const Modal = ({ open, setOpen, children }: Props) => {
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         transition={{ ease: "easeInOut", duration: 0.3 }}
-        className="fixed bottom-0 left-0 right-0 h-[75vh] overflow-hidden rounded-t-3xl bg-zinc-950/70 backdrop-blur-md"
+        className="fixed bottom-0 left-0 right-0 h-[90vh] overflow-hidden rounded-t-3xl bg-zinc-950/70 backdrop-blur-md"
         style={{ y }}
         drag="y"
         dragControls={controls}
@@ -72,15 +72,15 @@ export const Modal = ({ open, setOpen, children }: Props) => {
         }}
       >
         {/* Drag handle */}
-        <div className="absolute left-0 right-0 top-0 z-10 flex justify-center bg-neutral-900 p-4">
+        <div className="absolute top-0 left-0 right-0 z-10 flex justify-center p-4 bg-neutral-900">
           <button
             onPointerDown={(e) => controls.start(e)}
-            className="h-2 w-14 cursor-grab touch-none rounded-full bg-neutral-700 active:cursor-grabbing"
+            className="h-2 rounded-full w-14 cursor-grab touch-none bg-neutral-700 active:cursor-grabbing"
           />
         </div>
 
         {/* Scrollable content */}
-        <div className="relative z-0 h-full overflow-y-auto p-4 pt-12">
+        <div className="relative z-0 h-full p-4 pt-12 overflow-y-auto">
           {children}
         </div>
       </motion.div>

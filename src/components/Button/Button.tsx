@@ -14,7 +14,12 @@ const SPRING_OPTIONS = {
   damping: 100,
 };
 
-export const Button = ({ text }: { text: string }) => {
+interface ButtonProps {
+  text: string;
+  ghost?: boolean;
+}
+
+export const Button:React.FC<ButtonProps> = ({text, ghost = false }) => {
   const [open, setOpen] = useState(false);
 
   const ref = useRef<HTMLButtonElement | null>(null);
@@ -48,9 +53,33 @@ export const Button = ({ text }: { text: string }) => {
     y.set(0);
   };
 
+    if (ghost) {
+    return (
+      <div className="rounded bg-black/20 w-[350px]">
+          <a href="#Form" className="inline-flex group w-[350px]">
+         <motion.button
+          ref={ref}
+          style={{
+            transform,
+          }}
+          onClick={() => setOpen(true)}
+          onMouseMove={handleMove}
+          onMouseLeave={handleReset}
+          onMouseDown={handleReset}
+          className="flex items-center justify-between w-full h-full px-8 py-2 font-semibold border rounded hover:border-white/30 border-white/5 group bg-zinc-950 text-md md:text-xl"
+        >
+          <Copy>{text}</Copy>
+          <Arrow />
+        </motion.button>
+      </a>
+      </div>
+    
+    );
+  }
+
   return (
     <section className="">
-      <div className="w-full rounded bg-black/20">
+      <div className="rounded bg-black/20 w-[350px]">
         <motion.button
           ref={ref}
           style={{
@@ -60,7 +89,7 @@ export const Button = ({ text }: { text: string }) => {
           onMouseMove={handleMove}
           onMouseLeave={handleReset}
           onMouseDown={handleReset}
-          className="flex items-center justify-between w-full h-full px-8 py-2 font-semibold border rounded border-white/5 group bg-black/40 text-md md:text-xl"
+          className="flex items-center justify-between w-full h-full px-8 py-2 font-semibold border rounded border-white/5 hover:border-white/30 group bg-black/40 text-md md:text-xl"
         >
           <Copy>{text}</Copy>
           <Arrow />
@@ -74,10 +103,10 @@ export const Button = ({ text }: { text: string }) => {
 const Copy = ({ children }: { children: string }) => {
   return (
     <span className="relative overflow-hidden">
-      <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
+      <span className="inline-block transition-transform duration-300 text-zinc-300 group-hover:-translate-y-full">
         {children}
       </span>
-      <span className="absolute top-0 left-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0">
+      <span className="absolute top-0 left-0 block transition-transform duration-300 translate-y-full text-zinc-50 group-hover:translate-y-0">
         {children}
       </span>
     </span>
@@ -86,7 +115,7 @@ const Copy = ({ children }: { children: string }) => {
 
 const Arrow = () => (
   <div className="flex w-6 h-6 overflow-hidden text-2xl pointer-events-none">
-    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-300 group-hover:translate-x-0" />
+    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-50 group-hover:translate-x-0" />
     <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-300 group-hover:translate-x-0" />
   </div>
 );

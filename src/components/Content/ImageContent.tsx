@@ -26,7 +26,7 @@ export const ImageContent: React.FC<ImageContentProps> = ({
         paddingRight: IMG_PADDING,
       }}
     >
-      <div className="relative h-[150vh]">
+      <div className="relative h-[110vh]">
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} stats={stats} />
       </div>
@@ -93,13 +93,13 @@ const OverlayCopy = ({
         opacity,
       }}
       ref={targetRef}
-      className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-white"
+      className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-zinc-300"
     >
-
-      <h2 className="mb-6 text-5xl font-bold text-center lg:text-8xl">{heading}</h2>
-            <h3 className="max-w-xl mx-auto mb-8 text-xl text-center md:mb-12 md:text-3xl">
+ <h3 className="max-w-xl mx-auto mb-6 text-xl text-center md:text-3xl lg:mb-12 ">
         {subheading}
       </h3>
+      <h2 className="text-5xl font-bold text-center lg:text-8xl">{heading}</h2>
+           
       {stats && <Stats />}
     </motion.div>
   );
