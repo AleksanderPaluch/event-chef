@@ -62,7 +62,7 @@ export const TextContent: React.FC<TextContentProps> = ({
                 text="Poznaj doświadczenie"
                 onClick={() => setOpen(true)}
               />
-              <Button ghost={true} text="Zapytaj o termin i ofertę" />
+              <Button link text="Zapytaj o termin i ofertę" />
             </div>
 
             <Modal

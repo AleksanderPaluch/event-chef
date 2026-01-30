@@ -17,6 +17,7 @@ interface ButtonProps {
   text: string;
   ghost?: boolean;
   modal?: boolean;
+  link?: boolean;
   onClick?: () => void;
 }
 
@@ -24,6 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
   text,
   ghost = false,
   modal = false,
+  link = false,
   onClick,
 }) => {
   const ref = useRef<HTMLButtonElement | null>(null);
@@ -52,6 +54,32 @@ export const Button: React.FC<ButtonProps> = ({
     x.set(0);
     y.set(0);
   };
+
+    if (link) {
+    return (
+     <>
+     <a href="#Form" className="inline-flex w-full group">
+          {" "}
+          <motion.button
+            ref={ref}
+            style={{ transform }}
+            onClick={onClick}
+            onMouseMove={handleMove}
+            onMouseLeave={handleReset}
+            onMouseDown={handleReset}
+            className="flex items-center justify-between w-full h-full px-8 py-2 text-sm font-semibold border rounded hover:border-white/30 border-white/5 group bg-zinc-950 md:text-md"
+          >
+            {" "}
+            <Copy>{text}</Copy> <Arrow />{" "}
+          </motion.button>{" "}
+        </a>
+     
+     </>
+
+        
+    
+    );
+  }
 
   return (
     <motion.button
