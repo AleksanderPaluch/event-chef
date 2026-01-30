@@ -7,7 +7,7 @@ const data = {
 
   subheading: "Jedyna w swoim rodzaju kolacja sushi",
   heading: "Omakase",
-  textTitle: "Czym jest Omakase?",
+  textTitle: "Omakase?",
   text: "Omakase to wyjątkowe doświadczenie kulinarne, które pozwala Ci zaufać szefowi kuchni i cieszyć się starannie dobranym menu.",
   description:
     "Omakase to kameralna kolacja, w której goście powierzają wybór dań szefowi kuchni, odkrywając smaki starannie dobrane specjalnie na ten wieczór.",

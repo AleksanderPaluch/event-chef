@@ -6,7 +6,7 @@ const data = {
   imgUrl: image,
   subheading: "Warsztaty, które uczą, bawią i integrują",
   heading: "Sushi Masterclass",
-  textTitle: "Czym jest Masterclass?",
+  textTitle: "Masterclass?",
   text: "Masterclass sushi to praktyczne warsztaty, podczas których uczestnicy tworzą własne rolki pod okiem doświadczonego sushi chefa",
   description:
     "Podczas masterclass szef kuchni krok po kroku pokaże techniki przygotowywania sushi, dzieląc się swoimi sekretami i poradami kulinarnymi.",

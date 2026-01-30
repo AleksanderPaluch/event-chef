@@ -68,7 +68,7 @@ export const Button: React.FC<ButtonProps> = ({
             : "bg-black/40 border-white/5 hover:border-white/30"
         }
         
-         ${modal ? "w-fit" : "w-[330px] "}
+         ${modal ? "w-fit" : "w-full "}
         `
       
        
