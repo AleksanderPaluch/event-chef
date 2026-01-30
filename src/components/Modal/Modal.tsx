@@ -1,4 +1,4 @@
-import { type Dispatch, type SetStateAction, type ReactNode } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 import { createPortal } from "react-dom";
 import useMeasure from "react-use-measure";
 import {
@@ -8,7 +8,7 @@ import {
   motion,
 } from "framer-motion";
 import { ModalText } from "./ModalText";
-import { FiX } from "react-icons/fi";
+
 import { Button } from "../Button/Button";
 
 interface Props {

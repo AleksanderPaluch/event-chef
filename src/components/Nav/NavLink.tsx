@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 
 interface NavLinkProps {
   text: string;
+  href: string;
 }
 
-export const NavLink: React.FC<NavLinkProps> = ({ text }) => {
+export const NavLink: React.FC<NavLinkProps> = ({ text, href }) => {
   return (
     <a
-      href={`#${text}`}
+      href={`#${href}`}
       rel="nofollow"
       className="hidden lg:block h-[40px] overflow-hidden font-medium"
     >
