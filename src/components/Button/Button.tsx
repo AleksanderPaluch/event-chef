@@ -72,6 +72,7 @@ export const Button: React.FC<ButtonProps> = ({
       style={{ transform }}
       onClick={onClick}
       onMouseDown={handleReset}
+
       className={`flex items-center justify-between    text-sm font-semibold  rounded group
         ${
           ghost

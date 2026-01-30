@@ -16,9 +16,9 @@ function App() {
     <>
       <Nav />
       <Live />
-      <Mastercalss />
+      {/* <Mastercalss />
       <Omakase />
-      <About />
+      <About /> */}
 
       <Offer />
       <FormSection />

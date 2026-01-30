@@ -9,6 +9,12 @@ interface TextContentProps {
   text?: string;
   process?: string[];
   description?: string;
+  modalDescription: string;
+  menu: string[];
+  menuIMG: string;
+  modalProcess: string[];
+  organization: string[];
+  Access: string[];
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
@@ -21,6 +27,12 @@ export const TextContent: React.FC<TextContentProps> = ({
   text,
   process,
   description,
+    modalDescription = "",
+  menu,
+  menuIMG,
+  modalProcess,
+  organization,
+  Access,
   chipsTitle = "",
   chips = [],
   secondaryChipsTitle = "",
@@ -37,7 +49,8 @@ export const TextContent: React.FC<TextContentProps> = ({
         ) : (
           <>
             <h3 className="w-[320px] mx-auto mb-6 text-5xl font-semibold text-center lg:text-6xl md:w-full  leading-tight">
-              Czym jest  <span className="text-5xl lg:text-7xl"> {textTitle}</span>
+              Czym jest{" "}
+              <span className="text-5xl lg:text-7xl"> {textTitle}</span>
             </h3>
 
             <p className="max-w-2xl mb-12 italic font-light text-justify md:mx-auto md:text-center text-md lg:mb-24 lg:text-xl text-zinc-500">
@@ -68,6 +81,12 @@ export const TextContent: React.FC<TextContentProps> = ({
             <Modal
               open={open}
               setOpen={setOpen}
+              modalDescription={modalDescription}
+              menu={menu}
+              menuIMG={menuIMG}
+              modalProcess={modalProcess}
+              organization={organization}
+              Access={Access}
               chipsTitle={chipsTitle}
               chips={chips}
               secondaryChipsTitle={secondaryChipsTitle}

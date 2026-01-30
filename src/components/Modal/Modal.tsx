@@ -14,7 +14,12 @@ import { Button } from "../Button/Button";
 interface Props {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-
+  modalDescription: string;
+  menu: string[];
+  menuIMG: string;
+  modalProcess: string[];
+  organization: string[];
+  Access: string[];
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
@@ -24,7 +29,12 @@ interface Props {
 export const Modal = ({
   open,
   setOpen,
-
+ modalDescription,
+  menu,
+  menuIMG,
+  modalProcess,
+  organization,
+  Access,
   chipsTitle,
   chips,
   secondaryChipsTitle = "",
@@ -88,18 +98,19 @@ export const Modal = ({
         </div>
 
         {/* Close button */}
- <div className="absolute top-0 z-20 right-1 lg:top-0 lg:right-4">
-  <Button
-    ghost
-    modal
-    text=""
-    onClick={handleClose}
-  />
-</div>
+        <div className="absolute top-0 z-20 right-1 lg:top-0 lg:right-4">
+          <Button ghost modal text="" onClick={handleClose} />
+        </div>
 
         {/* Scrollable content */}
         <div className="relative h-full overflow-y-auto modal-scroll ">
           <ModalText
+            modalDescription={modalDescription}
+          menu={menu}
+          menuIMG={menuIMG}
+          modalProcess={modalProcess}
+          organization={organization}
+          Access={Access}
             chipsTitle={chipsTitle}
             secondaryChipsTitle={secondaryChipsTitle}
             chips={chips}
