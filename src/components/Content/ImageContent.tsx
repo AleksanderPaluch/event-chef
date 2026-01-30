@@ -2,6 +2,7 @@ import { type ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Stats } from "../Stats/Stats";
 
+
 interface ImageContentProps {
   imgUrl: string;
   subheading: string;
@@ -56,10 +57,10 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
         scale,
       }}
       ref={targetRef}
-      className="sticky z-0 overflow-hidden rounded-3xl"
+      className="sticky z-0 overflow-hidden rounded-3xl "
     >
       <motion.div
-        className="absolute inset-0 bg-zinc-950/85"
+        className="absolute inset-0 bg-zinc-950/75"
         style={{
           opacity,
         }}

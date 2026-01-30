@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   motion,
   useMotionTemplate,
@@ -6,7 +6,6 @@ import {
   useSpring,
 } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-import { Modal } from "../Modal/Modal";
 
 const SPRING_OPTIONS = {
   mass: 1.5,
@@ -17,11 +16,16 @@ const SPRING_OPTIONS = {
 interface ButtonProps {
   text: string;
   ghost?: boolean;
+  modal?: boolean;
+  onClick?: () => void;
 }
 
-export const Button:React.FC<ButtonProps> = ({text, ghost = false }) => {
-  const [open, setOpen] = useState(false);
-
+export const Button: React.FC<ButtonProps> = ({
+  text,
+  ghost = false,
+  modal = false,
+  onClick,
+}) => {
   const ref = useRef<HTMLButtonElement | null>(null);
 
   const x = useMotionValue(0);
@@ -30,22 +34,18 @@ export const Button:React.FC<ButtonProps> = ({text, ghost = false }) => {
   const xSpring = useSpring(x, SPRING_OPTIONS);
   const ySpring = useSpring(y, SPRING_OPTIONS);
 
-  const transform = useMotionTemplate`translateX(${xSpring}px) translateY(${ySpring}px)`;
+  const transform = useMotionTemplate`
+    translateX(${xSpring}px) translateY(${ySpring}px)
+  `;
 
-  const handleMove = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleMove = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!ref.current) return;
 
     const { height, width } = ref.current.getBoundingClientRect();
     const { offsetX, offsetY } = e.nativeEvent;
 
-    const xPct = offsetX / width;
-    const yPct = 1 - offsetY / height;
-
-    const newY = 4 + yPct * 4;
-    const newX = 4 + xPct * 4;
-
-    x.set(newX);
-    y.set(-newY);
+    x.set(4 + (offsetX / width) * 4);
+    y.set(-(4 + (1 - offsetY / height) * 4));
   };
 
   const handleReset = () => {
@@ -53,52 +53,33 @@ export const Button:React.FC<ButtonProps> = ({text, ghost = false }) => {
     y.set(0);
   };
 
-    if (ghost) {
-    return (
-      <div className="rounded bg-black/20 w-[300px]">
-          <a href="#Form" className="inline-flex group w-[300px]">
-         <motion.button
-          ref={ref}
-          style={{
-            transform,
-          }}
-          onClick={() => setOpen(true)}
-          onMouseMove={handleMove}
-          onMouseLeave={handleReset}
-          onMouseDown={handleReset}
-          className="flex items-center justify-between w-full h-full px-8 py-2 text-sm font-semibold border rounded hover:border-white/30 border-white/5 group bg-zinc-950 md:text-md"
-        >
-          <Copy>{text}</Copy>
-          <Arrow />
-        </motion.button>
-      </a>
-      </div>
-    
-    );
-  }
-
   return (
-    <section className="">
-      <div className="rounded bg-black/20 w-[300px]">
-        <motion.button
-          ref={ref}
-          style={{
-            transform,
-          }}
-          onClick={() => setOpen(true)}
-          onMouseMove={handleMove}
-          onMouseLeave={handleReset}
-          onMouseDown={handleReset}
-          className="flex items-center justify-between w-full h-full px-8 py-2 text-sm font-semibold border rounded border-white/5 hover:border-white/30 group bg-black/40 md:text-md"
-        >
-          <Copy>{text}</Copy>
-          <Arrow />
-        </motion.button>
-      </div>
-      <Modal open={open} setOpen={setOpen} />
-    </section>
+    <motion.button
+      ref={ref}
+      style={{ transform }}
+      onClick={onClick}
+      onMouseMove={handleMove}
+      onMouseLeave={handleReset}
+      onMouseDown={handleReset}
+      className={`flex items-center justify-between   px-4 py-2 text-sm font-semibold border rounded group
+        ${
+          ghost
+            ? "bg-zinc-950 border-white/5 hover:border-white/30"
+            : "bg-black/40 border-white/5 hover:border-white/30"
+        }
+        
+         ${modal ? "w-fit" : "w-[330px] "}
+        `
+      
+       
+      }
+    >
+      <Copy>{text}</Copy>
+      <Arrow />
+    </motion.button>
   );
 };
+
 
 const Copy = ({ children }: { children: string }) => {
   return (
@@ -119,4 +100,3 @@ const Arrow = () => (
     <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-300 group-hover:translate-x-0" />
   </div>
 );
-

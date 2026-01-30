@@ -15,6 +15,9 @@ const data = {
     "Live sushi show",
     "Degustacja & interakcja",
   ],
+};
+
+const modalData = {
   chipsTitle: "Dla Firm",
   chips: [
     "Eventy firmowe",
@@ -39,10 +42,10 @@ export const Live = () => {
       text={data.text}
       description={data.description}
       process={data.process}
-      chipsTitle={data.chipsTitle}
-      chips={data.chips}
-      secondaryChipsTitle={data.secondaryChipsTitle}
-      secondaryChips={data.secondaryChips}
+      chipsTitle={modalData.chipsTitle}
+      chips={modalData.chips}
+      secondaryChipsTitle={modalData.secondaryChipsTitle}
+      secondaryChips={modalData.secondaryChips}
     />
   );
 };

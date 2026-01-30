@@ -1,8 +1,9 @@
-
+import React, { useState } from "react";
 import { Motion } from "../Motion/Motion";
 import { Button } from "../Button/Button";
 import { Testimonials } from "../Testimonials/Testimonials";
-import React from "react";
+import { Modal } from "../Modal/Modal";
+
 
 interface TextContentProps {
   textTitle?: string;
@@ -21,9 +22,15 @@ export const TextContent: React.FC<TextContentProps> = ({
   text,
   process,
   description,
-
+  chipsTitle = "",
+  chips = [],
+  secondaryChipsTitle = "",
+  secondaryChips = [],
   stats = false,
 }) => {
+
+   const [open, setOpen] = useState(false);
+
   return (
     <Motion>
       <div className="py-40 mx-auto   md:max-w-[90%]  lg:max-w-6xl ">
@@ -39,24 +46,35 @@ export const TextContent: React.FC<TextContentProps> = ({
               "{text}"
             </p>
 
-<div className="flex flex-col items-center gap-3 mx-auto mb-6 text-3xl text-center lg:mb-8 md:flex-row max-w-fit">
-  {process?.map((step, index) => (
-    <React.Fragment key={index}>
-      <span>{step}</span>
-      {index < process.length - 1 && <span>•</span>}
-    </React.Fragment>
-  ))}
-</div>
+            <div className="flex flex-col items-center gap-3 mx-auto mb-6 text-3xl text-center lg:mb-8 md:flex-row max-w-fit">
+              {process?.map((step, index) => (
+                <React.Fragment key={index}>
+                  <span>{step}</span>
+                  {index < process.length - 1 && <span>•</span>}
+                </React.Fragment>
+              ))}
+            </div>
 
-<p className="max-w-xl mx-auto mb-6 text-center text-md lg:text-md lg:mb-16 text-zinc-500">
-  {description}
-</p>
-
+            <p className="max-w-xl mx-auto mb-6 text-center text-md lg:text-md lg:mb-16 text-zinc-500">
+              {description}
+            </p>
 
             <div className="flex flex-col gap-3 mx-auto text-center md:flex-row max-w-fit ">
-              <Button text="Poznaj doświadczenie" />
+                <Button
+                text="Poznaj doświadczenie"
+                onClick={() => setOpen(true)}
+              />
               <Button ghost={true} text="Zapytaj o termin i ofertę" />
             </div>
+
+                 <Modal
+              open={open}
+              setOpen={setOpen}
+              chipsTitle={chipsTitle}
+              chips={chips}
+              secondaryChipsTitle={secondaryChipsTitle}
+              secondaryChips={secondaryChips}
+            />
           </>
         )}
       </div>

@@ -7,26 +7,34 @@ import {
   useAnimate,
   motion,
 } from "framer-motion";
+import { ModalText } from "./ModalText";
+import { FiX } from "react-icons/fi";
+import { Button } from "../Button/Button";
 
 interface Props {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-  children?: ReactNode;
+
+  chipsTitle?: string;
+  chips?: string[];
+  secondaryChipsTitle?: string;
+  secondaryChips?: string[];
 }
 
-export const Modal = ({ open, setOpen, children }: Props) => {
+export const Modal = ({
+  open,
+  setOpen,
+
+  chipsTitle,
+  chips,
+  secondaryChipsTitle = "",
+  secondaryChips = [],
+}: Props) => {
   const [scope, animate] = useAnimate();
   const [drawerRef] = useMeasure();
 
   const y = useMotionValue(0);
   const controls = useDragControls();
-
-  //   useEffect(() => {
-  //     document.body.style.overflow = open ? "hidden" : "";
-  //     return () => {
-  //       document.body.style.overflow = "";
-  //     };
-  //   }, [open]);
 
   const handleClose = async () => {
     await animate(scope.current, { opacity: 0 }, { duration: 0.2 });
@@ -49,7 +57,7 @@ export const Modal = ({ open, setOpen, children }: Props) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       onClick={handleClose}
-      className="fixed inset-0 z-[9999] bg-neutral-950/70"
+      className="fixed inset-0 z-[9999] bg-zinc-950/70"
     >
       <motion.div
         id="drawer"
@@ -58,7 +66,7 @@ export const Modal = ({ open, setOpen, children }: Props) => {
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         transition={{ ease: "easeInOut", duration: 0.3 }}
-        className="fixed bottom-0 left-0 right-0 h-[90vh] overflow-hidden rounded-t-3xl bg-zinc-950/70 backdrop-blur-md"
+        className="fixed bottom-0 left-0 right-0 h-[100vh] overflow-hidden rounded-t-3xl bg-zinc-950/80 backdrop-blur-md"
         style={{ y }}
         drag="y"
         dragControls={controls}
@@ -72,19 +80,34 @@ export const Modal = ({ open, setOpen, children }: Props) => {
         }}
       >
         {/* Drag handle */}
-        <div className="absolute top-0 left-0 right-0 z-10 flex justify-center p-4 bg-neutral-900">
+        <div className="absolute top-0 left-0 right-0 z-10 flex justify-center p-4 bg-zinc-950">
           <button
             onPointerDown={(e) => controls.start(e)}
-            className="h-2 rounded-full w-14 cursor-grab touch-none bg-neutral-700 active:cursor-grabbing"
+            className="h-2 rounded-full w-14 cursor-grab touch-none bg-zinc-800 active:cursor-grabbing"
           />
         </div>
 
+        {/* Close button */}
+ <div className="absolute z-20 top-4 right-4">
+  <Button
+    ghost
+    modal
+    text=""
+    onClick={handleClose}
+  />
+</div>
+
         {/* Scrollable content */}
-        <div className="relative z-0 h-full p-4 pt-12 overflow-y-auto">
-          {children}
+        <div className="relative h-full p-2 pt-12 overflow-y-auto modal-scroll md:p-4">
+          <ModalText
+            chipsTitle={chipsTitle}
+            secondaryChipsTitle={secondaryChipsTitle}
+            chips={chips}
+            secondaryChips={secondaryChips}
+          />
         </div>
       </motion.div>
     </motion.div>,
-    document.body
+    document.body,
   );
 };
