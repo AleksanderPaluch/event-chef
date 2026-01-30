@@ -56,7 +56,7 @@ export const Button: React.FC<ButtonProps> = ({
             style={{ transform }}
             onClick={onClick}
             onMouseDown={handleReset}
-            className="flex items-center justify-between w-full h-full px-8 py-2 text-sm font-semibold border rounded hover:border-white/30 border-white/5 group bg-zinc-950 md:text-md"
+            className="flex items-center justify-between w-full h-full px-4 py-2 text-sm font-semibold border rounded hover:border-white/30 border-white/5 group bg-zinc-950 md:text-md"
           >
             {" "}
             <Copy>{text}</Copy> <Arrow />{" "}

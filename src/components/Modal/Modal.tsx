@@ -80,15 +80,15 @@ export const Modal = ({
         }}
       >
         {/* Drag handle */}
-        <div className="absolute top-0 left-0 right-0 z-10 flex justify-center p-4 bg-zinc-950/80">
+        <div className="absolute top-0 left-0 right-0 z-10 flex justify-center p-4 bg-zinc-900">
           <button
             onPointerDown={(e) => controls.start(e)}
-            className="h-2 rounded-full w-14 cursor-grab touch-none bg-zinc-800 active:cursor-grabbing"
+            className="h-2 rounded-full w-14 cursor-grab touch-none bg-zinc-700 active:cursor-grabbing"
           />
         </div>
 
         {/* Close button */}
- <div className="absolute z-20 top-2 right-2 lg:top-4 lg:right-4">
+ <div className="absolute top-0 z-20 right-1 lg:top-0 lg:right-4">
   <Button
     ghost
     modal
@@ -98,7 +98,7 @@ export const Modal = ({
 </div>
 
         {/* Scrollable content */}
-        <div className="relative h-full p-2 pt-12 overflow-y-auto modal-scroll md:p-4">
+        <div className="relative h-full overflow-y-auto modal-scroll ">
           <ModalText
             chipsTitle={chipsTitle}
             secondaryChipsTitle={secondaryChipsTitle}

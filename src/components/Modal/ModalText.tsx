@@ -14,26 +14,14 @@ export const ModalText: React.FC<ModalTextProps> = ({
   return (
     <>
     
-        <div className=" h-96">
+        <div className=" h-[1000px] bg-zinc-950 mt-10 p-3">
       <p>{chipsTitle}</p>
       <p>{chips}</p>
       <p>{secondaryChipsTitle}</p>
       <p>{secondaryChips}</p>
     </div>
 
-        <div className=" h-96">
-      <p>{chipsTitle}</p>
-      <p>{chips}</p>
-      <p>{secondaryChipsTitle}</p>
-      <p>{secondaryChips}</p>
-    </div>
 
-        <div className=" h-96">
-      <p>{chipsTitle}</p>
-      <p>{chips}</p>
-      <p>{secondaryChipsTitle}</p>
-      <p>{secondaryChips}</p>
-    </div>
     
     
     </>

@@ -18,6 +18,8 @@ const data = {
 };
 
 const modalData = {
+
+  
   chipsTitle: "Dla Firm",
   chips: [
     "Eventy firmowe",
