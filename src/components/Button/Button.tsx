@@ -41,16 +41,6 @@ export const Button: React.FC<ButtonProps> = ({
     translateX(${xSpring}px) translateY(${ySpring}px)
   `;
 
-  const handleMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (!ref.current) return;
-
-    const { height, width } = ref.current.getBoundingClientRect();
-    const { offsetX, offsetY } = e.nativeEvent;
-
-    x.set(4 + (offsetX / width) * 4);
-    y.set(-(4 + (1 - offsetY / height) * 4));
-  };
-
   const handleReset = () => {
     x.set(0);
     y.set(0);
@@ -65,8 +55,6 @@ export const Button: React.FC<ButtonProps> = ({
             ref={ref}
             style={{ transform }}
             onClick={onClick}
-            onMouseMove={handleMove}
-            onMouseLeave={handleReset}
             onMouseDown={handleReset}
             className="flex items-center justify-between w-full h-full px-8 py-2 text-sm font-semibold border rounded hover:border-white/30 border-white/5 group bg-zinc-950 md:text-md"
           >
@@ -83,14 +71,12 @@ export const Button: React.FC<ButtonProps> = ({
       ref={ref}
       style={{ transform }}
       onClick={onClick}
-      onMouseMove={handleMove}
-      onMouseLeave={handleReset}
       onMouseDown={handleReset}
-      className={`flex items-center justify-between   px-4 py-2 text-sm font-semibold border rounded group
+      className={`flex items-center justify-between    text-sm font-semibold  rounded group
         ${
           ghost
-            ? "bg-zinc-950 border-white/5 hover:border-white/30 "
-            : "bg-black/40 border-white/5 hover:border-white/30"
+            ? " p-2"
+            : "bg-black/40 border-white/5 hover:border-white/30 px-4 py-2 border"
         }
         
          ${modal ? "w-fit" : "w-full "}
@@ -123,10 +109,8 @@ const Arrow = () => (
 );
 
 const Close = () => (
-
-    <div className="flex w-6 h-6 overflow-hidden text-2xl pointer-events-none">
-      <FiX className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-50 group-hover:translate-x-0" />
-      <FiX className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-300 group-hover:translate-x-0" />
-    </div>
-
+  <div className="flex w-6 h-6 overflow-hidden text-2xl pointer-events-none lg:text-3xl lg:w-8 lg:h-8 ">
+    <FiX className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-50 group-hover:translate-x-0" />
+    <FiX className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-300 group-hover:translate-x-0" />
+  </div>
 );
