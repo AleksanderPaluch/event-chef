@@ -14,7 +14,7 @@ export const CardForWho: React.FC<CardForWhoProps> = ({
   secondaryChips = [],
 }) => {
   return (
-    <div className="flex flex-col gap-6 pt-4 md:pt-3 lg:pt-4 md:gap-12">
+    <div className="flex flex-col justify-center h-full gap-3 md:gap-8 md:pt-4">
       {chipsTitle && (
         <Section title={chipsTitle} items={chips} />
       )}
@@ -35,11 +35,11 @@ const Section = ({
   items: string[];
 }) => (
   <div>
-    <p className="text-xs tracking-wide uppercase lg:text-sm text-zinc-500 ">
+    <p className="text-xs tracking-wide lg:text-sm text-zinc-500 ">
       {title}
     </p>
 
-    <div className="flex flex-wrap items-center uppercase gap-x-2 lg:gap-x-1 gap-y-1 lg:gap-x-4 text-md lg:text-xl md:text-md">
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 lg:gap-x-2 text-md lg:text-xl md:text-md">
       {items.map((item, index) => (
         <React.Fragment key={item}>
           <Item>{item}</Item>

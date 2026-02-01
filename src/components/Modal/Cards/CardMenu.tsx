@@ -3,19 +3,19 @@ import React from "react";
 interface CardMenuProps {
   menu: string[];
   note?: string;
-  note2?: string;
+
   info?: string;
 }
 
 export const CardMenu: React.FC<CardMenuProps> = ({
   menu,
-  note = "indywidualne menu dopasowane do wydarzenia*",
-  note2 = "dostępne menu vege oraz bez surowych ryb*",
+
+  note = "dostępne menu vege oraz bez surowych ryb*",
   info = "przykładowe menu dla 1 osoby (20 kawałkow sushi)*:",
 }) => {
   return (
     <div className="flex flex-col justify-between h-full md:pt-4">
-      <p className="text-xs tracking-wide uppercase text-zinc-500 lg:text-sm ">
+      <p className="text-xs tracking-wide text-zinc-500 lg:text-sm ">
         {info}
       </p>
 
@@ -34,14 +34,12 @@ export const CardMenu: React.FC<CardMenuProps> = ({
       </div>
 
       {/* Note */}
-      <div>
-        <p className="text-xs tracking-wide uppercase text-zinc-500 lg:text-sm">
+    
+
+        <p className="text-xs italic tracking-wide text-zinc-500 lg:text-sm">
           {note}
         </p>
-        <p className="text-xs tracking-wide uppercase text-zinc-500 lg:text-sm">
-          {note2}
-        </p>
-      </div>
+
     </div>
   );
 };

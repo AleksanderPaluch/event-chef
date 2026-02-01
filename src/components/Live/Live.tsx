@@ -25,9 +25,9 @@ const modalData = {
     "degustacja odbywa się na bieżąco podczas pokazu",
   ],
   organization: [
-    "brak potrzeby dostępu do wody i prądu",
-    "możliwość realizacji w dowolnym miejscu",
-    "pełne zaplecze po stronie szefa kuchni",
+    "Brak potrzeby dostępu do wody i prądu",
+    "Możliwość realizacji w dowolnym miejscu",
+    "Pełne zaplecze po stronie szefa kuchni",
   ],
   access: ["Warszawa - bezpłatnie", "realizacje na terenie całej Polsk"],
   chipsTitle: "Dla Firm",
