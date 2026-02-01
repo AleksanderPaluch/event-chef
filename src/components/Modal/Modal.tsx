@@ -19,7 +19,7 @@ interface Props {
   menuIMG: string;
   modalProcess: string[];
   organization: string[];
-  Access: string[];
+  access: string[];
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
@@ -34,7 +34,7 @@ export const Modal = ({
   menuIMG,
   modalProcess,
   organization,
-  Access,
+  access,
   chipsTitle,
   chips,
   secondaryChipsTitle = "",
@@ -110,7 +110,7 @@ export const Modal = ({
           menuIMG={menuIMG}
           modalProcess={modalProcess}
           organization={organization}
-          Access={Access}
+          access={access}
             chipsTitle={chipsTitle}
             secondaryChipsTitle={secondaryChipsTitle}
             chips={chips}

@@ -1,4 +1,4 @@
-import { Testimonials } from "../Testimonials/Testimonials";
+
 import { ImageContent } from "./ImageContent";
 import { TextContent } from "./TextContent";
 
@@ -16,7 +16,7 @@ interface SectionProps {
   menuIMG?: string;
   modalProcess?: string[];
   organization?: string[];
-  Access?: string[];
+  access?: string[];
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
@@ -38,7 +38,7 @@ export const Section: React.FC<SectionProps> = ({
   menuIMG = "",
   modalProcess = [],
   organization = [],
-  Access = [],
+  access = [],
   chipsTitle,
   chips,
   secondaryChipsTitle,
@@ -54,7 +54,7 @@ export const Section: React.FC<SectionProps> = ({
         stats={stats}
       >
         {stats ? (
-          <Testimonials />
+"      <Testimonials />    "
         ) : (
           <TextContent
             textTitle={textTitle}
@@ -66,7 +66,7 @@ export const Section: React.FC<SectionProps> = ({
             menuIMG={menuIMG}
             modalProcess={modalProcess}
             organization={organization}
-            Access={Access}
+            access={access}
             chipsTitle={chipsTitle}
             chips={chips}
             secondaryChipsTitle={secondaryChipsTitle}

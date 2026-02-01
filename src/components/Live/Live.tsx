@@ -29,14 +29,13 @@ const modalData = {
     "możliwość realizacji w dowolnym miejscu",
     "pełne zaplecze po stronie szefa kuchni",
   ],
-  Access: ["Warszawa - bezpłatnie", "realizacje na terenie całej Polsk"],
+  access: ["Warszawa - bezpłatnie", "realizacje na terenie całej Polsk"],
   chipsTitle: "Dla Firm",
   chips: [
     "Eventy firmowe",
-    "Targi",
-    "Konferencje",
+    "Targi, Konferencje",
     "Wigilie",
-    "Gale",
+
     "Premiery produktów",
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",
@@ -59,7 +58,7 @@ export const Live = () => {
       menuIMG={modalData.menuIMG}
       modalProcess={modalData.modalProcess}
       organization={modalData.organization}
-      Access={modalData.Access}
+      access={modalData.access}
       chipsTitle={modalData.chipsTitle}
       chips={modalData.chips}
       secondaryChipsTitle={modalData.secondaryChipsTitle}

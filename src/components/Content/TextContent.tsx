@@ -13,7 +13,7 @@ interface TextContentProps {
   menuIMG: string;
   modalProcess: string[];
   organization: string[];
-  Access: string[];
+  access: string[];
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
@@ -31,7 +31,7 @@ export const TextContent: React.FC<TextContentProps> = ({
   menuIMG,
   modalProcess,
   organization,
-  Access,
+  access,
   chipsTitle = "",
   chips = [],
   secondaryChipsTitle = "",
@@ -77,7 +77,7 @@ export const TextContent: React.FC<TextContentProps> = ({
           menuIMG={menuIMG}
           modalProcess={modalProcess}
           organization={organization}
-          Access={Access}
+          access={access}
           chipsTitle={chipsTitle}
           chips={chips}
           secondaryChipsTitle={secondaryChipsTitle}
