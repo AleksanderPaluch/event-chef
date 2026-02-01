@@ -5,7 +5,8 @@ export const Testimonials = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className="grid items-center grid-cols-1 gap-2 overflow-hidden lg:grid-cols-2 lg:gap-4 md:gap-4">
+    <section className="px-3 pt-6 md:px-8 pb-28 lg:py-40 md:mx-auto md:max-w-3xl lg:max-w-6xl">
+       <div className="grid items-center grid-cols-1 gap-2 overflow-hidden lg:grid-cols-2 lg:gap-4 md:gap-4">
       <div className="">
         <h3 className="text-2xl font-semibold md:text-3xl ">
           Co o nas myślą nasi klienci
@@ -26,7 +27,9 @@ export const Testimonials = () => {
         setSelected={setSelected}
         selected={selected}
       />
+    </div>
     </section>
+   
   );
 };
 
