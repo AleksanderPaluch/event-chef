@@ -7,26 +7,15 @@ interface CardProps {
   src?: string;
 }
 
-export const Card: React.FC<CardProps> = ({
-  title,
-  icon,
-  children,
-  src,
-}) => {
+export const Card: React.FC<CardProps> = ({ title, icon, children, src }) => {
   return (
-    <div className="relative flex flex-col h-56 p-2 overflow-hidden transition-colors md:h-80 group hover:bg-black/40">
-      
-
+    <div className="relative flex flex-col h-56 p-2 overflow-hidden transition-colors md:p-3 md:h-80 group hover:bg-black/40 ">
       <div className="z-10 flex items-center justify-between text-zinc-300 group-hover:text-zinc-50">
         <p className="text-lg font-medium">{title}</p>
         <span className="text-2xl">{icon}</span>
       </div>
 
-
-      <div className="relative z-10 flex-1 mt-4 md:mt-16 ">
-        {children}
-      </div>
-
+      <div className="relative z-10 flex-1 ">{children}</div>
 
       {src && (
         <div
@@ -43,7 +32,6 @@ export const Card: React.FC<CardProps> = ({
     </div>
   );
 };
-
 
 const Corners = () => (
   <>

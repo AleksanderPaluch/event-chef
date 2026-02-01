@@ -1,5 +1,6 @@
 import { Card } from "./Card";
 import { CardForWho } from "./Cards/CardForWho";
+import { CardMenu } from "./Cards/CardMenu";
 import { TitleCard } from "./TitleCard";
 
 import {
@@ -38,12 +39,14 @@ export const ModalText: React.FC<ModalTextProps> = ({
 }) => {
   return (
     <>
-      <div className="p-4 pt-14 md:p-18 lg:pt-20">
+      <div className="p-4 pt-14 md:p-18 lg:pt-12">
         <div className="grid grid-cols-1 mx-auto border divide-y max-w-7xl divide-neutral-700 border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
           <TitleCard icon={<FiInfo />} />
 
-          <Card title="Menu" src={menuIMG} icon={<FiBookOpen />} />
-                    <Card title="Dla kogo?" icon={<FiUsers />}>
+          <Card title="Menu" icon={<FiBookOpen />} src={menuIMG}>
+            <CardMenu menu={menu} />
+          </Card>
+          <Card title="Dla kogo?" icon={<FiUsers />}>
             <CardForWho
               chipsTitle={chipsTitle}
               chips={chips}

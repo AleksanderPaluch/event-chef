@@ -17,7 +17,7 @@ const data = {
 const modalData = {
   modalDescription:
     "Live cooking to interaktywny pokaz przygotowywania sushi na żywo, połączony z degustacją serwowaną w trakcie wydarzenia.",
-  menu: ["Futomak", "Uramaki", "Hosomaki"],
+  menu: ["Futomaki Philadelfia", "Uramaki z Krewetkami", "Hosomaki Spicy Tuna"],
   menuIMG: imageModal,
   modalProcess: [
     "ok. 1 godz. - przygotowanie stanowiska",
@@ -33,10 +33,12 @@ const modalData = {
   chipsTitle: "Dla Firm",
   chips: [
     "Eventy firmowe",
-    "Wigilie",
+ "Wigilie",
     "Targi",
     "Konferencje",
+
     "Premiery produktów",
+   
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",
   secondaryChips: ["Wesela", "Urodziny", "Domówki", "Wieczory panieńskie"],
