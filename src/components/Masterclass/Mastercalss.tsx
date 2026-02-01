@@ -25,7 +25,12 @@ const modalData = {
     "degustacja odbywa się na bieżąco podczas pokazu",
   ],
   organization: [
+        "indywidualne stanowiska",
+ 
+    "naukę sushi krok po kroku",
+    "tasting sushi uczestników",
     "brak potrzeby dostępu do wody i prądu",
+    
     "możliwość realizacji w dowolnym miejscu",
     "pełne zaplecze po stronie szefa kuchni",
   ],

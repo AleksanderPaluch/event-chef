@@ -18,12 +18,7 @@ const data = {
     "Menu degustacyjne",
     "Unikalne doświadczenie",
   ],
-  chipsTitle: "Dlaczego Omakase?",
-  chips: [
-    "Unikalne doświadczenie",
-    "Sezonowe i świeże składniki",
-    "Idealne na specjalne okazje",
-  ],
+
 };
 
 const modalData = {
