@@ -14,7 +14,7 @@ export const Card: React.FC<CardProps> = ({
   src,
 }) => {
   return (
-    <div className="relative flex flex-col h-56 p-3 overflow-hidden transition-colors md:h-80 group hover:bg-neutral-950">
+    <div className="relative flex flex-col h-56 p-2 overflow-hidden transition-colors md:h-80 group hover:bg-black/40">
       
 
       <div className="z-10 flex items-center justify-between text-zinc-300 group-hover:text-zinc-50">
@@ -23,7 +23,7 @@ export const Card: React.FC<CardProps> = ({
       </div>
 
 
-      <div className="relative z-10 flex-1 mt-4">
+      <div className="relative z-10 flex-1 mt-4 md:mt-16 ">
         {children}
       </div>
 

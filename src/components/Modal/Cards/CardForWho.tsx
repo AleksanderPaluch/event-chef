@@ -1,3 +1,5 @@
+import React from "react";
+
 interface CardForWhoProps {
   chipsTitle?: string;
   chips?: string[];
@@ -12,46 +14,47 @@ export const CardForWho: React.FC<CardForWhoProps> = ({
   secondaryChips = [],
 }) => {
   return (
-    <div className="flex justify-between text-md">
+    <div className="flex flex-col gap-6 px-3 text-md lg:px-6">
       {chipsTitle && (
-        <Section  title={chipsTitle}>
-          {chips.map((item, i) => (
-            <Item key={i}>{item}</Item>
-          ))}
-        </Section>
+        <Section title={chipsTitle} items={chips} />
       )}
 
       {secondaryChipsTitle && (
-        <Section secondary title={secondaryChipsTitle}>
-          {secondaryChips.map((item, i) => (
-            <Item key={i}>{item}</Item>
-          ))}
-        </Section>
+        <Section title={secondaryChipsTitle} items={secondaryChips} />
       )}
     </div>
   );
 };
 
+
 const Section = ({
   title,
-  children,
-  secondary = false,
+  items,
 }: {
   title: string;
-  children: React.ReactNode;
-  secondary?: boolean;
+  items: string[];
 }) => (
-  <div >
-    <p className="mb-3 text-xs tracking-wide uppercase lg:text-lg text-zinc-500">
+  <div>
+    <p className="text-xs tracking-wide uppercase lg:text-base text-zinc-500 ">
       {title}
     </p>
-    <div className={`${secondary ? "text-right" : ""} flex flex-col gap-1.5` }>{children}</div>
 
+    <div className="flex flex-wrap items-center gap-x-4">
+      {items.map((item, index) => (
+        <React.Fragment key={item}>
+          <Item>{item}</Item>
+          {index < items.length - 1  && (
+            <span className="text-zinc-600">•</span>
+          )}
+        </React.Fragment>
+      ))}
+    </div>
   </div>
 );
 
+
 const Item = ({ children }: { children: string }) => (
-  <span className="transition-colors text-zinc-300 group-hover:text-zinc-100">
+  <span className="transition-colors text-md text-zinc-300 group-hover:text-zinc-100 lg:text-xl">
     {children}
   </span>
 );

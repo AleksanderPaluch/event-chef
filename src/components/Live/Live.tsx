@@ -33,9 +33,9 @@ const modalData = {
   chipsTitle: "Dla Firm",
   chips: [
     "Eventy firmowe",
-    "Targi, Konferencje",
     "Wigilie",
-
+    "Targi",
+    "Konferencje",
     "Premiery produktów",
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",

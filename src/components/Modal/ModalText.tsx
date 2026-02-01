@@ -41,7 +41,9 @@ export const ModalText: React.FC<ModalTextProps> = ({
       <div className="p-4 pt-14 md:p-18 lg:pt-20">
         <div className="grid grid-cols-1 mx-auto border divide-y max-w-7xl divide-neutral-700 border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
           <TitleCard icon={<FiInfo />} />
-          <Card title="Dla kogo?" icon={<FiUsers />}>
+
+          <Card title="Menu" src={menuIMG} icon={<FiBookOpen />} />
+                    <Card title="Dla kogo?" icon={<FiUsers />}>
             <CardForWho
               chipsTitle={chipsTitle}
               chips={chips}
@@ -49,7 +51,6 @@ export const ModalText: React.FC<ModalTextProps> = ({
               secondaryChips={secondaryChips}
             />
           </Card>
-          <Card title="Menu" src={menuIMG} icon={<FiBookOpen />} />
         </div>
         <div className="grid grid-cols-1 mx-auto border-b divide-y max-w-7xl divide-neutral-700 border-x border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
           <Card title="Organizacja" icon={<FiSettings />} />
