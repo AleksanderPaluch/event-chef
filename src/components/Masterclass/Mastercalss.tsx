@@ -1,5 +1,6 @@
 import { Section } from "../Content/Section";
 import image from "../../assets/masterclass1.jpg";
+import imageModal from "../../assets/nigiri.jpeg";
 
 const data = {
   id: "Sushi Masterclass",
@@ -10,12 +11,25 @@ const data = {
   text: "Masterclass sushi to praktyczne warsztaty, podczas których uczestnicy tworzą własne rolki pod okiem doświadczonego sushi chefa",
   description:
     "Podczas masterclass szef kuchni krok po kroku pokaże techniki przygotowywania sushi, dzieląc się swoimi sekretami i poradami kulinarnymi.",
-    process: [
-    "Wprowadzenie",
-    "Pokaz",
-    "Praktyka",
-    "Degustacja"
+  process: ["Wprowadzenie", "Pokaz", "Praktyka", "Degustacja"],
+};
+
+const modalData = {
+  modalDescription:
+    "Live cooking to interaktywny pokaz przygotowywania sushi na żywo, połączony z degustacją serwowaną w trakcie wydarzenia.",
+  menu: ["Futomak", "Uramaki", "Hosomaki"],
+  menuIMG: imageModal,
+  modalProcess: [
+    "ok. 1 godz. - przygotowanie stanowiska",
+    "2-4 godz. - live sushi cooking",
+    "degustacja odbywa się na bieżąco podczas pokazu",
   ],
+  organization: [
+    "brak potrzeby dostępu do wody i prądu",
+    "możliwość realizacji w dowolnym miejscu",
+    "pełne zaplecze po stronie szefa kuchni",
+  ],
+  Access: ["Warszawa - bezpłatnie", "realizacje na terenie całej Polsk"],
   chipsTitle: "W ramach warsztatów zapewniamy:",
   chips: [
     "indywidualne stanowiska",
@@ -36,10 +50,16 @@ export const Mastercalss = () => {
       heading={data.heading}
       textTitle={data.textTitle}
       text={data.text}
-       description={data.description}
+      description={data.description}
       process={data.process}
-      chipsTitle={data.chipsTitle}
-      chips={data.chips}
+      modalDescription={modalData.modalDescription}
+      menu={modalData.menu}
+      menuIMG={modalData.menuIMG}
+      modalProcess={modalData.modalProcess}
+      organization={modalData.organization}
+      Access={modalData.Access}
+      chipsTitle={modalData.chipsTitle}
+      chips={modalData.chips}
     />
   );
 };
