@@ -20,10 +20,20 @@ const modalData = {
   menu: ["Futomak", "Uramaki", "Hosomaki"],
   menuIMG: imageModal,
   modalProcess: [
-    "ok. 1 godz. - przygotowanie stanowiska",
-    "2-4 godz. - live sushi cooking",
-    "degustacja odbywa się na bieżąco podczas pokazu",
-  ],
+  {
+    time: "ok. 1 godz.",
+    label: "Przygotowanie stanowiska",
+  },
+  {
+    time: "2-4 godz.",
+    label: "Live sushi cooking",
+  },
+  {
+    time: "w trakcie",
+    label: "Degustacja na bieżąco",
+  },
+],
+
   organization: [
         "indywidualne stanowiska",
  
@@ -34,7 +44,7 @@ const modalData = {
     "możliwość realizacji w dowolnym miejscu",
     "pełne zaplecze po stronie szefa kuchni",
   ],
-  access: ["Warszawa - bezpłatnie", "realizacje na terenie całej Polsk"],
+
   chipsTitle: "W ramach warsztatów zapewniamy:",
   chips: [
     "indywidualne stanowiska",
@@ -62,7 +72,7 @@ export const Mastercalss = () => {
       menuIMG={modalData.menuIMG}
       modalProcess={modalData.modalProcess}
       organization={modalData.organization}
-      access={modalData.access}
+
       chipsTitle={modalData.chipsTitle}
       chips={modalData.chips}
     />

@@ -11,14 +11,17 @@ interface TextContentProps {
   modalDescription: string;
   menu: string[];
   menuIMG: string;
-  modalProcess: string[];
+  modalProcess?: ProcessItem[];
   organization: string[];
-  access: string[];
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
   secondaryChips?: string[];
+}
 
+interface ProcessItem {
+  time: string;
+  label: string;
 }
 
 export const TextContent: React.FC<TextContentProps> = ({
@@ -31,12 +34,10 @@ export const TextContent: React.FC<TextContentProps> = ({
   menuIMG,
   modalProcess,
   organization,
-  access,
   chipsTitle = "",
   chips = [],
   secondaryChipsTitle = "",
   secondaryChips = [],
-
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -77,7 +78,6 @@ export const TextContent: React.FC<TextContentProps> = ({
           menuIMG={menuIMG}
           modalProcess={modalProcess}
           organization={organization}
-          access={access}
           chipsTitle={chipsTitle}
           chips={chips}
           secondaryChipsTitle={secondaryChipsTitle}

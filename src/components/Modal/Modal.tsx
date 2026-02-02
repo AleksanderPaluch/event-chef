@@ -17,24 +17,27 @@ interface Props {
   modalDescription: string;
   menu: string[];
   menuIMG: string;
-  modalProcess: string[];
+  modalProcess?: ProcessItem[];
   organization: string[];
-  access: string[];
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
   secondaryChips?: string[];
 }
 
+interface ProcessItem {
+  time: string;
+  label: string;
+}
+
 export const Modal = ({
   open,
   setOpen,
- modalDescription,
+  modalDescription,
   menu,
   menuIMG,
   modalProcess,
   organization,
-  access,
   chipsTitle,
   chips,
   secondaryChipsTitle = "",
@@ -106,11 +109,10 @@ export const Modal = ({
         <div className="relative h-full overflow-y-auto modal-scroll ">
           <ModalText
             modalDescription={modalDescription}
-          menu={menu}
-          menuIMG={menuIMG}
-          modalProcess={modalProcess}
-          organization={organization}
-          access={access}
+            menu={menu}
+            menuIMG={menuIMG}
+            modalProcess={modalProcess}
+            organization={organization}
             chipsTitle={chipsTitle}
             secondaryChipsTitle={secondaryChipsTitle}
             chips={chips}

@@ -20,25 +20,33 @@ const modalData = {
   menu: ["Futomaki Philadelfia", "Uramaki z Krewetkami", "Hosomaki Spicy Tuna"],
   menuIMG: imageModal,
   modalProcess: [
-    "ok. 1 godz. - przygotowanie stanowiska",
-    "2-4 godz. - live sushi cooking",
-    "degustacja odbywa się na bieżąco podczas pokazu",
+    {
+      time: "ok. 1 godz.",
+      label: "Przygotowanie stanowiska",
+    },
+    {
+      time: "2-4 godz.",
+      label: "Live sushi cooking",
+    },
+    {
+      time: "w trakcie",
+      label: "Degustacja na bieżąco",
+    },
   ],
+
   organization: [
     "Brak potrzeby dostępu do wody i prądu",
     "Możliwość realizacji w dowolnym miejscu",
     "Pełne zaplecze po stronie szefa kuchni",
   ],
-  access: ["Warszawa - bezpłatnie", "realizacje na terenie całej Polsk"],
+
   chipsTitle: "Dla Firm",
   chips: [
     "Eventy firmowe",
- "Wigilie",
+    "Wigilie",
     "Targi",
     "Konferencje",
-
     "Premiery produktów",
-   
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",
   secondaryChips: ["Wesela", "Urodziny", "Domówki", "Wieczory panieńskie"],
@@ -60,7 +68,6 @@ export const Live = () => {
       menuIMG={modalData.menuIMG}
       modalProcess={modalData.modalProcess}
       organization={modalData.organization}
-      access={modalData.access}
       chipsTitle={modalData.chipsTitle}
       chips={modalData.chips}
       secondaryChipsTitle={modalData.secondaryChipsTitle}

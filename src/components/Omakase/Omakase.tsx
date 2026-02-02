@@ -26,17 +26,26 @@ const modalData = {
     "Live cooking to interaktywny pokaz przygotowywania sushi na żywo, połączony z degustacją serwowaną w trakcie wydarzenia.",
   menu: ["Futomak", "Uramaki", "Hosomaki"],
   menuIMG: imageModal,
-  modalProcess: [
-    "ok. 1 godz. - przygotowanie stanowiska",
-    "2-4 godz. - live sushi cooking",
-    "degustacja odbywa się na bieżąco podczas pokazu",
-  ],
+   modalProcess: [
+  {
+    time: "ok. 1 godz.",
+    label: "Przygotowanie stanowiska",
+  },
+  {
+    time: "2-4 godz.",
+    label: "Live sushi cooking",
+  },
+  {
+    time: "w trakcie",
+    label: "Degustacja na bieżąco",
+  },
+],
   organization: [
     "brak potrzeby dostępu do wody i prądu",
     "możliwość realizacji w dowolnym miejscu",
     "pełne zaplecze po stronie szefa kuchni",
   ],
-  access: ["Warszawa - bezpłatnie", "realizacje na terenie całej Polsk"],
+
   chipsTitle: "Dlaczego Omakase?",
   chips: [
     "Unikalne doświadczenie",
@@ -61,7 +70,7 @@ export const Omakase = () => {
       menuIMG={modalData.menuIMG}
       modalProcess={modalData.modalProcess}
       organization={modalData.organization}
-      access={modalData.access}
+
       chipsTitle={modalData.chipsTitle}
       chips={modalData.chips}
     />

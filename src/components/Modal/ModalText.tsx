@@ -1,14 +1,16 @@
 import { Card } from "./Card";
+import { CardAccess } from "./Cards/CardAccess";
 import { CardForWho } from "./Cards/CardForWho";
 import { CardMenu } from "./Cards/CardMenu";
 import { CardOrganization } from "./Cards/CardOrganization";
+import { CardProcess } from "./Cards/CardProcess";
 import { TitleCard } from "./TitleCard";
 
 import {
   FiBookOpen,
   FiInfo,
   FiUsers,
-  FiActivity,
+  FiWatch,
   FiSettings,
   FiMapPin,
 } from "react-icons/fi";
@@ -17,13 +19,17 @@ interface ModalTextProps {
   modalDescription: string;
   menu: string[];
   menuIMG: string;
-  modalProcess: string[];
+  modalProcess?: ProcessItem[];
   organization: string[];
-  access: string[];
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
   secondaryChips?: string[];
+}
+
+interface ProcessItem {
+  time: string;
+  label: string;
 }
 
 export const ModalText: React.FC<ModalTextProps> = ({
@@ -32,7 +38,6 @@ export const ModalText: React.FC<ModalTextProps> = ({
   menuIMG,
   modalProcess,
   organization,
-  access,
   chipsTitle,
   chips,
   secondaryChipsTitle = "",
@@ -42,7 +47,7 @@ export const ModalText: React.FC<ModalTextProps> = ({
     <>
       <div className="p-4 pt-14 md:p-18 lg:pt-12">
         <div className="grid grid-cols-1 mx-auto border divide-y max-w-7xl divide-neutral-700 border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
-          <TitleCard icon={<FiInfo />} />
+          <TitleCard icon={<FiInfo />} modalDescription={modalDescription} />
 
           <Card title="Menu" icon={<FiBookOpen />} src={menuIMG}>
             <CardMenu menu={menu} />
@@ -61,8 +66,13 @@ export const ModalText: React.FC<ModalTextProps> = ({
             <CardOrganization items={organization} />
           </Card>
 
-          <Card title="Przebieg" icon={<FiActivity />} />
-          <Card title="Dojazd" icon={<FiMapPin />} />
+          <Card title="Przebieg" icon={<FiWatch />}>
+            <CardProcess modalProcess={modalProcess} />
+          </Card>
+
+          <Card title="Dojazd" icon={<FiMapPin />}>
+            <CardAccess />
+          </Card>
         </div>
       </div>
     </>

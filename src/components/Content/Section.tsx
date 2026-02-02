@@ -1,4 +1,3 @@
-
 import { ImageContent } from "./ImageContent";
 import { TextContent } from "./TextContent";
 
@@ -14,14 +13,18 @@ interface SectionProps {
   modalDescription?: string;
   menu?: string[];
   menuIMG?: string;
-  modalProcess?: string[];
+  modalProcess?: ProcessItem[];
   organization?: string[];
-  access?: string[];
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
   secondaryChips?: string[];
   stats?: boolean;
+}
+
+interface ProcessItem {
+  time: string;
+  label: string;
 }
 
 export const Section: React.FC<SectionProps> = ({
@@ -38,7 +41,7 @@ export const Section: React.FC<SectionProps> = ({
   menuIMG = "",
   modalProcess = [],
   organization = [],
-  access = [],
+
   chipsTitle,
   chips,
   secondaryChipsTitle,
@@ -54,7 +57,7 @@ export const Section: React.FC<SectionProps> = ({
         stats={stats}
       >
         {stats ? (
-"      <Testimonials />    "
+          "      <Testimonials />    "
         ) : (
           <TextContent
             textTitle={textTitle}
@@ -66,7 +69,6 @@ export const Section: React.FC<SectionProps> = ({
             menuIMG={menuIMG}
             modalProcess={modalProcess}
             organization={organization}
-            access={access}
             chipsTitle={chipsTitle}
             chips={chips}
             secondaryChipsTitle={secondaryChipsTitle}
