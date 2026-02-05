@@ -20,7 +20,7 @@ export const CardMenu: React.FC<CardMenuProps> = ({
       </p>
 
       {/* Menu list */}
-      <div className="flex flex-col items-center text-md gap-x-2 gap-y-0 text-zinc-300 md:text-md lg:text-xl">
+      <div className="flex flex-col items-center text-md gap-x-2 gap-y-0 text-zinc-300 lg:text-xl">
         {menu.map((item, index) => (
           <React.Fragment key={item}>
             <span className="transition-colors group-hover:text-zinc-50">

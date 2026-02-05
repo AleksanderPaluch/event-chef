@@ -13,7 +13,7 @@ export const CardOrganization: React.FC<CardOrganizationProps> = ({
         Minimalne wymagania, pełna swoboda
       </p>
 
-      <ul className="flex flex-col gap-3 mt-7 lg:gap-4 lg:mt-12 text-zinc-300 text-md lg:text-lg md:text-sm">
+      <ul className="flex flex-col gap-3 tracking-tight mt-7 lg:gap-4 lg:mt-12 text-zinc-300 text-md lg:text-xl md:text-sm">
         {items.map((item, index) => (
           <li
             key={index}
