@@ -30,7 +30,7 @@ export const CardForWho: React.FC<CardForWhoProps> = ({
 
 const Section = ({ title, items }: { title: string; items: string[] }) => (
   <div>
-    <p className="text-xs italic font-light tracking-wide lg:text-sm text-zinc-500">{title}</p>
+    <p className="text-sm italic font-light tracking-wide lg:text-sm text-zinc-500">{title}</p>
 
     <div className="flex flex-wrap items-center gap-x-1 gap-y-1 text-md lg:text-xl md:text-sm">
       {items.map((item, index) => (

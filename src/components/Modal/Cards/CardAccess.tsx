@@ -5,7 +5,7 @@ export const CardAccess = () => {
         <p className="h-5 transition-colors lg:h-6 text-md text-zinc-300 lg:text-xl group-hover:text-zinc-50 md:text-sm" >
           Warszawa
         </p>
-        <span className="text-xs italic font-light tracking-wide lg:text-sm text-zinc-500">
+        <span className="text-sm italic font-light tracking-wide lg:text-sm text-zinc-500">
           Darmowy dojazd
         </span>
       </div>
@@ -16,7 +16,7 @@ export const CardAccess = () => {
         <p className="h-5 transition-colors lg:h-6 text-md text-zinc-300 lg:text-xl group-hover:text-zinc-50 md:text-sm">
           Poza Warszawą
         </p>
-        <span className="text-xs italic font-light tracking-wide lg:text-sm text-zinc-500">
+        <span className="text-sm italic font-light tracking-wide lg:text-sm text-zinc-500">
           2 zł / km
         </span>
       </div>

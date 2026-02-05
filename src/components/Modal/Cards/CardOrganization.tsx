@@ -9,7 +9,7 @@ export const CardOrganization: React.FC<CardOrganizationProps> = ({
 }) => {
   return (
     <div className="">
-      <p className="text-xs italic font-light tracking-wide lg:text-sm text-zinc-500">
+      <p className="text-sm italic font-light tracking-wide lg:text-sm text-zinc-500">
         Minimalne wymagania, pełna swoboda
       </p>
 

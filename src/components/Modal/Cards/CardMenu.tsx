@@ -17,12 +17,12 @@ export const CardMenu: React.FC<CardMenuProps> = ({
   return (
     <div className="flex flex-col justify-between h-full ">
       {omakase ? (
-        <p className="text-xs italic text-zinc-500 lg:text-sm">
+        <p className="text-sm italic text-zinc-500 lg:text-sm">
            Tworzone indywidualnie dopasowane do charakteru
           wydarzenia*
         </p>
       ) : (
-        <p className="text-xs italic fon text-zinc-500 lg:text-sm ">{info}</p>
+        <p className="text-sm italic fon text-zinc-500 lg:text-sm ">{info}</p>
       )}
 
       {/* Menu list */}
@@ -44,7 +44,7 @@ export const CardMenu: React.FC<CardMenuProps> = ({
       {omakase ? (
         <span className="text-zinc-950">.</span>
       ) : (
-        <p className="text-xs italic text-zinc-500 lg:text-sm">{note}</p>
+        <p className="text-sm italic text-zinc-500 lg:text-sm">{note}</p>
       )}
 
       {/* <p className="text-xs italic text-zinc-500 lg:text-sm">

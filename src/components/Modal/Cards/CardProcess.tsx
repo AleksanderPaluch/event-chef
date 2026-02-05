@@ -19,7 +19,7 @@ export const CardProcess: React.FC<CardProcessProps> = ({ modalProcess = [] }) =
           </p>
 
           {index < modalProcess.length - 0 && (
-            <span className="mb-2 text-xs italic font-light tracking-wide lg:text-sm text-zinc-500">
+            <span className="mb-2 text-sm italic font-light tracking-wide lg:text-sm text-zinc-500">
               {item.time}
             </span>
           )}
