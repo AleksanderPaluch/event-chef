@@ -8,7 +8,7 @@ const data = {
 
   subheading: "Jedyna w swoim rodzaju kolacja sushi",
   heading: "Omakase",
-  textTitle: "Omakase?",
+  textTitle: "Omakase",
   text: "Omakase to wyjątkowe doświadczenie kulinarne, które pozwala Ci zaufać szefowi kuchni i cieszyć się starannie dobranym menu.",
   description:
     "Omakase to kameralna kolacja, w której goście powierzają wybór dań szefowi kuchni, odkrywając smaki starannie dobrane specjalnie na ten wieczór.",
@@ -18,39 +18,58 @@ const data = {
     "Menu degustacyjne",
     "Unikalne doświadczenie",
   ],
-
 };
 
 const modalData = {
   modalDescription:
-    "Live cooking to interaktywny pokaz przygotowywania sushi na żywo, połączony z degustacją serwowaną w trakcie wydarzenia.",
-  menu: ["Futomak", "Uramaki", "Hosomaki"],
-  menuIMG: imageModal,
-   modalProcess: [
-  {
-    time: "ok. 1 godz.",
-    label: "Przygotowanie stanowiska",
-  },
-  {
-    time: "2-4 godz.",
-    label: "Live sushi cooking",
-  },
-  {
-    time: "w trakcie",
-    label: "Degustacja na bieżąco",
-  },
-],
-  organization: [
-    "brak potrzeby dostępu do wody i prądu",
-    "możliwość realizacji w dowolnym miejscu",
-    "pełne zaplecze po stronie szefa kuchni",
+    "Omakase to ekskluzywne doświadczenie kulinarne, w którym goście oddają się w ręce szefa kuchni. Menu powstaje na bieżąco, w oparciu o najlepsze, sezonowe produkty i autorską wizję sushi mastera.",
+
+  menu: [
+ 
+    "Autorskie menu degustacyjne",
+    "Premium seafood",
+    "Unikalne dodatki i sosy",
   ],
 
-  chipsTitle: "Dlaczego Omakase?",
+  menuIMG: imageModal,
+
+  modalProcess: [
+    {
+      time: "1-2 godz.",
+      label: "Przygotowanie stanowiska i produktów",
+    },
+    {
+      time: "2-3 godz.",
+      label: "Serwis Omakase na żywo",
+    },
+    {
+      time: "w trakcie",
+      label: "Opowieść o produktach i technikach",
+    },
+  ],
+
+  organization: [
+    "pełne zaplecze po stronie szefa kuchni",
+    "produkty najwyższej jakości",
+    "indywidualny serwis dla gości",
+    "możliwość realizacji w dowolnej lokalizacji",
+
+  ],
+
+  chipsTitle: "Dla Firm",
   chips: [
-    "Unikalne doświadczenie",
-    "Sezonowe i świeże składniki",
-    "Idealne na specjalne okazje",
+    "Spotkania VIP",
+    "Eventy premium",
+    "Kolacje biznesowe",
+    "Zamknięte wydarzenia",
+  ],
+
+  secondaryChipsTitle: "Dla Osób Prywatnych",
+  secondaryChips: [
+    "Kolacje prywatne",
+    "Rocznice",
+    "Urodziny premium",
+    "Wyjątkowe okazje",
   ],
 };
 
@@ -70,9 +89,10 @@ export const Omakase = () => {
       menuIMG={modalData.menuIMG}
       modalProcess={modalData.modalProcess}
       organization={modalData.organization}
-
       chipsTitle={modalData.chipsTitle}
       chips={modalData.chips}
+      secondaryChipsTitle={modalData.secondaryChipsTitle}
+      secondaryChips={modalData.secondaryChips}
     />
   );
 };

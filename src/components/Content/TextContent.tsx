@@ -45,7 +45,7 @@ export const TextContent: React.FC<TextContentProps> = ({
     <Motion>
       <div className="px-3 md:px-8 pt-6 pb-28 lg:py-40 md:mx-auto   md:max-w-[90%]  lg:max-w-6xl ">
         <h3 className="w-[320px] mx-auto mb-6 text-5xl font-semibold text-center lg:text-6xl md:w-full  leading-tight">
-          Czym jest <span className="text-5xl lg:text-7xl"> {textTitle}</span>
+          Czym jest <span className="text-5xl lg:text-7xl"> {textTitle}?</span>
         </h3>
 
         <p className="max-w-2xl mb-12 italic font-light text-justify md:mx-auto md:text-center text-md lg:mb-24 lg:text-xl text-zinc-500">
@@ -71,6 +71,7 @@ export const TextContent: React.FC<TextContentProps> = ({
         </div>
 
         <Modal
+        textTitle={textTitle}
           open={open}
           setOpen={setOpen}
           modalDescription={modalDescription}

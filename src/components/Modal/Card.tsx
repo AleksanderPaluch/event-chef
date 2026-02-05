@@ -15,7 +15,7 @@ export const Card: React.FC<CardProps> = ({ title, icon, children, src }) => {
         <span className="text-lg lg:text-2xl">{icon}</span>
       </div>
 
-      <div className="flex flex-col h-full gap-4 lg:tracking-wide lg:px-2">{children}</div>
+      <div className="flex flex-col h-full gap-4 lg:px-0">{children}</div>
 
       {src && (
         <div

@@ -18,7 +18,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
       variants={menuVariants}
       initial="closed"
       animate={isOpen ? "open" : "closed"}
-      className="absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg bg-zinc-950/95 backdrop-blur top-full"
+      className="absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg bg-zinc-950 top-full"
     >
       <MenuLink  setIsOpen={setIsOpen} text="Home" href="Home"/>
       <MenuLink  setIsOpen={setIsOpen} text="Live Cooking" href="Live Cooking"/>

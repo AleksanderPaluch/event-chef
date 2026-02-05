@@ -7,7 +7,7 @@ const data = {
   imgUrl: image,
   subheading: "Warsztaty, które uczą, bawią i integrują",
   heading: "Sushi Masterclass",
-  textTitle: "Masterclass?",
+  textTitle: "Masterclass",
   text: "Masterclass sushi to praktyczne warsztaty, podczas których uczestnicy tworzą własne rolki pod okiem doświadczonego sushi chefa",
   description:
     "Podczas masterclass szef kuchni krok po kroku pokaże techniki przygotowywania sushi, dzieląc się swoimi sekretami i poradami kulinarnymi.",
@@ -16,43 +16,48 @@ const data = {
 
 const modalData = {
   modalDescription:
-    "Live cooking to interaktywny pokaz przygotowywania sushi na żywo, połączony z degustacją serwowaną w trakcie wydarzenia.",
-  menu: ["Futomak", "Uramaki", "Hosomaki"],
-  menuIMG: imageModal,
-  modalProcess: [
-  {
-    time: "ok. 1 godz.",
-    label: "Przygotowanie stanowiska",
-  },
-  {
-    time: "2-4 godz.",
-    label: "Live sushi cooking",
-  },
-  {
-    time: "w trakcie",
-    label: "Degustacja na bieżąco",
-  },
-],
+    "Masterclass sushi to praktyczne warsztaty, podczas których uczestnicy uczą się przygotowywania sushi od podstaw pod okiem doświadczonego sushi mastera.",
 
-  organization: [
-        "indywidualne stanowiska",
- 
-    "naukę sushi krok po kroku",
-    "tasting sushi uczestników",
-    "brak potrzeby dostępu do wody i prądu",
-    
-    "możliwość realizacji w dowolnym miejscu",
-    "pełne zaplecze po stronie szefa kuchni",
+  menu: ["Futomaki Philadelfia", "Uramaki z Krewetkami", "Hosomaki Spicy Tuna"],
+  menuIMG: imageModal,
+
+  modalProcess: [
+    {
+      time: "ok. 1 godz.",
+      label: "Przygotowanie stanowisk i wprowadzenie",
+    },
+    {
+      time: "2 - 3 godz.",
+      label: "Warsztaty sushi krok po kroku",
+    },
+    {
+      time: "1 godz.",
+      label: "Degustacja przygotowanych rolek",
+    },
   ],
 
-  chipsTitle: "W ramach warsztatów zapewniamy:",
+  organization: [
+    "indywidualne stanowiska dla uczestników",
+    "komplet produktów i narzędzi",
+    "opieka sushi chefa",
+    "możliwość realizacji w dowolnej lokalizacji",
+  ],
+
+  chipsTitle: "Dla Firm",
   chips: [
-    "indywidualne stanowiska",
-    "produkty premium",
-    "naukę sushi krok po kroku",
-    "tasting sushi uczestników",
-    "przyjazną atmosferę",
-    "pamiątkowe zdjęcia",
+    "Integracje zespołowe",
+    "Eventy firmowe",
+    "Szkolenia kulinarne",
+    "Spotkania biznesowe",
+  ],
+
+  secondaryChipsTitle: "Dla Osób Prywatnych",
+  secondaryChips: [
+    "Urodziny",
+    "Spotkania z przyjaciółmi",
+    "Wieczory tematyczne",
+
+    "Prezent kulinarny",
   ],
 };
 
@@ -72,9 +77,10 @@ export const Mastercalss = () => {
       menuIMG={modalData.menuIMG}
       modalProcess={modalData.modalProcess}
       organization={modalData.organization}
-
       chipsTitle={modalData.chipsTitle}
       chips={modalData.chips}
+      secondaryChipsTitle={modalData.secondaryChipsTitle}
+      secondaryChips={modalData.secondaryChips}
     />
   );
 };

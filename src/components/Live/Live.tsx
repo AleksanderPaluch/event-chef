@@ -7,7 +7,7 @@ const data = {
   imgUrl: image,
   subheading: "Wyjątkowe Doświadczenie Kulinarne na Twoim Wydarzeniu",
   heading: "Sushi Live Cooking",
-  textTitle: "Live Cooking?",
+  textTitle: "Live Cooking",
   text: "Live cooking to pokaz przygotowywania sushi na żywo, prosto przed Twoimi gośćmi. To połączenie gotowania i efektownego show.",
   description:
     "Pracujemy na produktach premium i dopasujemy menu do harakteru wydarzenia",

@@ -12,6 +12,7 @@ import { ModalText } from "./ModalText";
 import { Button } from "../Button/Button";
 
 interface Props {
+  textTitle: string;
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   modalDescription: string;
@@ -31,6 +32,7 @@ interface ProcessItem {
 }
 
 export const Modal = ({
+  textTitle,
   open,
   setOpen,
   modalDescription,
@@ -108,6 +110,7 @@ export const Modal = ({
         {/* Scrollable content */}
         <div className="relative h-full overflow-y-auto modal-scroll ">
           <ModalText
+          textTitle={textTitle}
             modalDescription={modalDescription}
             menu={menu}
             menuIMG={menuIMG}
