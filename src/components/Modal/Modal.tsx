@@ -81,7 +81,7 @@ export const Modal = ({
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         transition={{ ease: "easeInOut", duration: 0.3 }}
-        className="fixed bottom-0 left-0 right-0 h-[100vh] overflow-hidden rounded-t-3xl bg-zinc-950/80 backdrop-blur-md"
+        className="fixed bottom-0 left-0 right-0 h-[100vh] overflow-hidden  bg-zinc-950 backdrop-blur-md"
         style={{ y }}
         drag="y"
         dragControls={controls}
@@ -95,15 +95,15 @@ export const Modal = ({
         }}
       >
         {/* Drag handle */}
-        {/* <div className="absolute top-0 left-0 right-0 z-30 flex justify-center p-4 bg-zinc-950/20 backdrop:blur">
+        <div className="absolute top-0 left-0 right-0 z-30 flex justify-center p-4 bg-black/95 backdrop:blur-3xl">
           <button
             onPointerDown={(e) => controls.start(e)}
-            className="h-2 rounded-full w-14 cursor-grab touch-none bg-zinc-700 active:cursor-grabbing"
+            className="h-2 rounded-full w-14 cursor-grab touch-none bg-zinc-900 active:cursor-grabbing"
           />
-        </div> */}
+        </div>
 
         {/* Close button */}
-        <div className="absolute top-0 z-40 right-1 lg:top-0 lg:right-4">
+        <div className="absolute top-0 right-[-0px] z-40 lg:top-0 lg:right-16">
           <Button ghost modal text="" onClick={handleClose} />
         </div>
 

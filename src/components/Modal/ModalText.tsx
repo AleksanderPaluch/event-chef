@@ -47,7 +47,7 @@ export const ModalText: React.FC<ModalTextProps> = ({
 }) => {
   return (
     <>
-      <div className="p-4 pt-14 md:p-18 lg:pt-12">
+      <div className="p-4 px-5 pt-14 md:p-18 lg:pt-12">
 
         <div className="grid grid-cols-1 mx-auto border divide-y max-w-7xl divide-neutral-700 border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
           <TitleCard icon={<FiInfo />} textTitle={textTitle} modalDescription={modalDescription} />
