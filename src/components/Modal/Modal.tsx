@@ -12,7 +12,7 @@ import { ModalText } from "./ModalText";
 import { Button } from "../Button/Button";
 
 interface Props {
-  textTitle: string;
+  textTitle?: string;
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   modalDescription: string;

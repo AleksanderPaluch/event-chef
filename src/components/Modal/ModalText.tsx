@@ -16,7 +16,7 @@ import {
 } from "react-icons/fi";
 
 interface ModalTextProps {
-  textTitle: string;
+  textTitle?: string;
   modalDescription: string;
   menu: string[];
   menuIMG: string;
