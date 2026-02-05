@@ -1,3 +1,4 @@
+import { Testimonials } from "../Testimonials/Testimonials";
 import { ImageContent } from "./ImageContent";
 import { TextContent } from "./TextContent";
 
@@ -57,7 +58,7 @@ export const Section: React.FC<SectionProps> = ({
         stats={stats}
       >
         {stats ? (
-          "      <Testimonials />    "
+               <Testimonials />   
         ) : (
           <TextContent
             textTitle={textTitle}
