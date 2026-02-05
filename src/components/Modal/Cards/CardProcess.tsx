@@ -11,15 +11,15 @@ interface CardProcessProps {
 
 export const CardProcess: React.FC<CardProcessProps> = ({ modalProcess = [] }) => {
   return (
-    <div className="flex flex-col items-center uppercase text-md gap-x-2 gap-y-0 text-zinc-300 md:text-md lg:text-xl">
+    <div className="flex flex-col items-center justify-center h-full mb-4 text-md text-zinc-300 lg:text-xl">
       {modalProcess.map((item, index) => (
         <React.Fragment key={`${item.label}-${index}`}>
-          <span className="transition-colors group-hover:text-zinc-100">
+          <span className="transition-colors group-hover:text-zinc-50">
             {item.label}
           </span>
 
           {index < modalProcess.length - 0 && (
-            <span className="text-zinc-600">
+            <span className="mb-2 text-xs italic font-light tracking-wide lg:text-sm text-zinc-500">
               {item.time}
             </span>
           )}

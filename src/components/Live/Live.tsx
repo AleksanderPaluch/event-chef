@@ -26,11 +26,11 @@ const modalData = {
     },
     {
       time: "2-4 godz.",
-      label: "Live sushi cooking",
+      label: "Live Sushi Cooking",
     },
     {
       time: "w trakcie",
-      label: "Degustacja na bieżąco",
+      label: "Degustacja",
     },
   ],
 
@@ -43,10 +43,11 @@ const modalData = {
   chipsTitle: "Dla Firm",
   chips: [
     "Eventy firmowe",
-    "Wigilie",
-    "Targi",
     "Konferencje",
     "Premiery produktów",
+    "Targi",
+    "Wigilie",
+      
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",
   secondaryChips: ["Wesela", "Urodziny", "Domówki", "Wieczory panieńskie"],

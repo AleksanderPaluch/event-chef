@@ -93,7 +93,7 @@ export const Modal = ({
         }}
       >
         {/* Drag handle */}
-        <div className="absolute top-0 left-0 right-0 z-10 flex justify-center p-4 bg-zinc-900">
+        <div className="absolute top-0 left-0 right-0 z-30 flex justify-center p-4 bg-zinc-900">
           <button
             onPointerDown={(e) => controls.start(e)}
             className="h-2 rounded-full w-14 cursor-grab touch-none bg-zinc-700 active:cursor-grabbing"
@@ -101,7 +101,7 @@ export const Modal = ({
         </div>
 
         {/* Close button */}
-        <div className="absolute top-0 z-20 right-1 lg:top-0 lg:right-4">
+        <div className="absolute top-0 z-40 right-1 lg:top-0 lg:right-4">
           <Button ghost modal text="" onClick={handleClose} />
         </div>
 

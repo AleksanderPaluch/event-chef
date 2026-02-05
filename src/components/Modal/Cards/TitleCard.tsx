@@ -7,19 +7,20 @@ interface CardProps {
 
 export const TitleCard: React.FC<CardProps> = ({ icon, modalDescription }) => {
   return (
-    <div className="relative flex flex-col justify-between text-zinc-300 group bg-neutral-950 md:h-80 md:p-9">
-      <h2 className="text-4xl leading-tight uppercase">
+    <div className="relative flex flex-col justify-between px-4 py-2 text-zinc-300 group bg-neutral-950 lg:h-80 md:p-9">
+      <h2 className="text-3xl leading-tight uppercase lg:text-4xl">
         Poznaj
         <br />
         <span className="transition-colors duration-500 group-hover:text-red-500">
           Live Cooking
         </span>
       </h2>
-      <p>{modalDescription}</p>
+      {/* <p>{modalDescription}</p> */}
 
-      <span className="absolute z-10 text-2xl transition-colors right-3 top-4 text-zinc-300 group-hover:text-zinc-50">
+      <span className="absolute z-10 text-2xl transition-colors right-2 top-2 text-zinc-300 group-hover:text-zinc-50">
         {icon}
       </span>
     </div>
   );
 };
+ 

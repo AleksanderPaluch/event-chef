@@ -9,13 +9,13 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ title, icon, children, src }) => {
   return (
-    <div className="relative flex flex-col h-56 p-2 overflow-hidden transition-colors md:p-3 md:h-80 group hover:bg-black/40 ">
-      <div className="z-10 flex items-center justify-between text-zinc-300 group-hover:text-zinc-50">
-        <p className="text-lg font-medium">{title}</p>
-        <span className="text-2xl">{icon}</span>
+    <div className="relative flex flex-col h-56 p-2 overflow-hidden transition-colors lg:h-80 group hover:bg-black/40 ">
+      <div className="z-10 flex items-center justify-between mb-1 text-zinc-300 group-hover:text-zinc-50 md:mb-2">
+        <p className="font-medium text-md lg:text-lg">{title}</p>
+        <span className="text-lg lg:text-2xl">{icon}</span>
       </div>
 
-      <div className="relative z-10 flex-1 ">{children}</div>
+      <div className="flex flex-col h-full gap-4 lg:tracking-wide lg:px-2">{children}</div>
 
       {src && (
         <div

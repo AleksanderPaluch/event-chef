@@ -1,22 +1,22 @@
 export const CardAccess = () => {
   return (
-    <div className="flex flex-col gap-6 mt-6 text-center">
+    <div className="flex flex-col justify-center h-full gap-2 mb-6 text-center lg:gap-6">
       <div>
-        <p className="text-zinc-200 lg:text-xl" >
+        <p className="h-5 transition-colors lg:h-6 text-md text-zinc-300 lg:text-xl group-hover:text-zinc-50" >
           Warszawa
         </p>
-        <span className="mb-1 text-xs tracking-wide uppercase text-zinc-500">
+        <span className="text-xs italic font-light tracking-wide lg:text-sm text-zinc-500">
           Darmowy dojazd
         </span>
       </div>
 
-      <div className="h-px bg-zinc-800" />
+      <div className="h-px bg-zinc-900 w-[60%] mx-auto" />
 
       <div>
-        <p className="mb-1 text-xs tracking-wide uppercase text-zinc-500">
+        <p className="h-5 transition-colors lg:h-6 text-md text-zinc-300 lg:text-xl group-hover:text-zinc-50">
           Poza Warszawą
         </p>
-        <span className="text-zinc-200 lg:text-xl">
+        <span className="text-xs italic font-light tracking-wide lg:text-sm text-zinc-500">
           2 zł / km
         </span>
       </div>
