@@ -5,7 +5,7 @@ interface CardProps {
   modalDescription: string;
 }
 
-export const TitleCard: React.FC<CardProps> = ({ icon, modalDescription }) => {
+export const TitleCard: React.FC<CardProps> = ({ icon }) => {
   return (
     <div className="relative flex flex-col justify-between px-4 py-2 text-zinc-300 group bg-neutral-950 lg:h-80 md:p-9">
       <h2 className="text-3xl leading-tight uppercase lg:text-4xl">
