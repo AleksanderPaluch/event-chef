@@ -21,7 +21,7 @@ interface FeatureGroup {
   tab: "live" | "masterclass" | "omakase";
   rows: Row[];
   features: string[];
-  featuresByVariant?: string[]; // 👈 ТІЛЬКИ для wesela
+  featuresByVariant?: string[]; 
 }
 
 
@@ -78,9 +78,9 @@ const FEATURES: FeatureGroup[] = [
       "Serwowanie dań bezpośrednio przez szefa kuchni",
     ],
     rows: [
-      { people: "4 - 6", premium: "350" },
-      { people: "7 - 10", premium: "320" },
-      { people: "11 - 15", premium: "300" },
+      { people: "4 - 6", basic: "", premium: "350" },
+      { people: "7 - 10", basic: "", premium: "320" },
+      { people: "11 - 15", basic: "", premium: "300" },
     ],
   },
 ];

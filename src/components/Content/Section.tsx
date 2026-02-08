@@ -1,4 +1,4 @@
-import { Testimonials } from "./Testimonials/Testimonials";
+
 import { ImageContent } from "./ImageContent";
 import { TextContent } from "./TextContent";
 
