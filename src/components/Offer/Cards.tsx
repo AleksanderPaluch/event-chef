@@ -44,13 +44,13 @@ export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
               {/* PEOPLE */}
               <div>
                 <p className="text-2xl font-semibold text-white">{row.people}</p>
-                <p className="text-xs text-white/60">liczba osób</p>
+                <p className="text-sm text-white/60">liczba osób</p>
               </div>
 
               {/* FEATURES */}
-              <ul className="space-y-1 text-sm font-light text-white/70">
+              <ul className="mt-2 space-y-2 text-sm font-light text-white/70">
                 {activeFeatures.map((feature) => (
-                  <li key={feature}><span className="mr-1 text-green-900 font-extralight">✔</span> {feature}</li>
+                  <li key={feature}><span className="mr-1 font-light text-green-900">✔</span> {feature}</li>
                 ))}
               </ul>
 

@@ -12,7 +12,7 @@ interface TabsProps {
 
 export const Tabs = ({ selected, setSelected, FEATURES }: TabsProps) => {
   return (
-    <div className="flex mb-4 md:mb-12 lg:max-w-[80%] mx-auto gap-2">
+    <div className="flex mb-4 md:mb-12 lg:max-w-[80%] mx-auto gap-1 md:gap-2">
       {FEATURES.map((tab, index) => (
         <Tab
           key={tab.title}
@@ -39,13 +39,13 @@ const Tab = ({ selected, title, setSelected, tabNum }: TabProps) => {
       <button
         onClick={() => setSelected(tabNum)}
        className={`
-          relative z-0 flex items-center justify-center w-full px-1 py-2 md:p-6
+          relative z-0 flex items-center justify-center w-full   py-2 md:p-6
           transition-colors rounded-lg
           border border-white/5 hover:border-white/30
-          ${selected ? "bg-black/40" : "bg-zinc-950 hover:bg-black/40 "}
+          ${selected ? "bg-black/80" : "bg-zinc-950 hover:bg-black/40 "}
         `}
       >
-        <span className="font-semibold text-center text-md md:text-xl lg:text-2xl ">
+        <span className="text-lg text-center md:text-3xl ">
           {title}
         </span>
       </button>

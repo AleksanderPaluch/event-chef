@@ -24,9 +24,6 @@ interface FeatureGroup {
   featuresByVariant?: string[]; // 👈 ТІЛЬКИ для wesela
 }
 
-/* =======================
-   DATA
-======================= */
 
 const FEATURES: FeatureGroup[] = [
   {
@@ -49,8 +46,8 @@ const FEATURES: FeatureGroup[] = [
       { people: "20+", basic: "100", premium: "120" },
       {
         people: "Wesela",
-        basic: "50",
-        premium: "60",
+        basic: "60",
+        premium: "70",
         variant: "wedding",
       },
     ],
@@ -88,9 +85,7 @@ const FEATURES: FeatureGroup[] = [
   },
 ];
 
-/* =======================
-   COMPONENT
-======================= */
+
 
 export const Offer = () => {
   const [selected, setSelected] = useState(0);
@@ -103,7 +98,7 @@ export const Offer = () => {
           Oferta
         </h3>
 
-        <p className="max-w-2xl mx-auto italic font-light text-center text-md lg:mb-24 lg:text-xl text-zinc-500">
+        <p className="max-w-xl mb-6 text-center md:mx-auto lg:mb-16 text-zinc-500">
           Ceny mają charakter orientacyjny i mogą się różnić w zależności od
           lokalizacji, liczby gości oraz indywidualnych ustaleń.
         </p>
