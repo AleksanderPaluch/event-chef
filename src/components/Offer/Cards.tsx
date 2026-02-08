@@ -17,7 +17,7 @@ interface Row {
 interface CardsProps {
   rows: Row[];
   features: string[];
-  featuresByVariant?: Record<FeatureVariant, string[]>;
+ featuresByVariant?: Partial<Record<FeatureVariant, string[]>>;
 }
 
 /* =======================
