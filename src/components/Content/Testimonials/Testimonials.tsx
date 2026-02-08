@@ -5,10 +5,9 @@ export const Testimonials = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className="px-3 pt-6 md:px-8 pb-28 lg:py-40 md:mx-auto md:max-w-3xl lg:max-w-6xl">
-       <div className="grid items-center grid-cols-1 gap-2 overflow-hidden lg:grid-cols-2 lg:gap-4 md:gap-4">
+    <div className="grid items-center grid-cols-1 gap-2 overflow-hidden lg:grid-cols-2 lg:gap-4 md:gap-4 ">
       <div className="">
-        <h3 className="text-2xl font-semibold md:text-3xl ">
+        <h3 className="text-2xl md:text-3xl lg:text-4xl ">
           Co o nas myślą nasi klienci
         </h3>
         <p className="my-4 text-zinc-300 ">
@@ -28,8 +27,6 @@ export const Testimonials = () => {
         selected={selected}
       />
     </div>
-    </section>
-   
   );
 };
 
@@ -49,11 +46,11 @@ const SelectBtns = ({
           <button
             key={n}
             onClick={() => setSelected(n)}
-            className="h-1.5 w-full bg-slate-300 relative rounded-sm"
+            className="h-1.5 w-full bg-zinc-700 relative rounded-sm"
           >
             {selected === n ? (
               <motion.span
-                className="absolute top-0 bottom-0 left-0 rounded-sm bg-zinc-700"
+                className="absolute top-0 bottom-0 left-0 rounded-xs bg-zinc-900"
                 initial={{
                   width: "0%",
                 }}
@@ -69,7 +66,7 @@ const SelectBtns = ({
               />
             ) : (
               <span
-                className="absolute top-0 bottom-0 left-0 rounded-sm bg-zinc-300"
+                className="absolute top-0 bottom-0 left-0 rounded-sm bg-zinc-700"
                 style={{
                   width: selected > n ? "100%" : "0%",
                 }}
@@ -123,8 +120,8 @@ const Card = ({
   const scale = position <= selected ? 1 : 1;
   const offset = position <= selected ? 0 : 95 + (position - selected) * 2;
 
-  const bgClass = position % 2 ? "bg-zinc-900" : "bg-zinc-300";
-  const textClass = position % 2 ? "text-zinc-300" : "text-zinc-900";
+  const bgClass = position % 2 ? "bg-[#010000] " : "bg-[#010000] ";
+  const textClass = position % 2 ? "text-zinc-100" : "text-zinc-300";
 
   return (
     <motion.div
@@ -145,7 +142,7 @@ const Card = ({
         ease: "easeOut",
       }}
       onClick={() => setSelected(position)}
-      className={`absolute top-0 left-0 w-full min-h-full p-2 pl-6 cursor-pointer  rounded-xl border-2 border-zinc-900
+      className={`absolute top-0 left-0 w-full min-h-full p-2 pl-6 cursor-pointer  rounded-xl border-2 border-white/10
       flex flex-col justify-between ${bgClass} ${textClass}`}
     >
       <p className="text-lg italic font-light lg:text-xl">"{description}"</p>

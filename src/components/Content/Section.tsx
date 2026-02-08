@@ -1,4 +1,4 @@
-import { Testimonials } from "../Testimonials/Testimonials";
+import { Testimonials } from "./Testimonials/Testimonials";
 import { ImageContent } from "./ImageContent";
 import { TextContent } from "./TextContent";
 
@@ -50,32 +50,24 @@ export const Section: React.FC<SectionProps> = ({
   stats = false,
 }) => {
   return (
-    <section id={id}>
-      <ImageContent
-        imgUrl={imgUrl}
-        heading={heading}
-        subheading={subheading}
-        stats={stats}
-      >
-        {stats ? (
-               <Testimonials />   
-        ) : (
-          <TextContent
-            textTitle={textTitle}
-            text={text}
-            description={description}
-            process={process}
-            modalDescription={modalDescription}
-            menu={menu}
-            menuIMG={menuIMG}
-            modalProcess={modalProcess}
-            organization={organization}
-            chipsTitle={chipsTitle}
-            chips={chips}
-            secondaryChipsTitle={secondaryChipsTitle}
-            secondaryChips={secondaryChips}
-          />
-        )}
+    <section id={id} >
+      <ImageContent imgUrl={imgUrl} heading={heading} subheading={subheading}>
+        <TextContent
+          textTitle={textTitle}
+          text={text}
+          description={description}
+          process={process}
+          modalDescription={modalDescription}
+          menu={menu}
+          menuIMG={menuIMG}
+          modalProcess={modalProcess}
+          organization={organization}
+          chipsTitle={chipsTitle}
+          chips={chips}
+          secondaryChipsTitle={secondaryChipsTitle}
+          secondaryChips={secondaryChips}
+          stats={stats}
+        />
       </ImageContent>
     </section>
   );

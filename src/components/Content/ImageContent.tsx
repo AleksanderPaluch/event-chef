@@ -1,6 +1,6 @@
 import { type ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Stats } from "../Stats/Stats";
+
 
 
 interface ImageContentProps {
@@ -8,7 +8,7 @@ interface ImageContentProps {
   subheading: string;
   heading: string;
   children?: ReactNode;
-  stats?: boolean;
+
 }
 
 const IMG_PADDING = 12;
@@ -18,7 +18,7 @@ export const ImageContent: React.FC<ImageContentProps> = ({
   subheading,
   heading,
   children,
-  stats = false,
+
 }) => {
   return (
     <div
@@ -29,7 +29,7 @@ export const ImageContent: React.FC<ImageContentProps> = ({
     >
       <div className="relative h-[110vh]">
         <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy heading={heading} subheading={subheading} stats={stats} />
+        <OverlayCopy heading={heading} subheading={subheading}  />
       </div>
       {children}
     </div>
@@ -72,11 +72,11 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
 const OverlayCopy = ({
   subheading,
   heading,
-  stats,
+
 }: {
   subheading: string;
   heading: string;
-  stats: boolean;
+
 }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -96,12 +96,12 @@ const OverlayCopy = ({
       ref={targetRef}
       className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-zinc-300"
     >
- <h3 className="max-w-xl mx-auto mb-6 text-xl text-center md:text-xl lg:mb-12 ">
+ <h3 className="max-w-xl mx-auto mb-6 text-xl text-center md:text-3xl lg:mb-8 ">
         {subheading}
       </h3>
       <h2 className="text-5xl font-bold text-center lg:text-7xl">{heading}</h2>
            
-      {stats && <Stats />}
+  
     </motion.div>
   );
 };

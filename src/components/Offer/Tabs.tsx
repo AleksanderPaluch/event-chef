@@ -42,7 +42,7 @@ const Tab = ({ selected, title, setSelected, tabNum }: TabProps) => {
           relative z-0 flex items-center justify-center w-full   py-2 md:p-6
           transition-colors rounded-lg
           border border-white/5 hover:border-white/30
-          ${selected ? "bg-black/80" : "bg-zinc-950 hover:bg-black/40 "}
+          ${selected ? "bg-[#010000]" : "bg-zinc-950 hover:bg-[#010000] "}
         `}
       >
         <span className="text-lg text-center md:text-3xl ">

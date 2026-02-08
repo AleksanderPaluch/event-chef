@@ -77,7 +77,7 @@ export const Button: React.FC<ButtonProps> = ({
         ${
           ghost
             ? " p-2"
-            : "bg-black/40 border-white/5 hover:border-white/30 px-4 py-2 border"
+            : "bg-[#010000] border-white/5 hover:border-white/30 px-4 py-2 border"
         }
         
          ${modal ? "w-fit" : "w-full "}

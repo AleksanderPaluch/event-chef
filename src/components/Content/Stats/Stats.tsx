@@ -3,7 +3,7 @@ import { animate, useInView } from "framer-motion";
 
 export const Stats = () => {
   return (
-    <div className="mx-auto max-5xl px-4 py-6 md:py-12">
+    <div className="pb-6 mx-auto lg:pb-28">
 
 
       <div className="flex flex-col items-center justify-center sm:flex-row">
@@ -14,7 +14,7 @@ export const Stats = () => {
         />
         <div className="h-[1px] w-12 bg-zinc-100 sm:h-12 sm:w-[1px]" />
         <Stat
-          num={50}
+          num={30}
         
           suffix="+"
           subheading="Eventów zorganizowanych"
@@ -56,12 +56,12 @@ const Stat = ({ num, suffix, decimals = 0, subheading }: Props) => {
   }, [num, decimals, isInView]);
 
   return (
-    <div className="flex w-52 lg:w-80 flex-col items-center py-8 sm:py-0">
-      <p className="mb-2 lg:mb-3 text-center lg:text-7xl font-semibold text-6xl md:text-5xl">
+    <div className="flex flex-col items-center py-8 w-52 lg:w-80 sm:py-0">
+      <p className="mb-2 text-6xl font-semibold text-center lg:mb-3 lg:text-7xl md:text-5xl">
         <span ref={ref}></span>
         {suffix}
       </p>
-      <p className="md:max-w-52  lg:max-w-72 text-center text-md md:text-sm lg:text-lg  text-zinc-300">{subheading}</p>
+      <p className="text-center md:max-w-52 lg:max-w-72 text-md md:text-sm lg:text-lg text-zinc-300">{subheading}</p>
     </div>
   );
 };
