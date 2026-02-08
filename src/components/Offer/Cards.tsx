@@ -27,10 +27,10 @@ interface CardsProps {
 const resolveFeatures = (
   rowVariant: FeatureVariant | undefined,
   baseFeatures: string[],
-  variantMap?: Record<FeatureVariant, string[]>
+  variantMap?: Partial<Record<FeatureVariant, string[]>>
 ): string[] => {
   if (rowVariant && variantMap?.[rowVariant]) {
-    return variantMap[rowVariant];
+    return variantMap[rowVariant]!;
   }
   return baseFeatures;
 };
