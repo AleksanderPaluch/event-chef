@@ -2,6 +2,8 @@ import image from "../../assets/About.jpg";
 
 import { Section } from "../Content/Section";
 
+import { ScrollingTestimonials } from "../Content/Testimonials/Testimonials";
+
 const data = {
   id: "O nas",
   imgUrl: image,
@@ -12,12 +14,16 @@ const data = {
 
 export const About = () => {
   return (
-    <Section
-      id={data.id}
-      imgUrl={data.imgUrl}
-      subheading={data.subheading}
-      heading={data.heading}
-      stats={data.stats}
-    />
+    <>
+      <Section
+        id={data.id}
+        imgUrl={data.imgUrl}
+        subheading={data.subheading}
+        heading={data.heading}
+        stats={data.stats}
+      />
+
+      <ScrollingTestimonials />
+    </>
   );
 };

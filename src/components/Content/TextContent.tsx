@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Motion } from "../Motion/Motion";
 import { Button } from "../Button/Button";
 import { Modal } from "../Modal/Modal";
-import { Testimonials } from "./Testimonials/Testimonials";
+import { ScrollingTestimonials } from "./Testimonials/Testimonials";
 import { Stats } from "./Stats/Stats";
 
 interface TextContentProps {
@@ -19,7 +19,7 @@ interface TextContentProps {
   chips?: string[];
   secondaryChipsTitle?: string;
   secondaryChips?: string[];
-  stats?: boolean;
+
 }
 
 interface ProcessItem {
@@ -41,22 +41,17 @@ export const TextContent: React.FC<TextContentProps> = ({
   chips = [],
   secondaryChipsTitle = "",
   secondaryChips = [],
-  stats = false,
+
 }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <Motion>
       <div className="px-3 md:px-8 pt-6  lg:pt-32 md:mx-auto   md:max-w-[90%]  lg:max-w-6xl pb-24 lg:pb-36">
-        {stats ? (
-          <>
-          <Stats />
-            <Testimonials />
-          </>
-        
-        ) : (
-          <>
-            {" "}
+       
+    
+
+    
             <h3 className="w-[320px] mx-auto mb-6 text-5xl font-semibold text-center lg:text-6xl md:w-full  leading-tight">
               Czym jest{" "}
               <span className="text-5xl lg:text-7xl"> {textTitle}?</span>
@@ -96,9 +91,12 @@ export const TextContent: React.FC<TextContentProps> = ({
               secondaryChipsTitle={secondaryChipsTitle}
               secondaryChips={secondaryChips}
             />
-          </>
-        )}
+       
+    
       </div>
+  
     </Motion>
+
+
   );
 };

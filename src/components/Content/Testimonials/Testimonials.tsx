@@ -1,185 +1,162 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
 import { motion } from "framer-motion";
+import { Stats } from "../Stats/Stats";
 
-export const Testimonials = () => {
-  const [selected, setSelected] = useState(0);
-
+export const ScrollingTestimonials = () => {
   return (
-    <div className="grid items-center grid-cols-1 gap-2 overflow-hidden lg:grid-cols-2 lg:gap-4 md:gap-4 ">
-      <div className="">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl ">
-          Co o nas myślą nasi klienci
+    <div className="pt-6 pb-24 lg:pt-32 bg-zinc-950 lg:pb-36">
+      <div className="px-4 mb-8">
+        <h3 className="w-[320px] mx-auto mb-6 lg:mb-24 text-5xl font-semibold text-center lg:text-6xl md:w-full  leading-tight">
+          Dlaczego warto wybrac Event Chef
         </h3>
-        <p className="my-4 text-zinc-300 ">
+
+        <Stats />
+        <p className="max-w-2xl mb-12 italic font-light text-justify md:mx-auto md:text-center text-md lg:mb-24 lg:text-xl text-zinc-500">
           Zawsze staramy się zapewnić naszym klientom najlepszą obsługę i
           najwyższą jakość usług. Oto, co mówią o nas niektórzy z naszych
           klientów:
         </p>
-        <SelectBtns
-          numTracks={testimonials.length}
-          setSelected={setSelected}
-          selected={selected}
-        />
       </div>
-      <Cards
-        testimonials={testimonials}
-        setSelected={setSelected}
-        selected={selected}
-      />
+      <div className="relative p-4 overflow-x-hidden">
+        <div className="absolute top-0 bottom-0 left-0 z-10 w-24 bg-gradient-to-r from-zinc-950 to-transparent" />
+        <div className="absolute top-0 bottom-0 right-0 z-10 w-24 bg-gradient-to-l from-zinc-950 to-transparent" />
+        <div className="flex items-center mb-4">
+          <TestimonialList list={testimonials.top} duration={125} />
+        </div>
+      </div>
     </div>
   );
 };
 
-const SelectBtns = ({
-  numTracks,
-  setSelected,
-  selected,
+const TestimonialList = ({
+  list,
+  reverse = false,
+  duration = 100,
 }: {
-  numTracks: number;
-  setSelected: Dispatch<SetStateAction<number>>;
-  selected: number;
+  list: typeof testimonials.top;
+  reverse?: boolean;
+  duration?: number;
 }) => {
-  return (
-    <div className="flex gap-1 mt-8">
-      {Array.from(Array(numTracks).keys()).map((n) => {
-        return (
-          <button
-            key={n}
-            onClick={() => setSelected(n)}
-            className="h-1.5 w-full bg-zinc-700 relative rounded-sm"
-          >
-            {selected === n ? (
-              <motion.span
-                className="absolute top-0 bottom-0 left-0 rounded-xs bg-zinc-900"
-                initial={{
-                  width: "0%",
-                }}
-                animate={{
-                  width: "100%",
-                }}
-                transition={{
-                  duration: 5,
-                }}
-                onAnimationComplete={() => {
-                  setSelected(selected === numTracks - 1 ? 0 : selected + 1);
-                }}
-              />
-            ) : (
-              <span
-                className="absolute top-0 bottom-0 left-0 rounded-sm bg-zinc-700"
-                style={{
-                  width: selected > n ? "100%" : "0%",
-                }}
-              />
-            )}
-          </button>
-        );
-      })}
-    </div>
-  );
-};
-
-const Cards = ({
-  testimonials,
-  selected,
-  setSelected,
-}: {
-  testimonials: Testimonial[];
-  selected: number;
-  setSelected: Dispatch<SetStateAction<number>>;
-}) => {
-  return (
-    <div className=" relative h-[140px] shadow-xl ">
-      {testimonials.map((t, i) => {
-        return (
-          <Card
-            {...t}
-            key={i}
-            position={i}
-            selected={selected}
-            setSelected={setSelected}
-          />
-        );
-      })}
-    </div>
-  );
-};
-
-const Card = ({
-  description,
-  name,
-  title,
-  position,
-  selected,
-  setSelected,
-}: Testimonial & {
-  position: number;
-  selected: number;
-  setSelected: Dispatch<SetStateAction<number>>;
-}) => {
-  const scale = position <= selected ? 1 : 1;
-  const offset = position <= selected ? 0 : 95 + (position - selected) * 2;
-
-  const bgClass = position % 2 ? "bg-[#010000] " : "bg-[#010000] ";
-  const textClass = position % 2 ? "text-zinc-100" : "text-zinc-300";
-
   return (
     <motion.div
-      initial={false}
-      style={{
-        zIndex: position,
-        transformOrigin: "left bottom",
-      }}
-      animate={{
-        x: `${offset}%`,
-        scale,
-      }}
-      whileHover={{
-        translateX: position === selected ? 0 : -3,
-      }}
-      transition={{
-        duration: 0.25,
-        ease: "easeOut",
-      }}
-      onClick={() => setSelected(position)}
-      className={`absolute top-0 left-0 w-full min-h-full p-2 pl-6 cursor-pointer  rounded-xl border-2 border-white/10
-      flex flex-col justify-between ${bgClass} ${textClass}`}
+      initial={{ translateX: reverse ? "-100%" : "0%" }}
+      animate={{ translateX: reverse ? "0%" : "-100%" }}
+      transition={{ duration, repeat: Infinity, ease: "linear" }}
+      className="flex gap-4 px-2"
     >
-      <p className="text-lg italic font-light lg:text-xl">"{description}"</p>
-      <div>
-        <span className="block text-lg font-semibold">{name}</span>
-        {title && <span className="block text-sm">{title}</span>}
-      </div>
+      {list.map((t) => {
+        return (
+          <div
+            key={t.id}
+            className=" w-[300px] md:w-[500px] grid p-4 rounded-xl overflow-hidden relative border border-white/10 bg-[#010000] "
+          >
+            {/* <img src={t.img} className="object-cover w-full h-44" /> */}
+            <div className="">
+              <span className="mb-1 text-lg font-semibold ">{t.name}</span>
+              <span className="mb-3 text-sm font-medium ">{t.title}</span>
+              <span className="text-sm text-slate-300">{t.info}</span>
+            </div>
+            <span className="absolute text-7xl top-2 right-2 text-slate-700">
+              "
+            </span>
+          </div>
+        );
+      })}
     </motion.div>
   );
 };
 
-interface Testimonial {
-  title?: string;
-  name: string;
-  description: string;
-}
+const testimonials = {
+  top: [
+    {
+      id: 1,
+      img: "https://images.unsplash.com/photo-1627161683077-e34782c24d81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=703&q=80",
+      name: "Gabriella S.",
+      title: "Goldman Sachs",
+      info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+    },
+    {
+      id: 2,
+      img: "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+      name: "Daniel A.",
+      title: "",
+      info: "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
+    },
 
-const testimonials = [
-  {
-    description:
-      "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
-    name: "Gabriella",
-    title: "Goldman Sachs",
-  },
-  {
-    description:
-      "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
-    name: "Daniel",
-  },
-  {
-    description:
-      "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
-    name: "Paweł",
-  },
-  {
-    description:
-      "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
-    name: "Paweł",
-  },
-];
+    {
+      id: 3,
+      img: "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
+      name: "Paweł W.",
+      title: "Founder of XYZ",
+      info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+    },
+
+    {
+      id: 4,
+      img: "https://images.unsplash.com/photo-1627161683077-e34782c24d81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=703&q=80",
+      name: "Magdalena S.",
+      title: "BMW Group",
+      info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+    },
+    {
+      id: 5,
+      img: "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+      name: "Daniel A.",
+      title: "",
+      info: "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
+    },
+
+    {
+      id: 6,
+      img: "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
+      name: "Paweł W.",
+      title: "Founder of XYZ",
+      info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+    },
+
+    {
+      id: 7,
+      img: "https://images.unsplash.com/photo-1627161683077-e34782c24d81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=703&q=80",
+      name: "Gabriella S.",
+      title: "Goldman Sachs",
+      info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+    },
+    {
+      id: 8,
+      img: "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+      name: "Daniel A.",
+      title: "",
+      info: "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
+    },
+
+    {
+      id: 9,
+      img: "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
+      name: "Paweł W.",
+      title: "Founder of XYZ",
+      info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+    },
+
+    {
+      id: 10,
+      img: "https://images.unsplash.com/photo-1627161683077-e34782c24d81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=703&q=80",
+      name: "Magdalena S.",
+      title: "BMW Group",
+      info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+    },
+    {
+      id: 11,
+      img: "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+      name: "Daniel A.",
+      title: "",
+      info: "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
+    },
+
+    {
+      id: 12,
+      img: "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
+      name: "Paweł W.",
+      title: "Founder of XYZ",
+      info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+    },
+  ],
+};
