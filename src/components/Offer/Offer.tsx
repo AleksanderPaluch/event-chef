@@ -3,7 +3,11 @@ import { useState } from "react";
 import { Tabs } from "./Tabs";
 import { Cards } from "./Cards";
 
-type FeatureVariant = "default" | "wedding";
+/* =======================
+   TYPES
+======================= */
+
+type FeatureVariant = "wedding";
 
 interface Row {
   people: string;
@@ -17,36 +21,38 @@ interface FeatureGroup {
   tab: "live" | "masterclass" | "omakase";
   rows: Row[];
   features: string[];
- featuresByVariant?: Partial<Record<FeatureVariant, string[]>>;
-
+  featuresByVariant?: string[]; // 👈 ТІЛЬКИ для wesela
 }
+
+/* =======================
+   DATA
+======================= */
 
 const FEATURES: FeatureGroup[] = [
   {
     title: "Live Cooking",
     tab: "live",
     features: [
-      "Indywidualne  menu",
-      "Produkty  premium",
+      "Indywidualne menu",
+      "Produkty premium",
       "Pełna organizacja kulinarna",
     ],
-    featuresByVariant: {
-      wedding: [
-        "Specjalne menu weselne",
-        "Stanowisko w formie bufetu",
-        "Realizacja na terenie całej Polski",
-      ],
-    },
+    featuresByVariant: [
+      "Specjalne menu weselne",
+      "Sushi w formie bufetu",
+      "Realizacja na terenie całej Polski",
+    ],
     rows: [
+      { people: "8 - 14", basic: "120", premium: "140" },
+
+      { people: "15 - 19", basic: "110", premium: "130" },
+      { people: "20+", basic: "100", premium: "120" },
       {
         people: "Wesela",
         basic: "50",
         premium: "60",
         variant: "wedding",
       },
-      { people: "20+", basic: "100", premium: "120" },
-      { people: "15 – 19", basic: "110", premium: "130" },
-      { people: "8 – 14", basic: "120", premium: "140" },
     ],
   },
 
@@ -59,10 +65,10 @@ const FEATURES: FeatureGroup[] = [
       "Degustacja przygotowanych dań",
     ],
     rows: [
-      { people: "6 – 14 osób", basic: "130", premium: "150" },
-      { people: "10 – 14 osób", basic: "120", premium: "140" },
-      { people: "15 – 19 osób", basic: "110", premium: "130" },
-      { people: "20 – 25 osób", basic: "100", premium: "120" },
+      { people: "6 - 9", basic: "130", premium: "150" },
+      { people: "10 - 14", basic: "120", premium: "140" },
+      { people: "15 - 19", basic: "110", premium: "130" },
+      { people: "20 - 25", basic: "100", premium: "120" },
     ],
   },
 
@@ -75,12 +81,16 @@ const FEATURES: FeatureGroup[] = [
       "Serwowanie dań bezpośrednio przez szefa kuchni",
     ],
     rows: [
-      { people: "1 – 4 osoby", basic: "300", premium: "350" },
-      { people: "5 – 8 osób", basic: "280", premium: "300" },
-      { people: "9 – 15 osób", basic: "260", premium: "280" },
+      { people: "4 - 6", premium: "350" },
+      { people: "7 - 10", premium: "320" },
+      { people: "11 - 15", premium: "300" },
     ],
   },
 ];
+
+/* =======================
+   COMPONENT
+======================= */
 
 export const Offer = () => {
   const [selected, setSelected] = useState(0);

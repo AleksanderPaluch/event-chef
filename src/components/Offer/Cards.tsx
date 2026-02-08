@@ -5,7 +5,7 @@ import { Button } from "../Button/Button";
    TYPES
 ======================= */
 
-type FeatureVariant = "default" | "wedding";
+type FeatureVariant = "wedding";
 
 interface Row {
   people: string;
@@ -17,41 +17,21 @@ interface Row {
 interface CardsProps {
   rows: Row[];
   features: string[];
- featuresByVariant?: Partial<Record<FeatureVariant, string[]>>;
+  featuresByVariant?: string[];
 }
-
-/* =======================
-   HELPERS
-======================= */
-
-const resolveFeatures = (
-  rowVariant: FeatureVariant | undefined,
-  baseFeatures: string[],
-  variantMap?: Partial<Record<FeatureVariant, string[]>>
-): string[] => {
-  if (rowVariant && variantMap?.[rowVariant]) {
-    return variantMap[rowVariant]!;
-  }
-  return baseFeatures;
-};
 
 /* =======================
    COMPONENT
 ======================= */
 
-export const Cards = ({
-  rows,
-  features,
-  featuresByVariant,
-}: CardsProps) => {
+export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
   return (
-    <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
+    <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(270px,1fr))]">
       {rows.map((row, index) => {
-        const activeFeatures = resolveFeatures(
-          row.variant,
-          features,
-          featuresByVariant
-        );
+        const isWedding = row.variant === "wedding";
+
+        const activeFeatures =
+          isWedding && featuresByVariant ? featuresByVariant : features;
 
         return (
           <motion.div
@@ -63,34 +43,32 @@ export const Cards = ({
             <div className="flex flex-col h-full gap-4">
               {/* PEOPLE */}
               <div>
-                <p className="text-xl font-semibold text-white">
-                  {row.people}
-                </p>
-                <p className="text-xs text-white/60">
-                  liczba osób
-                </p>
+                <p className="text-2xl font-semibold text-white">{row.people}</p>
+                <p className="text-xs text-white/60">liczba osób</p>
               </div>
 
               {/* FEATURES */}
-              <ul className="space-y-1 text-sm text-white/70">
+              <ul className="space-y-1 text-sm font-light text-white/70">
                 {activeFeatures.map((feature) => (
-                  <li key={feature}>✔ {feature}</li>
+                  <li key={feature}><span className="mr-1 text-green-900 font-extralight">✔</span> {feature}</li>
                 ))}
               </ul>
 
               {/* PRICES */}
-              <div className="mt-auto space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-xs uppercase text-white/60">
-                    Basic
-                  </span>
-                  <span className="text-2xl font-semibold text-white">
-                    {row.basic} zł
-                  </span>
-                </div>
+              <div className="py-2 mt-auto space-y-2 md:py-4 ">
+                {row.basic && (
+                  <div className="flex items-baseline justify-between">
+                    <span className="uppercase text-md text-white/60">
+                      Basic
+                    </span>
+                    <span className="text-2xl font-semibold text-white">
+                      {row.basic} zł
+                    </span>
+                  </div>
+                )}
 
-                <div className="flex justify-between">
-                  <span className="text-xs uppercase text-white/60">
+                <div className="flex items-baseline justify-between">
+                  <span className="uppercase text-md text-white/60">
                     Premium
                   </span>
                   <span className="text-2xl font-semibold text-white">
@@ -100,7 +78,7 @@ export const Cards = ({
               </div>
 
               {/* CTA */}
-                <Button link text="Zamów" />
+              <Button link text="Zamów" />
             </div>
           </motion.div>
         );
