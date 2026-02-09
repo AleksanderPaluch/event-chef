@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Stats } from "../Stats/Stats";
+import { Card } from "./Card";
 
 export const ScrollingTestimonials = () => {
   return (
@@ -30,7 +31,7 @@ export const ScrollingTestimonials = () => {
 const TestimonialList = ({
   list,
   reverse = false,
-  duration = 100,
+  duration = 125,
 }: {
   list: typeof testimonials.top;
   reverse?: boolean;
@@ -45,20 +46,15 @@ const TestimonialList = ({
     >
       {list.map((t) => {
         return (
-          <div
+          <Card
             key={t.id}
-            className=" w-[300px] md:w-[500px] grid p-4 rounded-xl overflow-hidden relative border border-white/10 bg-[#010000] "
-          >
-            {/* <img src={t.img} className="object-cover w-full h-44" /> */}
-            <div className="">
-              <span className="mb-1 text-lg font-semibold ">{t.name}</span>
-              <span className="mb-3 text-sm font-medium ">{t.title}</span>
-              <span className="text-sm text-slate-300">{t.info}</span>
-            </div>
-            <span className="absolute text-7xl top-2 right-2 text-slate-700">
-              "
-            </span>
-          </div>
+            img={t.img}
+            name={t.name}
+            title={t.title}
+            info={t.info}
+            rating={t.rating}
+            createdAt={t.createdAt}
+          />
         );
       })}
     </motion.div>
@@ -73,6 +69,8 @@ const testimonials = {
       name: "Gabriella S.",
       title: "Goldman Sachs",
       info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+      rating: 3.5,
+      createdAt: "2026-02-05",
     },
     {
       id: 2,
@@ -80,6 +78,8 @@ const testimonials = {
       name: "Daniel A.",
       title: "",
       info: "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
+      rating: 5,
+      createdAt: "2026-02-02",
     },
 
     {
@@ -88,6 +88,8 @@ const testimonials = {
       name: "Paweł W.",
       title: "Founder of XYZ",
       info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+      rating: 5,
+      createdAt: "2025-02-09",
     },
 
     {
@@ -96,6 +98,8 @@ const testimonials = {
       name: "Magdalena S.",
       title: "BMW Group",
       info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+      rating: 4,
+      createdAt: "2025-02-09",
     },
     {
       id: 5,
@@ -103,6 +107,8 @@ const testimonials = {
       name: "Daniel A.",
       title: "",
       info: "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
+      rating: 5,
+      createdAt: "2025-01-18",
     },
 
     {
@@ -111,6 +117,8 @@ const testimonials = {
       name: "Paweł W.",
       title: "Founder of XYZ",
       info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+      rating: 5,
+      createdAt: "2025-02-07",
     },
 
     {
@@ -119,6 +127,8 @@ const testimonials = {
       name: "Gabriella S.",
       title: "Goldman Sachs",
       info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+      rating: 5,
+      createdAt: "2025-02-06",
     },
     {
       id: 8,
@@ -126,6 +136,8 @@ const testimonials = {
       name: "Daniel A.",
       title: "",
       info: "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
+      rating: 5,
+      createdAt: "2025-01-18",
     },
 
     {
@@ -134,6 +146,8 @@ const testimonials = {
       name: "Paweł W.",
       title: "Founder of XYZ",
       info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+      rating: 5,
+      createdAt: "2025-01-18",
     },
 
     {
@@ -142,6 +156,8 @@ const testimonials = {
       name: "Magdalena S.",
       title: "BMW Group",
       info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+      rating: 5,
+      createdAt: "2025-01-18",
     },
     {
       id: 11,
@@ -149,6 +165,8 @@ const testimonials = {
       name: "Daniel A.",
       title: "",
       info: "Bardzo dobra organizacja live sushi na impreie urodzinowej. Goście byli zachwyceni!",
+      rating: 5,
+      createdAt: "2025-01-18",
     },
 
     {
@@ -157,6 +175,8 @@ const testimonials = {
       name: "Paweł W.",
       title: "Founder of XYZ",
       info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+      rating: 5,
+      createdAt: "2025-01-18",
     },
   ],
 };
