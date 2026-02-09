@@ -1,67 +1,6 @@
-import { motion } from "framer-motion";
-import { Stats } from "../Stats/Stats";
-import { Card } from "./Card";
+import { TestimonialList } from "./TestimonialList";
 
-export const ScrollingTestimonials = () => {
-  return (
-    <div className="pt-6 pb-24 lg:pt-32 bg-zinc-950 lg:pb-36">
-      <div className="px-4 mb-8">
-        <h3 className="w-[320px] mx-auto mb-6 lg:mb-24 text-5xl font-semibold text-center lg:text-6xl md:w-full  leading-tight">
-          Dlaczego warto wybrac Event Chef
-        </h3>
-
-        <Stats />
-        <p className="max-w-2xl mb-12 italic font-light text-justify md:mx-auto md:text-center text-md lg:mb-24 lg:text-xl text-zinc-500">
-          Zawsze staramy się zapewnić naszym klientom najlepszą obsługę i
-          najwyższą jakość usług. Oto, co mówią o nas niektórzy z naszych
-          klientów:
-        </p>
-      </div>
-      <div className="relative p-4 overflow-x-hidden">
-        <div className="absolute top-0 bottom-0 left-0 z-10 w-24 bg-gradient-to-r from-zinc-950 to-transparent" />
-        <div className="absolute top-0 bottom-0 right-0 z-10 w-24 bg-gradient-to-l from-zinc-950 to-transparent" />
-        <div className="flex items-center mb-4">
-          <TestimonialList list={testimonials.top} duration={125} />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const TestimonialList = ({
-  list,
-  reverse = false,
-  duration = 125,
-}: {
-  list: typeof testimonials.top;
-  reverse?: boolean;
-  duration?: number;
-}) => {
-  return (
-    <motion.div
-      initial={{ translateX: reverse ? "-100%" : "0%" }}
-      animate={{ translateX: reverse ? "0%" : "-100%" }}
-      transition={{ duration, repeat: Infinity, ease: "linear" }}
-      className="flex gap-4 px-2"
-    >
-      {list.map((t) => {
-        return (
-          <Card
-            key={t.id}
-            img={t.img}
-            name={t.name}
-            title={t.title}
-            info={t.info}
-            rating={t.rating}
-            createdAt={t.createdAt}
-          />
-        );
-      })}
-    </motion.div>
-  );
-};
-
-const testimonials = {
+const TESTEMONIALS = {
   top: [
     {
       id: 1,
@@ -179,4 +118,29 @@ const testimonials = {
       createdAt: "2025-01-18",
     },
   ],
+};
+
+export const Testimonials = () => {
+  return (
+    <>
+      <div className="px-4 mb-8">
+        <h3 className="w-[320px] mx-auto mb-6 lg:mb-24 text-5xl font-semibold text-center lg:text-6xl md:w-full  leading-tight">
+          Co mówią o nas klienci?
+        </h3>
+
+        <p className="max-w-2xl mb-12 italic font-light text-justify md:mx-auto md:text-center text-md lg:mb-24 lg:text-xl text-zinc-500">
+          Zawsze staramy się zapewnić naszym klientom najlepszą obsługę i
+          najwyższą jakość usług. Oto, co mówią o nas niektórzy z naszych
+          klientów:
+        </p>
+      </div>
+      <div className="relative p-4 overflow-x-hidden">
+        <div className="absolute top-0 bottom-0 left-0 z-10 w-24 bg-gradient-to-r from-zinc-950 to-transparent" />
+        <div className="absolute top-0 bottom-0 right-0 z-10 w-24 bg-gradient-to-l from-zinc-950 to-transparent" />
+        <div className="flex items-center mb-4">
+          <TestimonialList list={TESTEMONIALS.top} duration={125} />
+        </div>
+      </div>
+    </>
+  );
 };

@@ -1,8 +1,8 @@
 import image from "../../assets/About.jpg";
 
 import { Section } from "../Content/Section";
-
-import { ScrollingTestimonials } from "../Content/Testimonials/Testimonials";
+import { Stats } from "../Content/Stats/Stats";
+import { Testimonials } from "../Content/Testimonials/Testimonials";
 
 const data = {
   id: "O nas",
@@ -22,8 +22,10 @@ export const About = () => {
         heading={data.heading}
         stats={data.stats}
       />
-
-      <ScrollingTestimonials />
+      <div className="pt-6 pb-24 lg:pt-32 bg-zinc-950 lg:pb-36">
+        <Stats />
+        <Testimonials />
+      </div>
     </>
   );
 };
