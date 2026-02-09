@@ -5,10 +5,12 @@ import { getRelativeDatePL } from "./helpers.ts";
 interface CardProps {
   img?: string;
   name: string;
+  title?: string; 
   info: string;
-  rating: number; // 0 – 5 (може бути 4.5)
-  createdAt: string; // ISO date: "2025-01-20"
+  rating: number;
+  createdAt: string;
 }
+
 
 
 
