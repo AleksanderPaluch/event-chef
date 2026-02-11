@@ -16,8 +16,8 @@ export const Testimonials = () => {
         </p>
       </div>
       <div className="relative p-4 overflow-x-hidden">
-        <div className="absolute top-0 bottom-0 left-0 z-10 w-24 bg-gradient-to-r from-zinc-950 to-transparent" />
-        <div className="absolute top-0 bottom-0 right-0 z-10 w-24 bg-gradient-to-l from-zinc-950 to-transparent" />
+        <div className="absolute top-0 bottom-0 left-0 z-10 w-24 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent" />
+        <div className="absolute top-0 bottom-0 right-0 z-10 w-24 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent" />
         <div className="flex items-center mb-4">
           <TestimonialList  />
         </div>

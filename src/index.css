@@ -1,19 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-950 text-zinc-100;
-  font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  @apply bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-100 text-zinc-800;
+  font-family:
+    "Manrope",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   letter-spacing: -0.01em;
 }
 
+@layer components {
+  .btn {
+    @apply 
+    flex items-center justify-between px-4 py-2 text-sm transition-all duration-300 border rounded-lg lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 border-black/10 hover:border-black/30 dark:border-white/5 dark:hover:border-white/30;
+  }
+
+  .btn-primary {
+    @apply bg-zinc-200 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-200;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent;
+  }
+
+  .btn-full {
+    @apply w-full;
+  }
+
+  .btn-fit {
+    @apply w-fit;
+  }
+}
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,.25) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
 
 html::-webkit-scrollbar {
@@ -25,20 +53,17 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: rgba(255,255,255,.25);
+  background-color: rgba(255, 255, 255, 0.25);
   border-radius: 999px;
 }
 
 html::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255,255,255,.4);
+  background-color: rgba(255, 255, 255, 0.4);
 }
-
-
-
 
 .modal-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,.25) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
 
 .modal-scroll::-webkit-scrollbar {
@@ -50,10 +75,10 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 .modal-scroll::-webkit-scrollbar-thumb {
-  background-color: rgba(255,255,255,.25);
+  background-color: rgba(255, 255, 255, 0.25);
   border-radius: 999px;
 }
 
 .modal-scroll::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255,255,255,.4);
+  background-color: rgba(255, 255, 255, 0.4);
 }

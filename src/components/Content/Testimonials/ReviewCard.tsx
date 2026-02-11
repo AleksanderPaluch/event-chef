@@ -11,9 +11,6 @@ interface CardProps {
   createdAt: string;
 }
 
-
-
-
 export const ReviewCard = ({ img, name, info, rating, createdAt }: CardProps) => {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
@@ -23,10 +20,12 @@ export const ReviewCard = ({ img, name, info, rating, createdAt }: CardProps) =>
     <div
       className="
         w-[320px] md:w-[420px]
-        bg-white rounded-xl border border-gray-200
-        p-4 shadow-sm
+        bg-white dark:bg-zinc-900
+        border border-gray-200 dark:border-gray-700
+        rounded-xl p-4
+        shadow-sm dark:shadow-md
         transition-all duration-200
-        hover:scale-[1.02] hover:shadow-md
+        hover:scale-[1.02] hover:shadow-lg dark:hover:shadow-lg
       "
     >
       {/* Header */}
@@ -39,16 +38,16 @@ export const ReviewCard = ({ img, name, info, rating, createdAt }: CardProps) =>
               className="object-cover w-10 h-10 rounded-full"
             />
           ) : (
-            <div className="flex items-center justify-center w-10 h-10 text-sm font-semibold text-gray-600 bg-gray-200 rounded-full">
+            <div className="flex items-center justify-center w-10 h-10 text-sm font-semibold text-gray-600 bg-gray-200 rounded-full dark:text-gray-300 dark:bg-zinc-950">
               {name[0]}
             </div>
           )}
 
           <div>
-            <p className="text-sm font-semibold leading-none text-gray-900">
+            <p className="text-sm font-semibold leading-none text-gray-900 dark:text-gray-100">
               {name}
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 dark:text-gray-400">
               {getRelativeDatePL(createdAt)}
             </p>
           </div>
@@ -74,7 +73,9 @@ export const ReviewCard = ({ img, name, info, rating, createdAt }: CardProps) =>
       </div>
 
       {/* Review text */}
-      <p className="text-sm leading-relaxed text-gray-700">{info}</p>
+      <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+        {info}
+      </p>
     </div>
   );
 };

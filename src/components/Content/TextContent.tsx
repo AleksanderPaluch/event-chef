@@ -62,8 +62,8 @@ export const TextContent: React.FC<TextContentProps> = ({
           {description}
         </p>
         <div className="flex flex-col max-w-full gap-3 mx-auto text-justify md:text-center md:flex-row md:max-w-2xl ">
-          <Button text="Poznaj doświadczenie" onClick={() => setOpen(true)} />
-          <Button link text="Zapytaj o termin i ofertę" />
+          <Button text="Poznaj doświadczenie" variant="primary" size="full" onClick={() => setOpen(true)} />
+          <Button text="Sprawdź ofertę" link variant="ghost" size="full"   />
         </div>
         <Modal
           textTitle={textTitle}

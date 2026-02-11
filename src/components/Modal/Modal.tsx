@@ -104,7 +104,7 @@ export const Modal = ({
 
         {/* Close button */}
         <div className="absolute top-0 right-[-0px] z-40 lg:top-0 lg:right-16">
-          <Button ghost modal text="" onClick={handleClose} />
+          <Button  variant="modal" text="" onClick={handleClose} />
         </div>
 
         {/* Scrollable content */}

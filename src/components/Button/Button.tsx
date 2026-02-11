@@ -5,8 +5,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import { FiArrowRight } from "react-icons/fi";
-import { FiX } from "react-icons/fi";
+import { FiArrowRight, FiX } from "react-icons/fi";
 
 const SPRING_OPTIONS = {
   mass: 1.5,
@@ -16,16 +15,16 @@ const SPRING_OPTIONS = {
 
 interface ButtonProps {
   text: string;
-  ghost?: boolean;
-  modal?: boolean;
+  variant?: "primary" | "ghost" | "modal";
+  size?: "full" | "fit";
   link?: boolean;
   onClick?: () => void;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   text,
-  ghost = false,
-  modal = false,
+  variant = "primary",
+  size = "full",
   link = false,
   onClick,
 }) => {
@@ -46,23 +45,42 @@ export const Button: React.FC<ButtonProps> = ({
     y.set(0);
   };
 
+  const variantClasses = {
+    primary: "btn-primary",
+    ghost: "btn-ghost",
+  };
+
+  const sizeClasses = {
+    full: "btn-full",
+    fit: "btn-fit",
+  };
+
+  const className = `
+  btn group
+  ${variantClasses[variant]}
+  ${sizeClasses[size]}
+`;
+
+  const content = (
+    <>
+      <Copy>{text}</Copy>
+      {variant === "modal" ? <Close /> : <Arrow />}
+    </>
+  );
+
   if (link) {
     return (
-      <>
-        <a href="#Form" className="inline-flex w-full group">
-          {" "}
-          <motion.button
-            ref={ref}
-            style={{ transform }}
-            onClick={onClick}
-            onMouseDown={handleReset}
-            className="flex items-center justify-between w-full h-full px-4 py-2 text-sm font-semibold border rounded-lg hover:border-white/30 border-white/5 group bg-zinc-950 md:text-md"
-          >
-            {" "}
-            <Copy>{text}</Copy> <Arrow />{" "}
-          </motion.button>{" "}
-        </a>
-      </>
+      <a href="#Form" className="inline-flex w-full ">
+        <motion.button
+          ref={ref}
+          style={{ transform }}
+          onClick={onClick}
+          onMouseDown={handleReset}
+          className={className}
+        >
+          {content}
+        </motion.button>
+      </a>
     );
   }
 
@@ -72,19 +90,9 @@ export const Button: React.FC<ButtonProps> = ({
       style={{ transform }}
       onClick={onClick}
       onMouseDown={handleReset}
-
-      className={`flex items-center justify-between    text-sm font-semibold  rounded-lg group
-        ${
-          ghost
-            ? " p-2"
-            : "bg-[#010000] border-white/5 hover:border-white/30 px-4 py-2 border"
-        }
-        
-         ${modal ? "w-fit" : "w-full "}
-        `}
+      className={className }
     >
-      <Copy>{text}</Copy>
-      {ghost ? <Close /> : <Arrow />}
+      {content}
     </motion.button>
   );
 };
@@ -92,10 +100,10 @@ export const Button: React.FC<ButtonProps> = ({
 const Copy = ({ children }: { children: string }) => {
   return (
     <span className="relative overflow-hidden">
-      <span className="inline-block transition-transform duration-300 text-zinc-200 group-hover:-translate-y-full">
+      <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
         {children}
       </span>
-      <span className="absolute top-0 left-0 block transition-transform duration-300 translate-y-full text-zinc-50 group-hover:translate-y-0">
+      <span className="absolute top-0 left-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0">
         {children}
       </span>
     </span>
@@ -104,14 +112,14 @@ const Copy = ({ children }: { children: string }) => {
 
 const Arrow = () => (
   <div className="flex w-6 h-6 overflow-hidden text-2xl pointer-events-none">
-    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-50 group-hover:translate-x-0" />
-    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-300 group-hover:translate-x-0" />
+    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 group-hover:translate-x-0" />
+    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 group-hover:translate-x-0" />
   </div>
 );
 
 const Close = () => (
   <div className="flex w-6 h-6 overflow-hidden text-2xl pointer-events-none lg:text-3xl lg:w-8 lg:h-8 ">
-    <FiX className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-50 group-hover:translate-x-0" />
-    <FiX className="transition-transform duration-300 -translate-x-full shrink-0 text-zinc-300 group-hover:translate-x-0" />
+    <FiX className="transition-transform duration-300 -translate-x-full shrink-0 group-hover:translate-x-0" />
+    <FiX className="transition-transform duration-300 -translate-x-full shrink-0 group-hover:translate-x-0" />
   </div>
 );
