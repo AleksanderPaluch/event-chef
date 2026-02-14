@@ -48,6 +48,7 @@ export const Button: React.FC<ButtonProps> = ({
   const variantClasses = {
     primary: "btn-primary",
     ghost: "btn-ghost",
+    modal: "btn-modal"
   };
 
   const sizeClasses = {

@@ -16,13 +16,12 @@ function App() {
   return (
     <>
       <Nav />
-      {/* <ShuffleHero /> */}
+      <ShuffleHero />
       <Live />
-      {/* <Mastercalss />
-      <Omakase /> */}
+      <Mastercalss />
+      <Omakase />
       <About />
-
-      {/* <Offer /> */}
+      <Offer />
       <FormSection />
     </>
   );
