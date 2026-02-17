@@ -1,8 +1,8 @@
 import image from "../../assets/About.jpg";
 
 import { Section } from "../Content/Section";
-import { Stats } from "../Content/Stats/Stats";
-import { Testimonials } from "../Content/Testimonials/Testimonials";
+import { Stats } from "./Stats/Stats";
+import { Testimonials } from "./Testimonials/Testimonials";
 
 const data = {
   id: "O nas",
