@@ -17,6 +17,35 @@ body {
 }
 
 @layer components {
+
+   /* ===== Image Section Wrapper ===== */
+  .image-section {
+    @apply relative h-[110vh];
+  }
+
+  .image-sticky {
+    @apply sticky z-0 overflow-hidden rounded-2xl;
+  }
+
+  .image-overlay {
+    @apply absolute inset-0 bg-black/45 dark:bg-black/65;
+  }
+
+  /* ===== Overlay Copy ===== */
+  .image-overlay-copy {
+    @apply absolute top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-zinc-50 dark:text-zinc-200;
+  }
+
+  .image-subheading {
+    @apply max-w-xl mx-auto mb-6 text-xl text-center lg:mb-8 md:text-3xl;
+  }
+
+  .image-heading {
+    @apply max-w-6xl text-5xl font-semibold text-center backdrop:blur-3xl lg:text-6xl;
+  }
+
+
+
   /* ===== Section Layout ===== */
   .section {
     @apply px-3 md:px-8 pt-6 lg:pt-32 pb-24 lg:pb-36 

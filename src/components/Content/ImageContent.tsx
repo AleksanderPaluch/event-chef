@@ -1,24 +1,20 @@
 import { type ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-
-
 interface ImageContentProps {
   imgUrl: string;
   subheading: string;
   heading: string;
   children?: ReactNode;
-
 }
 
-const IMG_PADDING = 12;
+const IMG_PADDING = 0;
 
 export const ImageContent: React.FC<ImageContentProps> = ({
   imgUrl,
   subheading,
   heading,
   children,
-
 }) => {
   return (
     <div
@@ -27,9 +23,9 @@ export const ImageContent: React.FC<ImageContentProps> = ({
         paddingRight: IMG_PADDING,
       }}
     >
-      <div className="relative h-[110vh]">
+      <div className="image-section">
         <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy heading={heading} subheading={subheading}  />
+        <OverlayCopy heading={heading} subheading={subheading} />
       </div>
       {children}
     </div>
@@ -57,14 +53,9 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
         scale,
       }}
       ref={targetRef}
-      className="sticky z-0 overflow-hidden rounded-3xl "
+      className="image-sticky"
     >
-      <motion.div
-        className="absolute inset-0 bg-black/30 dark:bg-black/65 "
-        style={{
-          opacity,
-        }}
-      />
+      <motion.div className="image-overlay" style={{ opacity }} />
     </motion.div>
   );
 };
@@ -72,11 +63,9 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
 const OverlayCopy = ({
   subheading,
   heading,
-
 }: {
   subheading: string;
   heading: string;
-
 }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -89,19 +78,13 @@ const OverlayCopy = ({
 
   return (
     <motion.div
-      style={{
-        y,
-        opacity,
-      }}
+      style={{ y, opacity }}
       ref={targetRef}
-      className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-zinc-100 dark:text-zinc-200"
+      className="image-overlay-copy"
     >
- <h3 className="max-w-xl mx-auto mb-6 text-xl text-center md:text-3xl lg:mb-8 ">
-        {subheading}
-      </h3>
-      <h2 className="text-5xl font-bold text-center lg:text-7xl">{heading}</h2>
-           
-  
+    <p>{heading}</p>
+
+      <h2 className="image-heading">{subheading}</h2>
     </motion.div>
   );
 };
