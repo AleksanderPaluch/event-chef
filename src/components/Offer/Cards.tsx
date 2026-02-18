@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "../Button/Button";
 
-/* =======================
-   TYPES
-======================= */
 
 type FeatureVariant = "wedding";
 
@@ -20,9 +17,6 @@ interface CardsProps {
   featuresByVariant?: string[];
 }
 
-/* =======================
-   COMPONENT
-======================= */
 
 export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
   return (
@@ -38,19 +32,19 @@ export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
             key={index}
             whileHover={{ scale: 1.04, y: -6 }}
             transition={{ type: "spring", stiffness: 280, damping: 22 }}
-            className="p-5 border sm:p-6 rounded-3xl border-white/10 bg-[#010000] backdrop-blur hover:border-white/30"
+            className="p-5 border sm:p-6 rounded-3xl   dark:bg-[#010000] backdrop-blur border-black/15 hover:border-black/40 dark:border-white/5 dark:hover:border-white/30"
           >
             <div className="flex flex-col h-full gap-4">
               {/* PEOPLE */}
               <div>
-                <p className="text-2xl font-semibold text-white">{row.people}</p>
-                <p className="text-sm text-white/60">liczba osób</p>
+                <p className="text-2xl font-semibold ">{row.people}</p>
+                <p className="text-sm text-zinc-600 dark:text-white/60">liczba osób</p>
               </div>
 
               {/* FEATURES */}
-              <ul className="mt-2 space-y-2 text-sm font-light text-white/70">
+              <ul className="mt-2 space-y-2 text-sm font-light text-zinc-700 dark:text-white/70">
                 {activeFeatures.map((feature) => (
-                  <li key={feature}><span className="mr-1 font-light text-green-900">✔</span> {feature}</li>
+                  <li key={feature}><span className="mr-1 font-light text-green-800">✔</span> {feature}</li>
                 ))}
               </ul>
 
@@ -58,20 +52,20 @@ export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
               <div className="py-2 mt-auto space-y-2 md:py-4 ">
                 {row.basic && (
                   <div className="flex items-baseline justify-between">
-                    <span className="uppercase text-md text-white/60">
+                    <span className="uppercase text-md text-zinc-800 dark:text-white/60">
                       Basic
                     </span>
-                    <span className="text-2xl font-semibold text-white">
+                    <span className="text-2xl font-semibold ">
                       {row.basic} zł
                     </span>
                   </div>
                 )}
 
                 <div className="flex items-baseline justify-between">
-                  <span className="uppercase text-md text-white/60">
+                  <span className="uppercase text-md text-zinc-800 dark:text-white/60">
                     Premium
                   </span>
-                  <span className="text-2xl font-semibold text-white">
+                  <span className="text-2xl font-semibold ">
                     {row.premium} zł
                   </span>
                 </div>

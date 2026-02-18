@@ -17,20 +17,18 @@ body {
 }
 
 @layer components {
-
-    /* ===== Navigation Wrapper ===== */
+  /* ===== Navigation Wrapper ===== */
   .nav {
-    @apply fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-1 transition-colors ;
+    @apply fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-1 transition-colors;
 
     /* light */
-    @apply  bg-white border-b border-zinc-200;
-    
+    @apply bg-white border-b border-zinc-200;
+
     /* dark */
     @apply dark:bg-zinc-950 dark:border-zinc-900;
   }
 
-
-    /* ===== NavLeft Wrapper ===== */
+  /* ===== NavLeft Wrapper ===== */
   .nav-left {
     @apply flex items-center gap-6 ml-auto lg:ml-0;
   }
@@ -46,13 +44,12 @@ body {
            dark:hover:text-white;
   }
 
-
-    /* ===== NavMenu Wrapper ===== */
+  /* ===== NavMenu Wrapper ===== */
   .nav-menu {
-    @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg
+    @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg h-[100vh]
            top-full
-           bg-white          /* light */
-           dark:bg-zinc-950;    /* dark */
+           bg-white        /* light */
+           dark:bg-zinc-950; /* dark */
   }
 
   /* ===== MenuLink Wrapper ===== */
@@ -79,8 +76,7 @@ body {
            transition-colors;
   }
 
-
-   /* ===== Image Section Wrapper ===== */
+  /* ===== Image Section Wrapper ===== */
   .image-section {
     @apply relative h-[110vh] lg:h-[150vh];
   }
@@ -103,10 +99,8 @@ body {
   }
 
   .image-heading {
-    @apply max-w-6xl text-5xl font-semibold text-center rounded-full backdrop:blur-3xl lg:text-7xl ;
+    @apply max-w-6xl text-5xl font-semibold text-center rounded-full backdrop:blur-3xl lg:text-7xl;
   }
-
-
 
   /* ===== Section Layout ===== */
   .section {
@@ -147,19 +141,19 @@ body {
 
   /* ===== BTN ===== */
   .btn {
-    @apply flex items-center justify-between px-4 py-2 text-sm transition-all duration-300 border rounded-lg lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 border-black/10 hover:border-black/30 dark:border-white/5 dark:hover:border-white/30;
+    @apply flex items-center justify-between px-4 py-2 text-sm font-semibold transition-all duration-300 border rounded-lg lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 border-black/10 hover:border-black/30 dark:border-white/5 dark:hover:border-white/30;
   }
 
   .btn-primary {
-    @apply bg-zinc-200 dark:bg-zinc-900;
+    @apply bg-zinc-100 dark:bg-zinc-900;
   }
 
   .btn-ghost {
-    @apply  bg-transparent;
+    @apply bg-transparent;
   }
 
   .btn-modal {
-    @apply   bg-transparent border-none text-zinc-600 dark:text-zinc-100;
+    @apply bg-transparent border-none text-zinc-600 dark:text-zinc-100;
   }
 
   .btn-full {
@@ -170,7 +164,7 @@ body {
     @apply w-fit;
   }
 
-   /* ===== Stats Section ===== */
+  /* ===== Stats Section ===== */
   .stats-section {
     @apply pb-6 mx-auto lg:pb-28;
   }
@@ -199,7 +193,7 @@ body {
   }
 
   /* ===== TESTEMONIALS ===== */
-  
+
   /* ===== Section padding variant ===== */
   .section-sm {
     @apply px-4 mb-8;
@@ -222,9 +216,9 @@ body {
     @apply flex items-center mb-4;
   }
 
-    /* ===== Review Card ===== */
+  /* ===== Review Card ===== */
 
-    .review-card {
+  .review-card {
     @apply w-[320px] md:w-[420px]
            bg-white dark:bg-zinc-900
            border border-gray-200 dark:border-gray-700
@@ -267,9 +261,9 @@ body {
     @apply text-sm leading-relaxed text-gray-700 dark:text-gray-300;
   }
 
-     /* ===== MODAL ===== */
+  /* ===== MODAL ===== */
 
-   /* ===== Modal Backdrop ===== */
+  /* ===== Modal Backdrop ===== */
   .modal-backdrop {
     @apply fixed inset-0 z-[9999]
            bg-black/40 dark:bg-zinc-950/70;
@@ -298,9 +292,7 @@ body {
     @apply relative h-full overflow-y-auto;
   }
 
-
-
-   /* ===== Modal Text Wrapper ===== */
+  /* ===== Modal Text Wrapper ===== */
   .modal-text-wrapper {
     @apply p-4 px-5 pt-14 md:pt-16 lg:pt-12;
   }
@@ -320,7 +312,7 @@ body {
 
   /* ===== Modal Card ===== */
   .modal-card {
-    @apply relative flex flex-col h-56 p-2 overflow-hidden transition-colors lg:h-80 ;
+    @apply relative flex flex-col h-56 p-2 overflow-hidden transition-colors lg:h-80;
   }
 
   .modal-card-hover {
@@ -366,43 +358,40 @@ body {
            group-hover:scale-100;
   }
 
+  @layer components {
+    /* ===== CardAccess Wrapper ===== */
+    .card-access {
+      @apply flex flex-col justify-center h-full gap-2 mb-6 text-center lg:gap-6;
+    }
 
-
-@layer components {
-
-  /* ===== CardAccess Wrapper ===== */
-  .card-access {
-    @apply flex flex-col justify-center h-full gap-2 mb-6 text-center lg:gap-6;
-  }
-
-  /* ===== Main text ===== */
-  .card-access-text {
-    @apply h-5 lg:h-6
+    /* ===== Main text ===== */
+    .card-access-text {
+      @apply h-5 lg:h-6
            lg:text-xl md:text-sm
            transition-colors
            text-zinc-800                 /* light */
            group-hover:text-zinc-950     /* light hover */
            dark:text-zinc-300            /* dark */
            dark:group-hover:text-zinc-50; /* dark hover */
-  }
+    }
 
-  /* ===== Subtext ===== */
-  .card-access-subtext {
-    @apply text-sm italic font-light tracking-wide
+    /* ===== Subtext ===== */
+    .card-access-subtext {
+      @apply text-sm italic font-light tracking-wide
            lg:text-sm
            text-zinc-600        /* light */
-           dark:text-zinc-500;  /* dark */
-  }
+           dark:text-zinc-500; /* dark */
+    }
 
-  /* ===== Divider ===== */
-  .card-access-divider {
-    @apply h-px w-[60%] mx-auto
+    /* ===== Divider ===== */
+    .card-access-divider {
+      @apply h-px w-[60%] mx-auto
            bg-zinc-500          /* light */
-           dark:bg-zinc-900;    /* dark */
+           dark:bg-zinc-900; /* dark */
+    }
   }
-}
 
-/* ===== CardForWho Wrapper ===== */
+  /* ===== CardForWho Wrapper ===== */
   .card-for-who {
     @apply flex flex-col justify-center gap-3 mt-4 lg:gap-8 lg:mt-6;
   }
@@ -412,7 +401,7 @@ body {
     @apply text-sm italic font-light tracking-wide
            lg:text-sm
            text-zinc-600        /* light */
-           dark:text-zinc-500;  /* dark */
+           dark:text-zinc-500; /* dark */
   }
 
   /* ===== Items Container ===== */
@@ -435,8 +424,6 @@ body {
            dark:group-hover:text-zinc-50; /* dark hover */
   }
 
-
-
   /* ===== CardMenu Wrapper ===== */
   .card-menu {
     @apply flex flex-col justify-between h-full;
@@ -446,7 +433,7 @@ body {
   .card-menu-info {
     @apply text-sm italic lg:text-sm
            text-zinc-600        /* light */
-           dark:text-zinc-500;  /* dark */
+           dark:text-zinc-500; /* dark */
   }
 
   /* ===== Menu List Wrapper ===== */
@@ -455,7 +442,7 @@ body {
             lg:text-xl md:text-sm
            gap-x-2 gap-y-0
            text-zinc-800        /* light */
-           dark:text-zinc-300;  /* dark */
+           dark:text-zinc-300; /* dark */
   }
 
   /* ===== Menu Item ===== */
@@ -473,7 +460,7 @@ body {
   .card-menu-note {
     @apply text-sm italic lg:text-sm
            text-zinc-600        /* light */
-           dark:text-zinc-500;  /* dark */
+           dark:text-zinc-500; /* dark */
   }
 
   /* ===== Spacer (instead of "." hack) ===== */
@@ -481,16 +468,14 @@ body {
     @apply h-5;
   }
 
-
-   /* ===== CardOrganization Wrapper ===== */
-
+  /* ===== CardOrganization Wrapper ===== */
 
   /* ===== Top Description ===== */
   .card-organization-title {
     @apply text-sm italic font-light tracking-wide
            lg:text-sm
            text-zinc-600        /* light */
-           dark:text-zinc-500;  /* dark */
+           dark:text-zinc-500; /* dark */
   }
 
   /* ===== List Wrapper ===== */
@@ -501,7 +486,7 @@ body {
            lg:gap-2 lg:mt-8
             lg:text-xl md:text-sm
            text-zinc-800        /* light */
-           dark:text-zinc-300;  /* dark */
+           dark:text-zinc-300; /* dark */
   }
 
   /* ===== List Item ===== */
@@ -516,17 +501,16 @@ body {
   .card-organization-icon {
     @apply mt-1
            text-zinc-500        /* light */
-           dark:text-zinc-600;  /* dark */
+           dark:text-zinc-600; /* dark */
   }
 
-
-    /* ===== CardProcess Wrapper ===== */
+  /* ===== CardProcess Wrapper ===== */
   .card-process {
     @apply flex flex-col items-center justify-center
            h-full mb-4
             lg:text-xl md:text-sm
            text-zinc-800        /* light */
-           dark:text-zinc-300;  /* dark */
+           dark:text-zinc-300; /* dark */
   }
 
   /* ===== Process Label ===== */
@@ -542,9 +526,8 @@ body {
            text-sm italic font-light tracking-wide
            lg:text-sm
            text-zinc-600        /* light */
-           dark:text-zinc-500;  /* dark */
+           dark:text-zinc-500; /* dark */
   }
-
 
   /* ===== TitleCard Wrapper ===== */
   .title-card {
@@ -554,7 +537,7 @@ body {
            bg-white                /* light */
            text-zinc-900           /* light */
            dark:bg-neutral-950     /* dark */
-           dark:text-zinc-300;     /* dark */
+           dark:text-zinc-300; /* dark */
   }
 
   /* ===== Icon ===== */
@@ -564,7 +547,7 @@ body {
 
   /* ===== Title ===== */
   .title-card-title {
-    @apply relative z-10 text-3xl uppercase ;
+    @apply relative z-10 text-3xl uppercase;
   }
 
   /* ===== Description Overlay ===== */
@@ -591,7 +574,37 @@ body {
            peer-hover:opacity-100
            peer-hover:translate-y-0;
   }
+  /* ===== OFFER ===== */
 
+  /* ===== Tabs wrapper ===== */
+  .tabs-wrapper {
+    @apply flex mb-4 md:mb-12 lg:max-w-[80%] mx-auto gap-1 md:gap-2;
+  }
+
+  /* ===== Individual Tab Button ===== */
+  .tab-button {
+    @apply relative z-0 flex items-center justify-center w-full py-2 transition-colors bg-white border  rounded-lg md:p-6  dark:bg-zinc-950 dark:hover:bg-[#010000]   text-zinc-700 dark:text-zinc-100 hover:text-zinc-800 dark:hover:text-zinc-50 border-black/15 hover:border-black/40 dark:border-white/5 dark:hover:border-white/30;
+  }
+
+  /* Selected tab */
+  .tab-selected {
+    @apply bg-zinc-50 dark:bg-[#010000];
+  }
+
+  /* Unselected tab */
+  .tab-unselected {
+    @apply hover:bg-zinc-100 dark:bg-zinc-950 dark:hover:bg-[#010000]; /* світла / темна тема */
+  }
+
+  /* Tab text */
+  .tab-text {
+    @apply text-lg text-center md:text-3xl; /* світла / темна тема */
+  }
+
+  /* Tab underline */
+  .tab-underline {
+    @apply absolute bottom-0 left-0 right-0 h-1 bg-zinc-800 rounded-b-md md:h-2 dark:bg-zinc-300; /* світла / темна тема */
+  }
 }
 
 html {

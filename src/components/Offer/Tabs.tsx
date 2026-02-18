@@ -9,10 +9,19 @@ interface TabsProps {
 }
 
 
+interface TabProps {
+  selected: boolean;
+  title: string;
+  setSelected: (value: number) => void;
+  tabNum: number;
+}
+
+
+
 
 export const Tabs = ({ selected, setSelected, FEATURES }: TabsProps) => {
   return (
-    <div className="flex mb-4 md:mb-12 lg:max-w-[80%] mx-auto gap-1 md:gap-2">
+    <div className="tabs-wrapper">
       {FEATURES.map((tab, index) => (
         <Tab
           key={tab.title}
@@ -26,34 +35,20 @@ export const Tabs = ({ selected, setSelected, FEATURES }: TabsProps) => {
   );
 };
 
-interface TabProps {
-  selected: boolean;
-  title: string;
-  setSelected: (value: number) => void;
-  tabNum: number;
-}
-
 const Tab = ({ selected, title, setSelected, tabNum }: TabProps) => {
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full">
       <button
         onClick={() => setSelected(tabNum)}
-       className={`
-          relative z-0 flex items-center justify-center w-full   py-2 md:p-6
-          transition-colors rounded-lg
-          border border-white/5 hover:border-white/30
-          ${selected ? "bg-[#010000]" : "bg-zinc-950 hover:bg-[#010000] "}
-        `}
+        className={`tab-button ${selected ? "tab-selected" : "tab-unselected"}`}
       >
-        <span className="text-lg text-center md:text-3xl ">
-          {title}
-        </span>
+        <span className="tab-text">{title}</span>
       </button>
 
       {selected && (
         <motion.span
           layoutId="tabs-features-underline"
-          className="absolute bottom-0 left-0 right-0 h-1 rounded-b-md md:h-2 bg-zinc-300"
+          className="tab-underline"
         />
       )}
     </div>

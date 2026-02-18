@@ -22,7 +22,7 @@ export const About = () => {
         heading={data.heading}
         stats={data.stats}
       />
-      <div className="pt-6 pb-24 lg:pt-32 lg:pb-36">
+      <div className="pt-6 lg:pt-32 ">
         <Stats />
         <Testimonials />
       </div>

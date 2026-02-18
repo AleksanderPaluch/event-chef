@@ -103,7 +103,7 @@ export const Modal = ({
     </div>
 
     {/* Close button */}
-    <div className="absolute right-[-2px] z-40 top-[-2px] lg:right-16">
+    <div className="absolute right-[-2px] z-40 top-[-2px] ">
       <Button variant="modal" text="" onClick={handleClose} />
     </div>
 

@@ -3,9 +3,7 @@ import { useState } from "react";
 import { Tabs } from "./Tabs";
 import { Cards } from "./Cards";
 
-/* =======================
-   TYPES
-======================= */
+
 
 type FeatureVariant = "wedding";
 
@@ -92,13 +90,13 @@ export const Offer = () => {
   const activeFeature = FEATURES[selected];
 
   return (
-    <section id="Oferta" className="px-3 py-24 ">
-      <div className="mx-auto md:max-w-[90%] lg:max-w-6xl">
-        <h3 className="mb-6 text-5xl font-semibold text-center lg:text-7xl">
+    <section id="Oferta" >
+      <div className="max-w-7xl section">
+        <h3 className="section-header section-header-accent">
           Oferta
         </h3>
 
-        <p className="max-w-2xl mb-6 text-center lg:text-xl md:mx-auto lg:mb-16 text-zinc-500">
+        <p className=" section-description">
           Ceny mają charakter orientacyjny i mogą się różnić w zależności od
           lokalizacji, liczby gości oraz indywidualnych ustaleń.
         </p>
