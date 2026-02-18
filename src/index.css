@@ -41,7 +41,7 @@ body {
   }
 
   .image-heading {
-    @apply max-w-6xl text-5xl font-semibold text-center backdrop:blur-3xl lg:text-6xl;
+    @apply max-w-6xl text-5xl font-semibold text-center backdrop:blur-3xl lg:text-7xl;
   }
 
 
@@ -85,7 +85,7 @@ body {
 
   /* ===== BTN ===== */
   .btn {
-    @apply flex items-center justify-between px-4 py-2 text-sm transition-all duration-300 border rounded-lg lg:text-base text-zinc-800 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 border-black/10 hover:border-black/30 dark:border-white/5 dark:hover:border-white/30;
+    @apply flex items-center justify-between px-4 py-2 text-sm transition-all duration-300 border rounded-lg lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 border-black/10 hover:border-black/30 dark:border-white/5 dark:hover:border-white/30;
   }
 
   .btn-primary {
@@ -93,11 +93,11 @@ body {
   }
 
   .btn-ghost {
-    @apply bg-transparent;
+    @apply  bg-transparent;
   }
 
   .btn-modal {
-    @apply bg-transparent border-none;
+    @apply   bg-transparent border-none text-zinc-600 dark:text-zinc-100;
   }
 
   .btn-full {
@@ -158,6 +158,375 @@ body {
 
   .scroll-content {
     @apply flex items-center mb-4;
+  }
+
+    /* ===== Review Card ===== */
+
+    .review-card {
+    @apply w-[320px] md:w-[420px]
+           bg-white dark:bg-zinc-900
+           border border-gray-200 dark:border-gray-700
+           rounded-xl p-4
+           shadow-sm dark:shadow-md
+           transition-all duration-200
+           hover:scale-[1.02]
+           hover:shadow-lg dark:hover:shadow-lg;
+  }
+
+  .review-header {
+    @apply flex items-center justify-between mb-3;
+  }
+
+  .review-user {
+    @apply flex items-center gap-3;
+  }
+
+  .review-avatar {
+    @apply object-cover w-10 h-10 rounded-full;
+  }
+
+  .review-avatar-fallback {
+    @apply flex items-center justify-center w-10 h-10 text-sm font-semibold text-gray-600 bg-gray-200 rounded-full dark:bg-zinc-950 dark:text-gray-300;
+  }
+
+  .review-name {
+    @apply text-sm font-semibold leading-none text-gray-900 dark:text-gray-100;
+  }
+
+  .review-date {
+    @apply text-xs text-gray-500 dark:text-gray-400;
+  }
+
+  .review-stars {
+    @apply flex items-center gap-0.5 mb-2;
+  }
+
+  .review-text {
+    @apply text-sm leading-relaxed text-gray-700 dark:text-gray-300;
+  }
+
+     /* ===== MODAL ===== */
+
+   /* ===== Modal Backdrop ===== */
+  .modal-backdrop {
+    @apply fixed inset-0 z-[9999]
+           bg-black/40 dark:bg-zinc-950/70;
+  }
+
+  /* ===== Modal Drawer ===== */
+  .modal-drawer {
+    @apply fixed bottom-0 left-0 right-0
+           h-[100vh]
+           overflow-hidden
+           bg-white dark:bg-zinc-950
+           backdrop-blur-md;
+  }
+
+  /* ===== Drag Area ===== */
+  .modal-drag-area {
+    @apply absolute top-0 left-0 right-0 z-30 flex justify-center p-4 bg-white/95 dark:bg-black/95 backdrop-blur-3xl;
+  }
+
+  .modal-drag-handle {
+    @apply h-2 rounded-full w-14 cursor-grab active:cursor-grabbing touch-none bg-zinc-300 dark:bg-zinc-900;
+  }
+
+  /* ===== Modal Scroll Wrapper ===== */
+  .modal-content {
+    @apply relative h-full overflow-y-auto;
+  }
+
+
+
+   /* ===== Modal Text Wrapper ===== */
+  .modal-text-wrapper {
+    @apply p-4 px-5 pt-14 md:pt-16 lg:pt-12;
+  }
+
+  /* ===== Modal Grid Blocks ===== */
+  .modal-grid {
+    @apply grid grid-cols-1 mx-auto border divide-y md:grid-cols-3 max-w-7xl md:divide-y-0 md:divide-x;
+  }
+
+  .modal-grid-primary {
+    @apply border-zinc-300 divide-zinc-300 dark:border-zinc-700 dark:divide-zinc-700;
+  }
+
+  .modal-grid-secondary {
+    @apply border-t-0 border-b border-x border-zinc-300 divide-zinc-300 dark:border-zinc-700 dark:divide-zinc-700;
+  }
+
+  /* ===== Modal Card ===== */
+  .modal-card {
+    @apply relative flex flex-col h-56 p-2 overflow-hidden transition-colors lg:h-80 ;
+  }
+
+  .modal-card-hover {
+    @apply hover:bg-black/5 dark:hover:bg-black/40;
+  }
+
+  .modal-card-header {
+    @apply z-10 flex items-center justify-between mb-1 md:mb-2 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-50;
+  }
+
+  .modal-card-title {
+    @apply font-medium lg:text-lg;
+  }
+
+  .modal-card-icon {
+    @apply text-lg lg:text-2xl;
+  }
+
+  .modal-card-body {
+    @apply flex flex-col h-full gap-4 lg:px-0;
+  }
+
+  .modal-card-image-overlay {
+    @apply absolute inset-0 transition opacity-0 group-hover:opacity-40;
+  }
+
+  /* ===== Animated Corners ===== */
+  .modal-card-corner-v {
+    @apply absolute z-10
+           h-7 w-[1px]
+           bg-zinc-700 dark:bg-zinc-300
+           scale-0
+           transition-all duration-500
+           group-hover:scale-100;
+  }
+
+  .modal-card-corner-h {
+    @apply absolute z-10
+           h-[1px] w-7
+           bg-zinc-700 dark:bg-zinc-300
+           scale-0
+           transition-all duration-500
+           group-hover:scale-100;
+  }
+
+
+
+@layer components {
+
+  /* ===== CardAccess Wrapper ===== */
+  .card-access {
+    @apply flex flex-col justify-center h-full gap-2 mb-6 text-center lg:gap-6;
+  }
+
+  /* ===== Main text ===== */
+  .card-access-text {
+    @apply h-5 lg:h-6
+           lg:text-xl md:text-sm
+           transition-colors
+           text-zinc-800                 /* light */
+           group-hover:text-zinc-950     /* light hover */
+           dark:text-zinc-300            /* dark */
+           dark:group-hover:text-zinc-50; /* dark hover */
+  }
+
+  /* ===== Subtext ===== */
+  .card-access-subtext {
+    @apply text-sm italic font-light tracking-wide
+           lg:text-sm
+           text-zinc-600        /* light */
+           dark:text-zinc-500;  /* dark */
+  }
+
+  /* ===== Divider ===== */
+  .card-access-divider {
+    @apply h-px w-[60%] mx-auto
+           bg-zinc-500          /* light */
+           dark:bg-zinc-900;    /* dark */
+  }
+}
+
+/* ===== CardForWho Wrapper ===== */
+  .card-for-who {
+    @apply flex flex-col justify-center gap-3 mt-4 lg:gap-8 lg:mt-6;
+  }
+
+  /* ===== Section Title ===== */
+  .card-for-who-title {
+    @apply text-sm italic font-light tracking-wide
+           lg:text-sm
+           text-zinc-600        /* light */
+           dark:text-zinc-500;  /* dark */
+  }
+
+  /* ===== Items Container ===== */
+  .card-for-who-items {
+    @apply flex flex-wrap items-center gap-x-1 gap-y-1 lg:text-xl md:text-sm;
+  }
+
+  /* ===== Bullet Separator ===== */
+  .card-for-who-separator {
+    @apply text-zinc-500       /* light */
+           dark:text-zinc-600; /* dark */
+  }
+
+  /* ===== Chip Item ===== */
+  .card-for-who-item {
+    @apply transition-colors
+           text-zinc-800                 /* light */
+           group-hover:text-zinc-950     /* light hover */
+           dark:text-zinc-300            /* dark */
+           dark:group-hover:text-zinc-50; /* dark hover */
+  }
+
+
+
+  /* ===== CardMenu Wrapper ===== */
+  .card-menu {
+    @apply flex flex-col justify-between h-full;
+  }
+
+  /* ===== Top Info Text ===== */
+  .card-menu-info {
+    @apply text-sm italic lg:text-sm
+           text-zinc-600        /* light */
+           dark:text-zinc-500;  /* dark */
+  }
+
+  /* ===== Menu List Wrapper ===== */
+  .card-menu-list {
+    @apply flex flex-col items-center
+            lg:text-xl md:text-sm
+           gap-x-2 gap-y-0
+           text-zinc-800        /* light */
+           dark:text-zinc-300;  /* dark */
+  }
+
+  /* ===== Menu Item ===== */
+  .card-menu-item {
+    @apply transition-colors group-hover:text-zinc-950 dark:group-hover:text-zinc-50;
+  }
+
+  /* ===== Bullet Separator ===== */
+  .card-menu-separator {
+    @apply text-zinc-500       /* light */
+           dark:text-zinc-600; /* dark */
+  }
+
+  /* ===== Bottom Note ===== */
+  .card-menu-note {
+    @apply text-sm italic lg:text-sm
+           text-zinc-600        /* light */
+           dark:text-zinc-500;  /* dark */
+  }
+
+  /* ===== Spacer (instead of "." hack) ===== */
+  .card-menu-spacer {
+    @apply h-5;
+  }
+
+
+   /* ===== CardOrganization Wrapper ===== */
+
+
+  /* ===== Top Description ===== */
+  .card-organization-title {
+    @apply text-sm italic font-light tracking-wide
+           lg:text-sm
+           text-zinc-600        /* light */
+           dark:text-zinc-500;  /* dark */
+  }
+
+  /* ===== List Wrapper ===== */
+  .card-organization-list {
+    @apply flex flex-col
+           gap-2 mt-8
+           tracking-tight
+           lg:gap-2 lg:mt-8
+            lg:text-xl md:text-sm
+           text-zinc-800        /* light */
+           dark:text-zinc-300;  /* dark */
+  }
+
+  /* ===== List Item ===== */
+  .card-organization-item {
+    @apply flex items-start gap-2
+           transition-colors
+           group-hover:text-zinc-950      /* light hover */
+           dark:group-hover:text-zinc-50; /* dark hover */
+  }
+
+  /* ===== Arrow Icon ===== */
+  .card-organization-icon {
+    @apply mt-1
+           text-zinc-500        /* light */
+           dark:text-zinc-600;  /* dark */
+  }
+
+
+    /* ===== CardProcess Wrapper ===== */
+  .card-process {
+    @apply flex flex-col items-center justify-center
+           h-full mb-4
+            lg:text-xl md:text-sm
+           text-zinc-800        /* light */
+           dark:text-zinc-300;  /* dark */
+  }
+
+  /* ===== Process Label ===== */
+  .card-process-label {
+    @apply transition-colors
+           group-hover:text-zinc-950      /* light hover */
+           dark:group-hover:text-zinc-50; /* dark hover */
+  }
+
+  /* ===== Process Time ===== */
+  .card-process-time {
+    @apply mb-2
+           text-sm italic font-light tracking-wide
+           lg:text-sm
+           text-zinc-600        /* light */
+           dark:text-zinc-500;  /* dark */
+  }
+
+
+  /* ===== TitleCard Wrapper ===== */
+  .title-card {
+    @apply relative
+           px-4 py-2 md:p-9
+           lg:h-80
+           bg-white                /* light */
+           text-zinc-900           /* light */
+           dark:bg-neutral-950     /* dark */
+           dark:text-zinc-300;     /* dark */
+  }
+
+  /* ===== Icon ===== */
+  .title-card-icon {
+    @apply absolute z-10 text-2xl cursor-pointer right-2 top-2;
+  }
+
+  /* ===== Title ===== */
+  .title-card-title {
+    @apply relative z-10 text-3xl uppercase;
+  }
+
+  /* ===== Description Overlay ===== */
+  .title-card-description {
+    @apply absolute
+           left-0 right-4
+           top-0
+           lg:top-[calc(1.5rem+5rem)]
+           lg:h-40
+           mt-0
+           rounded-md
+           px-2 lg:px-7 py-2
+           h-full flex justify-center flex-col
+           opacity-0 translate-y-2
+           pointer-events-none
+           transition-all duration-300
+           italic
+           z-20
+           text-zinc-600                 /* light text */
+           bg-white                      /* light bg */
+           dark:bg-neutral-950           /* dark bg */
+           dark:text-zinc-500            /* dark text */
+           peer-hover:opacity-100
+           peer-hover:translate-y-0;
   }
 
 }

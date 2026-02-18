@@ -17,65 +17,54 @@ export const ReviewCard = ({ img, name, info, rating, createdAt }: CardProps) =>
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div
-      className="
-        w-[320px] md:w-[420px]
-        bg-white dark:bg-zinc-900
-        border border-gray-200 dark:border-gray-700
-        rounded-xl p-4
-        shadow-sm dark:shadow-md
-        transition-all duration-200
-        hover:scale-[1.02] hover:shadow-lg dark:hover:shadow-lg
-      "
-    >
-      {/* Header */}
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-3">
-          {img ? (
-            <img
-              src={img}
-              alt={name}
-              className="object-cover w-10 h-10 rounded-full"
-            />
-          ) : (
-            <div className="flex items-center justify-center w-10 h-10 text-sm font-semibold text-gray-600 bg-gray-200 rounded-full dark:text-gray-300 dark:bg-zinc-950">
-              {name[0]}
-            </div>
-          )}
+  <div className="review-card">
 
-          <div>
-            <p className="text-sm font-semibold leading-none text-gray-900 dark:text-gray-100">
-              {name}
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              {getRelativeDatePL(createdAt)}
-            </p>
-          </div>
+  <div className="review-header">
+    <div className="review-user">
+
+      {img ? (
+        <img
+          src={img}
+          alt={name}
+          className="review-avatar"
+        />
+      ) : (
+        <div className="review-avatar-fallback">
+          {name[0]}
         </div>
+      )}
 
-        <FcGoogle className="text-2xl" />
+      <div>
+        <p className="review-name">{name}</p>
+        <p className="review-date">
+          {getRelativeDatePL(createdAt)}
+        </p>
       </div>
-
-      {/* Stars */}
-      <div className="flex items-center gap-0.5 mb-2">
-        {[...Array(fullStars)].map((_, i) => (
-          <MdStar key={`full-${i}`} className="text-lg text-yellow-400" />
-        ))}
-
-        {hasHalfStar && <MdStarHalf className="text-lg text-yellow-400" />}
-
-        {[...Array(emptyStars)].map((_, i) => (
-          <MdStarBorder
-            key={`empty-${i}`}
-            className="text-lg text-yellow-400"
-          />
-        ))}
-      </div>
-
-      {/* Review text */}
-      <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-        {info}
-      </p>
     </div>
+
+    <FcGoogle className="text-2xl" />
+  </div>
+
+  <div className="review-stars">
+    {[...Array(fullStars)].map((_, i) => (
+      <MdStar key={`full-${i}`} className="text-lg text-yellow-400" />
+    ))}
+
+    {hasHalfStar && (
+      <MdStarHalf className="text-lg text-yellow-400" />
+    )}
+
+    {[...Array(emptyStars)].map((_, i) => (
+      <MdStarBorder
+        key={`empty-${i}`}
+        className="text-lg text-yellow-400"
+      />
+    ))}
+  </div>
+
+  <p className="review-text">
+    {info}
+  </p>
+</div>
   );
 };

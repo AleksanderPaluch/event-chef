@@ -119,7 +119,7 @@ const Arrow = () => (
 );
 
 const Close = () => (
-  <div className="flex w-6 h-6 overflow-hidden text-2xl pointer-events-none lg:text-3xl lg:w-8 lg:h-8 ">
+  <div className="flex w-6 h-6 overflow-hidden text-3xl pointer-events-none lg:text-4xl lg:w-8 lg:h-8 ">
     <FiX className="transition-transform duration-300 -translate-x-full shrink-0 group-hover:translate-x-0" />
     <FiX className="transition-transform duration-300 -translate-x-full shrink-0 group-hover:translate-x-0" />
   </div>

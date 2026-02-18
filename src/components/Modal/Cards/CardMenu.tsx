@@ -9,47 +9,36 @@ interface CardMenuProps {
 
 export const CardMenu: React.FC<CardMenuProps> = ({
   menu,
-  // noteSecond = "Zawsze indywidualne i dopasowane do wydarzenia",
   note = "Dostępne menu vege oraz bez surowych ryb*",
   info = "Przykładowe menu dla 1 osoby (20 kawałkow sushi):",
   omakase = false,
 }) => {
   return (
-    <div className="flex flex-col justify-between h-full ">
+    <div className="card-menu group">
       {omakase ? (
-        <p className="text-sm italic text-zinc-500 lg:text-sm">
-           Tworzone indywidualnie dopasowane do charakteru
-          wydarzenia*
+        <p className="card-menu-info">
+          Tworzone indywidualnie dopasowane do charakteru wydarzenia*
         </p>
       ) : (
-        <p className="text-sm italic fon text-zinc-500 lg:text-sm ">{info}</p>
+        <p className="card-menu-info">{info}</p>
       )}
 
-      {/* Menu list */}
-      <div className="flex flex-col items-center text-md gap-x-2 gap-y-0 text-zinc-300 lg:text-xl md:text-sm">
+      <div className="card-menu-list">
         {menu.map((item, index) => (
           <React.Fragment key={item}>
-            <span className="transition-colors group-hover:text-zinc-50">
-              {item}
-            </span>
+            <span className="card-menu-item">{item}</span>
             {index < menu.length - 1 && (
-              <span className="text-zinc-600">•</span>
+              <span className="card-menu-separator">•</span>
             )}
           </React.Fragment>
         ))}
       </div>
 
-      {/* Note */}
-
       {omakase ? (
-        <span className="text-zinc-950">.</span>
+        <div className="card-menu-spacer" />
       ) : (
-        <p className="text-sm italic text-zinc-500 lg:text-sm">{note}</p>
+        <p className="card-menu-note">{note}</p>
       )}
-
-      {/* <p className="text-xs italic text-zinc-500 lg:text-sm">
-          {noteSecond}
-        </p> */}
     </div>
   );
 };

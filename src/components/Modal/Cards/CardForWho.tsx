@@ -14,29 +14,26 @@ export const CardForWho: React.FC<CardForWhoProps> = ({
   secondaryChips = [],
 }) => {
   return (
-    <>
-    <div className="flex flex-col justify-center gap-3 mt-4 lg:gap-8 lg:mt-6">
-    
+    <div className="card-for-who group">
       {chipsTitle && <Section title={chipsTitle} items={chips} />}
       {secondaryChipsTitle && (
         <Section title={secondaryChipsTitle} items={secondaryChips} />
       )}
-
     </div>
-
-    </>
   );
 };
 
 const Section = ({ title, items }: { title: string; items: string[] }) => (
   <div>
-    <p className="text-sm italic font-light tracking-wide lg:text-sm text-zinc-500">{title}</p>
+    <p className="card-for-who-title">{title}</p>
 
-    <div className="flex flex-wrap items-center gap-x-1 gap-y-1 text-md lg:text-xl md:text-sm">
+    <div className="card-for-who-items">
       {items.map((item, index) => (
         <React.Fragment key={item}>
           <Item>{item}</Item>
-          {index < items.length - 1 && <span className="text-zinc-600">•</span>}
+          {index < items.length - 1 && (
+            <span className="card-for-who-separator">•</span>
+          )}
         </React.Fragment>
       ))}
     </div>
@@ -44,7 +41,7 @@ const Section = ({ title, items }: { title: string; items: string[] }) => (
 );
 
 const Item = ({ children }: { children: string }) => (
-  <span className="transition-colors text-zinc-300 group-hover:text-zinc-50 ">
+  <span className="card-for-who-item">
     {children}
   </span>
 );

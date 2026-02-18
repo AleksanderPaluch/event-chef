@@ -46,37 +46,41 @@ export const ModalText: React.FC<ModalTextProps> = ({
   secondaryChips = [],
 }) => {
   return (
-    <>
-      <div className="p-4 px-5 pt-14 md:p-18 lg:pt-12">
+    <div className="modal-text-wrapper">
+      <div className="modal-grid modal-grid-primary">
+        <TitleCard
+          icon={<FiInfo />}
+          textTitle={textTitle}
+          modalDescription={modalDescription}
+        />
 
-        <div className="grid grid-cols-1 mx-auto border divide-y max-w-7xl divide-neutral-700 border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
-          <TitleCard icon={<FiInfo />} textTitle={textTitle} modalDescription={modalDescription} />
-          <Card title="Dla kogo?" icon={<FiUsers />}>
-            <CardForWho
-              chipsTitle={chipsTitle}
-              chips={chips}
-              secondaryChipsTitle={secondaryChipsTitle}
-              secondaryChips={secondaryChips}
-            />
-          </Card>
-          <Card title="Menu" icon={<FiBookOpen />} src={menuIMG}  >
-            <CardMenu menu={menu} omakase/>
-          </Card>
-        </div>
-        <div className="grid grid-cols-1 mx-auto border-b divide-y max-w-7xl divide-neutral-700 border-x border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
-          <Card title="Organizacja" icon={<FiSettings />}>
-            <CardOrganization items={organization} />
-          </Card>
+        <Card title="Dla kogo?" icon={<FiUsers />}>
+          <CardForWho
+            chipsTitle={chipsTitle}
+            chips={chips}
+            secondaryChipsTitle={secondaryChipsTitle}
+            secondaryChips={secondaryChips}
+          />
+        </Card>
 
-          <Card title="Przebieg" icon={<FiWatch />}>
-            <CardProcess modalProcess={modalProcess} />
-          </Card>
-
-          <Card title="Dojazd" icon={<FiMapPin />}>
-            <CardAccess />
-          </Card>
-        </div>
+        <Card title="Menu" icon={<FiBookOpen />} src={menuIMG}>
+          <CardMenu menu={menu} omakase />
+        </Card>
       </div>
-    </>
+
+      <div className="modal-grid modal-grid-secondary">
+        <Card title="Organizacja" icon={<FiSettings />}>
+          <CardOrganization items={organization} />
+        </Card>
+
+        <Card title="Przebieg" icon={<FiWatch />}>
+          <CardProcess modalProcess={modalProcess} />
+        </Card>
+
+        <Card title="Dojazd" icon={<FiMapPin />}>
+          <CardAccess />
+        </Card>
+      </div>
+    </div>
   );
 };
