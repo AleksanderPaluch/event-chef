@@ -8,8 +8,6 @@ interface ImageContentProps {
   children?: ReactNode;
 }
 
-const IMG_PADDING = 0;
-
 export const ImageContent: React.FC<ImageContentProps> = ({
   imgUrl,
   subheading,
@@ -17,12 +15,7 @@ export const ImageContent: React.FC<ImageContentProps> = ({
   children,
 }) => {
   return (
-    <div
-      style={{
-        paddingLeft: IMG_PADDING,
-        paddingRight: IMG_PADDING,
-      }}
-    >
+    <div>
       <div className="image-section">
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} />
@@ -48,8 +41,8 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
         backgroundImage: `url(${imgUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: `calc(100vh - ${IMG_PADDING * 2}px)`,
-        top: IMG_PADDING,
+        height: "100vh",
+        top: 0,
         scale,
       }}
       ref={targetRef}
@@ -82,7 +75,7 @@ const OverlayCopy = ({
       ref={targetRef}
       className="image-overlay-copy"
     >
-    <p>{heading}</p>
+      <p>{heading}</p>
 
       <h2 className="image-heading">{subheading}</h2>
     </motion.div>

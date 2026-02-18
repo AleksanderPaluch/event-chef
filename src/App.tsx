@@ -6,7 +6,7 @@ import { Nav } from "./components/Nav/Nav";
 import { Omakase } from "./components/Omakase/Omakase";
 import { Offer } from "./components/Offer/Offer";
 import { FormSection } from "./components/FormSection/FormSection";
-import ShuffleHero from "./components/Hero/Hero";
+
 
 function App() {
   useEffect(() => {
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Nav />
-      <ShuffleHero />
+      {/* <ShuffleHero /> */}
       <Live />
       <Mastercalss />
       <Omakase />
