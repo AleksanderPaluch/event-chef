@@ -50,7 +50,7 @@ body {
 
    /* ===== Image Section Wrapper ===== */
   .image-section {
-    @apply relative h-[120vh];
+    @apply relative h-[100vh];
   }
 
   .image-sticky {
