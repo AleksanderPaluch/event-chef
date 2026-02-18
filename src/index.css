@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-50 dark:bg-zinc-950 dark:text-zinc-100 text-zinc-800;
+  @apply bg-white dark:bg-zinc-950 dark:text-zinc-100 text-zinc-800;
   font-family:
     "Manrope",
     system-ui,
@@ -23,7 +23,7 @@ body {
     @apply fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-1 transition-colors backdrop-blur-md;
 
     /* light */
-    @apply  border-b bg-zinc-50/80 border-zinc-200;
+    @apply  border-b bg-white/70 border-zinc-200;
     
     /* dark */
     @apply dark:bg-zinc-950/70 dark:border-zinc-900;
@@ -63,7 +63,7 @@ body {
 
   /* ===== Overlay Copy ===== */
   .image-overlay-copy {
-    @apply absolute top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-zinc-50 dark:text-zinc-200;
+    @apply absolute top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-white dark:text-zinc-200;
   }
 
   .image-subheading {
@@ -71,7 +71,7 @@ body {
   }
 
   .image-heading {
-    @apply max-w-6xl text-5xl font-semibold text-center backdrop:blur-3xl lg:text-7xl;
+    @apply max-w-6xl text-5xl font-semibold text-center rounded-full backdrop:blur-3xl lg:text-7xl ;
   }
 
 
@@ -254,7 +254,7 @@ body {
 
   /* ===== Drag Area ===== */
   .modal-drag-area {
-    @apply absolute top-0 left-0 right-0 z-30 flex justify-center p-4 bg-white/95 dark:bg-black/95 backdrop-blur-3xl;
+    @apply absolute top-0 left-0 right-0 z-30 flex justify-center p-4 bg-white dark:bg-zinc-950 backdrop-blur-3xl;
   }
 
   .modal-drag-handle {
@@ -532,10 +532,33 @@ body {
 
   /* ===== Title ===== */
   .title-card-title {
-    @apply relative z-10 text-3xl uppercase;
+    @apply relative z-10 text-3xl uppercase ;
   }
 
- 
+  /* ===== Description Overlay ===== */
+  .title-card-description {
+    @apply absolute
+           left-0 right-4
+           top-0
+           lg:top-[calc(1.5rem+5rem)]
+           lg:h-40
+           mt-0
+           w-full
+           rounded-md
+           px-2 lg:px-7 py-2
+           h-full flex justify-center flex-col
+           opacity-0 translate-y-2
+           pointer-events-none
+           transition-all duration-300
+           italic
+           z-20
+           text-zinc-600                 /* light text */
+           bg-white                      /* light bg */
+           dark:bg-neutral-950           /* dark bg */
+           dark:text-zinc-500            /* dark text */
+           peer-hover:opacity-100
+           peer-hover:translate-y-0;
+  }
 
 }
 
