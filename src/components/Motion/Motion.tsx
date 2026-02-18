@@ -9,9 +9,9 @@ interface MotionProps {
 export const Motion: React.FC<MotionProps> = ({ children }) => {
   return (
     <motion.div
-      initial={{ y: 80, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      transition={{ ease: "easeInOut", duration: 0.6 }}
+      initial={{ y: 0, opacity: 0 }}
+      whileInView={{ y: 1, opacity: 1 }}
+      transition={{ ease: "easeInOut", duration: 0 }}
     
     
     >{children}</motion.div>
