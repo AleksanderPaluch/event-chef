@@ -23,7 +23,7 @@ body {
     @apply fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-1 transition-colors backdrop-blur-md;
 
     /* light */
-    @apply  border-b bg-white/70 border-zinc-200;
+    @apply  border-b bg-white/80 border-zinc-200;
     
     /* dark */
     @apply dark:bg-zinc-950/70 dark:border-zinc-900;
@@ -50,7 +50,7 @@ body {
 
    /* ===== Image Section Wrapper ===== */
   .image-section {
-    @apply relative h-[100vh];
+    @apply relative h-[100vh] lg:h-[150vh];
   }
 
   .image-sticky {

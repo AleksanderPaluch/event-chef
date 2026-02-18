@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Motion } from "../Motion/Motion";
+
 import { Button } from "../Button/Button";
 import { Modal } from "../Modal/Modal";
 
@@ -42,7 +42,7 @@ export const TextContent: React.FC<TextContentProps> = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <Motion>
+
       <div className="section">
         <h3 className="section-header">
           Czym jest <span className="section-header-accent">{textTitle}?</span>
@@ -86,6 +86,6 @@ export const TextContent: React.FC<TextContentProps> = ({
           secondaryChips={secondaryChips}
         />
       </div>
-    </Motion>
+
   );
 };
