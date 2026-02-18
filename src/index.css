@@ -111,13 +111,11 @@ body {
   /* ===== Header ===== */
   .section-header {
     @apply w-[320px] md:w-full mx-auto mb-6 
-           text-5xl lg:text-6xl 
+           text-5xl  lg:text-7xl
            font-semibold leading-tight text-center;
   }
 
-  .section-header-accent {
-    @apply text-5xl lg:text-7xl;
-  }
+
 
   /* ===== Quote / Comment ===== */
   .section-comment {

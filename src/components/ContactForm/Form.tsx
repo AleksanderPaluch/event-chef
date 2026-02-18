@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, type Transition  } from "framer-motion";
 import { type Dispatch, type SetStateAction } from "react";
+import { Button } from "../Button/Button";
 
 const BASE_TRANSITION: Transition = {
   ease: "anticipate",
@@ -16,25 +17,31 @@ export const Form = ({
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className={`p-8 w-full text-white transition-colors duration-[750ms] ${
-        selected === "company" ? "" : ""
-      }`}
+      className="
+        p-8 w-full
+        transition-colors duration-[750ms]
+        bg-white 
+        dark:bg-zinc-950 
+      "
     >
-      <h3 className="mb-6 text-4xl font-bold">Contact us</h3>
+
 
       {/* Name input */}
       <div className="mb-6">
-        <p className="mb-2 text-2xl">Hi 👋! My name is...</p>
+        <p className="mb-2 text-2xl">Cześć 👋! Mam na imię...</p>
         <input
           type="text"
-          placeholder="Your name..."
-          className={`${
-            selected === "company" ? "bg-zinc-700" : "bg-zinc-800"
-          } transition-colors duration-[750ms] placeholder-white/70 p-2 rounded-md w-full focus:outline-0`}
+          placeholder="Twoje imie..."
+          className="
+            w-full p-2 rounded-md focus:outline-none
+            transition-colors duration-[750ms]
+            bg-zinc-100 text-zinc-900 placeholder-zinc-500
+            dark:bg-zinc-800 dark:text-white dark:placeholder-white/60 border border-black/15 focus:border-black/40 dark:border-white/5 dark:focus:border-white/30
+          "
         />
       </div>
 
-      {/* Company/individual toggle */}
+      {/* Toggle */}
       <div className="mb-6">
         <p className="mb-2 text-2xl">and I represent...</p>
         <FormSelect selected={selected} setSelected={setSelected} />
@@ -44,22 +51,9 @@ export const Form = ({
       <AnimatePresence>
         {selected === "company" && (
           <motion.div
-            initial={{
-              // 104 === height of element + margin
-              // Alternatively can use mode='popLayout' on AnimatePresence
-              // and add the "layout" prop to relevant elements to reduce
-              // distortion
-              marginTop: -104,
-              opacity: 0,
-            }}
-            animate={{
-              marginTop: 0,
-              opacity: 1,
-            }}
-            exit={{
-              marginTop: -104,
-              opacity: 0,
-            }}
+            initial={{ marginTop: -104, opacity: 0 }}
+            animate={{ marginTop: 0, opacity: 1 }}
+            exit={{ marginTop: -104, opacity: 0 }}
             transition={BASE_TRANSITION}
             className="mb-6"
           >
@@ -67,9 +61,12 @@ export const Form = ({
             <input
               type="text"
               placeholder="Your company name..."
-              className={`${
-                selected === "company" ? "bg-zinc-700" : "bg-zinc-700"
-              } transition-colors duration-[750ms] placeholder-white/70 p-2 rounded-md w-full focus:outline-0`}
+              className="
+                w-full p-2 rounded-md focus:outline-none
+                transition-colors duration-[750ms]
+                bg-zinc-100 text-zinc-900 placeholder-zinc-500
+                dark:bg-zinc-800 dark:text-white dark:placeholder-white/60
+              "
             />
           </motion.div>
         )}
@@ -80,33 +77,20 @@ export const Form = ({
         <p className="mb-2 text-2xl">I'd love to ask about...</p>
         <textarea
           placeholder="Whatever your heart desires :)"
-          className={`${
-            selected === "company" ? "bg-zinc-700" : "bg-zinc-700"
-          } transition-colors duration-[750ms] min-h-[150px] resize-none placeholder-white/70 p-2 rounded-md w-full focus:outline-0`}
+          className="
+            w-full p-2 rounded-md min-h-[150px] resize-none focus:outline-none
+            transition-colors duration-[750ms]
+            bg-zinc-100 text-zinc-900 placeholder-zinc-500
+            dark:bg-zinc-800 dark:text-white dark:placeholder-white/60
+          "
         />
       </div>
 
       {/* Submit */}
-      <motion.button
-        whileHover={{
-          scale: 1.01,
-        }}
-        whileTap={{
-          scale: 0.99,
-        }}
-        type="submit"
-        className={`${
-          selected === "company"
-            ? "bg-zinc-500 text-indigo-600"
-            : "bg-zinc-600 text-violet-600"
-        } transition-colors duration-[750ms] text-lg text-center rounded-lg w-full py-3 font-semibold`}
-      >
-        Submit
-      </motion.button>
+<Button text="Wyślij" />
     </form>
   );
 };
-
 
 const FormSelect = ({
   selected,
@@ -116,34 +100,53 @@ const FormSelect = ({
   setSelected: Dispatch<SetStateAction<"company" | "individual">>;
 }) => {
   return (
-    <div className="border-[1px] rounded border-white overflow-hidden font-medium w-fit">
+    <div
+      className="overflow-hidden font-medium border rounded w-fit border-zinc-300 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900"
+    >
+      {/* Individual */}
       <button
-        className={`${
-          selected === "individual" ? "text-violet-600" : "text-white"
-        } text-sm px-3 py-1.5 transition-colors duration-[750ms] relative`}
+        type="button"
         onClick={() => setSelected("individual")}
+        className={`
+          relative px-3 py-1.5 text-sm transition-colors duration-[750ms]
+          ${
+            selected === "individual"
+              ? "text-white"
+              : "text-zinc-700 dark:text-zinc-300"
+          }
+        `}
       >
         <span className="relative z-10">An individual</span>
+
         {selected === "individual" && (
           <motion.div
             transition={BASE_TRANSITION}
             layoutId="form-tab"
-            className="absolute inset-0 z-0 bg-zinc-400"
+            className="absolute inset-0 z-0 bg-zinc-900 dark:bg-zinc-700"
           />
         )}
       </button>
+
+      {/* Company */}
       <button
-        className={`${
-          selected === "company" ? "text-zinc-600" : "text-white"
-        } text-sm px-3 py-1.5 transition-colors duration-[750ms] relative`}
+        type="button"
         onClick={() => setSelected("company")}
+        className={`
+          relative px-3 py-1.5 text-sm transition-colors duration-[750ms]
+          ${
+            selected === "company"
+              ? "text-white"
+              : "text-zinc-700 dark:text-zinc-300"
+          }
+        `}
       >
         <span className="relative z-10">A company</span>
+
         {selected === "company" && (
           <motion.div
             transition={BASE_TRANSITION}
             layoutId="form-tab"
-            className="absolute inset-0 z-0 bg-zinc-500"
+            className="absolute inset-0 z-0 bg-zinc-800 dark:bg-zinc-600"
           />
         )}
       </button>

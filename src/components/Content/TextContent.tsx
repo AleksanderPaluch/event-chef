@@ -45,7 +45,7 @@ export const TextContent: React.FC<TextContentProps> = ({
 
       <div className="section ">
         <h3 className="section-header">
-          Czym jest <span className="section-header-accent">{textTitle}?</span>
+          Czym jest <span className="">{textTitle}?</span>
         </h3>
 
         <p className="section-comment">"{text}"</p>
