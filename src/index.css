@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-100 text-zinc-800;
+  @apply bg-zinc-50 dark:bg-zinc-950 dark:text-zinc-100 text-zinc-800;
   font-family:
     "Manrope",
     system-ui,
@@ -18,13 +18,43 @@ body {
 
 @layer components {
 
+    /* ===== Navigation Wrapper ===== */
+  .nav {
+    @apply fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-1 transition-colors backdrop-blur-md;
+
+    /* light */
+    @apply  border-b bg-zinc-50/80 border-zinc-200;
+    
+    /* dark */
+    @apply dark:bg-zinc-950/70 dark:border-zinc-900;
+  }
+
+
+    /* ===== NavLeft Wrapper ===== */
+  .nav-left {
+    @apply flex items-center gap-6 ml-auto lg:ml-0;
+  }
+
+  /* ===== Mobile Menu Button ===== */
+  .nav-menu-button {
+    @apply block lg:hidden
+           text-3xl
+           transition-colors
+           text-zinc-800             /* light */
+           hover:text-zinc-950
+           dark:text-zinc-100        /* dark */
+           dark:hover:text-white;
+  }
+
+
+
    /* ===== Image Section Wrapper ===== */
   .image-section {
     @apply relative h-[110vh];
   }
 
   .image-sticky {
-    @apply sticky z-0 overflow-hidden rounded-2xl;
+    @apply sticky z-0 overflow-hidden rounded;
   }
 
   .image-overlay {
@@ -505,29 +535,7 @@ body {
     @apply relative z-10 text-3xl uppercase;
   }
 
-  /* ===== Description Overlay ===== */
-  .title-card-description {
-    @apply absolute
-           left-0 right-4
-           top-0
-           lg:top-[calc(1.5rem+5rem)]
-           lg:h-40
-           mt-0
-           rounded-md
-           px-2 lg:px-7 py-2
-           h-full flex justify-center flex-col
-           opacity-0 translate-y-2
-           pointer-events-none
-           transition-all duration-300
-           italic
-           z-20
-           text-zinc-600                 /* light text */
-           bg-white                      /* light bg */
-           dark:bg-neutral-950           /* dark bg */
-           dark:text-zinc-500            /* dark text */
-           peer-hover:opacity-100
-           peer-hover:translate-y-0;
-  }
+ 
 
 }
 

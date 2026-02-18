@@ -13,10 +13,10 @@ export const NavLink: React.FC<NavLinkProps> = ({ text, href }) => {
       className="hidden lg:block h-[40px] overflow-hidden font-medium"
     >
       <motion.div whileHover={{ y: -40 }}>
-        <span className="flex items-center h-[40px] text-zinc-300 text-lg">
+        <span className="flex items-center h-[40px] text-zinc-600 dark:text-zinc-300 text-lg">
           {text}
         </span>
-        <span className="flex items-center h-[40px] text-zinc-50 text-lg">
+        <span className="flex items-center h-[40px]  dark:text-zinc-50 text-lg">
           {text}
         </span>
       </motion.div>

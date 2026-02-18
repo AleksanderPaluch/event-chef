@@ -8,24 +8,22 @@ interface NavLeftProps {
 
 export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen }) => {
   return (
-    <div className="flex items-center gap-6 ml-auto lg:ml-0">
+    <div className="nav-left">
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="block text-3xl lg:hidden text-zinc-50"
+        className="nav-menu-button"
         onClick={() => setIsOpen((pv) => !pv)}
       >
         <FiMenu />
       </motion.button>
-      {/* <img src={logo} alt="logo" className="w-8 h-8" /> */}
-   
-      <NavLink text="Home" href="Home"/>
-      <NavLink text="Live Cooking" href="Live Cooking"/>
-      <NavLink text="Sushi Masterclass" href="Sushi Masterclass"/>
-      <NavLink text="Omakase" href="Omakase"/>
 
-      <NavLink text="O nas" href="O nas"/>
-      <NavLink text="Oferta" href="Oferta"/>
+      <NavLink text="Home" href="Home" />
+      <NavLink text="Live Cooking" href="Live Cooking" />
+      <NavLink text="Sushi Masterclass" href="Sushi Masterclass" />
+      <NavLink text="Omakase" href="Omakase" />
+      <NavLink text="O nas" href="O nas" />
+      <NavLink text="Oferta" href="Oferta" />
       <NavLink text="Zarezerwuj" href="Form" />
     </div>
   );
