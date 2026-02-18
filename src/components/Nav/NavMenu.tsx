@@ -18,16 +18,15 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
       variants={menuVariants}
       initial="closed"
       animate={isOpen ? "open" : "closed"}
-      className="absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg bg-zinc-950 top-full"
+      className="nav-menu"
     >
-      <MenuLink  setIsOpen={setIsOpen} text="Home" href="Home"/>
-      <MenuLink  setIsOpen={setIsOpen} text="Live Cooking" href="Live Cooking"/>
-      <MenuLink  setIsOpen={setIsOpen} text="Sushi Masterclass" href="Sushi Masterclass"/>
-      <MenuLink  setIsOpen={setIsOpen} text="Omakase" href="Omakase"/>
-
-      <MenuLink  setIsOpen={setIsOpen} text="O nas" href="O nas"/>
-      <MenuLink  setIsOpen={setIsOpen} text="Oferta" href="Oferta"/>
-      <MenuLink  setIsOpen={setIsOpen} text="Zarezerwuj" href="Form" />
+      <MenuLink setIsOpen={setIsOpen} text="Home" href="Home" />
+      <MenuLink setIsOpen={setIsOpen} text="Live Cooking" href="Live Cooking" />
+      <MenuLink setIsOpen={setIsOpen} text="Sushi Masterclass" href="Sushi Masterclass" />
+      <MenuLink setIsOpen={setIsOpen} text="Omakase" href="Omakase" />
+      <MenuLink setIsOpen={setIsOpen} text="O nas" href="O nas" />
+      <MenuLink setIsOpen={setIsOpen} text="Oferta" href="Oferta" />
+      <MenuLink setIsOpen={setIsOpen} text="Zarezerwuj" href="Form" />
     </motion.div>
   );
 };
@@ -38,15 +37,16 @@ const MenuLink: React.FC<MenuLinkProps> = ({ text, href, setIsOpen }) => {
       variants={menuLinkVariants}
       rel="nofollow"
       href={`#${href}`}
-      className="h-[30px] overflow-hidden font-medium text-lg flex items-start gap-2"
-     onClick={() => setIsOpen((pv) => !pv)}
+      className="menu-link"
+      onClick={() => setIsOpen((pv) => !pv)}
     >
-      <motion.span variants={menuLinkArrowVariants}>
-        <FiArrowRight className="h-[30px] text-zinc-400" />
+      <motion.span variants={menuLinkArrowVariants} className="menu-link-arrow">
+        <FiArrowRight className="h-[30px]" />
       </motion.span>
+
       <motion.div whileHover={{ y: -30 }}>
-        <span className="flex items-center h-[30px] text-gray-400">{text}</span>
-        <span className="flex items-center h-[30px] text-zinc-100">{text}</span>
+        <span className="menu-link-text-base">{text}</span>
+        <span className="menu-link-text-hover">{text}</span>
       </motion.div>
     </motion.a>
   );
