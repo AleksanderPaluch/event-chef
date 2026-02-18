@@ -82,7 +82,7 @@ body {
   }
 
   .image-sticky {
-    @apply sticky z-0 overflow-hidden rounded;
+    @apply sticky z-0 overflow-hidden rounded-3xl;
   }
 
   .image-overlay {

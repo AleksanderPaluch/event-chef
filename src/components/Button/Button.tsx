@@ -18,6 +18,7 @@ interface ButtonProps {
   variant?: "primary" | "ghost" | "modal";
   size?: "full" | "fit";
   link?: boolean;
+   order?: boolean;
   onClick?: () => void;
 }
 
@@ -26,6 +27,7 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   size = "full",
   link = false,
+  order = false,
   onClick,
 }) => {
   const ref = useRef<HTMLButtonElement | null>(null);
@@ -71,7 +73,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (link) {
     return (
-      <a href="#Form" className="inline-flex w-full ">
+      <a href={`${order ? "#Form" : "#Offer"}`} className="inline-flex w-full ">
         <motion.button
           ref={ref}
           style={{ transform }}

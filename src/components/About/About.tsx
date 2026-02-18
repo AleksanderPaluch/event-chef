@@ -5,7 +5,7 @@ import { Stats } from "./Stats/Stats";
 import { Testimonials } from "./Testimonials/Testimonials";
 
 const data = {
-  id: "O nas",
+  id: "About",
   imgUrl: image,
   subheading: " Dlaczego warto wybrać",
   heading: "Event Chef",

@@ -5,7 +5,7 @@ import { Mastercalss } from "./components/Masterclass/Mastercalss";
 import { Nav } from "./components/Nav/Nav";
 import { Omakase } from "./components/Omakase/Omakase";
 import { Offer } from "./components/Offer/Offer";
-import { FormSection } from "./components/FormSection/FormSection";
+import { ContactForm } from "./components/ContactForm/ContactForm";
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       <Omakase />
       <About />
       <Offer />
-      <FormSection />
+      <ContactForm />
     </>
   );
 }

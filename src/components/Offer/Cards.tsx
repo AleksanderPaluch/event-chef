@@ -32,7 +32,7 @@ export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
             key={index}
             whileHover={{ scale: 1.04, y: -6 }}
             transition={{ type: "spring", stiffness: 280, damping: 22 }}
-            className="p-5 border sm:p-6 rounded-3xl   dark:bg-[#010000] backdrop-blur border-black/15 hover:border-black/40 dark:border-white/5 dark:hover:border-white/30"
+            className="p-5 border sm:p-6 rounded-3xl bg-zinc-50 dark:bg-[#010000] backdrop-blur border-black/15 hover:border-black/40 dark:border-white/5 dark:hover:border-white/30"
           >
             <div className="flex flex-col h-full gap-4">
               {/* PEOPLE */}
@@ -72,7 +72,7 @@ export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
               </div>
 
               {/* CTA */}
-              <Button link text="Zamów" />
+              <Button link order text="Zamów" />
             </div>
           </motion.div>
         );
