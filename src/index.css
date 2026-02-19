@@ -603,6 +603,48 @@ body {
   .tab-underline {
     @apply absolute bottom-0 left-0 right-0 h-1 bg-zinc-800 rounded-b-md md:h-2 dark:bg-zinc-300; /* світла / темна тема */
   }
+
+
+  /* === FORM WRAPPER === */
+  .form {
+    @apply p-8 w-full bg-white transition-colors duration-[750ms];
+  }
+
+  .dark .form {
+    @apply bg-zinc-950;
+  }
+
+  /* === GROUP === */
+  .form-group {
+    @apply mb-6;
+  }
+
+  /* === LABEL === */
+  .form-label {
+    @apply mb-2 text-2xl;
+  }
+
+  /* === INPUT / TEXTAREA BASE === */
+  .form-input,
+  .form-textarea {
+    @apply w-full p-2 rounded-md focus:outline-none
+           transition-colors duration-[750ms]
+           bg-zinc-100 text-zinc-900 placeholder-zinc-500
+           border border-black/15 focus:border-black/40;
+  }
+
+  /* === DARK MODE === */
+  .dark .form-input,
+  .dark .form-textarea {
+    @apply bg-zinc-800 text-white placeholder-white/60
+           border-white/5 focus:border-white/30;
+  }
+
+  /* === TEXTAREA SPECIFIC === */
+  .form-textarea {
+    @apply min-h-[150px] resize-none;
+  }
+
 }
 
 html {

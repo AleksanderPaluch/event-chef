@@ -17,7 +17,7 @@ export const translations = {
     nameLabel: "Cześć 👋! Mam na imię...",
     namePlaceholder: "Twoje imię...",
     representLabel: "I reprezentuję...",
-    companyNameLabel: "o nazwie...",
+    companyNameLabel: "O nazwie...",
     companyNamePlaceholder: "Nazwa Twojej firmy...",
     messageLabel: "Chcę zapytać o...",
     messagePlaceholder: "Napisz swoją wiadomość :)",
