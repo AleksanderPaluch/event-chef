@@ -13,7 +13,7 @@ export const ContactForm = () => {
       </h3>
 
       <p className="max-w-full section-description">
-Odpowidamy w ciągu 24 godzin. Jeśli masz pilne pytanie, skontaktuj się z nami telefonicznie.
+Wypełnij formularz, a my skontaktujemy się z Tobą w ciągu 24 godzin.
       </p>
       <div className="flex flex-col-reverse mx-auto overflow-hidden border lg:flex-row rounded-3xl border-black/15 dark:border-white/5 ">
         <Form selected={selected} setSelected={setSelected} />
