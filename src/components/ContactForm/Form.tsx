@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "../Button/Button";
 import { translations } from "../Translations/translations";
 import { FormSelect } from "./FormSelect";
+import { easeInOut } from "framer-motion";
 
 
 
@@ -18,7 +19,7 @@ type FormProps = {
 
 const BASE_TRANSITION = {
   duration: 0.4,
-  ease: "easeInOut",
+  ease: easeInOut,
 };
 
 

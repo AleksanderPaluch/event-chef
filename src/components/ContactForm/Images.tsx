@@ -1,4 +1,7 @@
 import { motion, type Transition } from "framer-motion";
+import homeSuhsi from "../../assets/home_sushi.jpg";
+import officeSushi from "../../assets/office_sushi.jpg";
+
 
 const BASE_TRANSITION: Transition = {
   ease: "anticipate",
@@ -7,7 +10,7 @@ const BASE_TRANSITION: Transition = {
 
 export const Images = ({ selected }: { selected: "company" | "individual" }) => {
   return (
-    <div className="bg-white relative overflow-hidden w-full min-h-[100px]">
+    <div className="bg-white dark:bg-zinc-950 relative overflow-hidden w-full min-h-[100px]">
       <motion.div
         initial={false}
         animate={{
@@ -16,8 +19,8 @@ export const Images = ({ selected }: { selected: "company" | "individual" }) => 
         transition={BASE_TRANSITION}
         className="absolute inset-0 bg-slate-200"
         style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80)",
+          backgroundImage: `url(${homeSuhsi})`,
+              
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -30,8 +33,7 @@ export const Images = ({ selected }: { selected: "company" | "individual" }) => 
         transition={BASE_TRANSITION}
         className="absolute inset-0 bg-slate-100"
         style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80)",
+          backgroundImage: `url(${officeSushi})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

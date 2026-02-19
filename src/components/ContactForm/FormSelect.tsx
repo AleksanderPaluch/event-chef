@@ -2,6 +2,7 @@ import { type Dispatch, type SetStateAction } from "react";
 import type { RepresentType } from "./Form";
 import { translations } from "../Translations/translations";
 import { motion } from "framer-motion";
+import { easeInOut } from "framer-motion";
 
 type FormSelectProps = {
   selected: RepresentType;
@@ -12,7 +13,7 @@ type FormSelectProps = {
 
 const BASE_TRANSITION = {
   duration: 0.4,
-  ease: "easeInOut",
+  ease: easeInOut,
 };
 
 
