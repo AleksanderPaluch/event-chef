@@ -7,7 +7,7 @@ import { Testimonials } from "./Testimonials/Testimonials";
 const data = {
   id: "About",
   imgUrl: image,
-  subheading: " Dlaczego warto wybrać",
+  subheading: "Twój partner w organizacji  wydarzeń kulinarnych",
   heading: "Event Chef",
   stats: true,
 };
@@ -22,7 +22,7 @@ export const About = () => {
         heading={data.heading}
         stats={data.stats}
       />
-      <div className="pt-6 lg:pt-32 ">
+      <div className="section">
         <Stats />
         <Testimonials />
       </div>

@@ -6,7 +6,7 @@ const data = {
   id: "Omakase",
   imgUrl: image,
 
-  subheading: "Jedyna w swoim rodzaju kolacja sushi",
+  subheading: "Jedyna w swoim rodzaju kolacja",
   heading: "Omakase",
   textTitle: "Omakase",
   text: "Omakase to wyjątkowe doświadczenie kulinarne, które pozwala Ci zaufać szefowi kuchni i cieszyć się starannie dobranym menu.",

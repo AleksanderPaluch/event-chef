@@ -5,9 +5,9 @@ import { TestimonialList } from "./TestimonialList";
 export const Testimonials = () => {
   return (
     <>
-      <div className="section-sm">
+      <div className="">
         <h3 className="section-header">
-          Co mówią o nas klienci?
+          Co mówią o nas?
         </h3>
 
         <p className="section-description">

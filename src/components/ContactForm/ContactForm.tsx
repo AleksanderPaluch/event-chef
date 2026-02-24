@@ -7,7 +7,7 @@ export const ContactForm = () => {
     "individual",
   );
   return (
-    <section id="Form" className="max-w-[90%] section">
+    <section id="Form" className="md:max-w-[90%] section">
       <h3 className="mb-6 section-header ">
         Skontaktuj się z nami
       </h3>

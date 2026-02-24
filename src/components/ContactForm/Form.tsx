@@ -31,7 +31,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
     <form
       onSubmit={(e) => e.preventDefault()}
       className="
-        p-8 w-full
+        p-4 lg:p-8 w-full
         transition-colors duration-[750ms]
         bg-white 
         dark:bg-zinc-950

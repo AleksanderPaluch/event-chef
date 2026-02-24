@@ -1,5 +1,5 @@
 import { motion, type Transition } from "framer-motion";
-import homeSuhsi from "../../assets/home_sushi.jpg";
+import homeSushi from "../../assets/home_sushi.jpg";
 import officeSushi from "../../assets/office_sushi.jpg";
 
 
@@ -19,7 +19,7 @@ export const Images = ({ selected }: { selected: "company" | "individual" }) => 
         transition={BASE_TRANSITION}
         className="absolute inset-0 bg-slate-200"
         style={{
-          backgroundImage: `url(${homeSuhsi})`,
+          backgroundImage: `url(${homeSushi})`,
               
           backgroundSize: "cover",
           backgroundPosition: "center",

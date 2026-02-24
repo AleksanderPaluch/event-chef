@@ -75,7 +75,7 @@ const OverlayCopy = ({
       ref={targetRef}
       className="image-overlay-copy"
     >
-      <p>{heading}</p>
+      {/* <p>{heading}</p> */}
 
       <h2 className="image-heading">{subheading}</h2>
     </motion.div>
