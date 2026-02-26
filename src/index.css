@@ -48,8 +48,8 @@ body {
   .nav-menu {
     @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg  backdrop:blur-2xl 
            top-full
-           bg-white      /* light */
-           dark:bg-zinc-950; /* dark */
+           bg-white/95      /* light */
+           dark:bg-zinc-950/95; /* dark */
   }
 
   /* ===== MenuLink Wrapper ===== */
