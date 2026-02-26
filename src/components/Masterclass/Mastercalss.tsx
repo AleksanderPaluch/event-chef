@@ -5,7 +5,7 @@ import imageModal from "../../assets/nigiri.jpeg";
 const data = {
   id: "Sushi Masterclass",
   imgUrl: image,
-  subheading: "Warsztaty, które uczą, bawią i integrują",
+  subheading: "Warsztaty które uczą, bawią i integrują",
   heading: "Sushi Masterclass",
   textTitle: "Masterclass",
   text: "Masterclass sushi to praktyczne warsztaty, podczas których uczestnicy tworzą własne rolki pod okiem doświadczonego sushi chefa",
