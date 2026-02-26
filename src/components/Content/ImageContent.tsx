@@ -55,7 +55,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
 
 const OverlayCopy = ({
   subheading,
-  //heading,
+  heading,
 }: {
   subheading: string;
   heading: string;
@@ -73,11 +73,11 @@ const OverlayCopy = ({
     <motion.div
       style={{ y, opacity }}
       ref={targetRef}
-      className="image-overlay-copy"
-    >
-      {/* <p>{heading}</p> */}
+        className="image-overlay-copy"
+      >
+      <h2 className="image-heading">{heading}</h2>
 
-      <h2 className="image-heading">{subheading}</h2>
+      <h3 className="image-subheading">{subheading}</h3>
     </motion.div>
   );
 };

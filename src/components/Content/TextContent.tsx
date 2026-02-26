@@ -45,7 +45,7 @@ export const TextContent: React.FC<TextContentProps> = ({
 
       <div className="section ">
         <h3 className="section-header">
-        <span className=" text-3xl lg:text-7xl   block md:inline">Czym jest </span>{textTitle}?
+        <span className=" text-4xl lg:text-7xl   block md:inline">Czym jest </span>{textTitle}?
         </h3>
 
         <p className="section-comment">"{text}"</p>

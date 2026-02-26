@@ -5,8 +5,8 @@ import imageModal from "../../assets/nigiri.jpeg";
 const data = {
   id: "Live Cooking",
   imgUrl: image,
-  subheading: "Wyjątkowe doświadczenie kulinarne na Twoim wydarzeniu",
-  heading: "Sushi Live Cooking",
+  subheading: "Sushi tworzone w Twojej przestrzeni",
+  heading: "Live Cooking",
   textTitle: "Live Cooking",
   text: "Live cooking to pokaz przygotowywania sushi na żywo, prosto przed Twoimi gośćmi. To połączenie gotowania i efektownego show.",
   description:

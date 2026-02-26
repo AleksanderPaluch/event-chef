@@ -94,12 +94,12 @@ body {
     @apply absolute top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-white dark:text-zinc-200;
   }
 
-  .image-subheading {
-    @apply max-w-xl mx-auto mb-6 text-xl text-center lg:mb-8 md:text-3xl;
+  .image-heading {
+    @apply  mx-auto mb-2 lg:text-3xl  text-2xl text-center  ;
   }
 
-  .image-heading {
-    @apply max-w-6xl text-4xl px-3   font-semibold text-center  backdrop:blur-3xl lg:text-7xl;
+  .image-subheading {
+    @apply  text-4xl px-3   font-semibold text-center  backdrop:blur-3xl lg:text-6xl;
   }
 
   /* ===== Section Layout ===== */
@@ -110,9 +110,9 @@ body {
 
   /* ===== Header ===== */
   .section-header {
-    @apply  md:w-full md:mx-auto mb-6 
-           text-5xl  lg:text-7xl
-           font-semibold leading-tight  md:text-center;
+    @apply  w-full mx-auto mb-6 
+           text-4xl  lg:text-7xl
+           font-semibold leading-tight  text-center;
   }
 
 

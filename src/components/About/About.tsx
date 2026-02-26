@@ -7,7 +7,7 @@ import { Testimonials } from "./Testimonials/Testimonials";
 const data = {
   id: "About",
   imgUrl: image,
-  subheading: "Twój partner w organizacji  wydarzeń kulinarnych",
+  subheading: "Twój partner w organizacji  wydarzeń",
   heading: "Event Chef",
   stats: true,
 };
