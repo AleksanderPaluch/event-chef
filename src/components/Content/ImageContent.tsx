@@ -55,7 +55,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
 
 const OverlayCopy = ({
   subheading,
-  heading,
+  //heading,
 }: {
   subheading: string;
   heading: string;
