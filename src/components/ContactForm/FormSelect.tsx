@@ -28,11 +28,7 @@ export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => 
         onClick={() => setSelected("individual")}
         className={`
           relative px-3 py-1.5 text-sm transition-colors duration-[750ms]
-          ${
-            selected === "individual"
-              ? "text-white"
-              : "text-zinc-700 dark:text-zinc-300"
-          }
+         
         `}
       >
         <span className="relative z-10"> {t.individual}</span>
@@ -41,7 +37,7 @@ export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => 
           <motion.div
             transition={BASE_TRANSITION}
             layoutId="form-tab"
-            className="absolute inset-0 z-0 bg-zinc-900 dark:bg-zinc-700"
+            className="absolute inset-0 z-0 bg-blue-100 dark:bg-zinc-700"
           />
         )}
       </button>
@@ -52,11 +48,7 @@ export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => 
         onClick={() => setSelected("company")}
         className={`
           relative px-3 py-1.5 text-sm transition-colors duration-[750ms]
-          ${
-            selected === "company"
-              ? "text-white"
-              : "text-zinc-700 dark:text-zinc-300"
-          }
+
         `}
       >
         <span className="relative z-10">{t.company}</span>
@@ -65,7 +57,7 @@ export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => 
           <motion.div
             transition={BASE_TRANSITION}
             layoutId="form-tab"
-            className="absolute inset-0 z-0 bg-zinc-800 dark:bg-zinc-600"
+            className="absolute inset-0 z-0 bg-blue-100 dark:bg-zinc-700"
           />
         )}
       </button>

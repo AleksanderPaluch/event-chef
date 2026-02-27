@@ -61,43 +61,48 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         )}
       </AnimatePresence>
 
-      {/* Typ eventu */}
-      <div className="form-group">
-        <p className="form-label">{t.eventTypeLabel}</p>
-        <select className="form-input">
-          <option value="liveCooking">Live Cooking</option>
-          <option value="masterclass">Warsztaty / Masterclass</option>
-          <option value="omakase">Omakase</option>
-          <option value="wedding">Wesela</option>
-          <option value="corporate">Event firmowy</option>
-          <option value="other">Inne</option>
-        </select>
-      </div>
+      <div className="grid-cols-2 grid gap-4 gap-y-0">
+        {/* Typ eventu */}
+        <div className="form-group">
+          <p className="form-label">{t.eventTypeLabel}</p>
+          <select className="form-input">
+            <option value="Live">
+              Event prywatny / Urodziny / Domówki
+            </option>
+            <option value="corporate">Event firmowy / Targi / Wigilie</option>
+            <option value="masterclass">Warsztaty / Masterclass</option>
+            <option value="omakase">Kolacja Omakase</option>
+             <option value="wedding">Wieczór Panieński</option>
+            <option value="wedding">Wesela</option>
 
-      {/* Data */}
-      <div className="form-group">
-        <p className="form-label">{t.dateLabel}</p>
-        <input type="date" className="form-input" />
-      </div>
+            <option value="other">Inne</option>
+          </select>
+        </div>
 
-      {/* Liczba gości */}
-      <div className="form-group">
-        <p className="form-label">{t.guestsLabel}</p>
-        <input
-          type="number"
-          min={1}
-          placeholder={t.guestsPlaceholder}
-          className="form-input"
-        />
-      </div>
+        {/* Data */}
+        <div className="form-group">
+          <p className="form-label">{t.dateLabel}</p>
+          <input type="date" className="form-input" />
+        </div>
 
-      <div className="form-group">
-        <p className="form-label">{t.locationLabel}</p>
-        <input
-          type="text"
-          placeholder={t.locationPlaceholder}
-          className="form-input"
-        />
+        {/* Liczba gości */}
+        <div className="form-group">
+          <p className="form-label">{t.guestsLabel}</p>
+          <input
+            type="text"
+            placeholder={t.guestsPlaceholder}
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <p className="form-label">{t.locationLabel}</p>
+          <input
+            type="text"
+            placeholder={t.locationPlaceholder}
+            className="form-input"
+          />
+        </div>
       </div>
 
       {/* Message */}
@@ -108,15 +113,29 @@ export const Form = ({ selected, setSelected }: FormProps) => {
           className="form-textarea"
         />
       </div>
-      {/* Email */}
-      <div className="form-group">
-        <p className="form-label">{t.emailLabel}</p>
-        <input
-          type="email"
-          placeholder={t.emailPlaceholder}
-          className="form-input"
-        />
+
+      <div className="grid-cols-2 grid gap-4 gap-y-0">
+        {/* Email */}
+        <div className="form-group">
+          <p className="form-label">{t.emailLabel}</p>
+          <input
+            type="email"
+            placeholder={t.emailPlaceholder}
+            className="form-input"
+          />
+        </div>
+
+        {/* Phone */}
+        <div className="form-group">
+          <p className="form-label">{t.phoneLabel}</p>
+          <input
+            type="tel"
+            placeholder={t.phonePlaceholder}
+            className="form-input"
+          />
+        </div>
       </div>
+
       <Button text={t.submit} />
     </form>
   );
