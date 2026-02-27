@@ -22,7 +22,7 @@ export const Images = ({ selected }: { selected: "company" | "individual" }) => 
         style={{
           backgroundImage: `url(${homeSushi})`,
           backgroundSize: "cover",
-          backgroundPosition: "bottom",
+          backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-transparent  dark:bg-black/40" />
@@ -39,7 +39,7 @@ export const Images = ({ selected }: { selected: "company" | "individual" }) => 
         style={{
           backgroundImage: `url(${officeSushi})`,
           backgroundSize: "cover",
-          backgroundPosition: "bottom",
+          backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-transparent dark:bg-black/40" />
