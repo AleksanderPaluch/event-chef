@@ -21,13 +21,13 @@ export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => 
   const t = translations[lang];
 
   return (
-    <div className="overflow-hidden font-medium border rounded w-fit border-zinc-300 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900">
+    <div className="overflow-hidden font-medium border rounded-md w-fit border-zinc-300 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900">
       {/* Individual */}
       <button
         type="button"
         onClick={() => setSelected("individual")}
         className={`
-          relative px-3 py-1.5 text-sm transition-colors duration-[750ms]
+          relative px-4 h-[36px]  transition-colors duration-[750ms]
          
         `}
       >
@@ -37,7 +37,7 @@ export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => 
           <motion.div
             transition={BASE_TRANSITION}
             layoutId="form-tab"
-            className="absolute inset-0 z-0 bg-blue-100 dark:bg-zinc-700"
+            className="absolute inset-0 z-0 bg-zinc-200/95 dark:bg-zinc-700"
           />
         )}
       </button>
@@ -47,7 +47,7 @@ export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => 
         type="button"
         onClick={() => setSelected("company")}
         className={`
-          relative px-3 py-1.5 text-sm transition-colors duration-[750ms]
+          relative px-4 h-[36px]  transition-colors duration-[750ms]
 
         `}
       >
@@ -57,7 +57,7 @@ export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => 
           <motion.div
             transition={BASE_TRANSITION}
             layoutId="form-tab"
-            className="absolute inset-0 z-0 bg-blue-100 dark:bg-zinc-700"
+            className="absolute inset-0 z-0 bg-zinc-200/95 dark:bg-zinc-700"
           />
         )}
       </button>

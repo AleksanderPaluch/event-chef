@@ -112,7 +112,7 @@ body {
   .section-header {
     @apply  w-full mx-auto mb-6 
            text-4xl  lg:text-6xl
-           font-semibold leading-tight  text-center;
+           font-semibold leading-tight  text-center ;
   }
 
 
@@ -625,12 +625,12 @@ body {
 
   /* ===== Form Group ===== */
   .form-group {
-    @apply mb-5;
+    @apply mb-4 ;
   }
 
   /* ===== Label ===== */
   .form-label {
-    @apply mb-1 text-xl;
+    @apply  text-lg font-semibold;
   }
 
   /* ===== Shared Input Styles ===== */
@@ -647,7 +647,7 @@ body {
   /* ===== Textarea ===== */
   .form-textarea {
     @apply form-input
-           min-h-[150px] resize-none;
+           min-h-[100px] resize-none;
   }
 
 

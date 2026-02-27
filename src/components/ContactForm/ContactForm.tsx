@@ -9,18 +9,18 @@ export const ContactForm = () => {
 
   return (
     <section id="Form" className="contact-section">
-      <h3 className="section-header">Zarezerwuj swój termin</h3>
+      <h3 className="section-header ">Poproś o wycenę</h3>
 
       <p className="section-description">
         <span className="block"> Opisz swoje wydarzenie — a my zajmiemy się resztą.</span>
-        W ciągu 24 godzin otrzymasz indywidualną ofertę dopasowaną do Twoich
-        potrzeb.
+       W ciągu 24 godzin prześlemy propozycję dopasowaną do Twojego wydarzenia.
       </p>
 
       <div className="contact-wrapper">
         <Form selected={selected} setSelected={setSelected} />
         <Images selected={selected} />
       </div>
+      <p className="section-description text-xs mt-4 lg:mt-8 max-w-full px-4">Administratorem danych osobowych jest Event Chef. Dane osobowe przetwarzane są w celu obsługi zapytania. Podanie danych jest dobrowolne, ale niezbędne do udzielenia odpowiedzi. Przysługuje Ci prawo dostępu do danych, ich poprawiania, usunięcia, ograniczenia przetwarzania oraz cofnięcia zgody w dowolnym momencie. Szczegóły znajdują się w Polityce Prywatności.</p>
     </section>
   );
 };

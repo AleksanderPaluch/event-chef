@@ -24,7 +24,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen }) => {
       <NavLink text="Omakase" href="Omakase" />
       <NavLink text="O nas" href="About" />
       <NavLink text="Oferta" href="Offer" />
-      <NavLink text="Zarezerwuj" href="Form" />
+      <NavLink text="Poproś o wycenę" href="Form" />
     </div>
   );
 };

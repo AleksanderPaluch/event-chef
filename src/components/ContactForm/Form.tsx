@@ -25,20 +25,27 @@ export const Form = ({ selected, setSelected }: FormProps) => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className="contact-form">
-      {/* Name */}
-      <div className="form-group">
-        <p className="form-label">{t.nameLabel}</p>
-        <input
-          type="text"
-          placeholder={t.namePlaceholder}
-          className="form-input"
-        />
-      </div>
+      <div className="flex flex-col md:flex-row md:gap-4">
+        {/* Name */}
+        <div className="form-group md:w-full">
+          <p className="form-label">{t.nameLabel}</p>
+          <input
+            type="text"
+            placeholder={t.namePlaceholder}
+            className="form-input"
+            required
+          />
+        </div>
 
-      {/* Represent */}
-      <div className="form-group">
-        <p className="form-label">{t.representLabel}</p>
-        <FormSelect selected={selected} setSelected={setSelected} lang={lang} />
+        {/* Represent */}
+        <div className="form-group min-w-60">
+          <p className="form-label">{t.representLabel}</p>
+          <FormSelect
+            selected={selected}
+            setSelected={setSelected}
+            lang={lang}
+          />
+        </div>
       </div>
 
       {/* Company Name */}
@@ -54,27 +61,54 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             <p className="form-label">{t.companyNameLabel}</p>
             <input
               type="text"
+              name="organization"
+              autoComplete="organization"
               placeholder={t.companyNamePlaceholder}
               className="form-input"
+              required
             />
           </motion.div>
         )}
       </AnimatePresence>
 
+          <div className="grid-cols-2 grid gap-4 gap-y-0">
+        {/* Email */}
+        <div className="form-group">
+          <p className="form-label">{t.emailLabel}</p>
+          <input
+            type="email"
+            placeholder={t.emailPlaceholder}
+            className="form-input"
+            required
+          />
+        </div>
+
+        {/* Phone */}
+        <div className="form-group">
+          <p className="form-label">{t.phoneLabel}</p>
+          <input
+            type="tel"
+            placeholder={t.phonePlaceholder}
+            className="form-input"
+          />
+        </div>
+      </div>
+
+
       <div className="grid-cols-2 grid gap-4 gap-y-0">
         {/* Typ eventu */}
         <div className="form-group">
           <p className="form-label">{t.eventTypeLabel}</p>
-          <select className="form-input">
-            <option value="Live">
-              Event prywatny / Urodziny / Domówki
+          <select className="form-input " defaultValue="" required>
+            {" "}
+            <option value="" hidden>
+              Wybierz typ eventu
             </option>
+            <option value="Live">Event prywatny / Urodziny / Domówki</option>
             <option value="corporate">Event firmowy / Targi / Wigilie</option>
             <option value="masterclass">Warsztaty / Masterclass</option>
             <option value="omakase">Kolacja Omakase</option>
-             <option value="wedding">Wieczór Panieński</option>
             <option value="wedding">Wesela</option>
-
             <option value="other">Inne</option>
           </select>
         </div>
@@ -82,7 +116,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         {/* Data */}
         <div className="form-group">
           <p className="form-label">{t.dateLabel}</p>
-          <input type="date" className="form-input" />
+          <input type="date" className="form-input" required />
         </div>
 
         {/* Liczba gości */}
@@ -92,15 +126,19 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="text"
             placeholder={t.guestsPlaceholder}
             className="form-input"
+            required
           />
         </div>
-
+        {/* Miejscowość */}
         <div className="form-group">
           <p className="form-label">{t.locationLabel}</p>
           <input
             type="text"
+            name="city"
+            autoComplete="address-level2"
             placeholder={t.locationPlaceholder}
             className="form-input"
+            required
           />
         </div>
       </div>
@@ -114,26 +152,28 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         />
       </div>
 
-      <div className="grid-cols-2 grid gap-4 gap-y-0">
-        {/* Email */}
-        <div className="form-group">
-          <p className="form-label">{t.emailLabel}</p>
+    
+
+      {/* Zgoda na kontakt */}
+      <div className="flex flex-col form-group">
+        <div className=" flex items-center ">
           <input
-            type="email"
-            placeholder={t.emailPlaceholder}
-            className="form-input"
+            type="checkbox"
+            id="consent"
+            name="consent"
+            className="mr-2 w-4 h-4 mb-1 border-black/15 dark:border-white/5 "
+            required
           />
+          <label htmlFor="consent" className="form-label">
+            Zgoda na kontakt
+          </label>
         </div>
 
-        {/* Phone */}
-        <div className="form-group">
-          <p className="form-label">{t.phoneLabel}</p>
-          <input
-            type="tel"
-            placeholder={t.phonePlaceholder}
-            className="form-input"
-          />
-        </div>
+        <p className="block text-xs text-zinc-600">
+          {" "}
+          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu
+          w sprawie oferty Event Chef.
+        </p>
       </div>
 
       <Button text={t.submit} />

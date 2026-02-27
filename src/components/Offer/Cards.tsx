@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "../Button/Button";
 
-
 type FeatureVariant = "wedding";
 
 interface Row {
@@ -16,7 +15,6 @@ interface CardsProps {
   features: string[];
   featuresByVariant?: string[];
 }
-
 
 export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
   return (
@@ -38,13 +36,18 @@ export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
               {/* PEOPLE */}
               <div>
                 <p className="text-2xl font-semibold ">{row.people}</p>
-                <p className="text-sm text-zinc-600 dark:text-white/60">liczba osób</p>
+                <p className="text-sm text-zinc-600 dark:text-white/60">
+                  liczba osób
+                </p>
               </div>
 
               {/* FEATURES */}
               <ul className="mt-2 space-y-2 text-sm font-light text-zinc-700 dark:text-white/70">
                 {activeFeatures.map((feature) => (
-                  <li key={feature}><span className="mr-1 font-light text-green-800">✔</span> {feature}</li>
+                  <li key={feature}>
+                    <span className="mr-1 font-light text-green-800">✔</span>{" "}
+                    {feature}
+                  </li>
                 ))}
               </ul>
 
@@ -72,7 +75,7 @@ export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
               </div>
 
               {/* CTA */}
-              <Button link order text="Zamów" />
+              <Button link order text="Poproś o ofertę" />
             </div>
           </motion.div>
         );
