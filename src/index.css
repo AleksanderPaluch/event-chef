@@ -625,17 +625,17 @@ body {
 
   /* ===== Form Group ===== */
   .form-group {
-    @apply mb-6;
+    @apply mb-5;
   }
 
   /* ===== Label ===== */
   .form-label {
-    @apply mb-2 text-2xl;
+    @apply mb-1 text-xl;
   }
 
   /* ===== Shared Input Styles ===== */
   .form-input {
-    @apply w-full p-2 rounded-md
+    @apply w-full p-2 rounded-md text-sm
            focus:outline-none
            transition-colors duration-[750ms]
            bg-zinc-100 text-zinc-900 placeholder-zinc-500
