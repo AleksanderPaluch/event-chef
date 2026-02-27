@@ -603,47 +603,62 @@ body {
   }
 
 
-  /* === FORM WRAPPER === */
-  .form {
-    @apply p-8 w-full bg-white transition-colors duration-[750ms];
+
+   /* ===== Contact Form Section ===== */
+  .contact-section {
+    @apply section md:max-w-[90%];
   }
 
-  .dark .form {
-    @apply bg-zinc-950;
+  /* ===== Contact Wrapper (Form + Images) ===== */
+  .contact-wrapper {
+    @apply flex flex-col-reverse mx-auto overflow-hidden border 
+           lg:flex-row rounded-3xl 
+           border-black/15 dark:border-white/5;
   }
 
-  /* === GROUP === */
+ /* ===== Contact Form Wrapper ===== */
+  .contact-form {
+    @apply w-full p-4 lg:p-8
+           transition-colors duration-[750ms]
+           bg-white dark:bg-zinc-950;
+  }
+
+  /* ===== Form Group ===== */
   .form-group {
     @apply mb-6;
   }
 
-  /* === LABEL === */
+  /* ===== Label ===== */
   .form-label {
     @apply mb-2 text-2xl;
   }
 
-  /* === INPUT / TEXTAREA BASE === */
-  .form-input,
-  .form-textarea {
-    @apply w-full p-2 rounded-md focus:outline-none
+  /* ===== Shared Input Styles ===== */
+  .form-input {
+    @apply w-full p-2 rounded-md
+           focus:outline-none
            transition-colors duration-[750ms]
            bg-zinc-100 text-zinc-900 placeholder-zinc-500
-           border border-black/15 focus:border-black/40;
+           dark:bg-zinc-800 dark:text-white dark:placeholder-white/60
+           border border-black/15 focus:border-black/40
+           dark:border-white/5 dark:focus:border-white/30;
   }
 
-  /* === DARK MODE === */
-  .dark .form-input,
-  .dark .form-textarea {
-    @apply bg-zinc-800 text-white placeholder-white/60
-           border-white/5 focus:border-white/30;
-  }
-
-  /* === TEXTAREA SPECIFIC === */
+  /* ===== Textarea ===== */
   .form-textarea {
-    @apply min-h-[150px] resize-none;
+    @apply form-input
+           min-h-[150px] resize-none;
   }
+
+
+
+  
+
 
 }
+
+
+  /* ===== Custom Scrollbar ===== */
 
 html {
   scrollbar-width: thin;

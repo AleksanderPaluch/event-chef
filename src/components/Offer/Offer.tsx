@@ -92,7 +92,7 @@ export const Offer = () => {
   return (
     <section id="Offer" >
       <div className="max-w-7xl section">
-        <h3 className="section-header section-header-accent">
+        <h3 className="section-header text-5xl lg:text-6xl">
           Oferta
         </h3>
 

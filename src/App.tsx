@@ -8,6 +8,7 @@ import { Offer } from "./components/Offer/Offer";
 import { ContactForm } from "./components/ContactForm/ContactForm";
 
 
+
 function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
