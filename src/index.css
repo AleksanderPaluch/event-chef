@@ -46,10 +46,10 @@ body {
 
   /* ===== NavMenu Wrapper ===== */
   .nav-menu {
-    @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg  backdrop:blur-2xl h-[100vh]
+    @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg  backdrop:blur-2xl 
            top-full
-           bg-white/95      /* light */
-           dark:bg-zinc-950/95; /* dark */
+           bg-white      /* light */
+           dark:bg-zinc-950; /* dark */
   }
 
   /* ===== MenuLink Wrapper ===== */
