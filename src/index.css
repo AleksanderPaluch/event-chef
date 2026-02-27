@@ -48,8 +48,8 @@ body {
   .nav-menu {
     @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg  backdrop:blur-2xl 
            top-full
-           bg-white      /* light */
-           dark:bg-zinc-950; /* dark */
+           bg-white/90      /* light */
+           dark:bg-zinc-950/90; /* dark */
   }
 
   /* ===== MenuLink Wrapper ===== */
@@ -99,7 +99,7 @@ body {
   }
 
   .image-subheading {
-    @apply  text-4xl px-3   font-semibold text-center  backdrop:blur-3xl lg:text-6xl;
+    @apply  text-4xl px-3   font-semibold text-center  backdrop:blur-3xl lg:text-6xl ;
   }
 
   /* ===== Section Layout ===== */
@@ -111,7 +111,7 @@ body {
   /* ===== Header ===== */
   .section-header {
     @apply  w-full mx-auto mb-6 
-           text-4xl  lg:text-7xl
+           text-4xl  lg:text-6xl
            font-semibold leading-tight  text-center;
   }
 

@@ -42,50 +42,52 @@ export const TextContent: React.FC<TextContentProps> = ({
   const [open, setOpen] = useState(false);
 
   return (
+    <div className="section ">
+      <h3 className="section-header">
+        Czym jest
+        <span className=" text-5xl  lg:text-7xl   block md:inline">
+          {" "}
+          {textTitle}?
+        </span>
+      </h3>
 
-      <div className="section ">
-        <h3 className="section-header">
-        <span className=" text-4xl lg:text-7xl   block md:inline">Czym jest </span>{textTitle}?
-        </h3>
+      <p className="section-comment">"{text}"</p>
 
-        <p className="section-comment">"{text}"</p>
-
-        <div className="section-process">
-          {process?.map((step, index) => (
-            <React.Fragment key={index}>
-              {" "}
-              <span>{step}</span>{" "}
-              {index < process.length - 1 && <span>•</span>}{" "}
-            </React.Fragment>
-          ))}
-        </div>
-
-        <p className="section-description">{description}</p>
-
-        <div className="section-actions">
-          <Button
-            text="Poznaj doświadczenie"
-            variant="primary"
-            size="full"
-            onClick={() => setOpen(true)}
-          />
-          <Button text="Sprawdź ofertę" link variant="ghost" size="full" />
-        </div>
-        <Modal
-          textTitle={textTitle}
-          open={open}
-          setOpen={setOpen}
-          modalDescription={modalDescription}
-          menu={menu}
-          menuIMG={menuIMG}
-          modalProcess={modalProcess}
-          organization={organization}
-          chipsTitle={chipsTitle}
-          chips={chips}
-          secondaryChipsTitle={secondaryChipsTitle}
-          secondaryChips={secondaryChips}
-        />
+      <div className="section-process">
+        {process?.map((step, index) => (
+          <React.Fragment key={index}>
+            {" "}
+            <span>{step}</span>{" "}
+            {index < process.length - 1 && <span>•</span>}{" "}
+          </React.Fragment>
+        ))}
       </div>
 
+      <p className="section-description">{description}</p>
+
+      <div className="section-actions">
+        <Button
+          text="Poznaj doświadczenie"
+          variant="primary"
+          size="full"
+          onClick={() => setOpen(true)}
+        />
+        <Button text="Sprawdź ofertę" link variant="ghost" size="full" />
+      </div>
+      <Modal
+        textTitle={textTitle}
+        open={open}
+        setOpen={setOpen}
+        modalDescription={modalDescription}
+        menu={menu}
+        menuIMG={menuIMG}
+        modalProcess={modalProcess}
+        organization={organization}
+        chipsTitle={chipsTitle}
+        chips={chips}
+        secondaryChipsTitle={secondaryChipsTitle}
+        secondaryChips={secondaryChips}
+      />
+    </div>
   );
 };
