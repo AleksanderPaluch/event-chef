@@ -7,8 +7,6 @@ import { Omakase } from "./components/Omakase/Omakase";
 import { Offer } from "./components/Offer/Offer";
 import { ContactForm } from "./components/ContactForm/ContactForm";
 
-
-
 function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -24,6 +22,7 @@ function App() {
       <About />
       <Offer />
       <ContactForm />
+ 
     </>
   );
 }

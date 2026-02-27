@@ -161,7 +161,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="checkbox"
             id="consent"
             name="consent"
-            className="mr-2 w-4 h-4 mb-1 border-black/15 dark:border-white/5 "
+            className="mr-2 w-4 h-4 lg:mb-1 border-black/15 dark:border-white/5 "
             required
           />
           <label htmlFor="consent" className="form-label">

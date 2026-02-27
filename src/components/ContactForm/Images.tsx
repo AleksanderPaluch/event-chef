@@ -2,7 +2,6 @@ import { motion, type Transition } from "framer-motion";
 import homeSushi from "../../assets/home_sushi.jpg";
 import officeSushi from "../../assets/office_sushi.jpg";
 
-
 const BASE_TRANSITION: Transition = {
   ease: "anticipate",
   duration: 0.75,
@@ -11,34 +10,40 @@ const BASE_TRANSITION: Transition = {
 export const Images = ({ selected }: { selected: "company" | "individual" }) => {
   return (
     <div className="bg-white dark:bg-zinc-950 relative overflow-hidden w-full min-h-[100px]">
+      
+      {/* INDIVIDUAL */}
       <motion.div
         initial={false}
         animate={{
           x: selected === "individual" ? "0%" : "100%",
         }}
         transition={BASE_TRANSITION}
-        className="absolute inset-0 bg-slate-200"
+        className="absolute inset-0"
         style={{
           backgroundImage: `url(${homeSushi})`,
-              
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "bottom",
         }}
-      />
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-transparent  dark:bg-black/40" />
+      </motion.div>
+
+      {/* COMPANY */}
       <motion.div
         initial={false}
         animate={{
           x: selected === "company" ? "0%" : "-100%",
         }}
         transition={BASE_TRANSITION}
-        className="absolute inset-0 bg-slate-100"
+        className="absolute inset-0"
         style={{
           backgroundImage: `url(${officeSushi})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "bottom",
         }}
-      />
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-transparent dark:bg-black/40" />
+      </motion.div>
     </div>
   );
 };
-
