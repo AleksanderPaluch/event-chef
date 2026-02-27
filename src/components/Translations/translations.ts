@@ -41,7 +41,7 @@ export const translations = {
     locationPlaceholder: "Gdzie odbędzie się Twój event?",
     messageLabel: "Chcę zapytać o...",
     messagePlaceholder: "Napisz swoją wiadomość :)",
-    submit: "Wyślij",
+    submit: "Poproś o wycenę",
     individual: "Osobę prywatną",
     company: "Firmę",
   },

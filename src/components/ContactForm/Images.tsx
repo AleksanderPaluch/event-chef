@@ -25,7 +25,7 @@ export const Images = ({ selected }: { selected: "company" | "individual" }) => 
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-transparent  dark:bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-transparent  dark:bg-black/20" />
       </motion.div>
 
       {/* COMPANY */}
@@ -42,7 +42,7 @@ export const Images = ({ selected }: { selected: "company" | "individual" }) => 
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-transparent dark:bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-transparent dark:bg-black/20" />
       </motion.div>
     </div>
   );

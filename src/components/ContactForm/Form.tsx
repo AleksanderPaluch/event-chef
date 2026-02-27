@@ -71,8 +71,11 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         )}
       </AnimatePresence>
 
-          <div className="grid-cols-2 grid gap-4 gap-y-0">
-        {/* Email */}
+
+
+      <div className="grid-cols-2 grid gap-4 md:gap-x-6 gap-y-0">
+
+          {/* Email */}
         <div className="form-group">
           <p className="form-label">{t.emailLabel}</p>
           <input
@@ -92,10 +95,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             className="form-input"
           />
         </div>
-      </div>
 
-
-      <div className="grid-cols-2 grid gap-4 gap-y-0">
         {/* Typ eventu */}
         <div className="form-group">
           <p className="form-label">{t.eventTypeLabel}</p>
@@ -161,7 +161,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="checkbox"
             id="consent"
             name="consent"
-            className="mr-2 w-4 h-4 lg:mb-[2px] border-black/15 dark:border-white/5 "
+            className="mr-2 w-4 h-4 lg:mb-[2px]  border-black/15 dark:border-white/5 "
             required
           />
           <label htmlFor="consent" className="form-label">

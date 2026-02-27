@@ -86,7 +86,7 @@ body {
   }
 
   .image-overlay {
-    @apply absolute inset-0 bg-gradient-to-b from-black/75 to-transparent dark:bg-black/65;
+    @apply absolute inset-0 bg-gradient-to-b from-black/75 to-transparent dark:bg-black/25;
   }
 
   /* ===== Overlay Copy ===== */
