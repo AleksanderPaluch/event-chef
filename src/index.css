@@ -48,8 +48,8 @@ body {
   .nav-menu {
     @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg  backdrop:blur-2xl 
            top-full
-           bg-white/90      /* light */
-           dark:bg-zinc-950/90; /* dark */
+           bg-white   /* light */
+           dark:bg-zinc-950; /* dark */
   }
 
   /* ===== MenuLink Wrapper ===== */
@@ -86,7 +86,7 @@ body {
   }
 
   .image-overlay {
-    @apply absolute inset-0 bg-gradient-to-b from-black/75 to-transparent dark:bg-black/25;
+    @apply absolute inset-0 bg-gradient-to-b from-black/65 to-transparent dark:bg-black/15;
   }
 
   /* ===== Overlay Copy ===== */
@@ -95,11 +95,11 @@ body {
   }
 
   .image-heading {
-    @apply  mx-auto mb-2 lg:text-3xl  text-2xl text-center  ;
+    @apply  mx-auto mb-2 text-2xl text-center lg:text-3xl ;
   }
 
   .image-subheading {
-    @apply  text-4xl px-3   font-semibold text-center  backdrop:blur-3xl lg:text-6xl ;
+    @apply  px-3 text-4xl font-semibold text-center backdrop:blur-3xl lg:text-6xl ;
   }
 
   /* ===== Section Layout ===== */
@@ -110,9 +110,7 @@ body {
 
   /* ===== Header ===== */
   .section-header {
-    @apply  w-full mx-auto mb-6 
-           text-4xl  lg:text-6xl
-           font-semibold leading-tight  text-center ;
+    @apply  w-full mx-auto mb-6 text-4xl font-semibold leading-tight text-center lg:text-6xl ;
   }
 
 
@@ -129,7 +127,7 @@ body {
 
   /* ===== Description ===== */
   .section-description {
-    @apply max-w-2xl mb-12 text-base italic  md:text-center md:mb-6 lg:mb-16 lg:text-lg md:mx-auto text-zinc-500 dark:text-zinc-400;
+    @apply max-w-2xl mb-12 text-base italic md:text-center md:mb-6 lg:mb-16 lg:text-lg md:mx-auto text-zinc-500 dark:text-zinc-400;
   }
 
   /* ===== Actions wrapper ===== */
@@ -611,9 +609,7 @@ body {
 
   /* ===== Contact Wrapper (Form + Images) ===== */
   .contact-wrapper {
-    @apply flex flex-col-reverse mx-auto overflow-hidden border 
-           lg:flex-row rounded-3xl 
-           border-black/15 dark:border-white/5;
+    @apply flex flex-col-reverse mx-auto overflow-hidden border lg:flex-row rounded-3xl border-black/15 dark:border-white/5;
   }
 
  /* ===== Contact Form Wrapper ===== */
@@ -635,7 +631,7 @@ body {
 
   /* ===== Shared Input Styles ===== */
   .form-input {
-    @apply w-full p-2 rounded-md text-sm
+    @apply w-full p-2 rounded-md md:text-sm text-xs
            focus:outline-none
            transition-colors duration-[750ms]
            bg-zinc-100 text-zinc-900 placeholder-zinc-500

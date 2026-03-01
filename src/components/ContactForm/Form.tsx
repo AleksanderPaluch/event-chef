@@ -73,7 +73,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
 
 
 
-      <div className="grid-cols-2 grid gap-4 md:gap-x-6 gap-y-0">
+      <div className="grid grid-cols-2 gap-4 md:gap-x-6 gap-y-0">
 
           {/* Email */}
         <div className="form-group">
@@ -99,7 +99,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         {/* Typ eventu */}
         <div className="form-group">
           <p className="form-label">{t.eventTypeLabel}</p>
-          <select className="form-input " defaultValue="" required>
+          <select className=" form-input" defaultValue="" required>
             {" "}
             <option value="" hidden>
               Wybierz typ eventu
@@ -156,7 +156,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
 
       {/* Zgoda na kontakt */}
       <div className="flex flex-col form-group">
-        <div className=" flex items-center ">
+        <div className="flex items-center ">
           <input
             type="checkbox"
             id="consent"
