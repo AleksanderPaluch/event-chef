@@ -20,7 +20,7 @@ const BASE_TRANSITION = {
 };
 
 export const Form = ({ selected, setSelected }: FormProps) => {
-  const lang = "pl";
+  const lang = "en";
   const t = translations[lang];
 
   return (
@@ -71,11 +71,8 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         )}
       </AnimatePresence>
 
-
-
-      <div className="grid grid-cols-2 gap-4 md:gap-x-6 gap-y-0">
-
-          {/* Email */}
+      <div className="grid gap-4 md:grid-cols-2 md:gap-x-6 gap-y-0">
+        {/* Email */}
         <div className="form-group">
           <p className="form-label">{t.emailLabel}</p>
           <input
@@ -95,7 +92,9 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             className="form-input"
           />
         </div>
+      </div>
 
+      <div className="grid grid-cols-2 gap-4 md:gap-x-6 gap-y-0">
         {/* Typ eventu */}
         <div className="form-group">
           <p className="form-label">{t.eventTypeLabel}</p>
@@ -113,12 +112,6 @@ export const Form = ({ selected, setSelected }: FormProps) => {
           </select>
         </div>
 
-        {/* Data */}
-        <div className="form-group">
-          <p className="form-label">{t.dateLabel}</p>
-          <input type="date" className="form-input" required />
-        </div>
-
         {/* Liczba gości */}
         <div className="form-group">
           <p className="form-label">{t.guestsLabel}</p>
@@ -129,6 +122,13 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             required
           />
         </div>
+
+        {/* Data */}
+        <div className="form-group">
+          <p className="form-label">{t.dateLabel}</p>
+          <input type="date" className="form-input" required />
+        </div>
+
         {/* Miejscowość */}
         <div className="form-group">
           <p className="form-label">{t.locationLabel}</p>
@@ -151,8 +151,6 @@ export const Form = ({ selected, setSelected }: FormProps) => {
           className="form-textarea"
         />
       </div>
-
-    
 
       {/* Zgoda na kontakt */}
       <div className="flex flex-col form-group">

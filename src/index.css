@@ -631,7 +631,7 @@ body {
 
   /* ===== Shared Input Styles ===== */
   .form-input {
-    @apply w-full p-2 rounded-md md:text-sm text-xs
+    @apply w-full p-2 rounded-md text-sm
            focus:outline-none
            transition-colors duration-[750ms]
            bg-zinc-100 text-zinc-900 placeholder-zinc-500
