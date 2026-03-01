@@ -20,7 +20,7 @@ const BASE_TRANSITION = {
 };
 
 export const Form = ({ selected, setSelected }: FormProps) => {
-  const lang = "en";
+  const lang = "pl";
   const t = FormTranslations[lang];
 
   return (
@@ -90,6 +90,9 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="tel"
             placeholder={t.phonePlaceholder}
             className="form-input"
+            pattern="[0-9]{9}"
+            inputMode="numeric"
+            maxLength={9}
           />
         </div>
       </div>

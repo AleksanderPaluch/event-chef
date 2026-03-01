@@ -47,7 +47,7 @@ export const FormTranslations = {
     individual: "Osobę prywatną",
     company: "Firmę",
     emailLabel: "Email:",
-    emailPlaceholder: "name@example.com",
+    emailPlaceholder: "imię@example.com",
     phoneLabel: "Numer telefonu:",
     phonePlaceholder: "123 456 789",
     representLabel: "I reprezentuję",
