@@ -1,8 +1,8 @@
 import { type Dispatch, type SetStateAction } from "react";
 import type { RepresentType } from "./Form";
-import { translations } from "../Translations/translations";
 import { motion } from "framer-motion";
 import { easeInOut } from "framer-motion";
+import { FormTranslations } from "../Translations/translations";
 
 type FormSelectProps = {
   selected: RepresentType;
@@ -18,7 +18,7 @@ const BASE_TRANSITION = {
 
 
 export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => {
-  const t = translations[lang];
+  const t = FormTranslations[lang];
 
   return (
     <div className="overflow-hidden font-medium border rounded-md w-fit border-zinc-300 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900">

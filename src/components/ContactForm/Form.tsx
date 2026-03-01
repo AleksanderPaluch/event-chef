@@ -1,7 +1,7 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "../Button/Button";
-import { translations } from "../Translations/translations";
+import { FormTranslations } from "../Translations/translations";
 import { FormSelect } from "./FormSelect";
 import { easeInOut } from "framer-motion";
 
@@ -21,7 +21,7 @@ const BASE_TRANSITION = {
 
 export const Form = ({ selected, setSelected }: FormProps) => {
   const lang = "en";
-  const t = translations[lang];
+  const t = FormTranslations[lang];
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className="contact-form">
@@ -101,14 +101,15 @@ export const Form = ({ selected, setSelected }: FormProps) => {
           <select className=" form-input" defaultValue="" required>
             {" "}
             <option value="" hidden>
-              Wybierz typ eventu
+              {t.eventTypes.label}
             </option>
-            <option value="Live">Event prywatny / Urodziny / Domówki</option>
-            <option value="corporate">Event firmowy / Targi / Wigilie</option>
-            <option value="masterclass">Warsztaty / Masterclass</option>
-            <option value="omakase">Kolacja Omakase</option>
-            <option value="wedding">Wesela</option>
-            <option value="other">Inne</option>
+            <option value="live">{t.eventTypes.live}</option>
+            <option value="corporate">{t.eventTypes.corporate}</option>
+            <option value="masterclass">{t.eventTypes.masterclass}</option>
+            <option value="omakase">{t.eventTypes.omakase}</option>
+            <option value="wedding">{t.eventTypes.wedding}</option>
+            <option value="bachelorette">{t.eventTypes.bachelorette}</option>
+            <option value="other">{t.eventTypes.other}</option>
           </select>
         </div>
 
@@ -163,14 +164,13 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             required
           />
           <label htmlFor="consent" className="form-label">
-            Zgoda na kontakt
+            {t.agreements.contact}
           </label>
         </div>
 
         <p className="block text-xs text-zinc-600">
           {" "}
-          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu
-          w sprawie oferty Event Chef.
+          {t.agreements.personalData}
         </p>
       </div>
 
