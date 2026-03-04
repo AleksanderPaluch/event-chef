@@ -90,7 +90,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="tel"
             placeholder={t.phonePlaceholder}
             className="form-input"
-            pattern="[0-9]{9}"
+            
             inputMode="numeric"
             maxLength={9}
           />
@@ -176,7 +176,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
           {t.agreements.personalData}
         </p>
       </div>
-
+      <p className="mb-1 text-xs text-zinc-600">{t.fields}</p>
       <Button text={t.submit} />
     </form>
   );

@@ -10,7 +10,7 @@ export const FormTranslations = {
     company: "A company",
     emailLabel: "Email:",
     emailPlaceholder: "name@example.com",
-    phoneLabel: "Phone number:",
+    phoneLabel: "Phone number:*",
     phonePlaceholder: "123 456 789",
     representLabel: "And I represent...",
     companyNameLabel: "by the name of...",
@@ -40,6 +40,8 @@ export const FormTranslations = {
       personalData:
         "I consent to the processing of my personal data for the purpose of being contacted regarding Event Chef's offer",
     },
+
+    fields: "* Optional fields",
   },
   pl: {
     nameLabel: "Cześć 👋! Mam na imię...",
@@ -48,7 +50,7 @@ export const FormTranslations = {
     company: "Firmę",
     emailLabel: "Email:",
     emailPlaceholder: "imię@example.com",
-    phoneLabel: "Numer telefonu:",
+    phoneLabel: "Numer telefonu:*",
     phonePlaceholder: "123 456 789",
     representLabel: "I reprezentuję",
     companyNameLabel: "O nazwie...",
@@ -78,5 +80,9 @@ export const FormTranslations = {
       contact: "Zgoda na kontakt",
       personalData:
         "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu w sprawie oferty Event Chef",
-  },}
+  },
+
+  fields: "* Pola nieobowiązkowe",
+
+}
 } as const;
