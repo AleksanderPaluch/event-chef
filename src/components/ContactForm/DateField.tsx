@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { AnimatePresence } from "framer-motion";
 import { DatePicker } from "./Calendar";
 import { FormTranslations } from "../Translations/translations";
+import { FiCalendar } from "react-icons/fi";
 
 interface Props {
   value: Date | null;
@@ -45,9 +46,20 @@ export const DateField = ({
         {value ? (
           format(value, "dd.MM.yyyy")
         ) : (
-          <span className="text-zinc-500 dark:text-zinc-400">
-            {t.datePlaceholder}
-          </span>
+          <div className="flex items-center justify-between w-full text-zinc-500 dark:text-zinc-400">
+           
+            <p className="text-zinc-500 dark:text-zinc-400">
+              {t.datePlaceholder}
+            </p>
+
+             <FiCalendar
+          className={`transition-transform duration-200 text-zinc-400 dark:text-zinc-700 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+          </div>
+        
+          
         )}
       </div>
 
@@ -61,7 +73,7 @@ export const DateField = ({
       {/* CALENDAR */}
       <AnimatePresence>
         {open && (
-          <div className="absolute z-50 mt-2">
+          <div className="absolute z-20 mt-2">
             <DatePicker
               lang={lang}
               selected={value ?? new Date()}
