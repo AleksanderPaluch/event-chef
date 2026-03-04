@@ -2,18 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import { format } from "date-fns";
 import { AnimatePresence } from "framer-motion";
 import { DatePicker } from "./Calendar";
+import { FormTranslations } from "../Translations/translations";
 
 
 interface Props {
   value: Date | null;
   onChange: (date: Date) => void;
   required?: boolean;
+  lang?: "en" | "pl";
 }
 
-export const DateField = ({ value, onChange, required }: Props) => {
+export const DateField = ({ value, onChange, required, lang = "pl" }: Props) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
-
+ const t = FormTranslations[lang];
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -35,15 +37,16 @@ export const DateField = ({ value, onChange, required }: Props) => {
       <div
         onClick={() => setOpen((p) => !p)}
         className="flex items-center cursor-pointer form-input"
+        
       >
         {value ? (
           format(value, "dd.MM.yyyy")
         ) : (
-          <span className="">Wybierz datę</span>
+          <span className="text-zinc-500 dark:text-zinc-400">{t.datePlaceholder}</span>
         )}
       </div>
 
-      {/* hidden для required */}
+      {/* hidden dla required */}
       <input
         type="hidden"
         value={value ? value.toISOString() : ""}

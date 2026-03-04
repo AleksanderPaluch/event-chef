@@ -107,9 +107,9 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         {/* Typ eventu */}
         <div className="form-group">
           <p className="form-label">{t.eventTypeLabel}</p>
-          <select className=" form-input" defaultValue="" >
+          <select className="text-zinc-700 dark:text-zinc-300 form-input" defaultValue="" >
             {" "}
-            <option value="" hidden>
+            <option value="" hidden className="">
               {t.eventTypes.label}
             </option>
             <option value="live">{t.eventTypes.live}</option>
@@ -139,6 +139,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
 
   <DateField
     value={formData.date}
+    lang={lang}
     onChange={(date) =>
       setFormData((prev) => ({ ...prev, date }))
     }
