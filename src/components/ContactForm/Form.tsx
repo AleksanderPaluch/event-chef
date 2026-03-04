@@ -1,9 +1,11 @@
-import { type Dispatch, type SetStateAction } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "../Button/Button";
 import { FormTranslations } from "../Translations/translations";
 import { FormSelect } from "./FormSelect";
 import { easeInOut } from "framer-motion";
+
+import { DateField } from "./DateField";
 
 export type Lang = "en" | "pl";
 export type RepresentType = "company" | "individual";
@@ -22,6 +24,10 @@ const BASE_TRANSITION = {
 export const Form = ({ selected, setSelected }: FormProps) => {
   const lang = "pl";
   const t = FormTranslations[lang];
+
+  const [formData, setFormData] = useState({
+    date: null as Date | null,
+  });
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className="contact-form">
@@ -90,7 +96,6 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="tel"
             placeholder={t.phonePlaceholder}
             className="form-input"
-            
             inputMode="numeric"
             maxLength={9}
           />
@@ -128,10 +133,17 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         </div>
 
         {/* Data */}
-        <div className="form-group">
-          <p className="form-label">{t.dateLabel}</p>
-          <input type="date" className="form-input" required />
-        </div>
+       <div className="form-group">
+  <p className="form-label">{t.dateLabel}</p>
+
+  <DateField
+    value={formData.date}
+    onChange={(date) =>
+      setFormData((prev) => ({ ...prev, date }))
+    }
+    required
+  />
+</div>
 
         {/* Miejscowość */}
         <div className="form-group">

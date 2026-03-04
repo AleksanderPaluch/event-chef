@@ -1,5 +1,6 @@
 import image from "../../assets/About.jpg";
 
+
 import { Section } from "../Content/Section";
 import { Stats } from "./Stats/Stats";
 import { Testimonials } from "./Testimonials/Testimonials";
@@ -25,6 +26,7 @@ export const About = () => {
       <div className="section">
         <Stats />
         <Testimonials />
+  
       </div>
     </>
   );
