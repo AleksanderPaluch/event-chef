@@ -39,7 +39,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="text"
             placeholder={t.namePlaceholder}
             className="form-input"
-            required
+          
           />
         </div>
 
@@ -71,7 +71,8 @@ export const Form = ({ selected, setSelected }: FormProps) => {
               autoComplete="organization"
               placeholder={t.companyNamePlaceholder}
               className="form-input"
-              required
+       
+
             />
           </motion.div>
         )}
@@ -85,7 +86,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="email"
             placeholder={t.emailPlaceholder}
             className="form-input"
-            required
+     
           />
         </div>
 
@@ -106,7 +107,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         {/* Typ eventu */}
         <div className="form-group">
           <p className="form-label">{t.eventTypeLabel}</p>
-          <select className=" form-input" defaultValue="" required>
+          <select className=" form-input" defaultValue="" >
             {" "}
             <option value="" hidden>
               {t.eventTypes.label}
@@ -128,7 +129,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="text"
             placeholder={t.guestsPlaceholder}
             className="form-input"
-            required
+    
           />
         </div>
 
@@ -141,7 +142,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
     onChange={(date) =>
       setFormData((prev) => ({ ...prev, date }))
     }
-    required
+
   />
 </div>
 
@@ -154,7 +155,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             autoComplete="address-level2"
             placeholder={t.locationPlaceholder}
             className="form-input"
-            required
+      
           />
         </div>
       </div>
@@ -176,7 +177,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             id="consent"
             name="consent"
             className="mr-2 w-4 h-4 lg:mb-[2px]  border-black/15 dark:border-white/5 "
-            required
+         
           />
           <label htmlFor="consent" className="form-label">
             {t.agreements.contact}

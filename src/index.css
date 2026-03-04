@@ -14,9 +14,17 @@ body {
     "Segoe UI",
     sans-serif;
   letter-spacing: -0.01em;
+
 }
 
 @layer components {
+
+  
+  .custom-border {
+    @apply border border-black/15 hover:border-black/40 dark:border-white/5 dark:hover:border-white/30
+  }
+
+
   /* ===== Navigation Wrapper ===== */
   .nav {
     @apply fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-1 transition-colors;
@@ -137,7 +145,7 @@ body {
 
   /* ===== BTN ===== */
   .btn {
-    @apply flex items-center justify-between px-4 py-2 text-sm font-semibold transition-all duration-300 border rounded-lg lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 border-black/10 hover:border-black/30 dark:border-white/5 dark:hover:border-white/30;
+    @apply flex items-center justify-between px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 ;
   }
 
   .btn-primary {
@@ -149,7 +157,7 @@ body {
   }
 
   .btn-modal {
-    @apply bg-transparent border-none text-zinc-600 dark:text-zinc-100;
+    @apply bg-transparent text-zinc-600 dark:text-zinc-100;
   }
 
   .btn-full {
@@ -215,7 +223,7 @@ body {
   .review-card {
     @apply w-[320px] md:w-[420px]
            bg-white dark:bg-zinc-900
-           border border-gray-200 dark:border-gray-700
+           border custom-border
            rounded-xl p-4
            shadow-sm dark:shadow-md
            transition-all duration-200
@@ -577,7 +585,7 @@ body {
 
   /* ===== Individual Tab Button ===== */
   .tab-button {
-    @apply relative z-0 flex items-center justify-center w-full py-2 transition-colors bg-white border  rounded-lg md:p-6  dark:bg-zinc-950 dark:hover:bg-[#010000]   text-zinc-700 dark:text-zinc-100 hover:text-zinc-800 dark:hover:text-zinc-50 border-black/15 hover:border-black/40 dark:border-white/5 dark:hover:border-white/30;
+    @apply relative z-0 flex items-center justify-center w-full py-2 transition-colors bg-white   rounded-lg md:p-6  dark:bg-zinc-950 dark:hover:bg-[#010000]   text-zinc-700 dark:text-zinc-100 hover:text-zinc-800 dark:hover:text-zinc-50 custom-border;
   }
 
   /* Selected tab */
@@ -636,8 +644,7 @@ body {
            transition-colors duration-[750ms]
            bg-zinc-100 text-zinc-900 placeholder-zinc-500
            dark:bg-zinc-800 dark:text-white dark:placeholder-white/60
-           border border-black/15 focus:border-black/40
-           dark:border-white/5 dark:focus:border-white/30;
+        custom-border;
   }
 
   /* ===== Textarea ===== */
