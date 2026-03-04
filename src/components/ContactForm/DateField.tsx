@@ -4,7 +4,6 @@ import { AnimatePresence } from "framer-motion";
 import { DatePicker } from "./Calendar";
 import { FormTranslations } from "../Translations/translations";
 
-
 interface Props {
   value: Date | null;
   onChange: (date: Date) => void;
@@ -12,10 +11,15 @@ interface Props {
   lang?: "en" | "pl";
 }
 
-export const DateField = ({ value, onChange, required, lang = "pl" }: Props) => {
+export const DateField = ({
+  value,
+  onChange,
+  required,
+  lang = "pl",
+}: Props) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
- const t = FormTranslations[lang];
+  const t = FormTranslations[lang];
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -37,12 +41,13 @@ export const DateField = ({ value, onChange, required, lang = "pl" }: Props) => 
       <div
         onClick={() => setOpen((p) => !p)}
         className="flex items-center cursor-pointer form-input"
-        
       >
         {value ? (
           format(value, "dd.MM.yyyy")
         ) : (
-          <span className="text-zinc-500 dark:text-zinc-400">{t.datePlaceholder}</span>
+          <span className="text-zinc-500 dark:text-zinc-400">
+            {t.datePlaceholder}
+          </span>
         )}
       </div>
 
@@ -58,6 +63,7 @@ export const DateField = ({ value, onChange, required, lang = "pl" }: Props) => 
         {open && (
           <div className="absolute z-50 mt-2">
             <DatePicker
+              lang={lang}
               selected={value ?? new Date()}
               onDateSelected={({ date }) => {
                 onChange(date);

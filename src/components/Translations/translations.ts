@@ -43,6 +43,8 @@ export const FormTranslations = {
     },
 
     fields: "* Optional fields",
+
+    weekday: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
   },
   pl: {
     nameLabel: "Cześć 👋! Mam na imię...",
@@ -85,6 +87,8 @@ export const FormTranslations = {
   },
 
   fields: "* Pola nieobowiązkowe",
+
+  weekday: ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"],
 
 }
 } as const;

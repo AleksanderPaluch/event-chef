@@ -1,9 +1,4 @@
-import {
-
-  
-  type SyntheticEvent,
-  useState,
-} from "react";
+import { type SyntheticEvent, useState } from "react";
 import { motion } from "framer-motion";
 import {
   format,
@@ -18,8 +13,24 @@ import {
   isSameDay,
 } from "date-fns";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { FormTranslations } from "../Translations/translations";
+import { isBefore, startOfToday } from "date-fns";
+import { pl, enUS } from "date-fns/locale";
 
-export const DatePicker = ({ selected, onDateSelected }: DatePickerProps) => {
+interface DatePickerProps {
+  selected: Date;
+  onDateSelected: (
+    selectedDate: { date: Date },
+    event: SyntheticEvent<Element, Event>,
+  ) => void;
+  lang?: "en" | "pl";
+}
+
+export const DatePicker = ({
+  selected,
+  onDateSelected,
+  lang = "pl",
+}: DatePickerProps) => {
   const [currentMonth, setCurrentMonth] = useState(startOfMonth(selected));
 
   const monthStart = startOfMonth(currentMonth);
@@ -36,20 +47,36 @@ export const DatePicker = ({ selected, onDateSelected }: DatePickerProps) => {
     day = addDays(day, 1);
   }
 
+  const t = FormTranslations[lang];
+
+  const today = startOfToday();
+  const locale = lang === "pl" ? pl : enUS;
+
+  const isPrevMonthDisabled = isBefore(
+    subMonths(currentMonth, 1),
+    startOfMonth(today),
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="top-0 p-3 mt-4 bg-white border rounded-lg shadow-lg dark:bg-zinc-950 border-zinc-600 -right-4 w-fit md:absolute md:mt-0 md:translate-x-full"
+      className="top-0 p-3 mt-4 bg-white rounded-lg shadow-lg custom-border dark:bg-zinc-950 -right-4 w-fit md:absolute md:mt-0 md:translate-x-full"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-3 text-xl">
-        <button onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>
+        <button
+          disabled={isPrevMonthDisabled}
+          onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
+          className={isPrevMonthDisabled ? "opacity-30 " : ""}
+        >
           <FiArrowLeft />
         </button>
 
-        <span className="text-lg font-medium">{format(currentMonth, "LLLL yyyy")}</span>
+        <span className="text-lg font-medium">
+          {format(currentMonth, "LLLL yyyy", { locale })}
+        </span>
 
         <button onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>
           <FiArrowRight />
@@ -58,7 +85,7 @@ export const DatePicker = ({ selected, onDateSelected }: DatePickerProps) => {
 
       {/* Weekdays */}
       <div className="flex mb-2">
-        {WEEKDAY_NAMES.map((weekday) => (
+        {t.weekday.map((weekday) => (
           <div
             key={weekday}
             className="block w-[calc(100%_/_7)] text-center text-sm font-medium"
@@ -73,16 +100,26 @@ export const DatePicker = ({ selected, onDateSelected }: DatePickerProps) => {
         {days.map((dayItem) => {
           const isCurrentMonth = isSameMonth(dayItem, monthStart);
           const isSelected = isSameDay(dayItem, selected);
+          const isPast = isBefore(dayItem, today);
+
+          const disabled = !isCurrentMonth || isPast;
 
           return (
             <button
               key={dayItem.toISOString()}
-              onClick={(e) => onDateSelected({ date: dayItem }, e)}
+              disabled={disabled}
+              onClick={(e) => !disabled && onDateSelected({ date: dayItem }, e)}
               className={`
-                w-[calc(100%_/_7)] rounded  py-1 transition-colors
-                ${isSelected ? "bg-zinc-900 text-white" : ""}
-                ${!isCurrentMonth ? "text-gray-300" : "hover:bg-indigo-100"}
-              `}
+        w-[calc(100%_/_7)] rounded py-1 transition-colors
+
+        ${isSelected ? "font-semibold bg-zinc-800 text-white dark:bg-zinc-300 dark:text-zinc-950" : ""}
+
+        ${
+          disabled
+            ? "text-zinc-400 "
+            : "hover:bg-zinc-200 dark:hover:bg-zinc-700"
+        }
+      `}
             >
               {format(dayItem, "d")}
             </button>
@@ -92,15 +129,3 @@ export const DatePicker = ({ selected, onDateSelected }: DatePickerProps) => {
     </motion.div>
   );
 };
-
-/* ========================================================= */
-
-interface DatePickerProps {
-  selected: Date;
-  onDateSelected: (
-    selectedDate: { date: Date },
-    event: SyntheticEvent<Element, Event>,
-  ) => void;
-}
-
-const WEEKDAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
