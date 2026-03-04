@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { format } from "date-fns";
 import { AnimatePresence } from "framer-motion";
 import { DatePicker } from "./Calendar";
-import { FormTranslations } from "../Translations/translations";
+import { FormTranslations } from "../../Translations/translations";
 import { FiCalendar } from "react-icons/fi";
 
 interface Props {

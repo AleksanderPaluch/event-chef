@@ -5,10 +5,13 @@ import { FormTranslations } from "../Translations/translations";
 import { FormSelect } from "./FormSelect";
 import { easeInOut } from "framer-motion";
 
-import { DateField } from "./DateField";
+import { DateField } from "./Calendar/DateField";
+import { CustomSelect } from "./Calendar/CustomSelect";
 
 export type Lang = "en" | "pl";
 export type RepresentType = "company" | "individual";
+
+
 
 type FormProps = {
   selected: RepresentType;
@@ -25,6 +28,16 @@ export const Form = ({ selected, setSelected }: FormProps) => {
   const lang = "pl";
   const t = FormTranslations[lang];
 
+  const eventOptions = [
+  { value: "live", label: t.eventTypes.live },
+  { value: "corporate", label: t.eventTypes.corporate },
+  { value: "masterclass", label: t.eventTypes.masterclass },
+  { value: "omakase", label: t.eventTypes.omakase },
+  { value: "wedding", label: t.eventTypes.wedding },
+  { value: "bachelorette", label: t.eventTypes.bachelorette },
+  { value: "other", label: t.eventTypes.other },
+];
+
   const [formData, setFormData] = useState({
     date: null as Date | null,
   });
@@ -39,7 +52,6 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="text"
             placeholder={t.namePlaceholder}
             className="form-input"
-          
           />
         </div>
 
@@ -71,8 +83,6 @@ export const Form = ({ selected, setSelected }: FormProps) => {
               autoComplete="organization"
               placeholder={t.companyNamePlaceholder}
               className="form-input"
-       
-
             />
           </motion.div>
         )}
@@ -86,7 +96,6 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="email"
             placeholder={t.emailPlaceholder}
             className="form-input"
-     
           />
         </div>
 
@@ -107,19 +116,15 @@ export const Form = ({ selected, setSelected }: FormProps) => {
         {/* Typ eventu */}
         <div className="form-group">
           <p className="form-label">{t.eventTypeLabel}</p>
-          <select className="text-zinc-700 dark:text-zinc-300 form-input" defaultValue="" >
-            {" "}
-            <option value="" hidden className="">
-              {t.eventTypes.label}
-            </option>
-            <option value="live">{t.eventTypes.live}</option>
-            <option value="corporate">{t.eventTypes.corporate}</option>
-            <option value="masterclass">{t.eventTypes.masterclass}</option>
-            <option value="omakase">{t.eventTypes.omakase}</option>
-            <option value="wedding">{t.eventTypes.wedding}</option>
-            <option value="bachelorette">{t.eventTypes.bachelorette}</option>
-            <option value="other">{t.eventTypes.other}</option>
-          </select>
+
+          <CustomSelect
+            options={eventOptions}
+            value={formData.eventType}
+            onChange={(value) =>
+              setFormData((prev) => ({ ...prev, eventType: value }))
+            }
+            placeholder={t.eventTypes.label}
+          />
         </div>
 
         {/* Liczba gości */}
@@ -129,23 +134,19 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             type="text"
             placeholder={t.guestsPlaceholder}
             className="form-input"
-    
           />
         </div>
 
         {/* Data */}
-       <div className="form-group">
-  <p className="form-label">{t.dateLabel}</p>
+        <div className="form-group">
+          <p className="form-label">{t.dateLabel}</p>
 
-  <DateField
-    value={formData.date}
-    lang={lang}
-    onChange={(date) =>
-      setFormData((prev) => ({ ...prev, date }))
-    }
-
-  />
-</div>
+          <DateField
+            value={formData.date}
+            lang={lang}
+            onChange={(date) => setFormData((prev) => ({ ...prev, date }))}
+          />
+        </div>
 
         {/* Miejscowość */}
         <div className="form-group">
@@ -156,7 +157,6 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             autoComplete="address-level2"
             placeholder={t.locationPlaceholder}
             className="form-input"
-      
           />
         </div>
       </div>
@@ -178,7 +178,6 @@ export const Form = ({ selected, setSelected }: FormProps) => {
             id="consent"
             name="consent"
             className="mr-2 w-4 h-4 lg:mb-[2px]  border-black/15 dark:border-white/5 "
-         
           />
           <label htmlFor="consent" className="form-label">
             {t.agreements.contact}

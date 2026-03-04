@@ -13,7 +13,7 @@ import {
   isSameDay,
 } from "date-fns";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { FormTranslations } from "../Translations/translations";
+import { FormTranslations } from "../../Translations/translations";
 import { isBefore, startOfToday } from "date-fns";
 import { pl, enUS } from "date-fns/locale";
 

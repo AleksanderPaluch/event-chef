@@ -71,7 +71,7 @@ export const FormTranslations = {
 
     eventTypes: {
       label: "Wybierz typ eventu:",
-      live: "Event prywatny / Urodziny / Domówki",
+      live: "Event prywatny / Urodziny ",
       corporate: "Event firmowy / Targi / Wigilie",
       masterclass: "Warsztaty / Masterclass",
       omakase: "Kolacja Omakase",
