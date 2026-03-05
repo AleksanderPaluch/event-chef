@@ -73,7 +73,7 @@ export const CustomSelect = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -6 }}
             transition={{ duration: 0.18 }}
-            className="absolute z-20 mt-2 overflow-hidden bg-white border rounded-lg shadow-lg w-72 -right-14 dark:bg-zinc-950 custom-border"
+            className="absolute left-0 z-20 w-[282px] mt-2 overflow-hidden bg-white border rounded-lg shadow-lg dark:bg-zinc-950 simple-border"
           >
             {options.map((option) => {
               const isSelected = option.value === value;
@@ -86,11 +86,11 @@ export const CustomSelect = ({
                     setOpen(false);
                   }}
                   className={`
-                    px-4 py-2 cursor-pointer transition-colors
+                    px-6 py-2 cursor-pointer transition-colors
                     ${
                       isSelected
                         ? "bg-zinc-800 text-white dark:bg-zinc-300 dark:text-zinc-950"
-                        : "hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                        : "hover:bg-zinc-300 dark:hover:bg-zinc-700"
                     }
                   `}
                 >
