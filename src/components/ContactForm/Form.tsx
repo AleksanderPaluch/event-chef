@@ -40,6 +40,7 @@ export const Form = ({ selected, setSelected }: FormProps) => {
 
   const [formData, setFormData] = useState({
     date: null as Date | null,
+    eventType: "" as string,
   });
 
   return (
