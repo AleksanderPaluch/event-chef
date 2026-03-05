@@ -15,7 +15,7 @@ const SPRING_OPTIONS = {
 
 interface ButtonProps {
   text: string;
-  variant?: "primary" | "ghost" | "modal";
+  variant?: "primary" | "ghost" | "modal" | "hero";
   size?: "full" | "fit";
   link?: boolean;
    order?: boolean;
@@ -51,6 +51,7 @@ export const Button: React.FC<ButtonProps> = ({
     primary: "btn-primary custom-border",
     ghost: "btn-ghost   custom-border",
     modal: "btn-modal ",
+    hero: "bg-transparent border  border-white/40 hover:text-white hover:border-white/70 max-w-xl mx-auto",
   };
 
   const sizeClasses = {

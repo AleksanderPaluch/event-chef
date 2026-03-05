@@ -33,13 +33,13 @@ body {
 
   /* ===== Navigation Wrapper ===== */
   .nav {
-    @apply fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-1 transition-colors;
+    @apply fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-1 transition-colors backdrop-blur-xl;
 
     /* light */
-    @apply bg-white border-b border-zinc-200;
+    @apply border-b bg-white/95 border-zinc-200 ;
 
     /* dark */
-    @apply dark:bg-zinc-950 dark:border-zinc-900;
+    @apply dark:bg-zinc-950/75 dark:border-zinc-900;
   }
 
   /* ===== NavLeft Wrapper ===== */
@@ -60,10 +60,10 @@ body {
 
   /* ===== NavMenu Wrapper ===== */
   .nav-menu {
-    @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg  backdrop:blur-2xl 
+    @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg  backdrop:blur-3xl 
            top-full
-           bg-white   /* light */
-           dark:bg-zinc-950; /* dark */
+       bg-white/95  /* light */
+           dark:bg-zinc-950/95; /* dark */
   }
 
   /* ===== MenuLink Wrapper ===== */
@@ -92,7 +92,7 @@ body {
 
   /* ===== Image Section Wrapper ===== */
   .image-section {
-    @apply relative h-[110vh] lg:h-[140vh];
+    @apply relative h-[110vh] lg:h-[120vh];
   }
 
   .image-sticky {
@@ -151,7 +151,7 @@ body {
 
   /* ===== BTN ===== */
   .btn {
-    @apply flex items-center justify-between px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 ;
+    @apply flex items-center justify-between px-4 py-2 text-sm transition-all duration-300 rounded-lg lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 ;
   }
 
   .btn-primary {
@@ -159,7 +159,7 @@ body {
   }
 
   .btn-ghost {
-    @apply bg-transparent;
+    @apply bg-transparent ;
   }
 
   .btn-modal {
