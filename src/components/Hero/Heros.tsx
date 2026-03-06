@@ -27,6 +27,8 @@ export const Heros = () => {
           className="absolute inset-0 bg-bottom "
           style={{
             backgroundImage: `url(${backgroundPhoto})`,
+            backgroundSize: "cover",
+            backgroundPosition: "bottom",
           }}
         />
 
