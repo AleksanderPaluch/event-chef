@@ -1,19 +1,13 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+
 import { Button } from "../Button/Button";
 import backgroundPhoto from "../../assets/sushiplate.jpg";
 
 export const Heros = () => {
-  const introRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: introRef,
-    offset: ["start end", "start start"],
-  });
 
-  // Intro плавно піднімається вгору
-  const y = useTransform(scrollYProgress, [0, 1], [120, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
+
+
+
 
   return (
     <>
@@ -60,14 +54,14 @@ export const Heros = () => {
 
       {/* INTRO */}
       <div
-        ref={introRef}
-        style={{ y, opacity }}
+
+    
         className="relative py-32 "
       >
         <div className="max-w-3xl px-6 mx-auto text-center">
-          <motion.h2 className="text-3xl font-semibold md:text-4xl">
+          <h2 className="text-3xl font-semibold md:text-4xl">
             Sushi experience dopasowane do Twojego wydarzenia
-          </motion.h2>  
+          </h2>  
 
 
           <p className="mt-8 text-lg leading-relaxed text-zinc-300">
