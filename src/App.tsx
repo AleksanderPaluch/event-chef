@@ -6,7 +6,7 @@ import { Nav } from "./components/Nav/Nav";
 import { Omakase } from "./components/Omakase/Omakase";
 import { Offer } from "./components/Offer/Offer";
 import { ContactForm } from "./components/ContactForm/ContactForm";
-import { Heros } from "./components/Hero/Heros";
+import { Hero } from "./components/Hero/Hero";
 
 function App() {
   useEffect(() => {
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Nav />
-      <Heros />
+      <Hero />
       <Live />
       <Mastercalss />
       <Omakase />
