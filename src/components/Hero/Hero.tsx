@@ -7,7 +7,7 @@ export const Hero = () => {
     <>
       <section
         id="Home"
-        className="relative flex  justify-center w-full h-screen lg:h-[120vh] overflow-hidden text-center"
+        className="relative flex justify-center w-full h-screen overflow-hidden text-center"
       >
         {/* Background */}
         <div
@@ -15,7 +15,7 @@ export const Hero = () => {
           style={{
             backgroundImage: `url(${backgroundPhoto})`,
             backgroundSize: "cover",
-            backgroundPosition: "bottom",
+            backgroundPosition: "center",
           }}
         />
 
@@ -23,7 +23,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-black/60" />
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b from-white/0 to-white dark:from-black/0 dark:to-zinc-950" />
+        {/* <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b from-white/0 to-white dark:from-black/0 dark:to-zinc-950" /> */}
 
         {/* Content */}
         <div className="absolute z-10 max-w-4xl px-6 top-28 ">

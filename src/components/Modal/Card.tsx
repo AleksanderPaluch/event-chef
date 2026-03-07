@@ -20,7 +20,7 @@ export const Card: React.FC<CardProps> = ({ title, icon, children, src }) => {
     {children}
   </div>
 
-  {src && (
+  {/* {src && (
     <div
       className="modal-card-image-overlay"
       style={{
@@ -29,7 +29,7 @@ export const Card: React.FC<CardProps> = ({ title, icon, children, src }) => {
         backgroundPosition: "center",
       }}
     />
-  )}
+  )} */}
 
   <Corners />
 </div>

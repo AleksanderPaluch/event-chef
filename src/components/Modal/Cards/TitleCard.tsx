@@ -21,9 +21,9 @@ export const TitleCard: React.FC<CardProps> = ({
         Poznaj <br /> {textTitle}
       </h2>
 
-      <p className="title-card-description">
+      {/* <p className="title-card-description">
         {modalDescription}
-      </p>
+      </p> */}
     </div>
   );
 };

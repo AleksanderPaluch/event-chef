@@ -26,30 +26,27 @@ export const ImageContent: React.FC<ImageContentProps> = ({
 };
 
 const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["end end", "end start"],
-  });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
+
+
+
 
   return (
-    <motion.div
+    <div
       style={{
         backgroundImage: `url(${imgUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "100vh",
         top: 0,
-        scale,
+   
       }}
-      ref={targetRef}
+    
       className="image-sticky"
     >
-      <motion.div className="image-overlay" style={{ opacity }} />
-    </motion.div>
+      <div className="image-overlay"  />
+    </div>
   );
 };
 
@@ -60,24 +57,15 @@ const OverlayCopy = ({
   subheading: string;
   heading: string;
 }) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
-  const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
-
+ 
   return (
-    <motion.div
-      style={{ y, opacity }}
-      ref={targetRef}
+    <div
+
         className="image-overlay-copy"
       >
       <h2 className="image-heading">{heading}</h2>
 
       <h3 className="image-subheading">{subheading}</h3>
-    </motion.div>
+    </div>
   );
 };
