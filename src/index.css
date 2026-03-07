@@ -599,12 +599,12 @@ body {
 
   /* ===== Contact Wrapper (Form + Images) ===== */
   .contact-wrapper {
-    @apply flex flex-col-reverse mx-auto overflow-hidden border lg:flex-row rounded-3xl border-black/15 dark:border-white/5;
+    @apply flex flex-col-reverse mx-auto overflow-hidden border lg:flex-row rounded-b-3xl md:rounded-3xl border-black/15 dark:border-white/5;
   }
 
  /* ===== Contact Form Wrapper ===== */
   .contact-form {
-    @apply w-full p-4 md:p-4 lg:p-8
+    @apply w-full p-4  lg:p-6
            transition-colors duration-[750ms]
            bg-white dark:bg-zinc-950;
   }

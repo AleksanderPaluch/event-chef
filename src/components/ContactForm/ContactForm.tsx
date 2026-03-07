@@ -8,7 +8,7 @@ export const ContactForm = () => {
   );
 
   return (
-    <section id="Form" className="contact-section">
+    <section id="Form" className="px-0 contact-section">
       <h3 className="section-header ">Indywidualna Wycena</h3>
 
       <p className="section-description">
@@ -23,7 +23,7 @@ export const ContactForm = () => {
         <Form selected={selected} setSelected={setSelected} />
         <Images selected={selected} />
       </div>
-      <p className="section-description text-xs mt-4 lg:mt-8 max-w-full px-4">
+      <p className="max-w-full px-4 mt-4 text-xs section-description lg:mt-8">
         Administratorem danych osobowych jest Event Chef. Dane osobowe
         przetwarzane są w celu obsługi zapytania. Podanie danych jest
         dobrowolne, ale niezbędne do udzielenia odpowiedzi. Przysługuje Ci prawo

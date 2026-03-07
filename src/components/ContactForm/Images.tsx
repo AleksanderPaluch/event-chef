@@ -9,7 +9,7 @@ const BASE_TRANSITION: Transition = {
 
 export const Images = ({ selected }: { selected: "company" | "individual" }) => {
   return (
-    <div className="bg-white dark:bg-zinc-950 relative overflow-hidden w-full min-h-[100px]">
+    <div className="bg-white dark:bg-zinc-950 relative overflow-hidden w-full min-h-[200px]">
       
       {/* INDIVIDUAL */}
       <motion.div
