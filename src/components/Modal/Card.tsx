@@ -7,7 +7,7 @@ interface CardProps {
   src?: string;
 }
 
-export const Card: React.FC<CardProps> = ({ title, icon, children, src }) => {
+export const Card: React.FC<CardProps> = ({ title, icon, children }) => {
   return (
 <div className="modal-card modal-card-hover group">
 

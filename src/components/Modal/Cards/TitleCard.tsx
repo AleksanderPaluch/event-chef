@@ -9,7 +9,7 @@ interface CardProps {
 export const TitleCard: React.FC<CardProps> = ({
   icon,
   textTitle,
-  modalDescription,
+  // modalDescription,
 }) => {
   return (
     <div className="title-card group">

@@ -1,5 +1,5 @@
-import { type ReactNode, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { type ReactNode } from "react";
+// import { motion, useScroll, useTransform } from "framer-motion";
 
 interface ImageContentProps {
   imgUrl: string;
