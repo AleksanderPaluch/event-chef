@@ -12,7 +12,7 @@ export const Intro = () => {
  
         className="relative py-32 "
       >
-        <div className="max-w-3xl px-6 mx-auto text-center">
+        <div className="max-w-5xl px-6 mx-auto text-center">
  
 
           <p className="section-comment">
