@@ -34,18 +34,21 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
 
   return (
     <div
+    
       style={{
         backgroundImage: `url(${imgUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "100vh",
+    
         top: 0,
    
       }}
     
-      className="image-sticky"
+      className="image-sticky h-screen lg:h-[110vh]"
     >
       <div className="image-overlay"  />
+        <div className="absolute left-0 right-0 -top-1 h-1/4 bg-gradient-to-t dark:from-zinc-950/0 dark:to-zinc-950" />
+            <div className="absolute left-0 right-0 -bottom-1 h-1/4 bg-gradient-to-b dark:from-zinc-950/0 dark:to-zinc-950" />
     </div>
   );
 };
