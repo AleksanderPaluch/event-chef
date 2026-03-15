@@ -1,6 +1,7 @@
 import { Button } from "../Button/Button";
-import backgroundPhoto from "../../assets/harrison-chang-FglvrLPBoEc-unsplash.jpg";
+import backgroundPhoto from "../../assets/sushiplate.jpg";
 import { Intro } from "./Intro";
+
 
 export const Hero = () => {
   return (
