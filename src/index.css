@@ -60,10 +60,10 @@ body {
 
   /* ===== NavMenu Wrapper ===== */
   .nav-menu {
-    @apply absolute left-0 right-0 flex flex-col gap-6 p-4 origin-top shadow-lg  backdrop:blur-3xl 
+    @apply absolute left-0 right-0 md:h-screen flex flex-col gap-6 p-4 origin-top shadow-lg  backdrop:blur-3xl 
            top-full
-       bg-white/95  /* light */
-           dark:bg-zinc-950/95; /* dark */
+       bg-white  /* light */
+           dark:bg-zinc-950; /* dark */
   }
 
   /* ===== MenuLink Wrapper ===== */
@@ -107,22 +107,22 @@ body {
   }
 
   .image-heading {
-    @apply  mx-auto mb-2 text-2xl text-center lg:text-3xl ;
+    @apply  mx-auto  uppercase  tracking-[0.5em] text-zinc-300 text-sm md:text-xl font-medium text-center mb-8 lg:mb-10 md:mb-4;
   }
 
   .image-subheading {
-    @apply  px-3 text-4xl font-semibold text-center backdrop:blur-3xl lg:text-6xl ;
+    @apply lg:max-w-[850px] mx-auto text-4xl tracking-[0.05em] font-medium leading-normal text-center text-zinc-200 md:text-5xl lg:text-7xl;
   }
 
   /* ===== Section Layout ===== */
   .section {
-    @apply px-4 md:px-8 pt-6 lg:pt-32 pb-24 lg:pb-36 
+    @apply px-4 md:px-8 py-24 lg:py-32  
            md:mx-auto md:max-w-[90%] lg:max-w-6xl;
   }
 
   /* ===== Header ===== */
   .section-header {
-    @apply  w-full mx-auto mb-6 text-4xl font-semibold leading-tight text-center lg:text-6xl ;
+    @apply  w-full mx-auto mb-6 text-4xl font-normal leading-tight text-center lg:text-6xl ;
   }
 
 
@@ -134,7 +134,7 @@ body {
 
   /* ===== Process line ===== */
   .section-process {
-    @apply flex flex-col items-center gap-3 mx-auto mb-12 text-2xl text-center md:flex-row lg:mb-8 md:text-xl lg:text-3xl max-w-fit;
+    @apply flex flex-col items-center gap-3 mx-auto mb-12 text-2xl text-center font-extralight md:flex-row lg:mb-8 md:text-xl lg:text-3xl max-w-fit;
   }
 
   /* ===== Description ===== */
@@ -149,7 +149,7 @@ body {
 
   /* ===== BTN ===== */
   .btn {
-    @apply flex items-center justify-between px-4 py-2 text-sm transition-all duration-300 rounded-lg lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 ;
+    @apply flex items-center justify-between px-4 py-2 text-sm transition-all duration-300 rounded-lg md:py-1 lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 ;
   }
 
   .btn-primary {
@@ -594,7 +594,7 @@ body {
 
    /* ===== Contact Form Section ===== */
   .contact-section {
-    @apply section md:max-w-[90%];
+    @apply section md:max-w-[90%] ;
   }
 
   /* ===== Contact Wrapper (Form + Images) ===== */

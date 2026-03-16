@@ -3,7 +3,7 @@ import image from "../../assets/masterclass1.jpg";
 import imageModal from "../../assets/nigiri.jpeg";
 
 const data = {
-  id: "Sushi Masterclass",
+  id: "Masterclass",
   imgUrl: image,
   subheading: "Warsztaty które uczą, bawią i integrują",
   heading: "Sushi Masterclass",

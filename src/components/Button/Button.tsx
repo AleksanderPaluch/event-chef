@@ -51,7 +51,7 @@ export const Button: React.FC<ButtonProps> = ({
     primary: "btn-primary custom-border",
     ghost: "btn-ghost   custom-border",
     modal: "btn-modal ",
-    hero: "bg-transparent border lg:text-lg  border-white/10 text-zinc-50/40 hover:text-zinc-200 hover:border-white/70 max-w-xl mx-auto w-[90%]  ",
+    hero: "bg-transparent border lg:text-lg  border-white/10 text-zinc-50/40 hover:text-zinc-200 hover:border-white/70 md:max-w-xl mx-auto w-full  ",
   };
 
   const sizeClasses = {

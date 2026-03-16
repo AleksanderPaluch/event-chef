@@ -21,8 +21,8 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
       className="nav-menu"
     >
       <MenuLink setIsOpen={setIsOpen} text="Home" href="Home" />
-      <MenuLink setIsOpen={setIsOpen} text="Live Cooking" href="Live Cooking" />
-      <MenuLink setIsOpen={setIsOpen} text="Sushi Masterclass" href="Sushi Masterclass" />
+      <MenuLink setIsOpen={setIsOpen} text="Live Cooking" href="Live" />
+      <MenuLink setIsOpen={setIsOpen} text="Sushi Masterclass" href="Masterclass" />
       <MenuLink setIsOpen={setIsOpen} text="Omakase" href="Omakase" />
       <MenuLink setIsOpen={setIsOpen} text="O nas" href="About" />
       <MenuLink setIsOpen={setIsOpen} text="Oferta" href="Offer" />
@@ -37,6 +37,7 @@ const MenuLink: React.FC<MenuLinkProps> = ({ text, href, setIsOpen }) => {
       variants={menuLinkVariants}
       rel="nofollow"
       href={`#${href}`}
+     
       className="menu-link"
       onClick={() => setIsOpen((pv) => !pv)}
     >

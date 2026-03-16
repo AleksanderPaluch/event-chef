@@ -18,7 +18,7 @@ interface CardsProps {
 
 export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
   return (
-    <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(270px,1fr))]">
+    <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))] ">
       {rows.map((row, index) => {
         const isWedding = row.variant === "wedding";
 
@@ -30,7 +30,7 @@ export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
             key={index}
             whileHover={{ scale: 1.04, y: -6 }}
             transition={{ type: "spring", stiffness: 280, damping: 22 }}
-            className="p-5 custom-border sm:p-6 rounded-3xl bg-zinc-50 dark:bg-[#010000] backdrop-blur "
+            className="p-5 custom-border sm:p-6 rounded-3xl bg-zinc-50 dark:bg-[#010000]  backdrop-blur "
           >
             <div className="flex flex-col h-full gap-4">
               {/* PEOPLE */}

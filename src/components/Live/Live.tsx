@@ -3,9 +3,9 @@ import image from "../../assets/heroChef23.png";
 import imageModal from "../../assets/nigiri.jpeg";
 
 const data = {
-  id: "Live Cooking",
+  id: "Live",
   imgUrl: image,
-  subheading: "Sushi tworzone w Twojej przestrzeni",
+  subheading: "Wyjątkowe Doświadczenie Kulinarne",
   heading: "Live Cooking",
   textTitle: "Live Cooking",
   text: "Live cooking to pokaz przygotowywania sushi na żywo, prosto przed Twoimi gośćmi. To połączenie gotowania i efektownego show.",

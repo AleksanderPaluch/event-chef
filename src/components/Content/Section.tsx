@@ -49,7 +49,7 @@ export const Section: React.FC<SectionProps> = ({
   stats = false,
 }) => {
   return (
-    <section id={id}>
+    <section id={id} >
       <ImageContent imgUrl={imgUrl} heading={heading} subheading={subheading}>
         {!stats && (
           <TextContent
