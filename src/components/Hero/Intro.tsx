@@ -10,43 +10,9 @@ const process = [
 
 export const Intro = () => {
 
-  const smoothScroll = (targetY: number, duration = 1800) => {
-    const startY = window.scrollY;
-    const diff = targetY - startY;
-    let start: number | null = null;
-
-    const step = (timestamp: number) => {
-      if (!start) start = timestamp;
-      const progress = timestamp - start;
-
-      const percent = Math.min(progress / duration, 1);
-
-      // easing (cubic)
-      const ease = 1 - Math.pow(1 - percent, 3);
-
-      window.scrollTo(0, startY + diff * ease);
-
-      if (progress < duration) {
-        requestAnimationFrame(step);
-      }
-    };
-
-    requestAnimationFrame(step);
-  };
-
-  const handleScroll = (e: React.MouseEvent, id: string) => {
-    e.preventDefault();
-
-    const section = document.getElementById(id);
-    if (!section) return;
-
-    const y = section.getBoundingClientRect().top + window.scrollY;
-
-    smoothScroll(y, 1400); // тут контролюєш швидкість
-  };
-
+ 
   return (
-    <div className=" section">
+    <div className="py-0 my-0 section">
       <div className="max-w-5xl mx-auto text-center">
         
         <h2 className="section-header">
@@ -60,7 +26,7 @@ export const Intro = () => {
             <React.Fragment key={step.id}>
               <a
                 href={`#${step.id}`}
-                onClick={(e) => handleScroll(e, step.id)}
+         
                 className="transition-opacity cursor-pointer hover:opacity-80"
               >
                 {step.label}

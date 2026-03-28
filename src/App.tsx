@@ -7,6 +7,7 @@ import { Omakase } from "./components/Omakase/Omakase";
 import { Offer } from "./components/Offer/Offer";
 import { ContactForm } from "./components/ContactForm/ContactForm";
 import { Hero } from "./components/Hero/Hero";
+import { Intro } from "./components/Hero/Intro";
 
 function App() {
   useEffect(() => {
@@ -17,6 +18,7 @@ function App() {
     <>
       <Nav />
       <Hero />
+      <Intro />
       <Live />
       <Mastercalss />
       <Omakase />
