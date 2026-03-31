@@ -4,7 +4,7 @@ import heroImage from "../../assets/sushiplate.jpg";
 import { useEffect, useState } from "react";
 import { Button } from "../Button/Button";
 
-const SECTION_HEIGHT = 400;
+const SECTION_HEIGHT = 200;
 
 const useIsDesktop = () => {
   const [isDesktop, setIsDesktop] = useState(false);

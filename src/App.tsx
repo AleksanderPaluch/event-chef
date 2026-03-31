@@ -18,7 +18,7 @@ function App() {
     <>
       <Nav />
       <Hero />
-      <Intro />
+      {/* <Intro /> */}
       <Live />
       <Mastercalss />
       <Omakase />
