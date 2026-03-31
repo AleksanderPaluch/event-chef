@@ -8,7 +8,7 @@ interface NavLeftProps {
 
 export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen }) => {
   return (
-    <div className="nav-left">
+    <div className="nav-left ">
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

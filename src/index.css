@@ -32,16 +32,23 @@ body {
 
 
   /* ===== Navigation Wrapper ===== */
-  .nav {
-    @apply fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-1 transition-colors backdrop-blur-xl;
+.nav {
+  @apply fixed top-0 left-0 right-0 z-40 flex justify-center px-4 py-1 transition-all duration-300 backdrop-blur-sm;
+}
 
-    /* light */
-    @apply border-b bg-white/95 border-zinc-200 ;
+/* transparent at top of page */
+.nav--top {
+  @apply  bg-transparent border-transparent shadow-none text-zinc-300 ;
+  /* dark */
+  @apply dark:bg-transparent dark:border-transparent;
+}
 
-    /* dark */
-    @apply dark:bg-zinc-950/75 dark:border-zinc-900;
-  }
-
+/* solid after scrolling */
+.nav--scrolled {
+  @apply py-1 border-b bg-white/95 border-zinc-200;
+  /* dark */
+  @apply dark:bg-zinc-950/95 dark:border-zinc-900;
+}
   /* ===== NavLeft Wrapper ===== */
   .nav-left {
     @apply flex items-center gap-6 ml-auto lg:ml-0;
