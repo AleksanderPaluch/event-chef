@@ -29,7 +29,7 @@ const HeroContent = () => (
     </span>
 
     {/* Heading */}
-    <h1 className="mt-4 text-4xl font-medium leading-tight lg:mt-5 md:text-5xl lg:text-6xl text-zinc-100">
+    <h1 className="mt-4 text-4xl font-medium leading-tight lg:mt-5 md:text-5xl lg:text-7xl text-zinc-100">
       Sushi tworzone
       <br />
       w <span className="text-amber-400">Twojej</span> przestrzeni
@@ -104,11 +104,11 @@ const CenterImage = () => {
         }}
       />
       {/* Gradient overlay */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b dark:from-zinc-950/0 via-transparent dark:to-zinc-950" />
+    <div className="absolute left-0 right-0 -bottom-1 h-1/4 bg-gradient-to-b dark:from-zinc-950/0 dark:to-zinc-950" />
 
       {/* Static text — sits above everything, no motion wrapper */}
       <HeroContent />
-            <div className="absolute inset-0 bg-black/50 dark:bg-zinc-950/10" />
+            <div className="absolute inset-0 bg-black/50 dark:bg-zinc-950/60" />
     </div>
   );
 };
