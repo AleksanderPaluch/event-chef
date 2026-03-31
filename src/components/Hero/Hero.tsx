@@ -120,7 +120,7 @@ export const Hero = () => {
   if (!isDesktop) return <HeroMobile />;
 
   return (
-    <div className="overflow-x-hidden">
+    <div id="Home" className="overflow-x-hidden">
       <ReactLenis root options={{ lerp: 0.05, syncTouch: true }}>
         <HeroDesktop />
       </ReactLenis>
