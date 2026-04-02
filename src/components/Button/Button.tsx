@@ -18,8 +18,9 @@ interface ButtonProps {
   variant?: "primary" | "ghost" | "modal" | "hero";
   size?: "full" | "fit";
   link?: boolean;
-   order?: boolean;
+  order?: boolean;
   onClick?: () => void;
+  href?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -29,6 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
   link = false,
   order = false,
   onClick,
+  href,
 }) => {
   const ref = useRef<HTMLButtonElement | null>(null);
 
@@ -72,9 +74,9 @@ export const Button: React.FC<ButtonProps> = ({
     </>
   );
 
-  if (link) {
+  if (href) {
     return (
-      <a href={`${order ? "#Form" : "#Offer"}`} className="inline-flex w-full ">
+      <a href={href} className="inline-flex w-full">
         <motion.button
           ref={ref}
           style={{ transform }}
@@ -88,13 +90,28 @@ export const Button: React.FC<ButtonProps> = ({
     );
   }
 
+  if (link) {
+    return (
+      <a href={`${order ? "#Form" : "#Offer"}`} className="inline-flex w-full">
+        <motion.button
+          ref={ref}
+          style={{ transform }}
+          onClick={onClick}
+          onMouseDown={handleReset}
+          className={className}
+        >
+          {content}
+        </motion.button>
+      </a>
+    );
+  }
   return (
     <motion.button
       ref={ref}
       style={{ transform }}
       onClick={onClick}
       onMouseDown={handleReset}
-      className={className }
+      className={className}
     >
       {content}
     </motion.button>

@@ -8,6 +8,7 @@ import { Offer } from "./components/Offer/Offer";
 import { ContactForm } from "./components/ContactForm/ContactForm";
 import { Hero } from "./components/Hero/Hero";
 import { Intro } from "./components/Hero/Intro";
+import { Intro2 } from "./components/Hero/Intro2";
 
 function App() {
   useEffect(() => {
@@ -18,11 +19,11 @@ function App() {
     <>
       <Nav />
       <Hero />
-      {/* <Intro /> */}
-      <Live />
+      <Intro />
+      {/* <Live />
       <Mastercalss />
-      <Omakase />
-      <About />
+      <Omakase /> */}
+      {/* <About /> */}
       <Offer />
       <ContactForm />
  
