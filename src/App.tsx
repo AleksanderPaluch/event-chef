@@ -1,14 +1,13 @@
 import { useEffect } from "react";
-import { About } from "./components/About/About";
-import { Live } from "./components/Live/Live";
-import { Mastercalss } from "./components/Masterclass/Mastercalss";
+
+
 import { Nav } from "./components/Nav/Nav";
-import { Omakase } from "./components/Omakase/Omakase";
+
 import { Offer } from "./components/Offer/Offer";
 import { ContactForm } from "./components/ContactForm/ContactForm";
 import { Hero } from "./components/Hero/Hero";
-import { Intro } from "./components/Hero/Intro";
-import { Intro2 } from "./components/Hero/Intro2";
+import { Intro } from "./components/Intro/Intro";
+
 
 function App() {
   useEffect(() => {

@@ -4,6 +4,7 @@ import heroImage from "../../assets/sushiplate.jpg";
 import { useEffect, useState } from "react";
 import { Button } from "../Button/Button";
 
+
 const SECTION_HEIGHT = 200;
 
 const useIsDesktop = () => {
@@ -23,7 +24,9 @@ const useIsDesktop = () => {
 // ── Shared static text ────────────────────────────────────────────────────────
 const HeroContent = () => (
   <div className="absolute left-0 z-10 w-full max-w-4xl px-6 bottom-72 md:bottom-16 lg:bottom-72 md:px-12 lg:px-20">
-    {/* Eyebrow */}
+
+
+          {/* Eyebrow */}
     <span className="uppercase tracking-[0.4em] text-amber-400 text-sm  font-semibold">
       Event Chef
     </span>
@@ -47,6 +50,8 @@ const HeroContent = () => (
     <div className="mt-8 lg:mt-10 ">
       <Button order link variant="hero" text="Otrzymaj indywidualną ofertę" />
     </div>
+ 
+
   </div>
 );
 
