@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { type Dispatch, type SetStateAction, useEffect, useRef, useState } from "react";
 
-import LiveImage from "../../assets/heroChef23.png";
+import LiveImage from "../../assets/liveImage.jpg";
 import MasterclassImage from "../../assets/masterclass1.jpg";
 import OmakaseImage from "../../assets/nigiri.jpeg";
 import { Button } from "../Button/Button";
@@ -9,8 +9,8 @@ import { Motion } from "../Motion/Motion";
 
 export const Intro = () => {
   return (
-    <>
-      <div className="flex flex-col items-center px-4 py-16 text-center md:py-0">
+    <div className="section max-w-7xl">
+<div className="flex flex-col items-center px-4 py-16 text-center md:py-0">
         {/* <span className="mb-4 text-sm tracking-widest uppercase text-amber-400">
           Catering Sushi
         </span> */}
@@ -29,8 +29,10 @@ export const Intro = () => {
 
       </div>
   <SwapColumnFeatures />
+    </div>
+      
     
-    </>
+  
   );
 };
 
@@ -70,9 +72,9 @@ const SlidingFeatureDisplay = ({
       <motion.div
         layout
           transition={{
-          type: "spring",
-          stiffness: 400,
-          damping: 25,
+     duration: 0.5,
+     ease: "easeInOut",
+   
         }}
         // transition={{ duration: 1, ease: "easeInOut" }}
         className="w-3/5 p-8 h-fit rounded-xl"
@@ -112,10 +114,10 @@ const Content = ({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <span className="block mb-2 text-xs tracking-widest uppercase text-zinc-400">
+          <span className="block mb-2 text-xs tracking-widest uppercase text-amber-500 dark:amber-400">
             {featureInView.callout}
           </span>
-          <p className="section-header text-start text-amber-400">
+          <p className="section-header text-start ">
             {featureInView.title}
           </p>
           <p className="mb-6 text-justify section-comment">
@@ -133,7 +135,7 @@ const Content = ({
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeInOut" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
           className="block mt-8 md:hidden"
         >
           <ExampleFeature featureInView={featureInView} />
@@ -145,8 +147,11 @@ const Content = ({
 
 const ExampleFeature = ({ featureInView }: { featureInView: FeatureType }) => {
   return (
-    <div className="relative w-full overflow-hidden shadow-xl h-96 rounded-xl">
-      <motion.img
+    <div className="relative w-full overflow-hidden shadow-xl h-96 bg-zinc-900 rounded-xl">
+      <img     key={featureInView.id}
+        src={featureInView.image}
+        alt={featureInView.title}         className="object-cover w-full h-full" />
+      {/* <motion.img
         key={featureInView.id}
         src={featureInView.image}
         alt={featureInView.title}
@@ -154,9 +159,10 @@ const ExampleFeature = ({ featureInView }: { featureInView: FeatureType }) => {
         // animate={{ opacity: 1, scale: 1 }}
         // transition={{ duration: 0.5, ease: "easeOut" }}
         className="object-cover w-full h-full"
-      />
+      /> */}
       {/* subtle dark overlay so text remains readable if ever overlaid */}
-      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+     
     </div>
   );
 };

@@ -27,7 +27,7 @@ const HeroContent = () => (
 
 
           {/* Eyebrow */}
-    <span className="uppercase tracking-[0.4em] text-amber-400 text-sm  font-semibold">
+    <span className="uppercase tracking-[0.4em] text-amber-500 text-sm  font-semibold">
       Event Chef
     </span>
 
@@ -35,11 +35,11 @@ const HeroContent = () => (
     <h1 className="mt-4 text-4xl font-medium leading-tight lg:mt-5 md:text-5xl lg:text-7xl text-zinc-100">
       Sushi tworzone
       <br />
-      w <span className="text-amber-400">Twojej</span> przestrzeni
+      w <span className="text-amber-500">Twojej</span> przestrzeni
     </h1>
 
     {/* Divider accent */}
-    <div className="w-16 h-px mt-6 lg:mt-8 bg-amber-400/60" />
+    <div className="w-16 h-px mt-6 lg:mt-8 bg-amber-500/60" />
 
     {/* Subtitle */}
     <p className="mt-4 text-sm tracking-wider uppercase md:text-base text-zinc-400">
