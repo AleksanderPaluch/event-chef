@@ -1,5 +1,11 @@
 import { motion, useInView } from "framer-motion";
-import { type Dispatch, type SetStateAction, useEffect, useRef, useState } from "react";
+import {
+  type Dispatch,
+  type SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import LiveImage from "../../assets/liveImage.jpg";
 import MasterclassImage from "../../assets/masterclass1.jpg";
@@ -10,29 +16,36 @@ import { Motion } from "../Motion/Motion";
 export const Intro = () => {
   return (
     <div className="section max-w-7xl">
-<div className="flex flex-col items-center px-4 py-16 text-center md:py-0">
+      <div className="flex flex-col items-center px-4 py-16 text-center md:py-0">
         {/* <span className="mb-4 text-sm tracking-widest uppercase text-amber-400">
           Catering Sushi
         </span> */}
-        <Motion>      <h2 className="max-w-2xl section-header">
-          Sushi jako część Twojego wydarzenia
-        </h2></Motion>
-         <Motion>       <p className="max-w-xl mt-4 section-comment">
-          Przyjeżdżamy na miejsce, przygotowujemy stanowisko i serwujemy świeże
-          sushi na oczach Twoich gości. Wybierz formę doświadczenia najlepiej
-          dopasowaną do charakteru wydarzenia.
-        </p></Motion>
-
-   
- 
-
-
-      </div>
-  <SwapColumnFeatures />
-    </div>
-      
-    
+        <Motion>
+          {" "}
+          <h2 className="max-w-4xl lg:mb-10 section-header">
+            Sushi, które staje się częścią Twojego wydarzenia
+          </h2>
+        </Motion>
   
+
+              <Motion>
+          {" "}
+          <p className="max-w-2xl text-justify lg:mb-24 section-comment">
+            "Przyjeżdżamy na miejsce, przygotowujemy stanowisko i serwujemy
+            świeże sushi na oczach Twoich gości. To nie tylko catering — to
+            doświadczenie, które angażuje, zachwyca i zostaje w pamięci"
+          </p>
+        </Motion>
+
+        
+        <Motion>
+          <h3 className="max-w-4xl mb-0 text-xl section-description">
+            Wybierz format dopasowany do charakteru Twojego wydarzenia:
+          </h3>
+        </Motion>
+      </div>
+      <SwapColumnFeatures />
+    </div>
   );
 };
 
@@ -41,7 +54,6 @@ const SwapColumnFeatures = () => {
 
   return (
     <section className="relative mx-auto max-w-7xl">
-      
       <SlidingFeatureDisplay featureInView={featureInView} />
       <div className="-mt-[100vh] hidden md:block" />
       {features.map((s) => (
@@ -71,10 +83,9 @@ const SlidingFeatureDisplay = ({
     >
       <motion.div
         layout
-          transition={{
-     duration: 0.5,
-     ease: "easeInOut",
-   
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
         }}
         // transition={{ duration: 1, ease: "easeInOut" }}
         className="w-3/5 p-8 h-fit rounded-xl"
@@ -117,9 +128,7 @@ const Content = ({
           <span className="block mb-2 text-xs tracking-widest uppercase text-amber-500 dark:amber-400">
             {featureInView.callout}
           </span>
-          <p className="section-header text-start ">
-            {featureInView.title}
-          </p>
+          <p className="section-header text-start ">{featureInView.title}</p>
           <p className="mb-6 text-justify section-comment">
             {featureInView.description}
           </p>
@@ -148,9 +157,12 @@ const Content = ({
 const ExampleFeature = ({ featureInView }: { featureInView: FeatureType }) => {
   return (
     <div className="relative w-full overflow-hidden shadow-xl h-96 bg-zinc-900 rounded-xl">
-      <img     key={featureInView.id}
+      <img
+        key={featureInView.id}
         src={featureInView.image}
-        alt={featureInView.title}         className="object-cover w-full h-full" />
+        alt={featureInView.title}
+        className="object-cover w-full h-full"
+      />
       {/* <motion.img
         key={featureInView.id}
         src={featureInView.image}
@@ -162,7 +174,6 @@ const ExampleFeature = ({ featureInView }: { featureInView: FeatureType }) => {
       /> */}
       {/* subtle dark overlay so text remains readable if ever overlaid */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-     
     </div>
   );
 };
@@ -209,4 +220,3 @@ const features: FeatureType[] = [
     href: "/omakase",
   },
 ];
-
