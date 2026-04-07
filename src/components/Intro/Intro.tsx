@@ -17,15 +17,15 @@ export const Intro = () => {
   return (
     <>
       <div className="max-w-4xl pb-0 mx-auto mb-0 pt-28 section ">
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
           {/* <span className="mb-4 text-sm tracking-widest uppercase text-amber-400">
           Catering Sushi
         </span> */}
           <Motion>
             {" "}
-            <h2 className="max-w-4xl mx-auto mb-4 text-xl text-left lg:text-2xl section-header lg:mb-10 ">
+            <h2 className="max-w-4xl mx-auto mb-4 text-xl text-left md:text-2xl section-header lg:mb-10 ">
              <span className="">Tworzymy wyjątkowe doświadczenia</span>  <br />{" "}
-              <span className="text-4xl lg:text-6xl">
+              <span className="text-4xl md:text-5xl">
                 na{" "}
                 <span className=" dark:text-amber-200/90">
                   Twoim
@@ -37,7 +37,7 @@ export const Intro = () => {
 
           <Motion>
             {" "}
-            <p className="max-w-2xl mb-20 ml-0 text-justify lg:mb-16 section-comment">
+            <p className="max-w-3xl mb-20 ml-0 text-justify lg:max-w-2xl lg:mb-16 section-comment">
               Przyjeżdżamy na miejsce, przygotowujemy stanowisko i serwujemy
               świeże sushi na oczach Twoich gości. To nie tylko catering — to
               doświadczenie, które angażuje, zachwyca i zostaje w pamięci.
@@ -165,7 +165,7 @@ const Content = ({
 
 const ExampleFeature = ({ featureInView }: { featureInView: FeatureType }) => {
   return (
-    <div className="relative w-full overflow-hidden shadow-xl h-96 bg-zinc-900 rounded-xl">
+    <div className="relative w-full overflow-hidden shadow-xl h-96 md:h-72 lg:h-96 bg-zinc-900 rounded-xl">
       <img
         key={featureInView.id}
         src={featureInView.image}

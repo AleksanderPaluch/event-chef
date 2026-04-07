@@ -57,7 +57,7 @@ const HeroContent = () => (
 
 // ── Mobile / tablet ───────────────────────────────────────────────────────────
 const HeroMobile = () => (
-  <section className="relative h-[100svh] w-full ">
+  <section className="relative h-[100svh]  w-full ">
     <div
       className="absolute inset-0"
       style={{
