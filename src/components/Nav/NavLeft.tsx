@@ -8,14 +8,13 @@ interface NavLeftProps {
 }
 
 const links = [
-  { text: "Home", href: "Home" },
-  { text: "Live Cooking", href: "Live" },
-  { text: "Sushi Masterclass", href: "Masterclass" },
-  { text: "Omakase", href: "Omakase" },
-  { text: "O nas", href: "About" },
-  { text: "Oferta", href: "Offer" },
-  { text: "Wycena Twojego Eventu", href: "Form" },
-];
+  { text: "Home",                   href: "/",           type: "page" },
+  { text: "Live Cooking",           href: "/live",        type: "page" },
+  { text: "Sushi Masterclass",      href: "/masterclass", type: "page" },
+  { text: "Omakase",                href: "/omakase",     type: "page" },
+  { text: "Oferta",                 href: "offer",        type: "section" },
+  { text: "Wycena Twojego Eventu",  href: "contact",      type: "section" },
+] as const;
 
 export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen }) => {
   return (
@@ -31,7 +30,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen }) => {
 
       {links.map((link, index) => (
         <React.Fragment key={link.href}>
-          <NavLink text={link.text} href={link.href} />
+          <NavLink text={link.text} href={link.href} type={link.type} />
           {index < links.length - 1 && (
             <span className="hidden lg:inline text-zinc-400/70">•</span>
           )}

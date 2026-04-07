@@ -8,7 +8,7 @@ export const ContactForm = () => {
   );
 
   return (
-    <section id="Form" className=" contact-section">
+    <section id="contact" className=" contact-section">
       <h3 className="section-header ">Indywidualna Wycena</h3>
 
       <p className="section-description">

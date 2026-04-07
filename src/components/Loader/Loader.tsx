@@ -1,6 +1,19 @@
 import { type Variants, motion } from "framer-motion";
 
-
+export const PageLoader = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <Loader />
+    </div>
+  );
+}
 
 const variants = {
   initial: {
@@ -19,7 +32,7 @@ const variants = {
   },
 } as Variants;
 
-export const Loader = () => {
+ const Loader = () => {
   return (
     <motion.div
       transition={{

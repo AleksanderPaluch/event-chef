@@ -90,9 +90,9 @@ export const Offer = () => {
   const activeFeature = FEATURES[selected];
 
   return (
-    <section id="Offer" >
+    <section id="offer" >
       <div className="max-w-7xl section">
-        <h3 className="section-header text-5xl lg:text-6xl">
+        <h3 className="text-5xl section-header lg:text-6xl">
           Oferta
         </h3>
 

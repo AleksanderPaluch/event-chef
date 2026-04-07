@@ -1,7 +1,7 @@
 import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Nav } from "./components/Nav/Nav";
-import { Loader } from "./components/Loader/Loader"; // 👈 adjust path as needed
+import {  PageLoader } from "./components/Loader/Loader";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const LivePage = lazy(() => import("./pages/LivePage"));
@@ -17,20 +17,7 @@ function ScrollToTop() {
   return null;
 }
 
-function PageLoader() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-      }}
-    >
-      <Loader />
-    </div>
-  );
-}
+
 
 function App() {
   return (
