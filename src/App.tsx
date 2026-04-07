@@ -1,32 +1,52 @@
-import { useEffect } from "react";
-
-
+import { Suspense, lazy, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Nav } from "./components/Nav/Nav";
+import { Loader } from "./components/Loader/Loader"; // 👈 adjust path as needed
 
-import { Offer } from "./components/Offer/Offer";
-import { ContactForm } from "./components/ContactForm/ContactForm";
-import { Hero } from "./components/Hero/Hero";
-import { Intro } from "./components/Intro/Intro";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const LivePage = lazy(() => import("./pages/LivePage"));
+const MasterclassPage = lazy(() => import("./pages/MasterclassPage"));
+const OmakasePage = lazy(() => import("./pages/OmakasePage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
-
-function App() {
+function ScrollToTop() {
+  const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
-  }, []);
+  }, [pathname]);
+  return null;
+}
 
+function PageLoader() {
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <Loader />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
       <Nav />
-      <Hero />
-      <Intro />
-      {/* <Live />
-      <Mastercalss />
-      <Omakase /> */}
-      {/* <About /> */}
-      <Offer />
-      <ContactForm />
- 
-    </>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/live" element={<LivePage />} />
+          <Route path="/masterclass" element={<MasterclassPage />} />
+          <Route path="/omakase" element={<OmakasePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
 }
 
