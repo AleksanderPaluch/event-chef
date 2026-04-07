@@ -15,37 +15,44 @@ import { Motion } from "../Motion/Motion";
 
 export const Intro = () => {
   return (
-    <div className="section max-w-7xl">
-      <div className="flex flex-col items-center px-4 py-16 text-center md:py-0">
-        {/* <span className="mb-4 text-sm tracking-widest uppercase text-amber-400">
+    <>
+      <div className="max-w-4xl pb-0 mx-auto mb-0 pt-28 section ">
+        <div className="flex flex-col">
+          {/* <span className="mb-4 text-sm tracking-widest uppercase text-amber-400">
           Catering Sushi
         </span> */}
-        <Motion>
-          {" "}
-          <h2 className="max-w-4xl lg:mb-10 section-header">
-            Sushi, które staje się częścią Twojego wydarzenia
-          </h2>
-        </Motion>
-  
+          <Motion>
+            {" "}
+            <h2 className="max-w-4xl mx-auto mb-4 text-xl text-left lg:text-2xl section-header lg:mb-10 ">
+             <span className="">Tworzymy wyjątkowe doświadczenia</span>  <br />{" "}
+              <span className="text-4xl lg:text-6xl">
+                na{" "}
+                <span className=" dark:text-amber-200/90">
+                  Twoim
+                </span>{" "}
+                wydarzeniu
+              </span>
+            </h2>
+          </Motion>
 
-              <Motion>
-          {" "}
-          <p className="max-w-2xl text-justify lg:mb-24 section-comment">
-            "Przyjeżdżamy na miejsce, przygotowujemy stanowisko i serwujemy
-            świeże sushi na oczach Twoich gości. To nie tylko catering — to
-            doświadczenie, które angażuje, zachwyca i zostaje w pamięci"
-          </p>
-        </Motion>
+          <Motion>
+            {" "}
+            <p className="max-w-2xl mb-20 ml-0 text-justify lg:mb-16 section-comment">
+              Przyjeżdżamy na miejsce, przygotowujemy stanowisko i serwujemy
+              świeże sushi na oczach Twoich gości. To nie tylko catering — to
+              doświadczenie, które angażuje, zachwyca i zostaje w pamięci.
+            </p>
+          </Motion>
 
-        
-        <Motion>
-          <h3 className="max-w-4xl mb-0 text-xl section-description">
-            Wybierz format dopasowany do charakteru Twojego wydarzenia:
-          </h3>
-        </Motion>
+          <Motion>
+            <h3 className="max-w-4xl mb-6 text-sm font-thin text-center lg:text-base text-amber-500 dark:text-amber-400">
+              Wybierz format dopasowany do charakteru wydarzenia:
+            </h3>
+          </Motion>
+        </div>
       </div>
       <SwapColumnFeatures />
-    </div>
+    </>
   );
 };
 
@@ -119,22 +126,24 @@ const Content = ({
           featureInView.contentPosition === "l" ? "flex-start" : "flex-end",
       }}
     >
-      <div className="grid w-full h-full px-4 py-12 place-content-center md:w-2/5 md:px-8 md:py-8">
+      <div className="grid w-full h-full px-4 py-12 place-content-center md:w-2/5 md:px-4 md:py-8">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <span className="block mb-2 text-xs tracking-widest uppercase text-amber-500 dark:amber-400">
+          <p className="mb-2 section-header text-start ">
+            {featureInView.title}
+          </p>
+          <span className="block mb-2 text-xs tracking-widest uppercase text-amber-500 dark:text-amber-400">
             {featureInView.callout}
           </span>
-          <p className="section-header text-start ">{featureInView.title}</p>
-          <p className="mb-6 text-justify section-comment">
+          <p className="mb-6 text-justify lg:text-lg section-comment">
             {featureInView.description}
           </p>
           <Button
             text="Poznaj doświadczenie"
-            variant="primary"
+            variant="ghost"
             size="full"
             href={featureInView.href}
           />
@@ -194,7 +203,7 @@ const features: FeatureType[] = [
     callout: "Sushi przygotowywane na żywo",
     title: "Live Cooking",
     description:
-      "Live cooking to pokaz przygotowywania sushi na żywo, prosto przed Twoimi gośćmi. To połączenie gotowania i efektownego show.",
+      "Live cooking to widowiskowy pokaz przygotowywania sushi na żywo, bezpośrednio przed Twoimi gośćmi. Połączenie smaku, interakcji i efektownego show, które przyciąga uwagę i buduje atmosferę wydarzenia.",
     contentPosition: "r",
     image: LiveImage,
     href: "/live",
@@ -204,17 +213,17 @@ const features: FeatureType[] = [
     callout: "Warsztaty Sushi",
     title: "Masterclass",
     description:
-      "Masterclass sushi to praktyczne warsztaty, podczas których uczestnicy tworzą własne rolki pod okiem doświadczonego sushi chefa.",
+      "Interaktywne warsztaty, podczas których uczestnicy samodzielnie tworzą sushi pod okiem doświadczonego chefa. Idealne połączenie integracji, zabawy i nauki w swobodnej atmosferze.",
     contentPosition: "l",
     image: MasterclassImage,
     href: "/masterclass",
   },
   {
     id: 3,
-    callout: "Ekskluzywna kolacja",
-    title: "Sushi Omakase",
+    callout: "Ekskluzywna kolacja sushi",
+    title: "Omakase",
     description:
-      "Omakase to wyjątkowe doświadczenie kulinarne, które pozwala Ci zaufać szefowi kuchni i cieszyć się starannie dobranym menu.",
+      "Kameralne doświadczenie kulinarne, w którym oddajesz się w ręce sushi chefa. Starannie skomponowane menu, najwyższa jakość składników i pełne skupienie na smaku.",
     contentPosition: "r",
     image: OmakaseImage,
     href: "/omakase",

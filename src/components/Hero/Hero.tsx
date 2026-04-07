@@ -27,15 +27,15 @@ const HeroContent = () => (
 
 
           {/* Eyebrow */}
-    <span className="uppercase tracking-[0.4em] text-amber-500 text-sm  font-semibold">
+    <span className="uppercase tracking-[0.4em] text-amber-500 dark:text-amber-400 text-sm  font-semibold">
       Event Chef
     </span>
 
     {/* Heading */}
-    <h1 className="mt-4 text-4xl font-medium leading-tight lg:mt-5 md:text-5xl lg:text-7xl text-zinc-100">
+    <h1 className="mt-4 text-4xl font-medium leading-tight lg:mt-5 md:text-5xl lg:text-6xl text-zinc-100">
       Sushi tworzone
       <br />
-      w <span className="text-amber-500">Twojej</span> przestrzeni
+      w <span className="text-amber-500 dark:text-amber-400">Twojej</span> przestrzeni
     </h1>
 
     {/* Divider accent */}

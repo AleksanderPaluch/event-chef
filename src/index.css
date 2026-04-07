@@ -51,7 +51,7 @@ body {
 }
   /* ===== NavLeft Wrapper ===== */
   .nav-left {
-    @apply flex items-center gap-6 ml-auto lg:ml-0;
+    @apply flex items-center gap-4 ml-auto lg:ml-0 
   }
 
   /* ===== Mobile Menu Button ===== */
@@ -75,7 +75,7 @@ body {
 
   /* ===== MenuLink Wrapper ===== */
   .menu-link {
-    @apply h-[30px] overflow-hidden font-medium text-lg flex items-start gap-2;
+    @apply h-[30px] overflow-hidden font-medium text-sm flex items-start gap-2
   }
 
   /* ===== Arrow Icon ===== */
@@ -129,7 +129,7 @@ body {
 
   /* ===== Header ===== */
   .section-header {
-    @apply  w-full mx-auto mb-6 text-4xl font-normal leading-tight text-center lg:text-6xl ;
+    @apply  w-full mx-auto mb-6 text-4xl font-normal leading-tight text-center lg:text-5xl ;
   }
 
 

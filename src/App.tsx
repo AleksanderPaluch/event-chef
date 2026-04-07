@@ -23,8 +23,8 @@ function App() {
       <Mastercalss />
       <Omakase /> */}
       {/* <About /> */}
-      <Offer />
-      <ContactForm />
+      {/* <Offer />
+      <ContactForm /> */}
  
     </>
   );
