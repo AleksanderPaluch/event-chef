@@ -23,7 +23,7 @@ export const Intro = () => {
         </span> */}
           <Motion>
             {" "}
-            <h2 className="max-w-4xl mx-auto mb-4 text-xl text-left md:text-2xl section-header lg:mb-16 ">
+            <h2 className="max-w-4xl mx-auto mb-4 text-xl text-left md:text-2xl section-header lg:mb-10 ">
              <span className="">Tworzymy wyjątkowe doświadczenia</span>  <br />{" "}
               <span className="text-4xl md:text-5xl">
                 na{" "}
@@ -37,7 +37,7 @@ export const Intro = () => {
 
           <Motion>
             {" "}
-            <p className="max-w-3xl mb-20 ml-0 text-justify lg:max-w-2xl lg:mb-28 section-comment">
+            <p className="max-w-3xl mb-20 ml-0 text-justify lg:max-w-2xl section-comment">
               Przyjeżdżamy na miejsce, przygotowujemy stanowisko i serwujemy
               świeże sushi na oczach Twoich gości. To nie tylko catering — to
               doświadczenie, które angażuje, zachwyca i zostaje w pamięci.
@@ -60,7 +60,7 @@ const SwapColumnFeatures = () => {
   const [featureInView, setFeatureInView] = useState<FeatureType>(features[0]);
 
   return (
-    <section className="relative mx-auto max-w-7xl">
+    <section className="relative max-w-6xl mx-auto">
       <SlidingFeatureDisplay featureInView={featureInView} />
       <div className="-mt-[100vh] hidden md:block" />
       {features.map((s) => (
@@ -126,7 +126,7 @@ const Content = ({
           featureInView.contentPosition === "l" ? "flex-start" : "flex-end",
       }}
     >
-      <div className="grid w-full h-full px-4 py-12 place-content-center md:w-2/5 md:px-12 md:py-8">
+      <div className="grid w-full h-full px-4 py-12 place-content-center md:w-2/5 md:px-8 md:py-8">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
