@@ -23,6 +23,7 @@ const useIsDesktop = () => {
 
 // ── Shared static text ────────────────────────────────────────────────────────
 const HeroContent = () => (
+
   <div className="absolute left-0 z-10 w-full max-w-4xl px-6 bottom-72 md:bottom-16 lg:bottom-72 md:px-12 lg:px-20">
 
 
@@ -57,7 +58,7 @@ const HeroContent = () => (
 
 // ── Mobile / tablet ───────────────────────────────────────────────────────────
 const HeroMobile = () => (
-  <section className="relative h-[100svh]  w-full ">
+  <section id="home" className="relative h-[100svh]  w-full ">
     <div
       className="absolute inset-0"
       style={{
