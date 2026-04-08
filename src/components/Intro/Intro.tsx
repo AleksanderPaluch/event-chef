@@ -90,11 +90,17 @@ const SlidingFeatureDisplay = ({
     >
       <motion.div
         layout
-        transition={{
-          duration: 0.5,
-          ease: "easeInOut",
+        // transition={{
+        //   duration: 0.5,
+        //   ease: "easeInOut",
+        // }}
+
+           transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 25,
         }}
-        // transition={{ duration: 1, ease: "easeInOut" }}
+
         className="w-3/5 p-8 h-fit rounded-xl"
       >
         <ExampleFeature featureInView={featureInView} />
