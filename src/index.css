@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white dark:bg-zinc-950 dark:text-zinc-100 text-zinc-800;
+  @apply bg-white dark:bg-black dark:text-zinc-100 text-zinc-800;
   font-family:
     "Manrope",
     system-ui,

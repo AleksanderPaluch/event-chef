@@ -65,8 +65,8 @@ const HeroMobile = ({ image, ...contentProps }: HeroProps) => (
         backgroundPosition: "center",
       }}
     />
-    <div className="absolute left-0 right-0 -bottom-1 h-1/4 bg-gradient-to-b dark:from-zinc-950/0 dark:to-zinc-950" />
-    <div className="absolute inset-0 bg-black/50 dark:bg-zinc-950/50" />
+    <div className="absolute left-0 right-0 -bottom-1 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
+    <div className="absolute inset-0 bg-black/50 dark:bg-black/50" />
     <HeroContent {...contentProps} />
   </section>
 );
@@ -90,9 +90,9 @@ const CenterImage = ({ image, ...contentProps }: HeroProps) => {
           backgroundSize,
         }}
       />
-      <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-zinc-950/0 dark:to-zinc-950" />
+      <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
       <HeroContent {...contentProps} />
-      <div className="absolute inset-0 bg-black/50 dark:bg-zinc-950/60" />
+      <div className="absolute inset-0 bg-black/50 dark:bg-black/60" />
     
     </div>
   );
