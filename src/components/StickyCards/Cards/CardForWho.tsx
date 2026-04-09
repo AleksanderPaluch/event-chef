@@ -1,3 +1,19 @@
+export interface StickyCardsProps {
+  chipsTitle?: string;
+  chips?: string[];
+  secondaryChipsTitle?: string;
+  secondaryChips?: string[];
+  menu?: string[];
+  organization?: string[];
+  cardsProcess?: ProcessItem[];
+}
+
+interface ProcessItem {
+  time: string;
+  label: string;
+}
+
+
 export const CardForWho = ({
   chipsTitle,
   chips = [],

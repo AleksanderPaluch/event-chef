@@ -1,19 +1,19 @@
 import liveImage from "../assets/LiveChef.png";
-import { TextContent } from "../components/Content/TextContent";
+// import { TextContent } from "../components/Content/TextContent";
 import { Hero } from "../components/Hero/Hero";
 import { StickyCards } from "../components/StickyCards/StickyCards";
 
-const data = {
-  id: "Live",
+// const data = {
+//   id: "Live",
 
-  subheading: "Wyjątkowe Doświadczenie Kulinarne",
-  heading: "Live Cooking",
-  textTitle: "Live Cooking",
-  text: "Live cooking to pokaz przygotowywania sushi na żywo, prosto przed Twoimi gośćmi. To połączenie gotowania i efektownego show.",
-  description:
-    "Pracujemy na produktach premium i dopasujemy menu do harakteru wydarzenia",
-  process: ["Przygotowanie ", "Sushi show", "Degustacja & interakcja"],
-};
+//   subheading: "Wyjątkowe Doświadczenie Kulinarne",
+//   heading: "Live Cooking",
+//   textTitle: "Live Cooking",
+//   text: "Live cooking to pokaz przygotowywania sushi na żywo, prosto przed Twoimi gośćmi. To połączenie gotowania i efektownego show.",
+//   description:
+//     "Pracujemy na produktach premium i dopasujemy menu do harakteru wydarzenia",
+//   process: ["Przygotowanie ", "Sushi show", "Degustacja & interakcja"],
+// };
 
 const cardsData = {
   cardsDescription:
@@ -64,7 +64,7 @@ export default function LivePage() {
             Gotowanie na <span className="text-amber-500">żywo</span>
           </>
         }
-        subtitle="Spektakl kulinarny przy Twoim stole"
+        subtitle="Wyjątkowe Doświadczenie Kulinarne"
       />
 
       <StickyCards

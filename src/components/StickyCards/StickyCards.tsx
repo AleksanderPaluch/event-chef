@@ -8,7 +8,7 @@ import {
   FiCopy,
   FiDatabase,
   FiMapPin,
-  FiClock,
+  
 } from "react-icons/fi";
 import { CardForWho } from "./Cards/CardForWho";
 import { CardMenu } from "./Cards/CardMenu";
@@ -32,6 +32,8 @@ export interface StickyCardsProps {
   organization?: string[];
   cardsProcess?: ProcessItem[];
 }
+
+
 
 type CardType = {
   id: number;
@@ -70,7 +72,7 @@ function buildCards(props: StickyCardsProps): CardType[] {
       id: 3,
       Icon: FiDatabase,
       title: "Menu",
-      content: <CardMenu menu={props.menu} />,
+      content: <CardMenu menu={props.menu ?? []} />,
     },
     {
       id: 4,
