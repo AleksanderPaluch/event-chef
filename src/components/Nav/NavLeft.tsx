@@ -32,7 +32,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen }) => {
         <React.Fragment key={link.href}>
           <NavLink text={link.text} href={link.href} type={link.type} />
           {index < links.length - 1 && (
-            <span className="hidden lg:inline text-zinc-400/70">•</span>
+            <span className="hidden lg:inline text-amber-400/30">•</span>
           )}
         </React.Fragment>
       ))}

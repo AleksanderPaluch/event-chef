@@ -3,8 +3,6 @@ import { TextContent } from "../components/Content/TextContent";
 import { Hero } from "../components/Hero/Hero";
 import { StickyCards } from "../components/StickyCards/StickyCards";
 
-
-
 const data = {
   id: "Live",
 
@@ -17,12 +15,12 @@ const data = {
   process: ["Przygotowanie ", "Sushi show", "Degustacja & interakcja"],
 };
 
-const modalData = {
-  modalDescription:
+const cardsData = {
+  cardsDescription:
     "Live cooking to interaktywny pokaz przygotowywania sushi na żywo, połączony z degustacją serwowaną w trakcie wydarzenia.",
   menu: ["Futomaki Philadelfia", "Uramaki z Krewetkami", "Hosomaki Spicy Tuna"],
 
-  modalProcess: [
+  cardsProcess: [
     {
       time: "ok. 1 godz.",
       label: "Przygotowanie stanowiska",
@@ -50,32 +48,34 @@ const modalData = {
     "Premiery produktów",
     "Targi",
     "Wigilie",
-      
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",
   secondaryChips: ["Wesela", "Urodziny", "Domówki", "Wieczory panieńskie"],
 };
 
-
-
-
 export default function LivePage() {
   return (
     <>
-        <Hero
-      image={liveImage}
-      eyebrow="Live Cooking"
-      heading={
-        <>
-          Gotowanie na <span className="text-amber-500">żywo</span>
-        </>
-      }
-      subtitle="Spektakl kulinarny przy Twoim stole"
-    />
-  
-    
-    <StickyCards  />
-    </>
+      <Hero
+        image={liveImage}
+        eyebrow="Live Cooking"
+        heading={
+          <>
+            Gotowanie na <span className="text-amber-500">żywo</span>
+          </>
+        }
+        subtitle="Spektakl kulinarny przy Twoim stole"
+      />
 
+      <StickyCards
+        chipsTitle={cardsData.chipsTitle}
+        chips={cardsData.chips}
+        secondaryChipsTitle={cardsData.secondaryChipsTitle}
+        secondaryChips={cardsData.secondaryChips}
+        menu={cardsData.menu}
+        organization={cardsData.organization}
+        cardsProcess={cardsData.cardsProcess}
+      />
+    </>
   );
 }

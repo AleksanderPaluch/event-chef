@@ -1,30 +1,149 @@
 import { MotionValue, useScroll, motion, useTransform } from "framer-motion";
-import  { useRef } from "react";
-import {type IconType } from "react-icons";
+import { useRef } from "react";
+import { type IconType } from "react-icons";
+import React from "react";
 import {
-  FiArrowRight,
   FiAward,
   FiCalendar,
   FiCopy,
   FiDatabase,
+  FiMapPin,
+  FiClock,
 } from "react-icons/fi";
+import { CardForWho } from "./Cards/CardForWho";
+import { CardMenu } from "./Cards/CardMenu";
+import { CardOrganization } from "./Cards/CardOrganization";
+import { CardProcess } from "./Cards/CardProcess";
+import { CardAccess } from "./Cards/CardAccess";
 
-export const StickyCards = () => {
+// --- Types ---
+
+interface ProcessItem {
+  time: string;
+  label: string;
+}
+
+export interface StickyCardsProps {
+  chipsTitle?: string;
+  chips?: string[];
+  secondaryChipsTitle?: string;
+  secondaryChips?: string[];
+  menu?: string[];
+  organization?: string[];
+  cardsProcess?: ProcessItem[];
+}
+
+type CardType = {
+  id: number;
+  Icon: IconType;
+  title: string;
+  content: React.ReactNode;
+};
+
+// ─── Sub-components ────────────────────────────────────────────────────────────
+
+// ─── Builder ───────────────────────────────────────────────────────────────────
+
+function buildCards(props: StickyCardsProps): CardType[] {
+  return [
+    {
+      id: 1,
+      Icon: FiAward,
+      title: "Przebieg",
+      content: <CardProcess steps={props.cardsProcess ?? []} />,
+    },
+
+    {
+      id: 2,
+      Icon: FiCalendar,
+      title: "Dla kogo?",
+      content: (
+        <CardForWho
+          chipsTitle={props.chipsTitle}
+          chips={props.chips}
+          secondaryChipsTitle={props.secondaryChipsTitle}
+          secondaryChips={props.secondaryChips}
+        />
+      ),
+    },
+    {
+      id: 3,
+      Icon: FiDatabase,
+      title: "Menu",
+      content: <CardMenu menu={props.menu} />,
+    },
+    {
+      id: 4,
+      Icon: FiCopy,
+      title: "Organizacja",
+      content: <CardOrganization items={props.organization ?? []} dark />,
+    },
+
+    {
+      id: 5,
+      Icon: FiMapPin,
+      title: "Dojazd",
+      content: <CardAccess dark />, // dark because position 5 is odd
+    },
+  ];
+}
+
+// ─── Card ──────────────────────────────────────────────────────────────────────
+
+const CARD_HEIGHT = 500;
+
+interface CardProps {
+  position: number;
+  total: number;
+  card: CardType;
+  scrollYProgress: MotionValue;
+}
+
+const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
+  const scaleFromPct = (position - 1) / total;
+  const y = useTransform(scrollYProgress, [scaleFromPct, 1], [0, -CARD_HEIGHT]);
+  const isOdd = position % 2 !== 0;
+
+  return (
+    <motion.div
+      style={{
+        height: CARD_HEIGHT,
+        y: position === total ? undefined : y,
+        background: isOdd ? "black" : "#0a0a0a",
+        color: isOdd ? "#f5f5f0" : "#f5f5f0",
+      }}
+      className="sticky top-0 flex flex-col items-center justify-center w-full px-6 origin-top"
+    >
+      <card.Icon className="mb-3 text-3xl opacity-60" />
+      <h3 className="mb-8 text-3xl font-semibold tracking-tight text-center md:text-5xl">
+        {card.title}
+      </h3>
+      <div className="flex justify-center w-full">{card.content}</div>
+    </motion.div>
+  );
+};
+
+// ─── StickyCards ───────────────────────────────────────────────────────────────
+
+export const StickyCards: React.FC<StickyCardsProps> = (props) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
+  const cards = buildCards(props);
+
   return (
     <>
       <div ref={ref} className="relative">
-        {CARDS.map((c, idx) => (
+        {cards.map((c, idx) => (
           <Card
             key={c.id}
             card={c}
             scrollYProgress={scrollYProgress}
             position={idx + 1}
+            total={cards.length}
           />
         ))}
       </div>
@@ -32,99 +151,3 @@ export const StickyCards = () => {
     </>
   );
 };
-
-interface CardProps {
-  position: number;
-  card: CardType;
-  scrollYProgress: MotionValue;
-}
-
-const Card = ({ position, card, scrollYProgress }: CardProps) => {
-  const scaleFromPct = (position - 1) / CARDS.length;
-  const y = useTransform(scrollYProgress, [scaleFromPct, 1], [0, -CARD_HEIGHT]);
-
-  const isOddCard = position % 2;
-
-  return (
-    <motion.div
-      style={{
-        height: CARD_HEIGHT,
-        y: position === CARDS.length ? undefined : y,
-        background: isOddCard ? "black" : "white",
-        color: isOddCard ? "white" : "black",
-      }}
-      className="sticky top-0 flex flex-col items-center justify-center w-full px-4 origin-top"
-    >
-      <card.Icon className="mb-4 text-4xl" />
-      <h3 className="mb-6 text-4xl font-semibold text-center md:text-6xl">
-        {card.title}
-      </h3>
-      <p className="max-w-lg mb-8 text-sm text-center md:text-base">
-        {card.description}
-      </p>
-      <a
-        href={card.routeTo}
-        className={`flex items-center gap-2 rounded px-6 py-4 text-base font-medium uppercase text-black transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 md:text-lg ${
-          card.ctaClasses
-        } ${
-          isOddCard
-            ? "shadow-[4px_4px_0px_white] hover:shadow-[8px_8px_0px_white]"
-            : "shadow-[4px_4px_0px_black] hover:shadow-[8px_8px_0px_black]"
-        }`}
-      >
-        <span>Learn more</span>
-        <FiArrowRight />
-      </a>
-    </motion.div>
-  );
-};
-
-const CARD_HEIGHT = 500;
-
-type CardType = {
-  id: number;
-  Icon: IconType;
-  title: string;
-  description: string;
-  ctaClasses: string;
-  routeTo: string;
-};
-
-const CARDS: CardType[] = [
-  {
-    id: 1,
-    Icon: FiCalendar,
-    title: "A new type of Calendar",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi illo officia atque iure voluptatibus necessitatibus odit cupiditate reprehenderit iusto quaerat!",
-    ctaClasses: "bg-violet-300",
-    routeTo: "#",
-  },
-  {
-    id: 2,
-    Icon: FiDatabase,
-    title: "#1 in data privacy",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi illo officia atque iure voluptatibus necessitatibus odit cupiditate reprehenderit iusto quaerat!",
-    ctaClasses: "bg-pink-300",
-    routeTo: "#",
-  },
-  {
-    id: 3,
-    Icon: FiCopy,
-    title: "Use your existing tools",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi illo officia atque iure voluptatibus necessitatibus odit cupiditate reprehenderit iusto quaerat!",
-    ctaClasses: "bg-red-300",
-    routeTo: "#",
-  },
-  {
-    id: 4,
-    Icon: FiAward,
-    title: "Customers love us",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi illo officia atque iure voluptatibus necessitatibus odit cupiditate reprehenderit iusto quaerat!",
-    ctaClasses: "bg-amber-300",
-    routeTo: "#",
-  },
-];
