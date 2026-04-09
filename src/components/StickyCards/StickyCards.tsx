@@ -3,10 +3,10 @@ import { useRef } from "react";
 import { type IconType } from "react-icons";
 import React from "react";
 import {
-  FiAward,
-  FiCalendar,
-  FiCopy,
-  FiDatabase,
+  FiUsers,
+  FiSettings,
+  FiWatch,
+  FiBookOpen,
   FiMapPin,
   
 } from "react-icons/fi";
@@ -50,14 +50,14 @@ function buildCards(props: StickyCardsProps): CardType[] {
   return [
     {
       id: 1,
-      Icon: FiAward,
+      Icon: FiWatch,
       title: "Przebieg",
       content: <CardProcess steps={props.cardsProcess ?? []} />,
     },
 
     {
       id: 2,
-      Icon: FiCalendar,
+      Icon: FiUsers,
       title: "Dla kogo?",
       content: (
         <CardForWho
@@ -70,13 +70,13 @@ function buildCards(props: StickyCardsProps): CardType[] {
     },
     {
       id: 3,
-      Icon: FiDatabase,
+      Icon: FiBookOpen,
       title: "Menu",
       content: <CardMenu menu={props.menu ?? []} />,
     },
     {
       id: 4,
-      Icon: FiCopy,
+      Icon: FiSettings,
       title: "Organizacja",
       content: <CardOrganization items={props.organization ?? []} dark />,
     },
@@ -116,7 +116,7 @@ const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
       }}
       className="sticky top-0 flex flex-col items-center justify-center w-full px-6 origin-top"
     >
-      <card.Icon className="mb-3 text-3xl opacity-60" />
+      <card.Icon className="mb-3 text-3xl opacity-60 text-amber-400" />
       <h3 className="mb-8 text-3xl font-semibold tracking-tight text-center md:text-5xl">
         {card.title}
       </h3>
