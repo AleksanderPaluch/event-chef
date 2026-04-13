@@ -8,7 +8,6 @@ import {
   FiWatch,
   FiBookOpen,
   FiMapPin,
-  
 } from "react-icons/fi";
 import { CardForWho } from "./Cards/CardForWho";
 import { CardMenu } from "./Cards/CardMenu";
@@ -33,16 +32,12 @@ export interface StickyCardsProps {
   cardsProcess?: ProcessItem[];
 }
 
-
-
 type CardType = {
   id: number;
   Icon: IconType;
   title: string;
   content: React.ReactNode;
 };
-
-// ─── Sub-components ────────────────────────────────────────────────────────────
 
 // ─── Builder ───────────────────────────────────────────────────────────────────
 
@@ -54,7 +49,6 @@ function buildCards(props: StickyCardsProps): CardType[] {
       title: "Przebieg",
       content: <CardProcess steps={props.cardsProcess ?? []} />,
     },
-
     {
       id: 2,
       Icon: FiUsers,
@@ -78,14 +72,13 @@ function buildCards(props: StickyCardsProps): CardType[] {
       id: 4,
       Icon: FiSettings,
       title: "Organizacja",
-      content: <CardOrganization items={props.organization ?? []} dark />,
+      content: <CardOrganization items={props.organization ?? []} />,
     },
-
     {
       id: 5,
       Icon: FiMapPin,
       title: "Dojazd",
-      content: <CardAccess dark />, // dark because position 5 is odd
+      content: <CardAccess />,
     },
   ];
 }
@@ -111,13 +104,14 @@ const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
       style={{
         height: CARD_HEIGHT,
         y: position === total ? undefined : y,
-        background: isOdd ? "black" : "#0a0a0a",
-        color: isOdd ? "#f5f5f0" : "#f5f5f0",
       }}
-      className="sticky top-0 flex flex-col items-center justify-center w-full px-6 origin-top"
+      className={`
+        sticky top-0 flex flex-col items-center justify-center w-full px-6 origin-top
+        ${isOdd ? "bg-white dark:bg-black" : "bg-zinc-200 dark:bg-zinc-950"}
+      `}
     >
-      <card.Icon className="mb-3 text-3xl opacity-60 text-amber-400" />
-      <h3 className="mb-8 text-3xl font-semibold tracking-tight text-center md:text-5xl">
+      <card.Icon className="mb-3 text-3xl opacity-60 text-amber-500 dark:text-amber-400" />
+      <h3 className="mb-8 text-3xl font-semibold tracking-tight text-center md:text-5xl text-zinc-950 dark:text-zinc-50">
         {card.title}
       </h3>
       <div className="flex justify-center w-full">{card.content}</div>
@@ -149,7 +143,7 @@ export const StickyCards: React.FC<StickyCardsProps> = (props) => {
           />
         ))}
       </div>
-      <div className="h-screen bg-black" />
+      <div className="h-screen bg-white dark:bg-black" />
     </>
   );
 };
