@@ -46,7 +46,7 @@ const cardsData = {
     "Eventy firmowe",
     "Konferencje, Targi",
     "Premiery produktów",
-  
+
     "Wigilie",
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",
@@ -61,11 +61,13 @@ export default function LivePage() {
         eyebrow="Live Cooking"
         heading={
           <>
-           <span></span>
-            Sushi przygotowywane na <span className="text-amber-500">żywo</span>
+            <span className="lg:text-6xl">
+              Sushi tworzone <br /> na{" "}
+              <span className="text-amber-500">żywo</span>
+            </span>
           </>
         }
-        subtitle="Interaktywne doświadczenie kulinarne"
+        subtitle=""
       />
 
       <StickyCards

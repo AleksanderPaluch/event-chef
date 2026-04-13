@@ -28,7 +28,7 @@ const useIsDesktop = () => {
 };
 
 const HeroContent = ({ eyebrow, heading, subtitle, showCta }: Omit<HeroProps, "image">) => (
-  <div className="absolute left-0 z-10 w-full max-w-4xl px-6 bottom-72 md:bottom-16 lg:bottom-72 md:px-12 lg:px-20">
+  <div className="absolute left-0 z-10 w-full max-w-4xl px-6 bottom-72 md:bottom-16 lg:bottom-64 md:px-12 lg:px-20">
     {eyebrow && (
       <span className="uppercase tracking-[0.4em] text-amber-500 dark:text-amber-400 text-sm font-semibold">
         {eyebrow}
@@ -42,7 +42,7 @@ const HeroContent = ({ eyebrow, heading, subtitle, showCta }: Omit<HeroProps, "i
     <div className="w-16 h-px mt-6 lg:mt-8 bg-amber-500/60" />
 
     {subtitle && (
-      <p className="mt-4 text-sm tracking-wider uppercase md:text-base text-zinc-400">
+      <p className="mt-4 text-sm font-semibold tracking-wider uppercase text-zinc-300">
         {subtitle}
       </p>
     )}
