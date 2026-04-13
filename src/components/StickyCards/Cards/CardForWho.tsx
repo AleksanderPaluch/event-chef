@@ -1,54 +1,50 @@
-export interface StickyCardsProps {
+import React from "react";
+
+interface CardForWhoProps {
   chipsTitle?: string;
   chips?: string[];
   secondaryChipsTitle?: string;
   secondaryChips?: string[];
-  menu?: string[];
-  organization?: string[];
-  cardsProcess?: ProcessItem[];
 }
-
-interface ProcessItem {
-  time: string;
-  label: string;
-}
-
 
 export const CardForWho = ({
   chipsTitle,
   chips = [],
   secondaryChipsTitle,
   secondaryChips = [],
-}: Pick<StickyCardsProps, "chipsTitle" | "chips" | "secondaryChipsTitle" | "secondaryChips">) => (
-  <div className="flex flex-col w-full max-w-xl gap-6">
-    {chipsTitle && <ChipSection title={chipsTitle} items={chips} dark />}
-    {secondaryChipsTitle && <ChipSection title={secondaryChipsTitle} items={secondaryChips} dark />}
+}: CardForWhoProps) => (
+  <div className="flex flex-col items-center justify-center w-full max-w-3xl gap-0 md:gap-8 sm:flex-row">
+    {chipsTitle && (
+      <Section title={chipsTitle} items={chips} align="left" />
+    )}
+    {chipsTitle && secondaryChipsTitle && (
+      <div className="block w-16 h-px md:w-px md:h-16 shrink-0 bg-amber-500 dark:bg-amber-400" />
+    )}
+    {secondaryChipsTitle && (
+      <Section title={secondaryChipsTitle} items={secondaryChips} align="right" />
+    )}
   </div>
 );
 
-const ChipSection = ({
+const Section = ({
   title,
   items,
-  dark,
+  align,
 }: {
   title: string;
   items: string[];
-  dark?: boolean;
+  align: "left" | "right";
 }) => (
-  <div className="flex flex-col items-center gap-3">
-    <p
-      className="text-xs uppercase tracking-[0.2em] font-semibold opacity-50"
-    >
+  <div className="flex flex-col items-center gap-3 px-2 py-4">
+    <p className="text-sm lg:text-xs font-semibold text-center uppercase tracking-[0.2em] opacity-50">
       {title}
     </p>
-    <div className="flex flex-wrap justify-center gap-2">
+    <div className="flex flex-col gap-1">
       {items.map((item) => (
         <span
           key={item}
-          className={`px-4 py-1.5 rounded-full text-sm font-medium border ${
-            dark
-              ? "border-white/20 text-white/90 bg-white/5"
-              : "border-black/15 text-black/80 bg-black/5"
+          className={`text-lg lg:text-xl uppercase tracking-[0.25em] opacity-90 text-left ${
+            align === "left" ? "md:text-left" : "md:text-right"
           }`}
         >
           {item}

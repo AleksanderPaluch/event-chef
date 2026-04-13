@@ -9,11 +9,11 @@ export const CardProcess = ({ steps = [] }: { steps: ProcessItem[] }) => (
   <div className="flex flex-col items-center justify-center w-full max-w-3xl gap-0 sm:flex-row">
     {steps.map((step, i) => (
       <React.Fragment key={i}>
-        <div className="flex flex-col items-center gap-1 px-2 py-4">
-          <p className="text-lg font-semibold text-center  uppercase tracking-[0.2em]  opacity-90">
+        <div className="flex flex-col items-center gap-1 px-0 py-4 md:px-2">
+          <p className="text-lg lg:text-xl text-center  uppercase tracking-[0.25em]  opacity-90">
             {step.label}
           </p>
-          <span className="text-sm text-zinc-400 dark:text-zinc-500">
+          <span className="text-sm lg:text-xs font-semibold text-center uppercase tracking-[0.2em] opacity-50">
             {step.time}
           </span>
         </div>

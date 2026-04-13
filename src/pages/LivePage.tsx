@@ -44,9 +44,9 @@ const cardsData = {
   chipsTitle: "Dla Firm",
   chips: [
     "Eventy firmowe",
-    "Konferencje",
+    "Konferencje, Targi",
     "Premiery produktów",
-    "Targi",
+  
     "Wigilie",
   ],
   secondaryChipsTitle: "Dla Osób Prywatnych",

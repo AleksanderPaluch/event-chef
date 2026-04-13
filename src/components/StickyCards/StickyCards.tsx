@@ -85,7 +85,7 @@ function buildCards(props: StickyCardsProps): CardType[] {
 
 // ─── Card ──────────────────────────────────────────────────────────────────────
 
-const CARD_HEIGHT = 500;
+const CARD_HEIGHT = 550;
 
 interface CardProps {
   position: number;
