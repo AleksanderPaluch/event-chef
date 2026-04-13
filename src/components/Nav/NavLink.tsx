@@ -33,7 +33,7 @@ export const NavLink: React.FC<NavLinkProps> = ({ text, href, type }) => {
 
   const inner = (
     <motion.div whileHover={{ y: -40 }}>
-      <span className="flex items-center h-[40px] tracking-[0.1em] dark:text-zinc-300 text-xs font-thin uppercase">
+      <span className="flex items-center h-[40px] tracking-[0.1em] opacity-80 text-xs  uppercase">
         {text}
       </span>
       <span className="flex items-center h-[40px] tracking-[0.1em] text-amber-500 dark:text-amber-400 text-xs uppercase">

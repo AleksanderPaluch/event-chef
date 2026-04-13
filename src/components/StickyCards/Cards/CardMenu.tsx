@@ -1,20 +1,23 @@
-export const CardMenu = ({ menu = [], dark }: { menu: string[]; dark?: boolean }) => (
-  <div className="flex flex-col items-center w-full max-w-sm gap-3">
-    <p className={`text-xs uppercase tracking-[0.2em] font-semibold mb-2 ${dark ? "opacity-50" : "opacity-40"}`}>
-      W skład menu wchodzi
+export const CardMenu = ({ menu = [] }: { menu: string[] }) => (
+  <div className="flex flex-col items-center justify-center w-full max-w-3xl">
+    <p className="text-sm lg:text-xs font-semibold text-center uppercase tracking-[0.2em] opacity-50 mb-4">
+     Przykładowe menu dla 1 osoby:
     </p>
-    {menu.map((item, i) => (
-      <div
-        key={item}
-        className={`flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-medium border ${
-          dark
-            ? "border-white/10 bg-white/5 text-white/90"
-            : "border-black/10 bg-black/4 text-black/80"
-        }`}
-      >
-        <span className={`text-xs font-mono opacity-40 mr-3`}>0{i + 1}</span>
-        <span className="flex-1 text-center">{item}</span>
-      </div>
-    ))}
+    <div className="flex flex-col items-center w-full gap-2 md:pl-6">
+      {menu.map((item, i) => (
+        <div key={item} className="flex items-center w-full max-w-md gap-4">
+          <span className="text-sm lg:text-xs font-semibold uppercase tracking-[0.2em] opacity-50 shrink-0">
+            6<span className="text-[10px]">szt</span>
+          </span>
+          <div className="w-2 h-px opacity-100 bg-amber-500 dark:bg-amber-400" />
+          <span className="text-lg lg:text-xl uppercase tracking-[0.25em] opacity-90">
+            {item}
+          </span>
+        </div>
+      ))}
+    </div>
+      <p className="text-sm lg:text-xs max-w-[320px] md:max-w-[420px] lg:max-w-sm font-semibold  uppercase tracking-[0.2em] opacity-50 py-10 lg:py-6 text-justify">
+     Każde menu jest tworzone indywidualnie dopasowane do charakteru wydarzenia*
+    </p>
   </div>
 );
