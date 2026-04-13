@@ -1,91 +1,79 @@
-
-
-import liveImage from "../assets/heroChef23.png";
+import liveImage from "../assets/blackieshoot-qLBlMw35508-unsplash.jpg";
 import { Hero } from "../components/Hero/Hero";
 import { StickyCards } from "../components/StickyCards/StickyCards";
 
-
-
 const cardsData = {
+  cardsDescription:
+    "Omakase to ekskluzywne doświadczenie kulinarne, w którym goście oddają się w ręce szefa kuchni. Menu powstaje na bieżąco, w oparciu o najlepsze, sezonowe produkty i autorską wizję sushi mastera.",
 
+  menu: [
+    "Sushi i Sashimi",
+    "Premium seafood",
+    "Unikalne dodatki i sosy",
+  ],
 
-
-
- 
-
-   cardsDescription:
- "Omakase to ekskluzywne doświadczenie kulinarne, w którym goście oddają się w ręce szefa kuchni. Menu powstaje na bieżąco, w oparciu o najlepsze, sezonowe produkty i autorską wizję sushi mastera.",
-  
-    menu: ["Futomaki Philadelfia", "Uramaki z Krewetkami", "Hosomaki Spicy Tuna"],
- 
-  
   cardsProcess: [
- {
-      time: "ok. 1 godz.",
-      label: "Przygotowanie stanowisk",
+    {
+      time: "1-2 godz.",
+      label: "Przygotowanie stanowiska i produktów",
     },
     {
-      time: "2 - 3 godz.",
-      label: "Warsztaty  krok po kroku",
+      time: "2-3 godz.",
+      label: "Serwis Omakase na żywo",
     },
     {
-      time: "1 godz.",
-      label: "Degustacja sushi",
+      time: "w trakcie",
+      label: "Opowieść o produktach i technikach",
     },
   ],
-  
-    organization: [
-      "indywidualne stanowiska dla uczestników",
-      "komplet produktów i narzędzi",
-     
-      "możliwość realizacji w dowolnej lokalizacji",
-    ],
-  
-    chipsTitle: "Dla Firm",
-    chips: [
-      "Integracje zespołowe",
-      "Eventy firmowe",
-      "Szkolenia kulinarne",
-      "Spotkania biznesowe",
-    ],
-  
-    secondaryChipsTitle: "Dla Osób Prywatnych",
-    secondaryChips: [
-      "Urodziny",
-      "Spotkania z przyjaciółmi",
-      "Wieczory tematyczne",
-  
-      "Prezent kulinarny",]
-  
+
+  organization: [
+    "pełne zaplecze po stronie szefa kuchni",
+    "indywidualny serwis dla gości",
+    "możliwość realizacji w dowolnej lokalizacji",
+  ],
+
+   chipsTitle: "Dla Firm",
+  chips: [
+    "Spotkania VIP",
+    "Eventy premium",
+    "Kolacje biznesowe",
+    "Zamknięte wydarzenia",
+  ],
+
+  secondaryChipsTitle: "Dla Osób Prywatnych",
+  secondaryChips: [
+    "Kolacje prywatne",
+    "Rocznice",
+    "Urodziny premium",
+    "Wyjątkowe okazje",
+  ],
 };
 
 export default function OmakasePage() {
   return (
     <>
-     <Hero
-      image={liveImage}
-      eyebrow="Omakase"
-      heading={
-        <>
-          Jedyna w swoim <br /> rodzaju <span className="text-amber-500">kolacja</span> 
-        </>
-      }
+      <Hero
+        image={liveImage}
+        eyebrow="Omakase"
+        heading={
+          <>
+            Jedyna w swoim <br /> rodzaju{" "}
+            <span className="text-amber-500">kolacja</span>
+          </>
+        }
+      />
 
-  
-      
-      
-    />
-    
       <StickyCards
-            chipsTitle={cardsData.chipsTitle}
-            chips={cardsData.chips}
-            secondaryChipsTitle={cardsData.secondaryChipsTitle}
-            secondaryChips={cardsData.secondaryChips}
-            menu={cardsData.menu}
-            organization={cardsData.organization}
-            cardsProcess={cardsData.cardsProcess}
-          />
+        chipsTitle={cardsData.chipsTitle}
+        chips={cardsData.chips}
+        secondaryChipsTitle={cardsData.secondaryChipsTitle}
+        secondaryChips={cardsData.secondaryChips}
+        menu={cardsData.menu}
+        organization={cardsData.organization}
+        cardsProcess={cardsData.cardsProcess}
+        omakase={true}
+      />
     </>
-   
   );
 }

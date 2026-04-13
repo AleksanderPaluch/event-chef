@@ -1,5 +1,5 @@
 import { Section } from "../Content/Section";
-import image from "../../assets/nigiri.jpeg";
+import image from "../../assets/en_karin_SL13.jpg";
 import imageModal from "../../assets/nigiri.jpeg";
 
 const data = {

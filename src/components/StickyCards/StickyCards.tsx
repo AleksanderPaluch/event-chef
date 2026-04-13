@@ -30,6 +30,7 @@ export interface StickyCardsProps {
   menu?: string[];
   organization?: string[];
   cardsProcess?: ProcessItem[];
+  omakase?: boolean;
 }
 
 type CardType = {
@@ -66,7 +67,7 @@ function buildCards(props: StickyCardsProps): CardType[] {
       id: 3,
       Icon: FiBookOpen,
       title: "Menu",
-      content: <CardMenu menu={props.menu ?? []} />,
+      content: <CardMenu menu={props.menu ?? []} omakase={props.omakase} />,
     },
     {
       id: 4,

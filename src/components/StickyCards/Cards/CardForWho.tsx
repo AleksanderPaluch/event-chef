@@ -35,7 +35,7 @@ const Section = ({
   items: string[];
   align: "left" | "right";
 }) => (
-  <div className="flex flex-col items-center gap-1 px-2 py-4 md:gap-3">
+  <div className="flex flex-col gap-1 px-2 py-4 md:gap-3 min-w-[300px]">
     <p className="text-sm lg:text-xs font-semibold text-center uppercase tracking-[0.2em] opacity-50">
       {title}
     </p>
