@@ -6,11 +6,11 @@ export const CardMenu = ({ menu = [] }: { menu: string[] }) => (
     <div className="flex flex-col items-center w-full gap-2 md:pl-6">
       {menu.map((item, i) => (
         <div key={item} className="flex items-center w-full max-w-md gap-4">
-          <span className="text-sm lg:text-xs font-semibold uppercase tracking-[0.2em] opacity-50 shrink-0">
-            6<span className="text-[10px]">szt</span>
-          </span>
-          <div className="w-2 h-px opacity-100 bg-amber-500 dark:bg-amber-400" />
-          <span className="text-lg lg:text-xl uppercase tracking-[0.25em] opacity-90">
+       <span className="text-sm lg:text-xs font-semibold uppercase tracking-[0.2em] opacity-50 shrink-0">
+  {i % 2 === 0 ? 6 : 8}<span className="text-[10px]">szt</span>
+</span>
+          <div className="w-4 h-px opacity-100 md:w-6 bg-amber-500 dark:bg-amber-400" />
+          <span className="text-lg lg:text-xl uppercase tracking-[0.2em] opacity-90">
             {item}
           </span>
         </div>

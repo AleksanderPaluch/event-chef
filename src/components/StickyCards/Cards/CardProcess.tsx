@@ -10,7 +10,7 @@ export const CardProcess = ({ steps = [] }: { steps: ProcessItem[] }) => (
     {steps.map((step, i) => (
       <React.Fragment key={i}>
         <div className="flex flex-col items-center gap-1 px-0 py-4 md:px-2">
-          <p className="text-lg lg:text-xl text-center  uppercase tracking-[0.25em]  opacity-90">
+          <p className="text-lg lg:text-xl text-center  uppercase tracking-[0.2em]  opacity-90">
             {step.label}
           </p>
           <span className="text-sm lg:text-xs font-semibold text-center uppercase tracking-[0.2em] opacity-60">

@@ -1,37 +1,21 @@
-export const CardAccess = ({ dark }: { dark?: boolean }) => (
-  <div className="flex items-center w-full max-w-sm gap-0">
-    <div
-      className={`flex-1 flex flex-col items-center gap-1.5 px-8 py-5 rounded-xl border ${
-        dark
-          ? "border-white/10 bg-white/5"
-          : "border-black/10 bg-black/4"
-      }`}
-    >
-      <p className={`text-base font-semibold ${dark ? "text-white/90" : "text-black/80"}`}>
+export const CardAccess = () => (
+  <div className="flex flex-col items-center justify-between w-full max-w-md py-6 mb-16 lg:py-6 md:flex-row">
+    <div className="flex flex-col items-center gap-1 py-4 w-[300px]">
+      <span className="text-lg lg:text-xl uppercase tracking-[0.25em] opacity-90">
         Warszawa
-      </p>
-      <span className={`text-xs font-medium px-3 py-1 rounded-full ${
-        dark ? "bg-white/10 text-white/60" : "bg-black/8 text-black/50"
-      }`}>
+      </span>
+      <span className="text-sm lg:text-xs font-semibold uppercase tracking-[0.2em] opacity-50">
         Darmowy dojazd
       </span>
     </div>
 
-    <div className={`w-px h-12 shrink-0 mx-4 ${dark ? "bg-white/15" : "bg-black/12"}`} />
+    <div className="w-6 h-px mx-4 md:w-px md:h-6 shrink-0 bg-amber-500 dark:bg-amber-400" />
 
-    <div
-      className={`flex-1 flex flex-col items-center gap-1.5 px-8 py-5 rounded-xl border ${
-        dark
-          ? "border-white/10 bg-white/5"
-          : "border-black/10 bg-black/4"
-      }`}
-    >
-      <p className={`text-base font-semibold ${dark ? "text-white/90" : "text-black/80"}`}>
-        Poza Warszawą
-      </p>
-      <span className={`text-xs font-medium px-3 py-1 rounded-full ${
-        dark ? "bg-white/10 text-white/60" : "bg-black/8 text-black/50"
-      }`}>
+    <div className="flex flex-col items-center gap-1 px-2 py-4 w-[300px]">
+      <span className="text-lg lg:text-xl uppercase tracking-[0.25em] opacity-90">
+        Cała Polska
+      </span>
+      <span className="text-sm lg:text-xs font-semibold uppercase tracking-[0.2em] opacity-50">
         2 zł / km
       </span>
     </div>

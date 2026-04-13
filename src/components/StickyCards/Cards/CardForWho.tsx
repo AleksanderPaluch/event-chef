@@ -35,7 +35,7 @@ const Section = ({
   items: string[];
   align: "left" | "right";
 }) => (
-  <div className="flex flex-col items-center gap-3 px-2 py-4">
+  <div className="flex flex-col items-center gap-1 px-2 py-4 md:gap-3">
     <p className="text-sm lg:text-xs font-semibold text-center uppercase tracking-[0.2em] opacity-50">
       {title}
     </p>
@@ -43,7 +43,7 @@ const Section = ({
       {items.map((item) => (
         <span
           key={item}
-          className={`text-lg lg:text-xl uppercase tracking-[0.25em] opacity-90 text-left ${
+          className={`text-lg lg:text-xl uppercase tracking-[0.2em] opacity-90 text-left ${
             align === "left" ? "md:text-left" : "md:text-right"
           }`}
         >

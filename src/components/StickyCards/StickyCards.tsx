@@ -85,7 +85,7 @@ function buildCards(props: StickyCardsProps): CardType[] {
 
 // ─── Card ──────────────────────────────────────────────────────────────────────
 
-const CARD_HEIGHT = 550;
+const CARD_HEIGHT = 500;
 
 interface CardProps {
   position: number;
@@ -110,7 +110,7 @@ const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
         ${isOdd ? "bg-white dark:bg-black" : "bg-zinc-100 dark:bg-zinc-950"}
       `}
     >
-      <card.Icon className="mb-3 text-3xl opacity-60 text-amber-500 dark:text-amber-400" />
+      <card.Icon className="mb-3 text-3xl text-center opacity-80 text-amber-500 dark:text-amber-400" />
       <h3 className="mb-8 text-3xl font-semibold tracking-tight text-center md:text-5xl text-zinc-950 dark:text-zinc-50">
         {card.title}
       </h3>
@@ -143,7 +143,7 @@ export const StickyCards: React.FC<StickyCardsProps> = (props) => {
           />
         ))}
       </div>
-      <div className="h-screen bg-white dark:bg-black" />
+      <div className="h-screen bg-white dark:bg-zinc-800" />
     </>
   );
 };
