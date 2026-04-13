@@ -61,10 +61,11 @@ export default function LivePage() {
         eyebrow="Live Cooking"
         heading={
           <>
-            Gotowanie na <span className="text-amber-500">żywo</span>
+           <span></span>
+            Sushi przygotowywane na <span className="text-amber-500">żywo</span>
           </>
         }
-        subtitle="Wyjątkowe Doświadczenie Kulinarne"
+        subtitle="Interaktywne doświadczenie kulinarne"
       />
 
       <StickyCards
