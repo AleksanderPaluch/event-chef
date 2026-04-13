@@ -61,10 +61,10 @@ export default function LivePage() {
         eyebrow="Live Cooking"
         heading={
           <>
-            <span className="lg:text-6xl">
+          
               Sushi tworzone <br /> na{" "}
               <span className="text-amber-500">żywo</span>
-            </span>
+           
           </>
         }
         subtitle=""
