@@ -27,11 +27,11 @@ const cardsData = {
     },
     {
       time: "2-4 godz.",
-      label: "Live Sushi Cooking",
+      label: "Sushi live cooking",
     },
     {
       time: "w trakcie",
-      label: "Degustacja",
+      label: "Serwowanie i degustacja",
     },
   ],
 

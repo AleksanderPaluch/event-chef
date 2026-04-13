@@ -22,11 +22,11 @@ const modalData = {
   modalProcess: [
     {
       time: "ok. 1 godz.",
-      label: "Przygotowanie stanowiska",
+      label: "Organizacja stanowiska",
     },
     {
       time: "2-4 godz.",
-      label: "Live Sushi Cooking",
+      label: "Przygotowywanie Sushi",
     },
     {
       time: "w trakcie",
