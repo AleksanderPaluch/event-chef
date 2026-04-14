@@ -1,24 +1,16 @@
 import liveImage from "../assets/masterclass1.jpg";
 import { Hero } from "../components/Hero/Hero";
+import { Motion } from "../components/Motion/Motion";
 import { StickyCards } from "../components/StickyCards/StickyCards";
 
-
-
 const cardsData = {
+  cardsDescription:
+    "Masterclass sushi to praktyczne warsztaty, podczas których uczestnicy uczą się przygotowywania sushi od podstaw pod okiem doświadczonego sushi mastera.",
 
+  menu: ["Futomaki Philadelfia", "Uramaki z Krewetkami", "Hosomaki Spicy Tuna"],
 
-
-
- 
-
-   cardsDescription:
-      "Masterclass sushi to praktyczne warsztaty, podczas których uczestnicy uczą się przygotowywania sushi od podstaw pod okiem doświadczonego sushi mastera.",
-  
-    menu: ["Futomaki Philadelfia", "Uramaki z Krewetkami", "Hosomaki Spicy Tuna"],
- 
-  
   cardsProcess: [
- {
+    {
       time: "ok. 1 godz.",
       label: "Przygotowanie stanowisk",
     },
@@ -31,57 +23,82 @@ const cardsData = {
       label: "Degustacja sushi",
     },
   ],
-  
-    organization: [
-      "indywidualne stanowiska dla uczestników",
-      "komplet produktów i narzędzi",
-     
-      "możliwość realizacji w dowolnej lokalizacji",
-    ],
-  
-    chipsTitle: "Dla Firm",
-    chips: [
-      "Integracje zespołowe",
-      "Eventy firmowe",
-      "Szkolenia kulinarne",
-      "Spotkania biznesowe",
-    ],
-  
-    secondaryChipsTitle: "Dla Osób Prywatnych",
-    secondaryChips: [
-      "Urodziny",
-      "Spotkania z przyjaciółmi",
-      "Wieczory tematyczne",
-  
-      "Prezent kulinarny",]
-  
+
+  organization: [
+    "indywidualne stanowiska dla uczestników",
+    "komplet produktów i narzędzi",
+
+    "możliwość realizacji w dowolnej lokalizacji",
+  ],
+
+  chipsTitle: "Dla Firm",
+  chips: [
+    "Integracje zespołowe",
+    "Eventy firmowe",
+    "Szkolenia kulinarne",
+    "Spotkania biznesowe",
+  ],
+
+  secondaryChipsTitle: "Dla Osób Prywatnych",
+  secondaryChips: [
+    "Urodziny",
+    "Spotkania z przyjaciółmi",
+    "Wieczory tematyczne",
+
+    "Prezent kulinarny",
+  ],
 };
 
 export default function MasterclassPage() {
   return (
     <>
-     <Hero
-      image={liveImage}
-      eyebrow="Sushi Masterclass"
-      heading={
-        <>
-           <span className="text-amber-500">Warsztaty</span> które uczą, bawią i integrują
-        </>
-      }
-      
-      
-    />
-    
+      <Hero
+        image={liveImage}
+        eyebrow="Sushi Masterclass"
+        heading={
+          <>
+            <span className="text-amber-500 dark:text-amber-400">
+              Warsztaty
+            </span>{" "}
+            które uczą, bawią i integrują
+          </>
+        }
+      />
+
+      <div className="max-w-4xl pb-0 mx-auto mb-0 pt-28 section md:max-w-3xl">
+        <div className="flex flex-col ">
+
+          <Motion>
+            {" "}
+            <h2 className="text-left section-header lg:text-5xl lg:mb-10">
+              Czym jest <br />{" "}
+              <span className="text-amber-500 dark:text-amber-400 lg:text-6xl ">
+                Masterclass
+              </span>
+              ?
+            </h2>
+          </Motion>
+
+          <Motion>
+            {" "}
+            <p className="max-w-3xl ml-0 text-justify lg:max-w-2xl section-comment">
+              "Masterclass sushi to praktyczne warsztaty, podczas których
+              uczestnicy uczą się przygotowywania sushi od podstaw pod okiem
+              doświadczonego sushi mastera."
+            </p>
+          </Motion>
+        </div>
+      </div>
+
       <StickyCards
-            chipsTitle={cardsData.chipsTitle}
-            chips={cardsData.chips}
-            secondaryChipsTitle={cardsData.secondaryChipsTitle}
-            secondaryChips={cardsData.secondaryChips}
-            menu={cardsData.menu}
-            organization={cardsData.organization}
-            cardsProcess={cardsData.cardsProcess}
-          />
+        chipsTitle={cardsData.chipsTitle}
+        chips={cardsData.chips}
+        secondaryChipsTitle={cardsData.secondaryChipsTitle}
+        secondaryChips={cardsData.secondaryChips}
+        menu={cardsData.menu}
+        organization={cardsData.organization}
+        cardsProcess={cardsData.cardsProcess}
+      />
     </>
-   
   );
 }

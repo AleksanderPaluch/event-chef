@@ -28,7 +28,7 @@ const useIsDesktop = () => {
 };
 
 const HeroContent = ({ eyebrow, heading, subtitle, showCta }: Omit<HeroProps, "image">) => (
-  <div className="absolute left-0 z-10 w-full max-w-4xl px-6 bottom-72 md:bottom-16 lg:bottom-64 md:px-12 lg:px-20">
+  <div className="absolute left-0 z-10 w-full max-w-4xl px-6 bottom-48 md:bottom-16 lg:bottom-64 md:px-12 lg:px-20">
     {eyebrow && (
       <span className="uppercase tracking-[0.4em] text-amber-500 dark:text-amber-400 text-sm font-semibold">
         {eyebrow}
@@ -62,7 +62,7 @@ const HeroMobile = ({ image, ...contentProps }: HeroProps) => (
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "bottom",
       }}
     />
     <div className="absolute left-0 right-0 -bottom-1 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />

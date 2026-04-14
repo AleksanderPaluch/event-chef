@@ -24,7 +24,7 @@ export default function HomePage() {
         heading={
           <>
             Sushi tworzone
-            <br />w <span className="text-amber-500">Twojej</span> przestrzeni
+            <br />w <span className="text-amber-500 dark:text-amber-400">Twojej</span> przestrzeni
           </>
         }
         subtitle="Wesela • Eventy firmowe • Prywatne kolacje"

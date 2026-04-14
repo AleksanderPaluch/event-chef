@@ -108,11 +108,11 @@ const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
       }}
       className={`
         sticky top-0 flex flex-col items-center justify-center w-full px-6 origin-top
-        ${isOdd ? "bg-white dark:bg-black" : "bg-zinc-100 dark:bg-zinc-950"}
+        ${isOdd ? "bg-zinc-100 dark:bg-zinc-950" : "bg-white dark:bg-black"}
       `}
     >
-      <card.Icon className="mb-3 text-4xl text-center opacity-80 text-amber-500 dark:text-amber-400" />
-      <h3 className="mb-8 text-3xl tracking-tight text-center md:text-6xl text-zinc-950 dark:text-zinc-50">
+      <card.Icon className="mb-3 text-3xl text-center lg:text-4xl opacity-80 text-amber-500 dark:text-amber-400" />
+      <h3 className="mb-8 text-4xl tracking-tight text-center md:text-5xl lg:text-6xl text-zinc-950 dark:text-zinc-50">
         {card.title}
       </h3>
       <div className="flex justify-center w-full">{card.content}</div>

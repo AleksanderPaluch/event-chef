@@ -123,20 +123,20 @@ body {
 
   /* ===== Section Layout ===== */
   .section {
-    @apply px-4 md:px-8 py-24 lg:py-32  
+    @apply px-4 md:px-8 py-24 md:mb-4 lg:mb-8 
            md:mx-auto md:max-w-[90%] lg:max-w-6xl;
   }
 
   /* ===== Header ===== */
   .section-header {
-    @apply  w-full mx-auto mb-6 text-4xl font-normal leading-tight text-center lg:text-5xl ;
+    @apply  w-full mx-auto mb-6 text-4xl font-normal leading-tight text-center md:text-5xl lg:text-6xl ;
   }
 
 
 
   /* ===== Quote / Comment ===== */
   .section-comment {
-    @apply max-w-2xl mb-12 text-base italic font-light text-justify lg:mb-24 lg:text-xl md:text-center md:mx-auto text-zinc-500 dark:text-zinc-400;
+    @apply max-w-2xl text-base italic font-light text-justify lg:text-xl md:text-center md:mx-auto text-zinc-500 dark:text-zinc-400;
   }
 
   /* ===== Process line ===== */

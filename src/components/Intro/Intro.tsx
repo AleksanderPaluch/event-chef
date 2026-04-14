@@ -16,18 +16,16 @@ import { Motion } from "../Motion/Motion";
 export const Intro = () => {
   return (
     <>
-      <div className="max-w-4xl pb-0 mx-auto mb-0 pt-28 section ">
+      <div className="max-w-4xl pb-0 mx-auto mb-0 pt-28 section md:max-w-3xl">
         <div className="flex flex-col ">
-          {/* <span className="mb-4 text-sm tracking-widest uppercase text-amber-400">
-          Catering Sushi
-        </span> */}
+
           <Motion>
             {" "}
             <h2 className="max-w-4xl mx-auto mb-4 text-xl text-left md:text-2xl section-header lg:mb-10 ">
-             <span className="">Tworzymy wyjątkowe doświadczenia</span>  <br />{" "}
-              <span className="text-4xl md:text-5xl">
-                na{" "}
-                <span className=" dark:text-amber-200/90">
+             <span className="">Tworzymy wyjątkowe sushi na </span> <br />
+              <span className="text-4xl md:text-5xl">   
+             
+                <span className=" text-amber-500 dark:text-amber-400">
                   Twoim
                 </span>{" "}
                 wydarzeniu
@@ -45,7 +43,7 @@ export const Intro = () => {
           </Motion>
 
           <Motion>
-            <h3 className="max-w-4xl mb-6 text-sm font-thin text-center lg:text-base text-amber-500 dark:text-amber-400">
+            <h3 className="max-w-4xl mb-6 text-xs px-4 tracking-[0.2em] uppercase font-semibold text-center lg:text-sm text-amber-500 dark:text-amber-400">
               Wybierz format dopasowany do charakteru wydarzenia:
             </h3>
           </Motion>
@@ -141,7 +139,7 @@ const Content = ({
           <p className="mb-2 section-header text-start ">
             {featureInView.title}
           </p>
-          <span className="block mb-2 text-xs tracking-widest uppercase text-amber-500 dark:text-amber-400">
+          <span className="block mb-2 text-xs tracking-[0.2em] uppercase font-semibold text-amber-500 dark:text-amber-400">
             {featureInView.callout}
           </span>
           <p className="mb-6 text-justify lg:text-lg section-comment">
