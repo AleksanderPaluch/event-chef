@@ -144,7 +144,7 @@ export const StickyCards: React.FC<StickyCardsProps> = (props) => {
           />
         ))}
       </div>
-      <div className="h-screen bg-white dark:bg-zinc-800" />
+  
     </>
   );
 };

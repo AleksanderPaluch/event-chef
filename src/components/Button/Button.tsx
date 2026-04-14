@@ -92,7 +92,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (link) {
     return (
-      <a href={`${order ? "#Form" : "#Offer"}`} className="inline-flex w-full">
+      <a href={`${order ? "#contact" : "#Offer"}`} className="inline-flex w-full">
         <motion.button
           ref={ref}
           style={{ transform }}

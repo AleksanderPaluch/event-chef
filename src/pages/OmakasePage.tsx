@@ -1,16 +1,14 @@
 import liveImage from "../assets/blackieshoot-qLBlMw35508-unsplash.jpg";
+import { Button } from "../components/Button/Button";
 import { Hero } from "../components/Hero/Hero";
+import { Motion } from "../components/Motion/Motion";
 import { StickyCards } from "../components/StickyCards/StickyCards";
 
 const cardsData = {
   cardsDescription:
     "Omakase to ekskluzywne doświadczenie kulinarne, w którym goście oddają się w ręce szefa kuchni. Menu powstaje na bieżąco, w oparciu o najlepsze, sezonowe produkty i autorską wizję sushi mastera.",
 
-  menu: [
-    "Sushi i Sashimi",
-    "Premium seafood",
-    "Unikalne dodatki i sosy",
-  ],
+  menu: ["Sushi i Sashimi", "Premium seafood", "Unikalne dodatki i sosy"],
 
   cardsProcess: [
     {
@@ -33,7 +31,7 @@ const cardsData = {
     "możliwość realizacji w dowolnej lokalizacji",
   ],
 
-   chipsTitle: "Dla Firm",
+  chipsTitle: "Dla Firm",
   chips: [
     "Spotkania VIP",
     "Eventy premium",
@@ -63,6 +61,42 @@ export default function OmakasePage() {
           </>
         }
       />
+
+      <div className="section">
+        <div className="flex flex-col ">
+          <Motion>
+            {" "}
+            <h2 className="text-left section-header lg:text-5xl lg:mb-10">
+              Czym jest <br />{" "}
+              <span className="text-amber-500 dark:text-amber-400 lg:text-6xl ">
+                Omakase
+              </span>
+              ?
+            </h2>
+          </Motion>
+
+          <Motion>
+            {" "}
+            <p className="max-w-3xl ml-0 text-justify lg:max-w-2xl section-comment">
+              "Omakase to ekskluzywne doświadczenie kulinarne, w którym goście
+              oddają się w ręce szefa kuchni. Menu powstaje na bieżąco, w
+              oparciu o najlepsze, sezonowe produkty i autorską wizję sushi
+              mastera.",
+            </p>
+          </Motion>
+           <Motion>
+                      {" "}
+                      <div className="mt-8 ">
+                        <Button
+                          order
+                          link
+                          variant="hero"
+                          text="Otrzymaj indywidualną ofertę"
+                        />
+                      </div>
+                    </Motion>
+        </div>
+      </div>
 
       <StickyCards
         chipsTitle={cardsData.chipsTitle}

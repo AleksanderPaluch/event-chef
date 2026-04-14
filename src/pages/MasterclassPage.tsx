@@ -1,4 +1,5 @@
 import liveImage from "../assets/masterclass1.jpg";
+import { Button } from "../components/Button/Button";
 import { Hero } from "../components/Hero/Hero";
 import { Motion } from "../components/Motion/Motion";
 import { StickyCards } from "../components/StickyCards/StickyCards";
@@ -60,12 +61,12 @@ export default function MasterclassPage() {
             <span className="text-amber-500 dark:text-amber-400">
               Warsztaty
             </span>{" "}
-            które uczą, bawią i integrują
+            które <br /> uczą, bawią i integrują
           </>
         }
       />
 
-      <div className="max-w-4xl pb-0 mx-auto mb-0 pt-28 section md:max-w-3xl">
+      <div className="section">
         <div className="flex flex-col ">
 
           <Motion>
@@ -87,6 +88,17 @@ export default function MasterclassPage() {
               doświadczonego sushi mastera."
             </p>
           </Motion>
+           <Motion>
+                      {" "}
+                      <div className="mt-8 ">
+                        <Button
+                          order
+                          link
+                          variant="hero"
+                          text="Otrzymaj indywidualną ofertę"
+                        />
+                      </div>
+                    </Motion>
         </div>
       </div>
 

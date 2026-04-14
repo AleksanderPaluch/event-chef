@@ -1,20 +1,8 @@
 import liveImage from "../assets/LiveChef.png";
-// import { TextContent } from "../components/Content/TextContent";
+import { Button } from "../components/Button/Button";
 import { Hero } from "../components/Hero/Hero";
 import { Motion } from "../components/Motion/Motion";
 import { StickyCards } from "../components/StickyCards/StickyCards";
-
-// const data = {
-//   id: "Live",
-
-//   subheading: "Wyjątkowe Doświadczenie Kulinarne",
-//   heading: "Live Cooking",
-//   textTitle: "Live Cooking",
-//   text: "Live cooking to pokaz przygotowywania sushi na żywo, prosto przed Twoimi gośćmi. To połączenie gotowania i efektownego show.",
-//   description:
-//     "Pracujemy na produktach premium i dopasujemy menu do harakteru wydarzenia",
-//   process: ["Przygotowanie ", "Sushi show", "Degustacja & interakcja"],
-// };
 
 const cardsData = {
   cardsDescription:
@@ -69,15 +57,16 @@ export default function LivePage() {
         subtitle=""
       />
 
-      <div className="max-w-4xl mx-auto section md:max-w-3xl ">
+      <div className="section ">
         <div className="flex flex-col ">
-          {/* <span className="mb-4 text-sm tracking-widest uppercase text-amber-400">
-                Catering Sushi
-              </span> */}
           <Motion>
             {" "}
             <h2 className="text-left section-header lg:text-5xl lg:mb-10">
-           Czym jest <br /> <span className="text-amber-500 dark:text-amber-400 lg:text-6xl ">Live Cooking</span>?         
+              Czym jest <br />{" "}
+              <span className="text-amber-500 dark:text-amber-400 lg:text-6xl ">
+                Live Cooking
+              </span>
+              ?
             </h2>
           </Motion>
 
@@ -89,7 +78,17 @@ export default function LivePage() {
             </p>
           </Motion>
 
-
+          <Motion>
+            {" "}
+            <div className="mt-8 ">
+              <Button
+                order
+                link
+                variant="hero"
+                text="Otrzymaj indywidualną ofertę"
+              />
+            </div>
+          </Motion>
         </div>
       </div>
 
