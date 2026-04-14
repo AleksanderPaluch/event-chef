@@ -1,8 +1,10 @@
 import liveImage from "../assets/masterclass1.jpg";
 import { Button } from "../components/Button/Button";
+import { FAQ } from "../components/FAQ/FAQ";
 import { Hero } from "../components/Hero/Hero";
 import { Motion } from "../components/Motion/Motion";
 import { StickyCards } from "../components/StickyCards/StickyCards";
+import { masterclassFAQ } from "../components/Translations/faq";
 
 const cardsData = {
   cardsDescription:
@@ -68,7 +70,6 @@ export default function MasterclassPage() {
 
       <div className="section">
         <div className="flex flex-col ">
-
           <Motion>
             {" "}
             <h2 className="text-left section-header lg:text-5xl lg:mb-10">
@@ -88,17 +89,17 @@ export default function MasterclassPage() {
               doświadczonego sushi mastera."
             </p>
           </Motion>
-           <Motion>
-                      {" "}
-                      <div className="mt-8 ">
-                        <Button
-                          order
-                          link
-                          variant="hero"
-                          text="Otrzymaj indywidualną ofertę"
-                        />
-                      </div>
-                    </Motion>
+          <Motion>
+            {" "}
+            <div className="mt-8 ">
+              <Button
+                order
+                link
+                variant="hero"
+                text="Otrzymaj indywidualną ofertę"
+              />
+            </div>
+          </Motion>
         </div>
       </div>
 
@@ -111,6 +112,7 @@ export default function MasterclassPage() {
         organization={cardsData.organization}
         cardsProcess={cardsData.cardsProcess}
       />
+       <FAQ items={masterclassFAQ} />
     </>
   );
 }

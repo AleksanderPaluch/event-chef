@@ -1,8 +1,11 @@
 import liveImage from "../assets/LiveChef.png";
 import { Button } from "../components/Button/Button";
+import { FAQ } from "../components/FAQ/FAQ";
+import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
 import { Motion } from "../components/Motion/Motion";
 import { StickyCards } from "../components/StickyCards/StickyCards";
+import { liveFAQ } from "../components/Translations/faq";
 
 const cardsData = {
   cardsDescription:
@@ -101,6 +104,9 @@ export default function LivePage() {
         organization={cardsData.organization}
         cardsProcess={cardsData.cardsProcess}
       />
+    <FAQ items={liveFAQ} />
+    <Footer />
+
     </>
   );
 }
