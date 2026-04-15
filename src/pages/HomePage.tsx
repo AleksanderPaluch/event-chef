@@ -5,6 +5,7 @@ import { Intro } from "../components/Intro/Intro";
 import { Offer } from "../components/Offer/Offer";
 import { smoothScrollTo } from "../components/helpers";
 import sushiPlate from "../assets/sushiplate.jpg";
+import { Footer } from "../components/Footer/Footer";
 
 export default function HomePage() {
   useEffect(() => {
@@ -33,6 +34,8 @@ export default function HomePage() {
       <Intro />
       <Offer />
       <ContactForm />
+        <Footer />
+
     </>
   );
 }

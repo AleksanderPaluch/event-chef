@@ -1,6 +1,7 @@
 import liveImage from "../assets/masterclass1.jpg";
 import { Button } from "../components/Button/Button";
 import { FAQ } from "../components/FAQ/FAQ";
+import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
 import { Motion } from "../components/Motion/Motion";
 import { StickyCards } from "../components/StickyCards/StickyCards";
@@ -113,6 +114,8 @@ export default function MasterclassPage() {
         cardsProcess={cardsData.cardsProcess}
       />
        <FAQ items={masterclassFAQ} />
+         <Footer />
+
     </>
   );
 }
