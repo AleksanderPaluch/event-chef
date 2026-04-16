@@ -147,8 +147,8 @@ const Content = ({
           </p>
           <Button
             text="Poznaj doświadczenie"
-            variant="ghost"
-            size="full"
+          
+        
             href={featureInView.href}
           />
         </motion.div>

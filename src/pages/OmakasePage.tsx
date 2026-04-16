@@ -89,11 +89,11 @@ export default function OmakasePage() {
           </Motion>
           <Motion>
             {" "}
-            <div className="mt-8 ">
+            <div className="max-w-lg mt-8">
               <Button
                 order
-                link
-                variant="hero"
+                
+             
                 text="Otrzymaj indywidualną ofertę"
               />
             </div>

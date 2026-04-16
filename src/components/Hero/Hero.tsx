@@ -48,8 +48,8 @@ const HeroContent = ({ eyebrow, heading, subtitle, showCta }: Omit<HeroProps, "i
     )}
 
     {showCta && (
-      <div className="mt-8 lg:mt-10">
-        <Button order link variant="hero" text="Otrzymaj indywidualną ofertę" />
+      <div className="max-w-lg mt-8 lg:mt-10">
+        <Button order  text="Otrzymaj indywidualną ofertę" />
       </div>
     )}
   </div>

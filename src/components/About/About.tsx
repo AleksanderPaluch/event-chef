@@ -1,22 +1,22 @@
-import image from "../../assets/About.jpg";
+// import image from "../../assets/About.jpg";
 
 
-import { Section } from "../Content/Section";
-import { Stats } from "./Stats/Stats";
-import { Testimonials } from "./Testimonials/Testimonials";
 
-const data = {
-  id: "About",
-  imgUrl: image,
-  subheading: "Twój partner w organizacji  wydarzeń",
-  heading: "Event Chef",
-  stats: true,
-};
+// import { Stats } from "./Stats/Stats";
+// import { Testimonials } from "./Testimonials/Testimonials";
+
+// const data = {
+//   id: "About",
+//   imgUrl: image,
+//   subheading: "Twój partner w organizacji  wydarzeń",
+//   heading: "Event Chef",
+//   stats: true,
+// };
 
 export const About = () => {
   return (
     <>
-      <Section
+      {/* <Section
         id={data.id}
         imgUrl={data.imgUrl}
         subheading={data.subheading}
@@ -27,7 +27,7 @@ export const About = () => {
         <Stats />
         <Testimonials />
   
-      </div>
+      </div> */}
     </>
   );
 };

@@ -75,7 +75,7 @@ export const Cards = ({ rows, features, featuresByVariant }: CardsProps) => {
               </div>
 
               {/* CTA */}
-              <Button link order text="Poproś o ofertę" />
+              <Button  order text="Poproś o ofertę" />
             </div>
           </motion.div>
         );

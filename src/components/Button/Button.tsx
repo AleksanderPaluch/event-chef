@@ -17,13 +17,15 @@ const SPRING_OPTIONS = {
 
 interface ButtonProps {
   text: string;
-  order?: boolean; // true = scroll to contact, false = scroll to offer
+  order?: boolean;     // true = scroll to contact, false = scroll to offer
+  href?: string;       // page navigation e.g. "/live"
   onClick?: () => void;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   text,
   order = false,
+  href,
   onClick,
 }) => {
   const ref = useRef<HTMLButtonElement | null>(null);
@@ -41,10 +43,15 @@ export const Button: React.FC<ButtonProps> = ({
     y.set(0);
   };
 
-  const sectionId = order ? "contact" : "offer";
-
   const handleClick = () => {
     onClick?.();
+
+    if (href) {
+      navigate(href);
+      return;
+    }
+
+    const sectionId = order ? "contact" : "offer";
     if (pathname === "/") {
       smoothScrollTo(sectionId);
     } else {
@@ -58,7 +65,7 @@ export const Button: React.FC<ButtonProps> = ({
       style={{ transform }}
       onClick={handleClick}
       onMouseDown={handleReset}
-      className="btn group bg-transparent border lg:text-lg border-white/10 text-zinc-50/40 hover:text-zinc-200 hover:border-white/70 md:max-w-xl mx-auto w-full md:ml-0 lg:w-[430px]"
+      className="w-full mx-auto bg-transparent border btn group lg:text-lg border-white/10 text-zinc-50/40 hover:text-zinc-200 hover:border-white/70 md:ml-0 "
     >
       <Copy>{text}</Copy>
       <Arrow />
