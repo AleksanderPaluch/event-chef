@@ -1,125 +1,102 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import { Tabs } from "./Tabs";
-import { Cards } from "./Cards";
+// import { useState } from "react";
+// import { PeopleTabs } from "./PeopleTabs";
+import { OfferCard } from "./OfferCard";
 
 
+export type PeopleTab = "6-10" | "11-15" | "16-20" | "20+";
 
-type FeatureVariant = "wedding";
-
-interface Row {
-  people: string;
-  basic: string;
+export interface PriceTier {
+  basic?: string;
   premium: string;
-  variant?: FeatureVariant;
 }
 
-interface FeatureGroup {
+export interface OfferData {
   title: string;
-  tab: "live" | "masterclass" | "omakase";
-  rows: Row[];
   features: string[];
-  featuresByVariant?: string[]; 
+  pricing: Partial<Record<PeopleTab, PriceTier>>;
 }
 
+export const PEOPLE_TABS: PeopleTab[] = ["6-10", "11-15", "16-20", "20+"];
 
-const FEATURES: FeatureGroup[] = [
+export const OFFERS: OfferData[] = [
   {
     title: "Live Cooking",
-    tab: "live",
-    features: [
-      "Indywidualne menu",
-      "Produkty premium",
-      "Pełna organizacja kulinarna",
-    ],
-    featuresByVariant: [
-      "Specjalne menu weselne",
-      "Sushi w formie bufetu",
-      "Realizacja na terenie całej Polski",
-    ],
-    rows: [
-      { people: "8 - 14", basic: "120", premium: "140" },
-
-      { people: "15 - 19", basic: "110", premium: "130" },
-      { people: "20+", basic: "100", premium: "120" },
-      {
-        people: "Wesela",
-        basic: "60",
-        premium: "70",
-        variant: "wedding",
-      },
-    ],
+    features: ["Indywidualne menu", "Produkty premium", "Pełna organizacja kulinarna"],
+    pricing: {
+      "6-10":  { basic: "120", premium: "140" },
+      "11-15": { basic: "110", premium: "130" },
+      "16-20": { basic: "110", premium: "130" },
+      "20+":   { basic: "100", premium: "120" },
+    },
   },
-
   {
     title: "Masterclass",
-    tab: "masterclass",
-    features: [
-      "Interaktywny pokaz",
-      "Nauka krok po kroku",
-      "Degustacja przygotowanych dań",
-    ],
-    rows: [
-      { people: "6 - 9", basic: "130", premium: "150" },
-      { people: "10 - 14", basic: "120", premium: "140" },
-      { people: "15 - 19", basic: "110", premium: "130" },
-      { people: "20 - 25", basic: "100", premium: "120" },
-    ],
+    features: ["Interaktywny pokaz", "Nauka krok po kroku", "Degustacja przygotowanych dań"],
+    pricing: {
+      "6-10":  { basic: "130", premium: "150" },
+      "11-15": { basic: "120", premium: "140" },
+      "16-20": { basic: "110", premium: "130" },
+      "20+":   { basic: "100", premium: "120" },
+    },
   },
-
   {
     title: "Omakase",
-    tab: "omakase",
-    features: [
-      "Autorskie menu typu Omakase",
-      "Sezonowe produkty najwyższej jakości",
-      "Serwowanie dań bezpośrednio przez szefa kuchni",
-    ],
-    rows: [
-      { people: "4 - 6", basic: "", premium: "350" },
-      { people: "7 - 10", basic: "", premium: "320" },
-      { people: "11 - 15", basic: "", premium: "300" },
-    ],
+    features: ["Autorskie menu typu Omakase", "Sezonowe produkty najwyższej jakości", "Indywidualny serwis przez szefa kuchni"],
+    pricing: {
+      "6-10":  { premium: "350" },
+      "11-15": { premium: "300" },
+      "16-20": { premium: "300" },
+    },
+  },
+  {
+    title: "Wesela",
+    features: ["Specjalne menu weselne", "Sushi w formie bufetu", "Realizacja na terenie całej Polski"],
+    pricing: {
+      "6-10":  { basic: "60", premium: "70" },
+      "11-15": { basic: "60", premium: "70" },
+      "16-20": { basic: "60", premium: "70" },
+      "20+":   { basic: "60", premium: "70" },
+    },
   },
 ];
 
-
-
 export const Offer = () => {
-  const [selected, setSelected] = useState(0);
-  const activeFeature = FEATURES[selected];
+  // const [selectedPeople, setSelectedPeople] = useState<PeopleTab>("6-10");
 
   return (
-    <section id="offer" >
+    <section id="offer">
       <div className="max-w-7xl section">
-        <h3 className="text-5xl section-header lg:text-6xl">
-          Oferta
-        </h3>
-
-        <p className=" section-description">
+        <h3 className="text-5xl section-header lg:text-6xl">Oferta</h3>
+        <p className="section-description">
           Ceny mają charakter orientacyjny i mogą się różnić w zależności od
           lokalizacji, liczby gości oraz indywidualnych ustaleń.
         </p>
 
-        <Tabs
-          selected={selected}
-          setSelected={setSelected}
-          FEATURES={FEATURES}
-        />
+        {/* <PeopleTabs
+          tabs={PEOPLE_TABS}
+          selected={selectedPeople}
+          setSelected={setSelectedPeople}
+        /> */}
 
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeFeature.title}
+            // key={selectedPeople}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.25 }}
+            className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]"
           >
-            <Cards
-              rows={activeFeature.rows}
-              features={activeFeature.features}
-              featuresByVariant={activeFeature.featuresByVariant}
-            />
+            {OFFERS.map((offer) => (
+              <OfferCard
+                key={offer.title}
+                title={offer.title}
+           
+                features={offer.features}
+                // pricing={offer.pricing[selectedPeople]}
+              />
+            ))}
           </motion.div>
         </AnimatePresence>
       </div>
