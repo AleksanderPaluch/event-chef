@@ -1,13 +1,23 @@
 import { useState } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 import { NavLeft } from "./NavLeft";
 import { NavMenu } from "./NavMenu";
 
 export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const { scrollY } = useScroll();
+useMotionValueEvent(scrollY, "change", (latest) => {
+  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+  const threshold = isTablet ? 350 : 790;
+  setScrolled(latest > threshold);
+});
+
   return (
-    <nav className=" py-1 px-4 z-10 flex items-center justify-between fixed left-0 right-0 top-0  bg-zinc-950/70 backdrop-blur-md ">
+    <nav className={`nav ${scrolled ? "nav--scrolled" : "nav--top"}`}>
       <NavLeft setIsOpen={setIsOpen} />
-      <NavMenu isOpen={isOpen} />
+      <NavMenu setIsOpen={setIsOpen} isOpen={isOpen} />
     </nav>
   );
 };

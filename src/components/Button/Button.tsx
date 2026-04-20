@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   motion,
   useMotionTemplate,
@@ -6,7 +6,8 @@ import {
   useSpring,
 } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-import { Modal } from "../Modal/Modal";
+import { useLocation, useNavigate } from "react-router-dom";
+import { smoothScrollTo } from "../helpers";
 
 const SPRING_OPTIONS = {
   mass: 1.5,
@@ -14,80 +15,78 @@ const SPRING_OPTIONS = {
   damping: 100,
 };
 
-export const Button = ({ text }: { text: string }) => {
-  const [open, setOpen] = useState(false);
+interface ButtonProps {
+  text: string;
+  order?: boolean;     // true = scroll to contact, false = scroll to offer
+  href?: string;       // page navigation e.g. "/live"
+  onClick?: () => void;
+}
 
+export const Button: React.FC<ButtonProps> = ({
+  text,
+  order = false,
+  href,
+  onClick,
+}) => {
   const ref = useRef<HTMLButtonElement | null>(null);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
   const xSpring = useSpring(x, SPRING_OPTIONS);
   const ySpring = useSpring(y, SPRING_OPTIONS);
-
   const transform = useMotionTemplate`translateX(${xSpring}px) translateY(${ySpring}px)`;
-
-  const handleMove = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (!ref.current) return;
-
-    const { height, width } = ref.current.getBoundingClientRect();
-    const { offsetX, offsetY } = e.nativeEvent;
-
-    const xPct = offsetX / width;
-    const yPct = 1 - offsetY / height;
-
-    const newY = 4 + yPct * 4;
-    const newX = 4 + xPct * 4;
-
-    x.set(newX);
-    y.set(-newY);
-  };
 
   const handleReset = () => {
     x.set(0);
     y.set(0);
   };
 
+  const handleClick = () => {
+    onClick?.();
+
+    if (href) {
+      navigate(href);
+      return;
+    }
+
+    const sectionId = order ? "contact" : "offer";
+    if (pathname === "/") {
+      smoothScrollTo(sectionId);
+    } else {
+      navigate(`/#${sectionId}`);
+    }
+  };
+
   return (
-    <section className="">
-      <div className=" w-full  bg-zinc-700 rounded">
-        <motion.button
-          ref={ref}
-          style={{
-            transform,
-          }}
-          onClick={() => setOpen(true)}
-          onMouseMove={handleMove}
-          onMouseLeave={handleReset}
-          onMouseDown={handleReset}
-          className="py-2 group flex h-full w-full items-center justify-between  bg-zinc-900 px-8 text-md md:text-xl font-semibold rounded"
-        >
-          <Copy>{text}</Copy>
-          <Arrow />
-        </motion.button>
-      </div>
-      <Modal open={open} setOpen={setOpen} />
-    </section>
+    <motion.button
+      ref={ref}
+      style={{ transform }}
+      onClick={handleClick}
+      onMouseDown={handleReset}
+      className="w-full mx-auto bg-transparent border btn group lg:text-lg border-white/10 text-zinc-50/40 hover:text-zinc-200 hover:border-white/70 md:ml-0 "
+    >
+      <Copy>{text}</Copy>
+      <Arrow />
+    </motion.button>
   );
 };
 
-const Copy = ({ children }: { children: string }) => {
-  return (
-    <span className="relative overflow-hidden">
-      <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
-        {children}
-      </span>
-      <span className="absolute left-0 top-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-        {children}
-      </span>
+const Copy = ({ children }: { children: string }) => (
+  <span className="relative overflow-hidden">
+    <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
+      {children}
     </span>
-  );
-};
-
-const Arrow = () => (
-  <div className="pointer-events-none flex h-6 w-6 overflow-hidden text-2xl">
-    <FiArrowRight className="shrink-0 -translate-x-full text-zinc-100 transition-transform duration-300 group-hover:translate-x-0" />
-    <FiArrowRight className="shrink-0 -translate-x-full text-zinc-300 transition-transform duration-300 group-hover:translate-x-0" />
-  </div>
+    <span className="absolute top-0 left-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0">
+      {children}
+    </span>
+  </span>
 );
 
+const Arrow = () => (
+  <div className="flex w-6 h-6 overflow-hidden text-2xl pointer-events-none">
+    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 group-hover:translate-x-0" />
+    <FiArrowRight className="transition-transform duration-300 -translate-x-full shrink-0 group-hover:translate-x-0" />
+  </div>
+);
