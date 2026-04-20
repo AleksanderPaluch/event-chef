@@ -4,7 +4,7 @@ import { Hero } from "../components/Hero/Hero";
 import { Intro } from "../components/Intro/Intro";
 import { Offer } from "../components/Offer/Offer";
 import { smoothScrollTo } from "../components/helpers";
-import sushiPlate from "../assets/sushiplate.jpg";
+import sushiPlate from "../assets/PHOTO-2024-12-10-17-19-05.webp";
 import { Footer } from "../components/Footer/Footer";
 
 export default function HomePage() {

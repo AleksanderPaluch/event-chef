@@ -80,7 +80,7 @@ const CenterImage = ({ image, ...contentProps }: HeroProps) => {
   );
 
   return (
-    <div className="sticky top-0 h-[120svh] w-full overflow-hidden">
+    <div className="sticky top-0 h-[110svh] w-full overflow-hidden">
       <motion.div
         className="absolute inset-0"
         style={{
