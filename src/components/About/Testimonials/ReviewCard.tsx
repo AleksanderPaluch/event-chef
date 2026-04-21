@@ -1,6 +1,7 @@
 import { MdStar, MdStarHalf, MdStarBorder } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
-import { getRelativeDatePL } from "./helpers.ts";
+import { getRelativeDatePL } from "../../AboutUs/helpers";
+
 
 interface CardProps {
   img?: string;

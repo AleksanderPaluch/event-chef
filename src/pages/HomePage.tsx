@@ -6,6 +6,9 @@ import { Offer } from "../components/Offer/Offer";
 import { smoothScrollTo } from "../components/helpers";
 import sushiPlate from "../assets/PHOTO-2024-12-10-17-19-05.webp";
 import { Footer } from "../components/Footer/Footer";
+import { AboutSection } from "../components/AboutUs/AboutUs";
+import { Testimonials } from "../components/About/Testimonials/Testimonials";
+import { Stats } from "../components/About/Stats/Stats";
 
 export default function HomePage() {
   useEffect(() => {
@@ -32,6 +35,9 @@ export default function HomePage() {
         showCta
       />
       <Intro />
+      <AboutSection />
+      {/* <Testimonials />
+      <Stats /> */}
       <Offer />
       <ContactForm />
         <Footer />
