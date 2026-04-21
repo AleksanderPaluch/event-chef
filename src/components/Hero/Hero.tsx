@@ -35,7 +35,7 @@ const HeroContent = ({ eyebrow, heading, subtitle, showCta }: Omit<HeroProps, "i
       </span>
     )}
 
-    <h1 className="mt-4 text-4xl font-medium leading-tight lg:mt-5 md:text-5xl lg:text-6xl text-zinc-100">
+    <h1 className="mt-4 text-4xl leading-tight lg:mt-5 md:text-5xl lg:text-6xl text-zinc-100">
       {heading}
     </h1>
 

@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 
-import LiveImage from "../../assets/liveImage.jpg";
-import MasterclassImage from "../../assets/masterclass1.jpg";
-import OmakaseImage from "../../assets/nigiri.jpeg";
+import LiveImage from "../../assets/image-asset (2).jpeg";
+import MasterclassImage from "../../assets/shutterstock_38046517.avif";
+import OmakaseImage from "../../assets/pexels-qui-nguyen-7862521-29422357.jpg";
 import { Button } from "../Button/Button";
 import { Motion } from "../Motion/Motion";
 
 type FeatureType = {
   id: number;
-  number: string;
   callout: string;
   title: string;
   description: string;
@@ -19,131 +18,101 @@ type FeatureType = {
 const features: FeatureType[] = [
   {
     id: 1,
-    number: "01",
     callout: "Sushi przygotowywane na żywo",
     title: "Live Cooking",
     description:
-      "Widowiskowy pokaz przygotowywania sushi na żywo, bezpośrednio przed Twoimi gośćmi. Połączenie smaku, interakcji i efektownego show, które przyciąga uwagę i buduje atmosferę.",
+      "Widowiskowy pokaz przygotowywania sushi bezpośrednio przed Twoimi gośćmi. Smak, interakcja i show w jednym.",
     image: LiveImage,
     href: "/live",
   },
   {
     id: 2,
-    number: "02",
     callout: "Warsztaty Sushi",
     title: "Masterclass",
     description:
-      "Interaktywne warsztaty, podczas których uczestnicy samodzielnie tworzą sushi pod okiem doświadczonego chefa. Idealne połączenie integracji, zabawy i nauki.",
+      "Uczestnicy samodzielnie tworzą sushi pod okiem chefa. Idealne na integrację — angażujące i pełne zabawy.",
     image: MasterclassImage,
     href: "/masterclass",
   },
   {
     id: 3,
-    number: "03",
-    callout: "Ekskluzywna kolacja sushi",
+    callout: "Ekskluzywna kolacja",
     title: "Omakase",
     description:
-      "Kameralne doświadczenie kulinarne, w którym oddajesz się w ręce sushi chefa. Starannie skomponowane menu i najwyższa jakość składników.",
+      "Kameralne doświadczenie, w którym oddajesz się w ręce chefa. Starannie skomponowane menu, najwyższa jakość.",
     image: OmakaseImage,
     href: "/omakase",
   },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 48 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.65,
-      ease: [0.22, 1, 0.36, 1],
-      delay: i * 0.13,
-    },
-  }),
-};
-
 export const Intro = () => {
   return (
-    <section className="max-w-6xl mx-auto px-4 pt-28 pb-24">
+    <section className="max-w-7xl mx-auto px-6 pt-28 pb-32">
       {/* Header */}
-      <div className="mb-16">
+      <div className="mb-20 max-w-3xl">
         <Motion>
-          <p className="text-xs tracking-[0.25em] uppercase font-semibold text-amber-500 dark:text-amber-400 mb-4">
-            Wybierz format dopasowany do charakteru wydarzenia
-          </p>
-        </Motion>
-
-        <Motion>
-          <h2 className="text-4xl md:text-6xl font-light leading-tight text-zinc-900 dark:text-zinc-100 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.15] text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight">
             Tworzymy wyjątkowe sushi
             <br />
-            na{" "}
-            <span className="font-semibold text-amber-500 dark:text-amber-400">
-              Twoim
-            </span>{" "}
-            wydarzeniu
+            <span className="text-4xl md:text-5xl lg:text-6xl ">
+              na{" "}
+              <span className="text-amber-700 dark:text-amber-400">Twoim</span>{" "}
+              wydarzeniu
+            </span>
           </h2>
         </Motion>
-
         <Motion>
-          <p className="max-w-xl text-base text-zinc-500 dark:text-zinc-400 leading-relaxed">
-            Przyjeżdżamy na miejsce, przygotowujemy stanowisko i serwujemy
-            świeże sushi na oczach Twoich gości. To nie tylko catering —
-            to doświadczenie, które angażuje, zachwyca i zostaje w pamięci.
+          <p className="text-base text-zinc-400 dark:text-zinc-500 leading-relaxed max-w-md">
+            Przyjeżdżamy, przygotowujemy stanowisko i serwujemy świeże sushi na
+            oczach Twoich gości. To nie tylko catering — to doświadczenie.
           </p>
         </Motion>
       </div>
 
+      {/* Divider */}
+      <Motion>
+        <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800 mb-20" />
+      </Motion>
+
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
         {features.map((feature, i) => (
           <motion.div
             key={feature.id}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={cardVariants}
-            className="group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-amber-400 dark:hover:border-amber-500 transition-colors duration-500"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{
+              duration: 0.7,
+              ease: [0.22, 1, 0.36, 1],
+              delay: i * 0.1,
+            }}
+            className="group flex flex-col"
           >
+            {/* Text above image */}
+
+            <h3 className="text-4xl  font-light text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
+              {feature.title}
+            </h3>
+            <p className="text-[11px] tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400  mb-4">
+              {feature.callout}
+            </p>
+            <p className="text-sm text-zinc-400 dark:text-zinc-500 leading-relaxed mb-8">
+              {feature.description}
+            </p>
+
             {/* Image */}
-            <div className="relative overflow-hidden h-72 md:h-80 lg:h-96 flex-shrink-0">
+            <div className="relative overflow-hidden aspect-[3/4] mb-6 rounded-lg">
               <motion.img
                 src={feature.image}
                 alt={feature.title}
                 className="w-full h-full object-cover"
-                whileHover={{ scale: 1.04 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               />
-              {/* gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-              {/* Big number */}
-              <span className="absolute top-5 left-6 font-bold text-7xl leading-none text-white/20 select-none tracking-tight">
-                {feature.number}
-              </span>
-
-              {/* Callout tag */}
-              <span className="absolute bottom-4 left-4 text-[10px] tracking-[0.2em] uppercase font-semibold text-amber-400 bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                {feature.callout}
-              </span>
+            <div className="absolute inset-0 bg-black/50 rounded-lg" />
             </div>
-
-            {/* Content */}
-            <div className="flex flex-col flex-1 p-6 lg:p-8">
-              <h3 className="text-2xl lg:text-3xl font-semibold text-zinc-900 dark:text-zinc-100 mb-3 leading-tight">
-                {feature.title}
-              </h3>
-              <p className="text-sm lg:text-base text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8 flex-1">
-                {feature.description}
-              </p>
-              <div>
-                <Button text="Poznaj doświadczenie" href={feature.href} />
-              </div>
-            </div>
-
-            {/* Amber bottom accent line — grows on hover */}
-            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-amber-400 group-hover:w-full transition-all duration-500 ease-out" />
+            <Button text="Poznaj doświadczenie" href={feature.href} />
           </motion.div>
         ))}
       </div>
