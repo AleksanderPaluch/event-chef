@@ -73,14 +73,15 @@ const StatItem = ({
   }, [isInView, num]);
 
   return (
-    <div className="flex flex-col gap-1">
-      <p className="text-4xl font-light tracking-tight lg:text-5xl text-zinc-900 dark:text-zinc-100">
+    <div className="flex flex-col mb-4 lg:mt-8">
+      <div className="text-4xl font-light tracking-tight lg:text-5xl text-zinc-900 dark:text-zinc-100">
         <span ref={ref}>0</span>
         <span className="text-amber-700 dark:text-amber-400">{suffix}</span>
-      </p>
-      <p className=" text-sm  tracking-[0.15em] uppercase text-zinc-700 dark:text-zinc-400">
+            <p className="display-block text-sm  tracking-[0.15em] uppercase text-zinc-700 dark:text-zinc-400">
         {label}
       </p>
+      </div>
+  
     </div>
   );
 };
@@ -185,7 +186,7 @@ const TestimonialStrip = () => (
 
 export const AboutSection = () => {
   return (
-    <section className="flex flex-col max-w-6xl gap-20 px-6 py-32 mx-auto lg:gap-28">
+    <section className="flex flex-col max-w-6xl gap-20 px-6 py-24 mx-auto lg:py-32 lg:gap-28">
       {/* O nas — two column */}
       <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2 lg:gap-32">
         <Motion>

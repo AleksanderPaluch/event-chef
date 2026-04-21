@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Motion } from "../Motion/Motion";
 
-export type PeopleTab = "6-10" | "11-15" | "16-20" | "20+";
+export type PeopleTab = "8-14" | "15-19" | "20-29" | "30+";
 
 export interface PriceTier {
   basic?: string;
@@ -16,7 +16,7 @@ export interface OfferData {
   pricing: Partial<Record<PeopleTab, PriceTier>>;
 }
 
-export const PEOPLE_TABS: PeopleTab[] = ["6-10", "11-15", "16-20", "20+"];
+export const PEOPLE_TABS: PeopleTab[] = ["8-14", "15-19", "20-29", "30+"];
 
 export const OFFERS: OfferData[] = [
   {
@@ -24,10 +24,10 @@ export const OFFERS: OfferData[] = [
     callout: "Sushi na żywo",
     features: ["Indywidualne menu", "Produkty premium", "Pełna organizacja kulinarna"],
     pricing: {
-      "6-10":  { basic: "120", premium: "140" },
-      "11-15": { basic: "110", premium: "130" },
-      "16-20": { basic: "110", premium: "130" },
-      "20+":   { basic: "100", premium: "120" },
+      "8-14":  { basic: "140", premium: "150" },
+      "15-19": { basic: "130", premium: "140" },
+      "20-29": { basic: "120", premium: "130" },
+      "30+":   { basic: "110", premium: "120" },
     },
   },
   {
@@ -35,10 +35,10 @@ export const OFFERS: OfferData[] = [
     callout: "Warsztaty sushi",
     features: ["Interaktywny pokaz", "Nauka krok po kroku", "Degustacja przygotowanych dań"],
     pricing: {
-      "6-10":  { basic: "130", premium: "150" },
-      "11-15": { basic: "120", premium: "140" },
-      "16-20": { basic: "110", premium: "130" },
-      "20+":   { basic: "100", premium: "120" },
+      "8-14":  { basic: "140", premium: "150" },
+      "15-19": { basic: "130", premium: "140" },
+      "20-29": { basic: "120", premium: "130" },
+      "30+":   { basic: "110", premium: "120" },
     },
   },
   {
@@ -46,9 +46,9 @@ export const OFFERS: OfferData[] = [
     callout: "Ekskluzywna kolacja",
     features: ["Autorskie menu Omakase", "Sezonowe składniki najwyższej jakości", "Indywidualny serwis szefa"],
     pricing: {
-      "6-10":  { premium: "350" },
-      "11-15": { premium: "300" },
-      "16-20": { premium: "300" },
+      "8-14":  { premium: "350" },
+      "15-19": { premium: "300" },
+     
     },
   },
   {
@@ -56,10 +56,8 @@ export const OFFERS: OfferData[] = [
     callout: "Catering weselny",
     features: ["Specjalne menu weselne", "Sushi w formie bufetu", "Realizacja na terenie całej Polski"],
     pricing: {
-      "6-10":  { basic: "60", premium: "70" },
-      "11-15": { basic: "60", premium: "70" },
-      "16-20": { basic: "60", premium: "70" },
-      "20+":   { basic: "60", premium: "70" },
+      "20-29": { basic: "90", premium: "110" },
+      "30+":   { basic: "70", premium: "90" },
     },
   },
 ];
@@ -75,12 +73,12 @@ const PeopleTabs = ({
   selected: PeopleTab;
   setSelected: (t: PeopleTab) => void;
 }) => (
-  <div className="flex gap-0 ">
+  <div className="flex justify-between gap-0 md:justify-start">
     {tabs.map((tab) => (
       <button
         key={tab}
         onClick={() => setSelected(tab)}
-        className={`relative px-2  md:px-6 py-3 text-sm tracking-wide transition-colors duration-200 ${
+        className={`relative px-2 md:px-6 py-3 text-sm tracking-wide transition-colors duration-200 ${
           selected === tab
             ? "text-zinc-900 dark:text-zinc-100"
             : "text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300"
@@ -98,6 +96,50 @@ const PeopleTabs = ({
   </div>
 );
 
+// ─── Animated price value ─────────────────────────────────────────────────────
+
+const PriceValue = ({ value, selectedPeople }: { value: string; selectedPeople: PeopleTab }) => (
+  <AnimatePresence mode="wait">
+    <motion.span
+      key={`${value}-${selectedPeople}`}
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -6 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="text-2xl font-light text-zinc-900 dark:text-zinc-100"
+    >
+      {value}{" "}
+      <span className="text-sm text-zinc-400">zł / os.</span>
+    </motion.span>
+  </AnimatePresence>
+);
+
+// ─── Animated collapsed price preview ────────────────────────────────────────
+
+const PricePreview = ({ pricing, selectedPeople }: { pricing?: PriceTier; selectedPeople: PeopleTab }) => {
+  if (!pricing) return null;
+  const value = pricing.basic ?? pricing.premium;
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.p
+        key={`${value}-${selectedPeople}`}
+        initial={{ opacity: 0, y: 4 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -4 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        className="hidden text-sm md:block text-zinc-400 dark:text-zinc-500"
+      >
+        od{" "}
+        <span className="font-light text-zinc-900 dark:text-zinc-100">
+          {value} zł
+        </span>{" "}
+        / os.
+      </motion.p>
+    </AnimatePresence>
+  );
+};
+
 // ─── Accordion item ───────────────────────────────────────────────────────────
 
 const AccordionItem = ({
@@ -106,15 +148,16 @@ const AccordionItem = ({
   index,
   isOpen,
   onToggle,
+  selectedPeople,
 }: {
   offer: OfferData;
   pricing?: PriceTier;
   index: number;
   isOpen: boolean;
   onToggle: () => void;
+  selectedPeople: PeopleTab;
 }) => (
   <div className="border-b border-zinc-200 dark:border-zinc-800">
-    {/* Row header — always visible */}
     <button
       onClick={onToggle}
       className="flex items-center justify-between w-full gap-8 py-6 text-left group"
@@ -134,18 +177,8 @@ const AccordionItem = ({
       </div>
 
       <div className="flex items-center flex-shrink-0 gap-8">
-        {/* Price preview — visible when collapsed */}
-        {!isOpen && pricing && (
-          <p className="hidden text-sm md:block text-zinc-400 dark:text-zinc-500">
-            od{" "}
-            <span className="font-light text-zinc-900 dark:text-zinc-100">
-              {pricing.basic ?? pricing.premium} zł
-            </span>{" "}
-            / os.
-          </p>
-        )}
+        {!isOpen && <PricePreview pricing={pricing} selectedPeople={selectedPeople} />}
 
-        {/* Plus / minus */}
         <div className="relative flex-shrink-0 w-5 h-5">
           <span className="absolute left-0 w-full h-px transition-colors -translate-y-1/2 top-1/2 bg-zinc-400 dark:bg-zinc-500 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100" />
           <motion.span
@@ -157,7 +190,6 @@ const AccordionItem = ({
       </div>
     </button>
 
-    {/* Expanded content */}
     <AnimatePresence initial={false}>
       {isOpen && (
         <motion.div
@@ -196,20 +228,14 @@ const AccordionItem = ({
                       <span className="text-xs tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500">
                         Basic
                       </span>
-                      <span className="text-2xl font-light text-zinc-900 dark:text-zinc-100">
-                        {pricing.basic}{" "}
-                        <span className="text-sm text-zinc-400">zł / os.</span>
-                      </span>
+                      <PriceValue value={pricing.basic} selectedPeople={selectedPeople} />
                     </div>
                   )}
                   <div className="flex items-baseline justify-between">
                     <span className="text-xs tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500">
                       Premium
                     </span>
-                    <span className="text-2xl font-light text-zinc-900 dark:text-zinc-100">
-                      {pricing.premium}{" "}
-                      <span className="text-sm text-zinc-400">zł / os.</span>
-                    </span>
+                    <PriceValue value={pricing.premium} selectedPeople={selectedPeople} />
                   </div>
                 </div>
               ) : (
@@ -218,7 +244,7 @@ const AccordionItem = ({
             </div>
 
             {/* CTA */}
-            <div className="flex md:col-span-1 md:justify-end md:items-start">
+            <div className="flex md:col-span-1 md:justify-end md:items-end">
               <a
                 href="#contact"
                 className="text-sm underline transition-colors text-zinc-900 dark:text-zinc-100 underline-offset-4 decoration-zinc-300 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 w-fit"
@@ -241,9 +267,8 @@ export const Offer = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="offer" className="px-6 py-32 mx-auto max-w-7xl">
+    <section id="offer" className="px-6 py-24 mx-auto lg:py-32 max-w-7xl">
 
-      {/* Header */}
       <div className="mb-20">
         <Motion>
           <p className="text-[11px] tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
@@ -254,44 +279,32 @@ export const Offer = () => {
           </h2>
         </Motion>
         <Motion>
-          <p className="max-w-md text-base leading-relaxed text-zinc-400 dark:text-zinc-500">
+          <p className="max-w-lg text-base leading-relaxed text-zinc-400 dark:text-zinc-500">
             Ceny mają charakter orientacyjny i mogą się różnić w zależności od
             lokalizacji, liczby gości oraz indywidualnych ustaleń.
           </p>
         </Motion>
       </div>
 
-      {/* People tabs */}
-    
-        <PeopleTabs
-          tabs={PEOPLE_TABS}
-          selected={selectedPeople}
-          setSelected={setSelectedPeople}
-        />
-      
+      <PeopleTabs
+        tabs={PEOPLE_TABS}
+        selected={selectedPeople}
+        setSelected={setSelectedPeople}
+      />
 
-      {/* Accordion */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={selectedPeople}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 8 }}
-          transition={{ duration: 0.2 }}
-          className="border-t border-zinc-200 dark:border-zinc-800"
-        >
-          {OFFERS.map((offer, i) => (
-            <AccordionItem
-              key={offer.title}
-              offer={offer}
-              pricing={offer.pricing[selectedPeople]}
-              index={i}
-              isOpen={openIndex === i}
-              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
-            />
-          ))}
-        </motion.div>
-      </AnimatePresence>
+      <div className="border-t border-zinc-200 dark:border-zinc-800">
+        {OFFERS.map((offer, i) => (
+          <AccordionItem
+            key={offer.title}
+            offer={offer}
+            pricing={offer.pricing[selectedPeople]}
+            index={i}
+            isOpen={openIndex === i}
+            onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            selectedPeople={selectedPeople}
+          />
+        ))}
+      </div>
 
     </section>
   );

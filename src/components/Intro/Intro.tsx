@@ -70,9 +70,9 @@ export const Intro = () => {
       </div>
 
       {/* Divider */}
-      <Motion>
+     
         <div className="w-full h-px mb-20 bg-zinc-200 dark:bg-zinc-800" />
-      </Motion>
+     
 
       {/* Cards */}
       <div className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-16">
