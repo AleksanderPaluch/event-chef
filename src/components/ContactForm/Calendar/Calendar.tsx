@@ -62,7 +62,7 @@ export const DatePicker = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="top-0 right-0 p-3 bg-white rounded-lg shadow-lg simple-border dark:bg-zinc-950 w-fit md:absolute md:mt-0 md:translate-x-full"
+className="top-0 right-0 p-4 bg-white border rounded-lg shadow-sm dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 w-fit md:absolute md:mt-0 md:translate-x-full"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-3 text-xl">

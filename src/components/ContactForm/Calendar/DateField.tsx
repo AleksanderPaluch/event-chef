@@ -12,65 +12,42 @@ interface Props {
   lang?: "en" | "pl";
 }
 
-export const DateField = ({
-  value,
-  onChange,
-  required,
-  lang = "pl",
-}: Props) => {
+export const DateField = ({ value, onChange, required, lang = "pl" }: Props) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const t = FormTranslations[lang];
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (
-        wrapperRef.current &&
-        !wrapperRef.current.contains(e.target as Node)
-      ) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
         setOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
     <div className="relative" ref={wrapperRef}>
-      {/* INPUT LOOK */}
+
+      {/* Trigger */}
       <div
         onClick={() => setOpen((p) => !p)}
-        className="flex items-center cursor-pointer form-input"
+        className="flex items-center justify-between w-full py-3 text-sm transition-colors duration-200 bg-transparent border-b cursor-pointer border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-500"
       >
-        {value ? (
-          format(value, "dd.MM.yyyy")
-        ) : (
-          <div className="flex items-center justify-between w-full text-zinc-500 dark:text-zinc-400">
-           
-            <p className="text-zinc-500 dark:text-zinc-400">
-              {t.datePlaceholder}
-            </p>
-
-             <FiCalendar
-          className={`transition-transform duration-200 text-zinc-400 dark:text-zinc-700 ${
-            open ? "rotate-180" : ""
-          }`}
-        />
-          </div>
-        
-          
-        )}
+        <span className={value ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-300 dark:text-zinc-600"}>
+          {value ? format(value, "dd.MM.yyyy") : t.datePlaceholder}
+        </span>
+        <FiCalendar className="flex-shrink-0 text-zinc-300 dark:text-zinc-600" />
       </div>
 
-      {/* hidden dla required */}
       <input
         type="hidden"
         value={value ? value.toISOString() : ""}
         required={required}
       />
 
-      {/* CALENDAR */}
+      {/* Calendar */}
       <AnimatePresence>
         {open && (
           <div className="absolute z-20 mt-2">
@@ -85,6 +62,7 @@ export const DateField = ({
           </div>
         )}
       </AnimatePresence>
+
     </div>
   );
 };
