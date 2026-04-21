@@ -17,9 +17,10 @@ const SPRING_OPTIONS = {
 
 interface ButtonProps {
   text: string;
-  order?: boolean;     // true = scroll to contact, false = scroll to offer
-  href?: string;       // page navigation e.g. "/live"
+  order?: boolean;
+  href?: string;
   onClick?: () => void;
+  variant?: "hero" | "page";
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -27,6 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
   order = false,
   href,
   onClick,
+  variant = "hero",
 }) => {
   const ref = useRef<HTMLButtonElement | null>(null);
   const { pathname } = useLocation();
@@ -59,13 +61,24 @@ export const Button: React.FC<ButtonProps> = ({
     }
   };
 
+  if (variant === "page") {
+    return (
+      <button
+        onClick={handleClick}
+        className="text-sm underline transition-colors text-zinc-900 dark:text-zinc-100 underline-offset-4 decoration-zinc-300 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 w-fit"
+      >
+        {text}
+      </button>
+    );
+  }
+
   return (
     <motion.button
       ref={ref}
       style={{ transform }}
       onClick={handleClick}
       onMouseDown={handleReset}
-      className="w-full mx-auto bg-transparent border btn group lg:text-lg border-white/10 text-zinc-50/40 hover:text-zinc-200 hover:border-white/70 md:ml-0 "
+      className="w-full mx-auto bg-transparent border btn group lg:text-lg border-white/10 text-zinc-50/40 hover:text-zinc-200 hover:border-white/70 md:ml-0"
     >
       <Copy>{text}</Copy>
       <Arrow />

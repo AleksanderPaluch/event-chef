@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Motion } from "../Motion/Motion";
+import { Button } from "../Button/Button";
 
 export type PeopleTab = "8-14" | "15-19" | "20-29" | "30+";
 
@@ -24,10 +25,10 @@ export const OFFERS: OfferData[] = [
     callout: "Sushi na żywo",
     features: ["Indywidualne menu", "Produkty premium", "Pełna organizacja kulinarna"],
     pricing: {
-      "8-14":  { basic: "140", premium: "150" },
-      "15-19": { basic: "130", premium: "140" },
-      "20-29": { basic: "120", premium: "130" },
-      "30+":   { basic: "110", premium: "120" },
+      "8-14":  { basic: "130", premium: "140" },
+      "15-19": { basic: "120", premium: "130" },
+      "20-29": { basic: "110", premium: "120" },
+      "30+":   { basic: "100", premium: "110" },
     },
   },
   {
@@ -245,12 +246,7 @@ const AccordionItem = ({
 
             {/* CTA */}
             <div className="flex md:col-span-1 md:justify-end md:items-end">
-              <a
-                href="#contact"
-                className="text-sm underline transition-colors text-zinc-900 dark:text-zinc-100 underline-offset-4 decoration-zinc-300 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 w-fit"
-              >
-                Zapytaj o wycenę
-              </a>
+           <Button variant="page" order text="Zapytaj o wycenę" />
             </div>
 
           </div>
@@ -263,7 +259,7 @@ const AccordionItem = ({
 // ─── Section ──────────────────────────────────────────────────────────────────
 
 export const Offer = () => {
-  const [selectedPeople, setSelectedPeople] = useState<PeopleTab>("6-10");
+  const [selectedPeople, setSelectedPeople] = useState<PeopleTab>("8-14");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
