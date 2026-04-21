@@ -74,7 +74,7 @@ const StatItem = ({
 
   return (
     <div className="flex flex-col gap-1">
-      <p className="text-4xl lg:text-5xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight">
+      <p className="text-4xl font-light tracking-tight lg:text-5xl text-zinc-900 dark:text-zinc-100">
         <span ref={ref}>0</span>
         <span className="text-amber-700 dark:text-amber-400">{suffix}</span>
       </p>
@@ -118,7 +118,7 @@ const colorClass =
   ];
 
   return (
-    <div className="flex-shrink-0 w-72 flex flex-col gap-3 p-5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+    <div className="flex flex-col flex-shrink-0 gap-3 p-5 bg-white border w-72 rounded-xl dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -128,7 +128,7 @@ const colorClass =
             {name[0]}
           </div>
           <div>
-            <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100 leading-tight">
+            <p className="text-sm font-medium leading-tight text-zinc-900 dark:text-zinc-100">
               {name}
             </p>
             <p className="text-xs text-zinc-400 dark:text-zinc-500 leading-tight mt-0.5">
@@ -136,7 +136,7 @@ const colorClass =
             </p>
           </div>
         </div>
-        <FcGoogle className="text-2xl flex-shrink-0" />
+        <FcGoogle className="flex-shrink-0 text-2xl" />
       </div>
 
       {/* Stars — right below name, like Google */}
@@ -151,7 +151,7 @@ const colorClass =
       </div>
 
       {/* Review text */}
-      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+      <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
         {info}
       </p>
     </div>
@@ -163,8 +163,8 @@ const colorClass =
 const TestimonialStrip = () => (
   <div className="relative overflow-hidden">
     {/* fade edges */}
-    <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none" />
-    <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none" />
+    <div className="absolute top-0 bottom-0 left-0 z-10 w-16 pointer-events-none bg-gradient-to-r from-white dark:from-black to-transparent" />
+    <div className="absolute top-0 bottom-0 right-0 z-10 w-16 pointer-events-none bg-gradient-to-l from-white dark:from-black to-transparent" />
 
     <div className="flex">
       <motion.div
@@ -185,9 +185,9 @@ const TestimonialStrip = () => (
 
 export const AboutSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-32 flex flex-col gap-24 lg:gap-28">
+    <section className="flex flex-col max-w-6xl gap-24 px-6 py-32 mx-auto lg:gap-28">
       {/* O nas — two column */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32 items-start">
+      <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2 lg:gap-32">
         <Motion>
           <p className="text-sm font-semibold  tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
             O nas
@@ -199,7 +199,7 @@ export const AboutSection = () => {
         </Motion>
 
         <Motion>
-          <p className="text-base text-zinc-700 dark:text-zinc-400 leading-relaxed ">
+          <p className="text-base leading-relaxed text-zinc-700 dark:text-zinc-400 ">
             Nasza firma została stworzona przez doświadczonych, utalentowanych
             kucharzy, których pasją jest sushi. Nasze zaangażowanie w
             korzystanie z najlepszych składników widoczne jest w każdej usłudze
@@ -212,7 +212,7 @@ export const AboutSection = () => {
 
       {/* Stats */}
       <Motion>
-        <div className="flex flex-col md:flex-row text-center gap-3 items-center lg:px-24 justify-between border-t border-zinc-200 dark:border-zinc-800 pt-12">
+        <div className="flex flex-col items-center justify-between gap-3 pt-12 text-center border-t md:flex-row lg:px-0 border-zinc-200 dark:border-zinc-800">
           {STATS.map((s) => (
             <StatItem key={s.label} {...s} />
           ))}
@@ -227,7 +227,7 @@ export const AboutSection = () => {
               <p className="text-sm tracking-[0.2em] font-semibold uppercase text-amber-700 dark:text-amber-400 mb-3">
                 Opinie
               </p>
-              <h3 className="text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight">
+              <h3 className="text-3xl font-light tracking-tight md:text-5xl text-zinc-900 dark:text-zinc-100">
                 Co mówią o nas klienci?
               </h3>
             </div>

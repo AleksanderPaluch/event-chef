@@ -47,11 +47,11 @@ const features: FeatureType[] = [
 
 export const Intro = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 pt-28 pb-32">
+    <section className="px-6 pb-32 mx-auto max-w-7xl pt-28">
       {/* Header */}
-      <div className="mb-20 max-w-3xl">
+      <div className="max-w-3xl mb-20">
         <Motion>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.15] text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-light leading-[1.15] text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight">
             Tworzymy wyjątkowe sushi
             <br />
             <span className="text-4xl md:text-5xl lg:text-6xl ">
@@ -62,7 +62,7 @@ export const Intro = () => {
           </h2>
         </Motion>
         <Motion>
-          <p className="text-base text-zinc-400 dark:text-zinc-500 leading-relaxed max-w-md">
+          <p className="max-w-md text-base leading-relaxed text-zinc-400 dark:text-zinc-500">
             Przyjeżdżamy, przygotowujemy stanowisko i serwujemy świeże sushi na
             oczach Twoich gości. To nie tylko catering — to doświadczenie.
           </p>
@@ -71,11 +71,11 @@ export const Intro = () => {
 
       {/* Divider */}
       <Motion>
-        <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800 mb-20" />
+        <div className="w-full h-px mb-20 bg-zinc-200 dark:bg-zinc-800" />
       </Motion>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-16">
         {features.map((feature, i) => (
           <motion.div
             key={feature.id}
@@ -87,17 +87,17 @@ export const Intro = () => {
               ease: [0.22, 1, 0.36, 1],
               delay: i * 0.1,
             }}
-            className="group flex flex-col"
+            className="flex flex-col group"
           >
             {/* Text above image */}
 
-            <h3 className="text-4xl  font-light text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
+            <h3 className="mb-4 text-4xl font-light tracking-tight text-zinc-900 dark:text-zinc-100">
               {feature.title}
             </h3>
             <p className=" text-sm md:text-xs font-semibold tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400  mb-4">
               {feature.callout}
             </p>
-            <p className="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-8">
+            <p className="mb-8 text-sm leading-relaxed text-zinc-700 dark:text-zinc-400">
               {feature.description}
             </p>
 
@@ -106,11 +106,11 @@ export const Intro = () => {
               <motion.img
                 src={feature.image}
                 alt={feature.title}
-                className="w-full h-full object-cover"
+                className="object-cover w-full h-full"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               />
-            {/* <div className="absolute inset-0 bg-black/20 rounded-lg" /> */}
+            {/* <div className="absolute inset-0 rounded-lg bg-black/20" /> */}
             </div>
             <Button text="Poznaj doświadczenie" href={feature.href} />
           </motion.div>
