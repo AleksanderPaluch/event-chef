@@ -1,5 +1,3 @@
-// AboutSection.tsx — combines O nas, Stats, Testimonials
-
 import { useEffect, useRef } from "react";
 import { animate, motion, useInView } from "framer-motion";
 import { MdStar, MdStarHalf, MdStarBorder } from "react-icons/md";
@@ -18,7 +16,7 @@ const STATS = [
 const TESTIMONIALS = [
   {
     id: 1,
-    img: "https://images.unsplash.com/photo-1627161683077-e34782c24d81?w=200&q=80",
+
     name: "Gabriella S.",
     info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
     rating: 3.5,
@@ -26,7 +24,7 @@ const TESTIMONIALS = [
   },
   {
     id: 2,
-    img: "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?w=200&q=80",
+
     name: "Daniel A.",
     info: "Bardzo dobra organizacja live sushi na imprezie urodzinowej. Goście byli zachwyceni!",
     rating: 5,
@@ -34,7 +32,7 @@ const TESTIMONIALS = [
   },
   {
     id: 3,
-    img: "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?w=200&q=80",
+
     name: "Paweł W.",
     info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
     rating: 5,
@@ -42,7 +40,7 @@ const TESTIMONIALS = [
   },
   {
     id: 4,
-    img: "https://images.unsplash.com/photo-1627161683077-e34782c24d81?w=200&q=80",
+
     name: "Magdalena S.",
     info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
     rating: 4,
@@ -89,14 +87,21 @@ const StatItem = ({
 
 // ─── Review card ─────────────────────────────────────────────────────────────
 
+const AVATAR_COLORS = [
+  "bg-blue-500",
+  "bg-red-500",
+  "bg-green-600",
+  "bg-yellow-500",
+  "bg-purple-500",
+  "bg-pink-500",
+];
+
 const ReviewCard = ({
-  img,
   name,
   info,
   rating,
   createdAt,
 }: {
-  img?: string;
   name: string;
   info: string;
   rating: number;
@@ -106,44 +111,47 @@ const ReviewCard = ({
   const half = rating % 1 >= 0.5;
   const empty = 5 - full - (half ? 1 : 0);
 
+  // deterministic color per name
+const colorClass =
+  AVATAR_COLORS[
+    name.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0) % AVATAR_COLORS.length
+  ];
+
   return (
-    <div className="flex-shrink-0 w-72 lg:w-80 flex flex-col gap-4 p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-950">
+    <div className="flex-shrink-0 w-72 flex flex-col gap-3 p-5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+      {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          {img ? (
-            <img
-              src={img}
-              alt={name}
-              className="w-9 h-9 rounded-full object-cover"
-            />
-          ) : (
-            <div className="w-9 h-9 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-sm font-medium text-zinc-600 dark:text-zinc-300">
-              {name[0]}
-            </div>
-          )}
+          <div
+            className={`w-10 h-10 rounded-full ${colorClass} flex items-center justify-center text-white text-sm font-medium flex-shrink-0`}
+          >
+            {name[0]}
+          </div>
           <div>
-            <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+            <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100 leading-tight">
               {name}
             </p>
-            <p className="text-xs text-zinc-400 dark:text-zinc-500">
+            <p className="text-xs text-zinc-400 dark:text-zinc-500 leading-tight mt-0.5">
               {getRelativeDatePL(createdAt)}
             </p>
           </div>
         </div>
-        <FcGoogle className="text-xl flex-shrink-0" />
+        <FcGoogle className="text-2xl flex-shrink-0" />
       </div>
 
-      <div className="flex gap-0.5">
+      {/* Stars — right below name, like Google */}
+      <div className="flex items-center gap-0.5">
         {[...Array(full)].map((_, i) => (
-          <MdStar key={`f${i}`} className="text-base text-yellow-400" />
+          <MdStar key={`f${i}`} className="text-[#FBBC04] text-lg" />
         ))}
-        {half && <MdStarHalf className="text-base text-yellow-400" />}
+        {half && <MdStarHalf className="text-[#FBBC04] text-lg" />}
         {[...Array(empty)].map((_, i) => (
-          <MdStarBorder key={`e${i}`} className="text-base text-yellow-400" />
+          <MdStarBorder key={`e${i}`} className="text-[#FBBC04] text-lg" />
         ))}
       </div>
 
-      <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+      {/* Review text */}
+      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
         {info}
       </p>
     </div>
@@ -177,7 +185,7 @@ const TestimonialStrip = () => (
 
 export const AboutSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-32 flex flex-col gap-24">
+    <section className="max-w-7xl mx-auto px-6 py-32 flex flex-col gap-24 lg:gap-28">
       {/* O nas — two column */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32 items-start">
         <Motion>
