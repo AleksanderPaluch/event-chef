@@ -94,10 +94,10 @@ export const Intro = () => {
             <h3 className="text-4xl  font-light text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
               {feature.title}
             </h3>
-            <p className="text-[11px] tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400  mb-4">
+            <p className=" text-sm md:text-xs font-semibold tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400  mb-4">
               {feature.callout}
             </p>
-            <p className="text-sm text-zinc-400 dark:text-zinc-500 leading-relaxed mb-8">
+            <p className="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-8">
               {feature.description}
             </p>
 
@@ -110,7 +110,7 @@ export const Intro = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               />
-            <div className="absolute inset-0 bg-black/50 rounded-lg" />
+            {/* <div className="absolute inset-0 bg-black/20 rounded-lg" /> */}
             </div>
             <Button text="Poznaj doświadczenie" href={feature.href} />
           </motion.div>

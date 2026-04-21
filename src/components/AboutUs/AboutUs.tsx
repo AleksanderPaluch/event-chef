@@ -11,7 +11,7 @@ import { getRelativeDatePL } from "./helpers";
 
 const STATS = [
   { num: 100, suffix: "%", label: "Zadowolonych klientów" },
-  { num: 30, suffix: "+", label: "Eventów zorganizowanych" },
+  { num: 20, suffix: "+", label: "Eventów zorganizowanych" },
   { num: 10, suffix: "lat+", label: "Doświadczenia zawodowego" },
 ];
 
@@ -52,7 +52,15 @@ const TESTIMONIALS = [
 
 // ─── Stat counter ─────────────────────────────────────────────────────────────
 
-const StatItem = ({ num, suffix, label }: { num: number; suffix: string; label: string }) => {
+const StatItem = ({
+  num,
+  suffix,
+  label,
+}: {
+  num: number;
+  suffix: string;
+  label: string;
+}) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
 
@@ -72,7 +80,7 @@ const StatItem = ({ num, suffix, label }: { num: number; suffix: string; label: 
         <span ref={ref}>0</span>
         <span className="text-amber-700 dark:text-amber-400">{suffix}</span>
       </p>
-      <p className="text-xs tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500">
+      <p className=" text-sm  tracking-[0.15em] uppercase text-zinc-700 dark:text-zinc-400">
         {label}
       </p>
     </div>
@@ -103,27 +111,41 @@ const ReviewCard = ({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {img ? (
-            <img src={img} alt={name} className="w-9 h-9 rounded-full object-cover" />
+            <img
+              src={img}
+              alt={name}
+              className="w-9 h-9 rounded-full object-cover"
+            />
           ) : (
             <div className="w-9 h-9 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-sm font-medium text-zinc-600 dark:text-zinc-300">
               {name[0]}
             </div>
           )}
           <div>
-            <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{name}</p>
-            <p className="text-xs text-zinc-400 dark:text-zinc-500">{getRelativeDatePL(createdAt)}</p>
+            <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+              {name}
+            </p>
+            <p className="text-xs text-zinc-400 dark:text-zinc-500">
+              {getRelativeDatePL(createdAt)}
+            </p>
           </div>
         </div>
         <FcGoogle className="text-xl flex-shrink-0" />
       </div>
 
       <div className="flex gap-0.5">
-        {[...Array(full)].map((_, i) => <MdStar key={`f${i}`} className="text-base text-yellow-400" />)}
+        {[...Array(full)].map((_, i) => (
+          <MdStar key={`f${i}`} className="text-base text-yellow-400" />
+        ))}
         {half && <MdStarHalf className="text-base text-yellow-400" />}
-        {[...Array(empty)].map((_, i) => <MdStarBorder key={`e${i}`} className="text-base text-yellow-400" />)}
+        {[...Array(empty)].map((_, i) => (
+          <MdStarBorder key={`e${i}`} className="text-base text-yellow-400" />
+        ))}
       </div>
 
-      <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{info}</p>
+      <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+        {info}
+      </p>
     </div>
   );
 };
@@ -155,23 +177,22 @@ const TestimonialStrip = () => (
 
 export const AboutSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-32 flex flex-col gap-20">
-
+    <section className="max-w-7xl mx-auto px-6 py-32 flex flex-col gap-24">
       {/* O nas — two column */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32 items-start">
         <Motion>
-          <p className="text-[11px] tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
+          <p className="text-sm font-semibold  tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
             O nas
           </p>
           <h2 className="text-4xl md:text-5xl font-light leading-[1.15] text-zinc-900 dark:text-zinc-100 tracking-tight">
-            Pasja do sushi,<br />w każdym detalu.
+            Pasja do sushi,
+            <br />w każdym detalu.
           </h2>
         </Motion>
 
         <Motion>
-          <p className="text-base text-zinc-400 dark:text-zinc-500 leading-relaxed">
-            Od początku najwyższą jakość stawiamy na pierwszym miejscu. Nasza
-            firma została stworzona przez doświadczonych, utalentowanych
+          <p className="text-base text-zinc-700 dark:text-zinc-400 leading-relaxed ">
+            Nasza firma została stworzona przez doświadczonych, utalentowanych
             kucharzy, których pasją jest sushi. Nasze zaangażowanie w
             korzystanie z najlepszych składników widoczne jest w każdej usłudze
             i w każdym zestawie. Dbamy o to, aby każde wydarzenie, które
@@ -183,7 +204,7 @@ export const AboutSection = () => {
 
       {/* Stats */}
       <Motion>
-        <div className="grid grid-cols-3 gap-8 border-t border-zinc-200 dark:border-zinc-800 pt-12">
+        <div className="flex flex-col md:flex-row text-center gap-3 items-center lg:px-24 justify-between border-t border-zinc-200 dark:border-zinc-800 pt-12">
           {STATS.map((s) => (
             <StatItem key={s.label} {...s} />
           ))}
@@ -195,7 +216,7 @@ export const AboutSection = () => {
         <Motion>
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-3">
+              <p className="text-sm tracking-[0.2em] font-semibold uppercase text-amber-700 dark:text-amber-400 mb-3">
                 Opinie
               </p>
               <h3 className="text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight">
@@ -207,7 +228,6 @@ export const AboutSection = () => {
 
         <TestimonialStrip />
       </div>
-
     </section>
   );
 };
