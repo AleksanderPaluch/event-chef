@@ -185,7 +185,7 @@ const TestimonialStrip = () => (
 
 export const AboutSection = () => {
   return (
-    <section className="flex flex-col max-w-6xl gap-24 px-6 py-32 mx-auto lg:gap-28">
+    <section className="flex flex-col max-w-6xl gap-20 px-6 py-32 mx-auto lg:gap-28">
       {/* O nas — two column */}
       <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2 lg:gap-32">
         <Motion>
@@ -199,11 +199,9 @@ export const AboutSection = () => {
         </Motion>
 
         <Motion>
-          <p className="text-base leading-relaxed text-zinc-700 dark:text-zinc-400 ">
+          <p className="text-base leading-relaxed md:mt-10 text-zinc-700 dark:text-zinc-400 ">
             Nasza firma została stworzona przez doświadczonych, utalentowanych
-            kucharzy, których pasją jest sushi. Nasze zaangażowanie w
-            korzystanie z najlepszych składników widoczne jest w każdej usłudze
-            i w każdym zestawie. Dbamy o to, aby każde wydarzenie, które
+            kucharzy, których pasją jest sushi. Dbamy o to, aby każde wydarzenie, które
             obsługujemy, było wyjątkowym, niezapomnianym doświadczeniem
             kulinarnym.
           </p>

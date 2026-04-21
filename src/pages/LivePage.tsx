@@ -60,7 +60,7 @@ export default function LivePage() {
         subtitle=""
       />
 
-      <div className="section ">
+      {/* <div className="section ">
         <div className="flex flex-col ">
           <Motion>
             {" "}
@@ -92,7 +92,7 @@ export default function LivePage() {
             </div>
           </Motion>
         </div>
-      </div>
+      </div> */}
 
       <StickyCards
         chipsTitle={cardsData.chipsTitle}

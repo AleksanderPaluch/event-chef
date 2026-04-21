@@ -4,11 +4,10 @@ import { Hero } from "../components/Hero/Hero";
 import { Intro } from "../components/Intro/Intro";
 import { Offer } from "../components/Offer/Offer";
 import { smoothScrollTo } from "../components/helpers";
-import sushiPlate from "../assets/PHOTO-2024-12-10-17-19-05.webp";
+import heroImage from "../assets/ChatGPT Image 21 kwi 2026, 17_25_24.png";
 import { Footer } from "../components/Footer/Footer";
 import { AboutSection } from "../components/AboutUs/AboutUs";
-import { Testimonials } from "../components/About/Testimonials/Testimonials";
-import { Stats } from "../components/About/Stats/Stats";
+
 
 export default function HomePage() {
   useEffect(() => {
@@ -23,7 +22,7 @@ export default function HomePage() {
   return (
     <>
       <Hero
-        image={sushiPlate}
+        image={heroImage}
         eyebrow="Event Chef"
         heading={
           <>
@@ -32,7 +31,7 @@ export default function HomePage() {
           </>
         }
         subtitle="Wesela • Eventy firmowe • Prywatne kolacje"
-        showCta
+      
       />
       <Intro />
       <AboutSection />

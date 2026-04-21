@@ -75,7 +75,7 @@ const PeopleTabs = ({
   selected: PeopleTab;
   setSelected: (t: PeopleTab) => void;
 }) => (
-  <div className="flex gap-0 border-b border-zinc-200 dark:border-zinc-800 ">
+  <div className="flex gap-0 ">
     {tabs.map((tab) => (
       <button
         key={tab}
@@ -262,13 +262,13 @@ export const Offer = () => {
       </div>
 
       {/* People tabs */}
-      <Motion>
+    
         <PeopleTabs
           tabs={PEOPLE_TABS}
           selected={selectedPeople}
           setSelected={setSelectedPeople}
         />
-      </Motion>
+      
 
       {/* Accordion */}
       <AnimatePresence mode="wait">

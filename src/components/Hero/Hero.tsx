@@ -10,7 +10,7 @@ export interface HeroProps {
   eyebrow?: string;
   heading: React.ReactNode;
   subtitle?: string;
-  showCta?: boolean;
+
 }
 
 const useIsDesktop = () => {
@@ -47,11 +47,11 @@ const HeroContent = ({ eyebrow, heading, subtitle, showCta }: Omit<HeroProps, "i
       </p>
     )}
 
-    {showCta && (
+  
       <div className="max-w-lg mt-8 lg:mt-10">
         <Button order  text="Otrzymaj indywidualną ofertę" />
       </div>
-    )}
+
   </div>
 );
 
