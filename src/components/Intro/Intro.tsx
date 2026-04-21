@@ -110,7 +110,7 @@ export const Intro = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               />
-            {/* <div className="absolute inset-0 rounded-lg bg-black/20" /> */}
+            {/* <div className="absolute inset-0 rounded-lg bg-black/70" /> */}
             </div>
             <Button variant="page" text="Poznaj doświadczenie" href={feature.href} />
           </motion.div>

@@ -14,14 +14,14 @@ import type { RepresentType } from "./Form";
 const BASE_TRANSITION = { duration: 0.4, ease: easeInOut };
 
 const inputClass =
-  "w-full bg-transparent border-b border-zinc-200 dark:border-zinc-800 py-3 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-300 dark:placeholder:text-zinc-600 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500 transition-colors duration-200";
+  "w-full bg-transparent border-b border-zinc-200 dark:border-zinc-800 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-300 dark:placeholder:text-zinc-600 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500 transition-colors duration-200";
 
-const labelClass = "block text-sm text-zinc-400 dark:text-zinc-500 mb-2";
+const labelClass = "block text-base text-zinc-400 dark:text-zinc-300 mb-0";
 
 // ─── Images ───────────────────────────────────────────────────────────────────
 
 const Images = ({ selected }: { selected: RepresentType }) => (
-  <div className="relative overflow-hidden rounded-lg w-full min-h-[320px] lg:min-h-[620px]">
+  <div className="relative overflow-hidden rounded-lg w-full min-h-[320px] lg:min-h-full">
     <motion.div
       initial={false}
       animate={{ x: selected === "individual" ? "0%" : "100%" }}
@@ -73,7 +73,7 @@ const Form = ({
   return (
     <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-6">
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:gap-36 md:grid-cols-2">
         <div>
           <label className={labelClass}>{t.nameLabel}</label>
           <input type="text" placeholder={t.namePlaceholder} className={inputClass} />
@@ -150,24 +150,24 @@ const Form = ({
         <label className={labelClass}>{t.messageLabel}</label>
         <textarea
           placeholder={t.messagePlaceholder}
-          rows={4}
+          rows={2}
           className={`${inputClass} resize-none`}
         />
       </div>
 
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-2">
         <input
           type="checkbox"
           id="consent"
-          className="mt-0.5 w-3.5 h-3.5 flex-shrink-0 accent-zinc-900 dark:accent-zinc-100"
+          className="flex-shrink-0 mt-1.5 accent-zinc-900 dark:accent-zinc-100"
         />
-        <label htmlFor="consent" className="text-xs leading-relaxed text-zinc-400 dark:text-zinc-500">
+        <label htmlFor="consent" className="text-sm leading-relaxed text-zinc-400 dark:text-zinc-500">
           {t.agreements.contact}
         </label>
       </div>
 
-      <div className="pt-2">
-        <Button text={t.submit} order />
+      <div className="">
+        <Button  text={t.submit} order />
       </div>
 
     </form>
@@ -201,7 +201,7 @@ export const ContactForm = () => {
 
       <div className="w-full h-px mb-16 bg-zinc-200 dark:bg-zinc-800" />
 
-      <div className="grid items-start grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
+      <div className="grid items-start grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-28">
         <Form selected={selected} setSelected={setSelected} />
         <Images selected={selected} />
       </div>
