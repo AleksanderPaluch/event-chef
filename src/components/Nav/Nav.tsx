@@ -3,20 +3,21 @@ import { useScroll, useMotionValueEvent } from "framer-motion";
 import { NavLeft } from "./NavLeft";
 import { NavMenu } from "./NavMenu";
 
+// Nav.tsx — pass scrolled down
 export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const { scrollY } = useScroll();
-useMotionValueEvent(scrollY, "change", (latest) => {
-  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-  const threshold = isTablet ? 350 : 790;
-  setScrolled(latest > threshold);
-});
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+    const threshold = isTablet ? 350 : 790;
+    setScrolled(latest > threshold);
+  });
 
   return (
     <nav className={`nav ${scrolled ? "nav--scrolled" : "nav--top"}`}>
-      <NavLeft setIsOpen={setIsOpen} />
+      <NavLeft setIsOpen={setIsOpen} isOpen={isOpen} />
       <NavMenu setIsOpen={setIsOpen} isOpen={isOpen} />
     </nav>
   );

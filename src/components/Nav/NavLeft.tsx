@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiMenu } from "react-icons/fi";
+import { TfiLineDouble } from "react-icons/tfi";
 import { NavLink } from "./NavLink";
 import React from "react";
 
@@ -22,10 +22,10 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen }) => {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="nav-menu-button"
+        className="text-5xl dark:text-zinc-200"
         onClick={() => setIsOpen((pv) => !pv)}
       >
-        <FiMenu />
+        <TfiLineDouble  />
       </motion.button>
 
       {links.map((link, index) => (
