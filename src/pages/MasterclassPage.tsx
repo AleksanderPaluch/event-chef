@@ -69,39 +69,7 @@ export default function MasterclassPage() {
         }
       />
 
-      <div className="section">
-        <div className="flex flex-col ">
-          <Motion>
-            {" "}
-            <h2 className="text-left section-header lg:text-5xl lg:mb-10">
-              Czym jest <br />{" "}
-              <span className="text-amber-500 dark:text-amber-400 lg:text-6xl ">
-                Masterclass
-              </span>
-              ?
-            </h2>
-          </Motion>
-
-          <Motion>
-            {" "}
-            <p className="max-w-3xl ml-0 text-justify lg:max-w-2xl section-comment">
-              "Masterclass sushi to praktyczne warsztaty, podczas których
-              uczestnicy uczą się przygotowywania sushi od podstaw pod okiem
-              doświadczonego sushi mastera."
-            </p>
-          </Motion>
-          <Motion>
-            {" "}
-            <div className="max-w-lg mt-8">
-              <Button
-                order
-         
-                text="Otrzymaj indywidualną ofertę"
-              />
-            </div>
-          </Motion>
-        </div>
-      </div>
+    
 
       <StickyCards
         chipsTitle={cardsData.chipsTitle}

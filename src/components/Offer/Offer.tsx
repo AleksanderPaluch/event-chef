@@ -264,7 +264,7 @@ export const Offer = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="offer" className="px-6 py-24 mx-auto lg:py-32 max-w-7xl">
+    <section id="offer" className="px-6 py-24 mx-auto lg:py-24 max-w-7xl">
 
       <div className="mb-20">
         <Motion>

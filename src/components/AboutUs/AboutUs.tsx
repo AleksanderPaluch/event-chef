@@ -186,7 +186,7 @@ const TestimonialStrip = () => (
 
 export const AboutSection = () => {
   return (
-    <section className="flex flex-col gap-20 px-6 py-24 mx-auto max-w-7xl lg:py-32 lg:gap-28">
+    <section className="flex flex-col gap-20 px-6 py-24 mx-auto max-w-7xl lg:py-32lg:pb-24 lg:gap-28">
       {/* O nas — two column */}
       <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2 lg:gap-32">
         <Motion>

@@ -38,7 +38,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
               transition={{ duration: 0.2 }}
               className="absolute"
             >
-              <FiX className="text-2xl" />
+              <FiX className="text-4xl" />
             </motion.span>
           ) : (
             <motion.span
@@ -49,7 +49,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
               transition={{ duration: 0.2 }}
               className="absolute"
             >
-              <TfiLineDouble className="text-3xl" />
+              <TfiLineDouble className="text-4xl" />
             </motion.span>
           )}
         </AnimatePresence>

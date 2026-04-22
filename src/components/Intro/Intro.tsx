@@ -94,7 +94,7 @@ export const Intro = () => {
             <h3 className="mb-4 text-4xl font-light tracking-tight text-zinc-900 dark:text-zinc-100">
               {feature.title}
             </h3>
-            <p className=" text-sm md:text-xs font-semibold tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400  mb-4">
+            <p className=" text-sm md:text-xs font-semibold tracking-[0.15em] uppercase text-amber-700 dark:text-amber-400  mb-4">
               {feature.callout}
             </p>
             <p className="mb-8 text-sm leading-relaxed text-zinc-700 dark:text-zinc-400">
@@ -112,7 +112,7 @@ export const Intro = () => {
               />
             {/* <div className="absolute inset-0 rounded-lg bg-black/70" /> */}
             </div>
-            <div className="">
+            <div className="text-lg">
                <Button variant="page" text="Poznaj doświadczenie" href={feature.href} />
             </div>
            
