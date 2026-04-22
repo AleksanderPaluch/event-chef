@@ -21,7 +21,7 @@ export const FAQ = ({ items }: FAQProps) => {
         </p>
         {items.map((item, i) => (
           <Question key={i} title={item.title} defaultOpen={i === 0}>
-            <p>{item.answer}</p>
+            <span>{item.answer}</span>
           </Question>
         ))}
       </div>

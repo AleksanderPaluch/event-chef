@@ -36,14 +36,14 @@ const Section = ({
   align: "left" | "right";
 }) => (
   <div className="flex flex-col gap-1 px-2 py-4 md:gap-3 min-w-[300px]">
-    <p className="text-sm lg:text-xs font-semibold text-center uppercase tracking-[0.2em] opacity-50">
+    <p className="text-sm lg:text-xs  text-center uppercase tracking-[0.2em] opacity-50">
       {title}
     </p>
     <div className="flex flex-col gap-1">
       {items.map((item) => (
         <span
           key={item}
-          className={`text-lg lg:text-xl uppercase tracking-[0.2em] opacity-90 text-left ${
+          className={`text-lg  uppercase tracking-[0.2em] opacity-90 text-left ${
             align === "left" ? "md:text-left" : "md:text-right"
           }`}
         >

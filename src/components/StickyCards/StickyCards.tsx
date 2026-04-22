@@ -112,11 +112,13 @@ const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
       `}
     >
       <card.Icon className="mb-3 text-3xl text-center lg:text-4xl opacity-80 text-amber-500 dark:text-amber-400" />
-      <h3 className="mb-8 text-4xl tracking-tight text-center md:text-5xl lg:text-6xl text-zinc-950 dark:text-zinc-50">
+      <h3 className="mb-8 text-4xl font-light tracking-tight md:text-5xl text-zinc-950 dark:text-zinc-50">
         {card.title}
       </h3>
-      <div className="flex justify-center w-full">{card.content}</div>
+      <div className="flex justify-center w-full mb-12">{card.content}</div>
+          
     </motion.div>
+    
   );
 };
 
@@ -133,7 +135,7 @@ export const StickyCards: React.FC<StickyCardsProps> = (props) => {
 
   return (
     <>
-      <div ref={ref} className="relative">
+      <div ref={ref} className="relative ">
         {cards.map((c, idx) => (
           <Card
             key={c.id}
@@ -144,7 +146,7 @@ export const StickyCards: React.FC<StickyCardsProps> = (props) => {
           />
         ))}
       </div>
-  
+      <div className="w-90% h-px mx-auto mb-20 max-w-7xl bg-zinc-200 dark:bg-zinc-800" />
     </>
   );
 };

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Button } from "../Button/Button";
 
-const SECTION_HEIGHT = 200;
+const SECTION_HEIGHT = 150;
 
 export interface HeroProps {
   image: string;
@@ -80,7 +80,7 @@ const CenterImage = ({ image, ...contentProps }: HeroProps) => {
   );
 
   return (
-    <div className="sticky top-0 h-[110svh] w-full overflow-hidden">
+    <div className="sticky top-0 h-[115svh] w-full overflow-hidden">
       <motion.div
         className="absolute inset-0"
         style={{
