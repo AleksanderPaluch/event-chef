@@ -1,11 +1,14 @@
-import { type Dispatch, type SetStateAction } from "react";
-import type { RepresentType } from "./Form";
+
+
 import { motion, easeInOut } from "framer-motion";
 import { FormTranslations } from "../Translations/translations";
 
+type RepresentType = "company" | "individual";
+
 type FormSelectProps = {
   selected: RepresentType;
-  setSelected: Dispatch<SetStateAction<RepresentType>>;
+
+setSelected: (v: RepresentType) => void;
   lang: "en" | "pl";
 };
 

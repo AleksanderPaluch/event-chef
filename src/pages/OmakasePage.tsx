@@ -1,9 +1,8 @@
 import liveImage from "../assets/blackieshoot-qLBlMw35508-unsplash.jpg";
-import { Button } from "../components/Button/Button";
+
 import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
-import { Motion } from "../components/Motion/Motion";
 import { StickyCards } from "../components/StickyCards/StickyCards";
 import {  omakaseFAQ } from "../components/Translations/faq";
 

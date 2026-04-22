@@ -9,7 +9,10 @@ import { DateField } from "./Calendar/DateField";
 import { CustomSelect } from "./Calendar/CustomSelect";
 import homeSushi from "../../assets/home_sushi.jpg";
 import officeSushi from "../../assets/office_sushi.jpg";
-import type { RepresentType } from "./Form";
+
+
+
+type RepresentType = "company" | "individual";
 
 const BASE_TRANSITION = { duration: 0.4, ease: easeInOut };
 
