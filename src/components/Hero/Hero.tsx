@@ -27,8 +27,8 @@ const useIsDesktop = () => {
   return isDesktop;
 };
 
-const HeroContent = ({ eyebrow, heading, subtitle, showCta }: Omit<HeroProps, "image">) => (
-  <div className="absolute left-0 z-10 w-full max-w-4xl px-6 bottom-48 md:bottom-16 lg:bottom-64 md:px-12 lg:px-20">
+const HeroContent = ({ eyebrow, heading, subtitle }: Omit<HeroProps, "image">) => (
+  <div className="absolute left-0 z-10 w-full max-w-4xl px-4 bottom-32 md:bottom-16 lg:bottom-52 md:px-12 lg:px-20">
     {eyebrow && (
       <span className="uppercase tracking-[0.4em] text-amber-500 dark:text-amber-400 text-sm font-semibold">
         {eyebrow}
@@ -42,13 +42,13 @@ const HeroContent = ({ eyebrow, heading, subtitle, showCta }: Omit<HeroProps, "i
     <div className="w-16 h-px mt-6 lg:mt-8 bg-amber-500/60" />
 
     {subtitle && (
-      <p className="mt-4 text-sm font-semibold tracking-wider uppercase text-zinc-300">
+      <p className="mt-32 text-sm font-semibold tracking-wide uppercase md:mt-6 text-zinc-300">
         {subtitle}
       </p>
     )}
 
   
-      <div className="max-w-lg mt-8 lg:mt-10">
+      <div className="max-w-lg mt-4 lg:mt-7">
         <Button order  text="Otrzymaj indywidualną ofertę" />
       </div>
 
@@ -65,7 +65,7 @@ const HeroMobile = ({ image, ...contentProps }: HeroProps) => (
         backgroundPosition: "bottom",
       }}
     />
-    <div className="absolute left-0 right-0 -bottom-1 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
+    <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
     <div className="absolute inset-0 bg-black/50 dark:bg-black/50" />
     <HeroContent {...contentProps} />
   </section>

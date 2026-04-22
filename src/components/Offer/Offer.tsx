@@ -210,7 +210,8 @@ const AccordionItem = ({
               <ul className="space-y-2">
                 {offer.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="mt-1.5 w-1 h-1 rounded-full bg-zinc-300 dark:bg-zinc-600 flex-shrink-0" />
+                    <span className="text-green-800">✔</span>
+                  
                     {f}
                   </li>
                 ))}
@@ -219,7 +220,7 @@ const AccordionItem = ({
 
             {/* Pricing */}
             <div className="md:col-span-1">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-4">
+              <p className="text-sm  tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-4">
                 Cennik
               </p>
               {pricing ? (
@@ -259,7 +260,7 @@ const AccordionItem = ({
 // ─── Section ──────────────────────────────────────────────────────────────────
 
 export const Offer = () => {
-  const [selectedPeople, setSelectedPeople] = useState<PeopleTab>("8-14");
+  const [selectedPeople, setSelectedPeople] = useState<PeopleTab>("30+");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -267,9 +268,7 @@ export const Offer = () => {
 
       <div className="mb-20">
         <Motion>
-          <p className="text-[11px] tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
-            Cennik
-          </p>
+   
           <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-zinc-900 dark:text-zinc-100">
             Oferta
           </h2>

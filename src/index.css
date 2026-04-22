@@ -141,9 +141,7 @@ input:-webkit-autofill:active {
            transition-colors;
   }
 
-   .btn {
-    @apply flex items-center justify-between px-4 py-2 text-sm transition-all duration-300 rounded-lg md:py-1 lg:text-base text-zinc-700 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-50 ;
-  }
+
 
   
 }

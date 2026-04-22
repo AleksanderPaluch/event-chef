@@ -186,7 +186,7 @@ const TestimonialStrip = () => (
 
 export const AboutSection = () => {
   return (
-    <section className="flex flex-col max-w-6xl gap-20 px-6 py-24 mx-auto lg:py-32 lg:gap-28">
+    <section className="flex flex-col gap-20 px-6 py-24 mx-auto max-w-7xl lg:py-32 lg:gap-28">
       {/* O nas — two column */}
       <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2 lg:gap-32">
         <Motion>
@@ -223,10 +223,8 @@ export const AboutSection = () => {
         <Motion>
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-sm tracking-[0.2em] font-semibold uppercase text-amber-700 dark:text-amber-400 mb-3">
-                Opinie
-              </p>
-              <h3 className="text-3xl font-light tracking-tight md:text-5xl text-zinc-900 dark:text-zinc-100">
+        
+              <h3 className="text-3xl font-light tracking-tight md:text-4xl text-zinc-900 dark:text-zinc-100">
                 Co mówią o nas klienci?
               </h3>
             </div>

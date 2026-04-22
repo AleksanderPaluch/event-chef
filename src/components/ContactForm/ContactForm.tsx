@@ -154,21 +154,21 @@ const Form = ({
           className={`${inputClass} resize-none`}
         />
       </div>
+{/* Consent + Submit in one row */}
+<div className="flex items-start justify-between gap-6 pt-2">
+  <div className="flex items-start gap-2">
+    <input
+      type="checkbox"
+      id="consent"
+      className="flex-shrink-0 w-4 h-4 mt-1 accent-zinc-900 dark:accent-zinc-100"
+    />
+    <label htmlFor="consent"  className="text-lg leading-relaxed md:text-base text-zinc-400 dark:text-zinc-500">
+      {t.agreements.contact}
+    </label>
+  </div>
 
-      <div className="flex items-start gap-2">
-        <input
-          type="checkbox"
-          id="consent"
-          className="flex-shrink-0 mt-1.5 accent-zinc-900 dark:accent-zinc-100"
-        />
-        <label htmlFor="consent" className="text-sm leading-relaxed text-zinc-400 dark:text-zinc-500">
-          {t.agreements.contact}
-        </label>
-      </div>
-
-      <div className="">
-        <Button  text={t.submit} order />
-      </div>
+  <Button variant="submit" text={t.submit} />
+</div>
 
     </form>
   );
@@ -184,7 +184,7 @@ export const ContactForm = () => {
 
       <div className="mb-20">
         <Motion>
-          <p className="text-[11px] tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
             Kontakt
           </p>
           <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-zinc-900 dark:text-zinc-100">
@@ -205,8 +205,8 @@ export const ContactForm = () => {
         <Form selected={selected} setSelected={setSelected} />
         <Images selected={selected} />
       </div>
-
-      <p className="max-w-full mt-4 text-xs leading-relaxed text-center text-zinc-300 dark:text-zinc-600">
+      <div className="w-full h-px mt-4 lg:mt-8 bg-zinc-200 dark:bg-zinc-800" />
+      <p className="max-w-full mt-2 text-xs leading-relaxed text-center text-zinc-300 dark:text-zinc-600">
         Administratorem danych osobowych jest Event Chef. Dane osobowe przetwarzane
         są w celu obsługi zapytania. Podanie danych jest dobrowolne, ale niezbędne
         do udzielenia odpowiedzi. Przysługuje Ci prawo dostępu do danych, ich
