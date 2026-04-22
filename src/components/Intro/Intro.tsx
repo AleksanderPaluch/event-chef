@@ -112,7 +112,10 @@ export const Intro = () => {
               />
             {/* <div className="absolute inset-0 rounded-lg bg-black/70" /> */}
             </div>
-            <Button variant="page" text="Poznaj doświadczenie" href={feature.href} />
+            <div className="">
+               <Button variant="page" text="Poznaj doświadczenie" href={feature.href} />
+            </div>
+           
           </motion.div>
         ))}
       </div>

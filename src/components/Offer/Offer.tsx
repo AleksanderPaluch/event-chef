@@ -245,7 +245,7 @@ const AccordionItem = ({
             </div>
 
             {/* CTA */}
-            <div className="flex md:col-span-1 md:justify-end md:items-end">
+            <div className="flex text-sm md:col-span-1 md:justify-end md:items-end">
            <Button variant="page" order text="Zapytaj o wycenę" />
             </div>
 
