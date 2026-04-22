@@ -116,7 +116,7 @@ className="top-0 right-0 p-4 bg-white border rounded-lg shadow-sm dark:bg-black 
 
         ${
           disabled
-            ? "text-zinc-400 "
+            ?  "text-zinc-300 dark:text-zinc-800 "
             : "hover:bg-zinc-300 dark:hover:bg-zinc-700"
         }
       `}

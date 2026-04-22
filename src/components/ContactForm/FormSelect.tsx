@@ -21,7 +21,7 @@ export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => 
           key={type}
           type="button"
           onClick={() => setSelected(type)}
-          className={`relative px-4 py-3 text-sm transition-colors duration-200 ${
+          className={`relative px-4 py-2 text-sm transition-colors duration-200 ${
             selected === type
               ? "text-zinc-900 dark:text-zinc-100"
               : "text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300"

@@ -150,7 +150,7 @@ const Form = ({
         <label className={labelClass}>{t.messageLabel}</label>
         <textarea
           placeholder={t.messagePlaceholder}
-          rows={2}
+          rows={3}
           className={`${inputClass} resize-none`}
         />
       </div>
