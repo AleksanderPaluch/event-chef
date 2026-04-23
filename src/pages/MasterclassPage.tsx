@@ -1,4 +1,4 @@
-import liveImage from "../assets/masterclass1.jpg";
+import masterclassImage from "../assets/masterclass.png";
 import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
@@ -55,7 +55,7 @@ export default function MasterclassPage() {
   return (
     <>
       <Hero
-        image={liveImage}
+        image={masterclassImage}
         eyebrow="Sushi Masterclass"
         heading={
           <>

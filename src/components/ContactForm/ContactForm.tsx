@@ -10,8 +10,6 @@ import { CustomSelect } from "./Calendar/CustomSelect";
 import homeSushi from "../../assets/home_sushi.jpg";
 import officeSushi from "../../assets/office_sushi.jpg";
 
-
-
 type RepresentType = "company" | "individual";
 
 const BASE_TRANSITION = { duration: 0.4, ease: easeInOut };
@@ -24,7 +22,7 @@ const labelClass = "block text-base text-zinc-400 dark:text-zinc-300 mb-0";
 // ─── Images ───────────────────────────────────────────────────────────────────
 
 const Images = ({ selected }: { selected: RepresentType }) => (
-  <div className="relative overflow-hidden rounded-lg w-full min-h-[320px] lg:min-h-full">
+  <div className="relative overflow-hidden rounded-lg w-full min-h-[220px] lg:min-h-full">
     <motion.div
       initial={false}
       animate={{ x: selected === "individual" ? "0%" : "100%" }}
@@ -32,7 +30,7 @@ const Images = ({ selected }: { selected: RepresentType }) => (
       className="absolute inset-0 bg-center bg-cover"
       style={{ backgroundImage: `url(${homeSushi})` }}
     >
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/40" />
     </motion.div>
     <motion.div
       initial={false}
@@ -41,7 +39,7 @@ const Images = ({ selected }: { selected: RepresentType }) => (
       className="absolute inset-0 bg-center bg-cover"
       style={{ backgroundImage: `url(${officeSushi})` }}
     >
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/40" />
     </motion.div>
   </div>
 );
@@ -75,15 +73,22 @@ const Form = ({
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-6">
-
-      <div className="grid grid-cols-1 gap-6 lg:gap-36 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:gap-28 md:grid-cols-2">
         <div>
           <label className={labelClass}>{t.nameLabel}</label>
-          <input type="text" placeholder={t.namePlaceholder} className={inputClass} />
+          <input
+            type="text"
+            placeholder={t.namePlaceholder}
+            className={inputClass}
+          />
         </div>
         <div>
           <label className={labelClass}>{t.representLabel}</label>
-          <FormSelect selected={selected} setSelected={setSelected} lang={lang} />
+          <FormSelect
+            selected={selected}
+            setSelected={setSelected}
+            lang={lang}
+          />
         </div>
       </div>
 
@@ -109,7 +114,11 @@ const Form = ({
 
       <div>
         <label className={labelClass}>{t.emailLabel}</label>
-        <input type="email" placeholder={t.emailPlaceholder} className={inputClass} />
+        <input
+          type="email"
+          placeholder={t.emailPlaceholder}
+          className={inputClass}
+        />
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -118,13 +127,19 @@ const Form = ({
           <CustomSelect
             options={eventOptions}
             value={formData.eventType}
-            onChange={(value) => setFormData((prev) => ({ ...prev, eventType: value }))}
+            onChange={(value) =>
+              setFormData((prev) => ({ ...prev, eventType: value }))
+            }
             placeholder={t.eventTypes.label}
           />
         </div>
         <div>
           <label className={labelClass}>{t.guestsLabel}</label>
-          <input type="text" placeholder={t.guestsPlaceholder} className={inputClass} />
+          <input
+            type="text"
+            placeholder={t.guestsPlaceholder}
+            className={inputClass}
+          />
         </div>
       </div>
 
@@ -157,22 +172,24 @@ const Form = ({
           className={`${inputClass} resize-none`}
         />
       </div>
-{/* Consent + Submit in one row */}
-<div className="flex items-start justify-between gap-6 pt-2">
-  <div className="flex items-start gap-2">
-    <input
-      type="checkbox"
-      id="consent"
-      className="flex-shrink-0 w-4 h-4 mt-1 accent-zinc-900 dark:accent-zinc-100"
-    />
-    <label htmlFor="consent"  className="text-lg leading-relaxed md:text-base text-zinc-400 dark:text-zinc-500">
-      {t.agreements.contact}
-    </label>
-  </div>
+      {/* Consent + Submit in one row */}
+      <div className="flex items-start justify-between gap-6 pt-2">
+        <div className="flex items-start gap-2">
+          <input
+            type="checkbox"
+            id="consent"
+            className="flex-shrink-0 w-4 h-4 mt-1 accent-zinc-900 dark:accent-zinc-100"
+          />
+          <label
+            htmlFor="consent"
+            className="text-lg leading-relaxed md:text-base text-zinc-400 dark:text-zinc-500"
+          >
+            {t.agreements.contact}
+          </label>
+        </div>
 
-  <Button variant="submit" text={t.submit} />
-</div>
-
+        <Button variant="submit" text={t.submit} />
+      </div>
     </form>
   );
 };
@@ -183,9 +200,8 @@ export const ContactForm = () => {
   const [selected, setSelected] = useState<RepresentType>("individual");
 
   return (
-    <section id="contact" className="px-6 py-32 mx-auto max-w-7xl">
-
-      <div className="mb-20">
+    <section id="contact" className="px-6 py-24 mx-auto lg:py-32 max-w-7xl">
+      <div className="mb-8 lg:mb-20">
         <Motion>
           <p className="text-sm font-semibold tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
             Kontakt
@@ -196,27 +212,30 @@ export const ContactForm = () => {
         </Motion>
         <Motion>
           <p className="max-w-md text-base leading-relaxed text-zinc-400 dark:text-zinc-500">
-            Opisz swoje wydarzenie — a my zajmiemy się resztą. <br /> W ciągu 24 godzin
-            prześlemy propozycję dopasowaną do Twoich potrzeb.
+            Opisz swoje wydarzenie — a my zajmiemy się resztą. W ciągu 24
+            godzin prześlemy propozycję dopasowaną do Twoich potrzeb.
           </p>
         </Motion>
       </div>
 
-      <div className="w-full h-px mb-16 bg-zinc-200 dark:bg-zinc-800" />
-
-      <div className="grid items-start grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-28">
-        <Form selected={selected} setSelected={setSelected} />
-        <Images selected={selected} />
-      </div>
+      <div className="w-full h-px mb-8 lg:mb-16 bg-zinc-200 dark:bg-zinc-800" />
+    <div className="grid items-stretch grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-28">
+  <div className="order-2 lg:order-1">
+    <Form selected={selected} setSelected={setSelected} />
+  </div>
+  <div className="order-1 lg:order-2">
+    <Images selected={selected} />
+  </div>
+</div>
       <div className="w-full h-px mt-4 lg:mt-8 bg-zinc-200 dark:bg-zinc-800" />
-      <p className="max-w-full mt-2 text-xs leading-relaxed text-center text-zinc-300 dark:text-zinc-600">
-        Administratorem danych osobowych jest Event Chef. Dane osobowe przetwarzane
-        są w celu obsługi zapytania. Podanie danych jest dobrowolne, ale niezbędne
-        do udzielenia odpowiedzi. Przysługuje Ci prawo dostępu do danych, ich
-        poprawiania, usunięcia, ograniczenia przetwarzania oraz cofnięcia zgody
-        w dowolnym momencie. Szczegóły znajdują się w Polityce Prywatności.
+      <p className="max-w-full mt-6 text-xs leading-relaxed text-justify text-zinc-300 dark:text-zinc-600">
+        Administratorem danych osobowych jest Event Chef. Dane osobowe
+        przetwarzane są w celu obsługi zapytania. Podanie danych jest
+        dobrowolne, ale niezbędne do udzielenia odpowiedzi. Przysługuje Ci prawo
+        dostępu do danych, ich poprawiania, usunięcia, ograniczenia
+        przetwarzania oraz cofnięcia zgody w dowolnym momencie. Szczegóły
+        znajdują się w Polityce Prywatności.
       </p>
-
     </section>
   );
 };

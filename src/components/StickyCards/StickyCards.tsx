@@ -115,7 +115,7 @@ const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
       <h3 className="mb-8 text-4xl font-light tracking-tight md:text-5xl text-zinc-950 dark:text-zinc-50">
         {card.title}
       </h3>
-      <div className="flex justify-center w-full mb-12">{card.content}</div>
+      <div className="flex justify-center w-full lg:mb-12">{card.content}</div>
           
     </motion.div>
     

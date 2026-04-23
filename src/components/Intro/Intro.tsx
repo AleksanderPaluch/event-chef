@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
-import LiveImage from "../../assets/image-asset (2).jpeg";
-import MasterclassImage from "../../assets/shutterstock_38046517.avif";
-import OmakaseImage from "../../assets/pexels-qui-nguyen-7862521-29422357.jpg";
+import LiveImage from "../../assets/liveIntro.jpeg";
+import MasterclassImage from "../../assets/masterclassIntro.avif";
+import OmakaseImage from "../../assets/omakaseIntro.jpg";
 import { Button } from "../Button/Button";
 import { Motion } from "../Motion/Motion";
 
@@ -70,23 +70,14 @@ export const Intro = () => {
       </div>
 
       {/* Divider */}
-     
-        <div className="w-full h-px mb-20 bg-zinc-200 dark:bg-zinc-800" />
-     
+
+      <div className="w-full h-px mb-20 bg-zinc-200 dark:bg-zinc-800" />
 
       {/* Cards */}
       <div className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-16">
         {features.map((feature, i) => (
-          <motion.div
+          <div
             key={feature.id}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{
-              duration: 0.7,
-              ease: [0.22, 1, 0.36, 1],
-              delay: i * 0.1,
-            }}
             className="flex flex-col group"
           >
             {/* Text above image */}
@@ -106,17 +97,22 @@ export const Intro = () => {
               <motion.img
                 src={feature.image}
                 alt={feature.title}
+                loading="eager"
+                decoding="sync"
                 className="object-cover w-full h-full"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               />
-            {/* <div className="absolute inset-0 rounded-lg bg-black/70" /> */}
+              {/* <div className="absolute inset-0 rounded-lg bg-black/70" /> */}
             </div>
             <div className="text-lg">
-               <Button variant="page" text="Poznaj doświadczenie" href={feature.href} />
+              <Button
+                variant="page"
+                text="Poznaj doświadczenie"
+                href={feature.href}
+              />
             </div>
-           
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

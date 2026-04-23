@@ -4,7 +4,7 @@ import { Hero } from "../components/Hero/Hero";
 import { Intro } from "../components/Intro/Intro";
 import { Offer } from "../components/Offer/Offer";
 import { smoothScrollTo } from "../components/helpers";
-import heroImage from "../assets/ChatGPT Image 21 kwi 2026, 17_25_24.png";
+import heroImage from "../assets/hero.png";
 import { Footer } from "../components/Footer/Footer";
 import { AboutSection } from "../components/AboutUs/AboutUs";
 
@@ -35,8 +35,7 @@ export default function HomePage() {
       />
       <Intro />
       <AboutSection />
-      {/* <Testimonials />
-      <Stats /> */}
+
       <Offer />
       <ContactForm />
         <Footer />

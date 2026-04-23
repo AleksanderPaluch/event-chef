@@ -1,4 +1,4 @@
-import liveImage from "../assets/blackieshoot-qLBlMw35508-unsplash.jpg";
+import omakaseImage from "../assets/omakase.jpg";
 
 import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
@@ -54,7 +54,7 @@ export default function OmakasePage() {
   return (
     <>
       <Hero
-        image={liveImage}
+        image={omakaseImage}
         eyebrow="Omakase"
         heading={
           <>
