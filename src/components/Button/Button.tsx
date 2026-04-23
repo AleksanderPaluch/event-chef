@@ -72,7 +72,7 @@ export const Button: React.FC<ButtonProps> = ({
       style={{ transform }}
       onClick={handleClick}
       onMouseDown={handleReset}
-      className="relative flex items-center justify-between w-full max-w-sm gap-6 px-5 py-3 overflow-hidden transition-colors duration-500 border rounded-lg bg-black/80 group md:ml-0 border-white/15 hover:border-white/40"
+      className="relative flex items-center justify-between w-full max-w-sm px-5 py-3 overflow-hidden transition-colors duration-500 border rounded-lg bg-black/80 group md:ml-0 border-white/15 hover:border-white/40"
     >
       {/* Shimmer */}
       <span

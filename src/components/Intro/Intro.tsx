@@ -75,7 +75,7 @@ export const Intro = () => {
 
       {/* Cards */}
       <div className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-16">
-        {features.map((feature, i) => (
+        {features.map((feature) => (
           <div
             key={feature.id}
             className="flex flex-col group"
