@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { type Lang } from "./translations";
+import { type Lang } from "./FormTranslations";
 
 const LanguageContext = createContext<{
   lang: Lang;
