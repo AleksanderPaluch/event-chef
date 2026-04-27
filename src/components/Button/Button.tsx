@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   motion,
   useMotionTemplate,
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import { FiArrowRight, FiCheck, FiLoader } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
 import { smoothScrollTo } from "../helpers";
 
@@ -20,8 +20,7 @@ interface ButtonProps {
   order?: boolean;
   href?: string;
   onClick?: () => void;
-variant?: "hero" | "page" | "submit";
-onSubmit?: () => Promise<void>;
+  variant?: "hero" | "page";
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -62,10 +61,6 @@ export const Button: React.FC<ButtonProps> = ({
     );
   }
 
-  if (variant === "submit") {
-  return <SubmitButton text={text} onClick={onClick} />;
-}
-
   return (
     <motion.button
       ref={ref}
@@ -81,9 +76,7 @@ export const Button: React.FC<ButtonProps> = ({
           background: "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.2) 50%, transparent 65%)",
         }}
       />
-
       <TypewriterText text={text} />
-
       <FiArrowRight className="relative flex-shrink-0 text-xl text-zinc-300" />
     </motion.button>
   );
@@ -91,15 +84,12 @@ export const Button: React.FC<ButtonProps> = ({
 
 // ─── Typewriter ───────────────────────────────────────────────────────────────
 
-import { useEffect, useState } from "react";
-
 const TypewriterText = ({ text }: { text: string }) => {
   const [count, setCount] = useState(0);
   const chars = text.split("");
   const done = count >= chars.length;
 
   useEffect(() => {
-    // initial delay before typing starts
     const start = setTimeout(() => {
       const interval = setInterval(() => {
         setCount((c) => {
@@ -109,7 +99,6 @@ const TypewriterText = ({ text }: { text: string }) => {
       }, 45);
       return () => clearInterval(interval);
     }, 400);
-
     return () => clearTimeout(start);
   }, []);
 
@@ -124,58 +113,5 @@ const TypewriterText = ({ text }: { text: string }) => {
         />
       )}
     </span>
-  );
-};
-
-
-const SubmitButton = ({
-  text,
-  onClick,
-}: {
-  text: string;
-  onClick?: () => void;
-}) => {
-  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
-
-  const handleSubmit = async () => {
-    setStatus("loading");
-    try {
-      // replace with your actual email service call
-      // e.g. EmailJS, Resend, Formspree etc.
-      await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: "form submitted" }),
-      });
-      setStatus("done");
-      onClick?.();
-    } catch {
-      setStatus("error");
-    }
-  };
-
-  return (
-    <button
-      type="submit"
-      onClick={handleSubmit}
-      disabled={status === "loading" || status === "done"}
-      className="flex items-center gap-2 text-lg underline transition-colors md:text-base underline-offset-4 decoration-zinc-300 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 text-zinc-700 dark:text-zinc-400 disabled:opacity-50 disabled:pointer-events-none w-fit"
-    >
-      {status === "loading" && (
-        <FiLoader className="flex-shrink-0 animate-spin text-zinc-400" />
-      )}
-      {status === "done" && (
-        <FiCheck className="flex-shrink-0 text-green-600" />
-      )}
-      <span>
-        {status === "loading"
-          ? "Wysyłanie..."
-          : status === "done"
-          ? "Wysłano!"
-          : status === "error"
-          ? "Spróbuj ponownie"
-          : text}
-      </span>
-    </button>
   );
 };
