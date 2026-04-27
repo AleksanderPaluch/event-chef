@@ -65,7 +65,7 @@ type FormValues = {
 };
 
 const ErrorMsg = ({ message }: { message?: string }) =>
-  message ? <p className="mt-1 text-sm text-red-500">{message}</p> : null;
+  message ? <p className="mt-1 text-sm text-red-800">{message}</p> : null;
 
 const Form = ({
   selected,
