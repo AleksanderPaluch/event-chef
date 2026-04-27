@@ -1,7 +1,7 @@
 
 
 import { motion, easeInOut } from "framer-motion";
-import { FormTranslations } from "../Translations/translations";
+import { FormTranslations } from "../Translations/FormTranslations";
 
 type RepresentType = "company" | "individual";
 

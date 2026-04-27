@@ -1,6 +1,27 @@
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, easeInOut } from "framer-motion";
+
+
+import { FormTranslations } from "../Translations/translations";
+import { FormSelect } from "./FormSelect";
+import { DateField } from "./Calendar/DateField";
+import { CustomSelect } from "./Calendar/CustomSelect";
+
+
+import { Controller, useForm } from "react-hook-form";
+import SubmitButton from "../Button/SubmitButton";
+
+type RepresentType = "company" | "individual";
+
+const BASE_TRANSITION = { duration: 0.4, ease: easeInOut };
+
+const inputClass =
+  "w-full bg-transparent border-b border-zinc-200 dark:border-zinc-800 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-300 dark:placeholder:text-zinc-600 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500 transition-colors duration-200";
+
+const labelClass = "block text-base text-zinc-400 dark:text-zinc-300 mb-0";
+
+
+type SubmitStatus = "idle" | "sending" | "success" | "error";
 
 type FormValues = {
   name: string;
@@ -24,8 +45,9 @@ const Form = ({
   selected: RepresentType;
   setSelected: (v: RepresentType) => void;
 }) => {
-  const lang = "pl";
+  const lang = "en";
   const t = FormTranslations[lang];
+  const e = t.errors;
 
   const eventOptions = [
     { value: "live", label: t.eventTypes.live },
@@ -37,7 +59,7 @@ const Form = ({
     { value: "other", label: t.eventTypes.other },
   ];
 
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
   const {
     register,
@@ -67,7 +89,7 @@ const Form = ({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          date: data.date ? data.date.toLocaleDateString("pl-PL") : null,
+          date: data.date ? data.date.toLocaleDateString(lang === "pl" ? "pl-PL" : "en-GB") : null,
           representType: selected,
         }),
       });
@@ -101,7 +123,7 @@ const Form = ({
             type="text"
             placeholder={t.namePlaceholder}
             className={`${inputClass} ${errors.name ? "border-red-500" : ""}`}
-            {...register("name", { required: "Imię i nazwisko jest wymagane" })}
+            {...register("name", { required: e.name })}
           />
           <ErrorMsg message={errors.name?.message} />
         </div>
@@ -128,7 +150,7 @@ const Form = ({
               className={`${inputClass} ${errors.company ? "border-red-500" : ""}`}
               {...register("company", {
                 validate: (val) =>
-                  selected !== "company" || !!val.trim() || "Nazwa firmy jest wymagana",
+                  selected !== "company" || !!val.trim() || e.company,
               })}
             />
             <ErrorMsg message={errors.company?.message} />
@@ -144,10 +166,10 @@ const Form = ({
           placeholder={t.emailPlaceholder}
           className={`${inputClass} ${errors.email ? "border-red-500" : ""}`}
           {...register("email", {
-            required: "E-mail jest wymagany",
+            required: e.email,
             pattern: {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: "Podaj poprawny adres e-mail",
+              message: e.emailInvalid,
             },
           })}
         />
@@ -161,7 +183,7 @@ const Form = ({
           <Controller
             name="eventType"
             control={control}
-            rules={{ required: "Wybierz typ eventu" }}
+            rules={{ required: e.eventType }}
             render={({ field }) => (
               <CustomSelect
                 options={eventOptions}
@@ -179,7 +201,7 @@ const Form = ({
             type="text"
             placeholder={t.guestsPlaceholder}
             className={`${inputClass} ${errors.guests ? "border-red-500" : ""}`}
-            {...register("guests", { required: "Podaj liczbę gości" })}
+            {...register("guests", { required: e.guests })}
           />
           <ErrorMsg message={errors.guests?.message} />
         </div>
@@ -192,7 +214,7 @@ const Form = ({
           <Controller
             name="date"
             control={control}
-            rules={{ required: "Wybierz datę eventu" }}
+            rules={{ required: e.date }}
             render={({ field }) => (
               <DateField
                 value={field.value}
@@ -210,7 +232,7 @@ const Form = ({
             autoComplete="address-level2"
             placeholder={t.locationPlaceholder}
             className={`${inputClass} ${errors.location ? "border-red-500" : ""}`}
-            {...register("location", { required: "Podaj lokalizację" })}
+            {...register("location", { required: e.location })}
           />
           <ErrorMsg message={errors.location?.message} />
         </div>
@@ -223,7 +245,7 @@ const Form = ({
           placeholder={t.messagePlaceholder}
           rows={3}
           className={`${inputClass} resize-none ${errors.message ? "border-red-500" : ""}`}
-          {...register("message", { required: "Wiadomość jest wymagana" })}
+          {...register("message", { required: e.message })}
         />
         <ErrorMsg message={errors.message?.message} />
       </div>
@@ -236,7 +258,7 @@ const Form = ({
               type="checkbox"
               id="consent"
               className="flex-shrink-0 w-4 h-4 mt-1 accent-white dark:accent-black"
-              {...register("consent", { required: "Zgoda jest wymagana" })}
+              {...register("consent", { required: e.consent })}
             />
             <label
               htmlFor="consent"
@@ -245,17 +267,11 @@ const Form = ({
               {t.agreements.contact}
             </label>
           </div>
-
-          <Button
-            variant="submit"
-            text={status === "sending" ? "Wysyłanie..." : t.submit}
-          />
+          <SubmitButton text={t.submit} status={status} />
         </div>
         <ErrorMsg message={errors.consent?.message} />
         {status === "error" && (
-          <p className="text-sm text-red-500">
-            Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na kontakt@eventchef.pl
-          </p>
+          <p className="text-sm text-red-500">{e.sendError}</p>
         )}
       </div>
 

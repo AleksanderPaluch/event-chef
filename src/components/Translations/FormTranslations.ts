@@ -1,5 +1,3 @@
-
-
 export type Lang = "en" | "pl";
 
 export const FormTranslations = {
@@ -35,15 +33,25 @@ export const FormTranslations = {
       bachelorette: "Bachelorette party",
       other: "Other",
     },
-
     agreements: {
       contact: "Consent to be contacted",
       personalData:
         "I consent to the processing of my personal data for the purpose of being contacted regarding Event Chef's offer",
     },
-
+    errors: {
+      name: "Name is required",
+      email: "Email is required",
+      emailInvalid: "Please enter a valid email address",
+      company: "Company name is required",
+      eventType: "Please select an event type",
+      guests: "Please enter the number of guests",
+      date: "Please select an event date",
+      location: "Please enter a location",
+      message: "Message is required",
+      consent: "Consent is required",
+      sendError: "Something went wrong. Please try again or email us directly at kontakt@eventchef.pl",
+    },
     fields: "* Optional fields",
-
     weekday: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
   },
   pl: {
@@ -68,7 +76,6 @@ export const FormTranslations = {
     messageLabel: "Chcę zapytać o...",
     messagePlaceholder: "Napisz swoją wiadomość :)",
     submit: "Poproś o wycenę",
-
     eventTypes: {
       label: "Wybierz typ eventu:",
       live: "Event prywatny / Urodziny ",
@@ -79,16 +86,25 @@ export const FormTranslations = {
       bachelorette: "Wieczór panieński",
       other: "Inne",
     },
-
     agreements: {
       contact: "Zgoda na kontakt",
       personalData:
         "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu w sprawie oferty Event Chef",
+    },
+    errors: {
+      name: "Imię i nazwisko jest wymagane",
+      email: "E-mail jest wymagany",
+      emailInvalid: "Podaj poprawny adres e-mail",
+      company: "Nazwa firmy jest wymagana",
+      eventType: "Wybierz typ eventu",
+      guests: "Podaj liczbę gości",
+      date: "Wybierz datę eventu",
+      location: "Podaj lokalizację",
+      message: "Wiadomość jest wymagana",
+      consent: "Zgoda jest wymagana",
+      sendError: "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na kontakt@eventchef.pl",
+    },
+    fields: "* Pola nieobowiązkowe",
+    weekday: ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"],
   },
-
-  fields: "* Pola nieobowiązkowe",
-
-  weekday: ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"],
-
-}
 } as const;
