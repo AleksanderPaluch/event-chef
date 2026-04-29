@@ -49,8 +49,6 @@ const Images = ({ selected }: { selected: RepresentType }) => (
 
 // ─── Form ─────────────────────────────────────────────────────────────────────
 
-
-
 type SubmitStatus = "idle" | "sending" | "success" | "error";
 
 type FormValues = {
@@ -111,9 +109,11 @@ const Form = ({
   });
 
   // ── Submit ───────────────────────────────────────────────────────────────
- const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     setStatus("sending");
-    const eventLabel = eventOptions.find((o) => o.value === data.eventType)?.label ?? data.eventType;
+    const eventLabel =
+      eventOptions.find((o) => o.value === data.eventType)?.label ??
+      data.eventType;
     try {
       const res = await fetch("/api/send-email", {
         method: "POST",
@@ -123,6 +123,7 @@ const Form = ({
           eventType: eventLabel,
           date: data.date ? data.date.toLocaleDateString("pl-PL") : null,
           representType: selected,
+          lang, // ✅
         }),
       });
       if (!res.ok) throw new Error();
@@ -145,8 +146,11 @@ const Form = ({
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-6">
-
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      className="flex flex-col gap-6"
+    >
       {/* Name + Represent */}
       <div className="flex flex-col gap-6 md:flex-row md:justify-between">
         <div>
@@ -161,7 +165,11 @@ const Form = ({
         </div>
         <div>
           <label className={labelClass}>{t.representLabel}</label>
-          <FormSelect selected={selected} setSelected={setSelected} lang={lang} />
+          <FormSelect
+            selected={selected}
+            setSelected={setSelected}
+            lang={lang}
+          />
         </div>
       </div>
 
@@ -277,7 +285,7 @@ const Form = ({
           placeholder={t.messagePlaceholder}
           rows={3}
           className={`${inputClass} resize-none ${errors.message ? "border-red-500" : ""}`}
-          {...register("message" )}
+          {...register("message")}
         />
         <ErrorMsg message={errors.message?.message} />
       </div>
@@ -306,13 +314,11 @@ const Form = ({
           <p className="text-sm text-red-500">{e.sendError}</p>
         )}
       </div>
-
     </form>
   );
 };
 
 export default Form;
-
 
 // ─── Section ──────────────────────────────────────────────────────────────────
 
@@ -332,21 +338,21 @@ export const ContactForm = () => {
         </Motion>
         <Motion>
           <p className="max-w-md text-base leading-relaxed text-zinc-400 dark:text-zinc-500">
-            Opisz swoje wydarzenie — a my zajmiemy się resztą. W ciągu 24
-            godzin prześlemy propozycję dopasowaną do Twoich potrzeb.
+            Opisz swoje wydarzenie — a my zajmiemy się resztą. W ciągu 24 godzin
+            prześlemy propozycję dopasowaną do Twoich potrzeb.
           </p>
         </Motion>
       </div>
 
       <div className="w-full h-px mb-8 lg:mb-16 bg-zinc-200 dark:bg-zinc-800" />
-    <div className="grid items-stretch grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-28">
-  <div className="order-2 lg:order-1">
-    <Form selected={selected} setSelected={setSelected} />
-  </div>
-  <div className="order-1 lg:order-2">
-    <Images selected={selected} />
-  </div>
-</div>
+      <div className="grid items-stretch grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-28">
+        <div className="order-2 lg:order-1">
+          <Form selected={selected} setSelected={setSelected} />
+        </div>
+        <div className="order-1 lg:order-2">
+          <Images selected={selected} />
+        </div>
+      </div>
       <div className="w-full h-px mt-4 lg:mt-8 bg-zinc-200 dark:bg-zinc-800" />
       <p className="max-w-full mt-6 text-xs leading-relaxed text-justify text-zinc-300 dark:text-zinc-600">
         Administratorem danych osobowych jest Event Chef. Dane osobowe
