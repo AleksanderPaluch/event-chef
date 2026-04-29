@@ -110,15 +110,17 @@ const Form = ({
   });
 
   // ── Submit ───────────────────────────────────────────────────────────────
-  const onSubmit = async (data: FormValues) => {
+ const onSubmit = async (data: FormValues) => {
     setStatus("sending");
+    const eventLabel = eventOptions.find((o) => o.value === data.eventType)?.label ?? data.eventType;
     try {
       const res = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          date: data.date ? data.date.toLocaleDateString(lang === "pl" ? "pl-PL" : "en-GB") : null,
+          eventType: eventLabel,
+          date: data.date ? data.date.toLocaleDateString("pl-PL") : null,
           representType: selected,
         }),
       });
