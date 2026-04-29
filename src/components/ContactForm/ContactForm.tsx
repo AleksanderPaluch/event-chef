@@ -1,5 +1,5 @@
 // ContactForm.tsx
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion, easeInOut } from "framer-motion";
 
 import { Motion } from "../Motion/Motion";
@@ -69,9 +69,11 @@ const ErrorMsg = ({ message }: { message?: string }) =>
 const Form = ({
   selected,
   setSelected,
+  sectionRef,
 }: {
   selected: RepresentType;
   setSelected: (v: RepresentType) => void;
+  sectionRef: React.RefObject<HTMLElement | null>;
 }) => {
   const { lang } = useLanguage();
   const t = FormTranslations[lang];
@@ -95,6 +97,8 @@ const Form = ({
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
+    mode: "onSubmit",
+    reValidateMode: "onSubmit",
     defaultValues: {
       name: "",
       email: "",
@@ -123,11 +127,12 @@ const Form = ({
           eventType: eventLabel,
           date: data.date ? data.date.toLocaleDateString("pl-PL") : null,
           representType: selected,
-          lang, // ✅
+          lang,
         }),
       });
       if (!res.ok) throw new Error();
       setStatus("success");
+      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch {
       setStatus("error");
     }
@@ -318,15 +323,14 @@ const Form = ({
   );
 };
 
-export default Form;
-
 // ─── Section ──────────────────────────────────────────────────────────────────
 
 export const ContactForm = () => {
   const [selected, setSelected] = useState<RepresentType>("individual");
+  const sectionRef = useRef<HTMLElement>(null);
 
   return (
-    <section id="contact" className="px-6 py-24 mx-auto lg:py-32 max-w-7xl">
+    <section id="contact" ref={sectionRef} className="px-6 py-24 mx-auto lg:py-32 max-w-7xl">
       <div className="mb-8 lg:mb-20">
         <Motion>
           <p className="text-sm font-semibold tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
@@ -347,7 +351,7 @@ export const ContactForm = () => {
       <div className="w-full h-px mb-8 lg:mb-16 bg-zinc-200 dark:bg-zinc-800" />
       <div className="grid items-stretch grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-28">
         <div className="order-2 lg:order-1">
-          <Form selected={selected} setSelected={setSelected} />
+          <Form selected={selected} setSelected={setSelected} sectionRef={sectionRef} />
         </div>
         <div className="order-1 lg:order-2">
           <Images selected={selected} />
