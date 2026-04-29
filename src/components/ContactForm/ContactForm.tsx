@@ -11,6 +11,7 @@ import homeSushi from "../../assets/home_sushi.jpg";
 import officeSushi from "../../assets/office_sushi.jpg";
 import { Controller, useForm } from "react-hook-form";
 import SubmitButton from "../Button/SubmitButton";
+import { useLanguage } from "../Translations/LanguageContext";
 
 type RepresentType = "company" | "individual";
 
@@ -74,7 +75,7 @@ const Form = ({
   selected: RepresentType;
   setSelected: (v: RepresentType) => void;
 }) => {
-  const lang = "pl";
+  const { lang } = useLanguage();
   const t = FormTranslations[lang];
   const e = t.errors;
 

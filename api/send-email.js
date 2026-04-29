@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, company, eventType, guests, date, location, message, representType } = req.body;
+  const { name, email, company, eventType, guests, date, location, message, representType, lang } = req.body;
 
   try {
     // ── Email 1: Confirmation to the client ──────────────────────────────
@@ -70,6 +70,10 @@ export default async function handler(req, res) {
             <tr style="border-bottom: 1px solid #eee;">
               <td style="padding: 10px 8px; color: #888;">Lokalizacja</td>
               <td style="padding: 10px 8px;">${location || "—"}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 10px 8px; color: #888;">Język formularza</td>
+              <td style="padding: 10px 8px; font-weight: 600;">${lang === "en" ? "🇬🇧 English — odpowiedz po angielsku" : "🇵🇱 Polski — odpowiedz po polsku"}</td>
             </tr>
             <tr style="background: #fafafa;">
               <td style="padding: 10px 8px; color: #888; vertical-align: top;">Wiadomość</td>

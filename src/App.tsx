@@ -1,7 +1,9 @@
 import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Nav } from "./components/Nav/Nav";
-import {  PageLoader } from "./components/Loader/Loader";
+import { PageLoader } from "./components/Loader/Loader";
+import { LanguageProvider } from "./components/Translations/LanguageContext";
+
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const LivePage = lazy(() => import("./pages/LivePage"));
@@ -17,23 +19,23 @@ function ScrollToTop() {
   return null;
 }
 
-
-
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Nav />
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/live" element={<LivePage />} />
-          <Route path="/masterclass" element={<MasterclassPage />} />
-          <Route path="/omakase" element={<OmakasePage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Nav />
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/live" element={<LivePage />} />
+            <Route path="/masterclass" element={<MasterclassPage />} />
+            <Route path="/omakase" element={<OmakasePage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
 

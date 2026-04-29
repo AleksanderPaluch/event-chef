@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import { NavLeft } from "./NavLeft";
 import { NavMenu } from "./NavMenu";
+import { useLanguage } from "../Translations/LanguageContext";
 
-// Nav.tsx — pass scrolled down
+
 export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang } = useLanguage();
 
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -18,7 +20,18 @@ export const Nav = () => {
   return (
     <nav className={`nav ${scrolled ? "nav--scrolled" : "nav--top"}`}>
       <NavLeft setIsOpen={setIsOpen} isOpen={isOpen} />
-      <NavMenu setIsOpen={setIsOpen} isOpen={isOpen} />
+
+      <div className="flex items-center gap-4">
+        {/* Language toggle */}
+        <button
+          onClick={() => setLang(lang === "pl" ? "en" : "pl")}
+          className="text-sm font-medium tracking-widest uppercase transition-colors text-zinc-400 hover:text-white"
+        >
+          {lang === "pl" ? "EN" : "PL"}
+        </button>
+
+        <NavMenu setIsOpen={setIsOpen} isOpen={isOpen} />
+      </div>
     </nav>
   );
 };
