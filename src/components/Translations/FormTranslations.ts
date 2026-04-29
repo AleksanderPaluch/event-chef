@@ -26,7 +26,7 @@ export const FormTranslations = {
     eventTypes: {
       label: "Select event type:",
       live: "Private event / Birthday / House party",
-      corporate: "Corporate event / Conference / Christmas party",
+      corporate: "Corporate event / Conference",
       masterclass: "Masterclass / Workshop",
       omakase: "Omakase dinner",
       wedding: "Wedding",

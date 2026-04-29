@@ -7,9 +7,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, company, eventType, guests, date, location, message, representType, lang } = req.body;
+  const { name, email, company, eventType, guests, date, location, message, representType, lang = "pl" } = req.body;
+  console.log("lang received:", lang);
 
-  try {
+  const isEnglish = lang === "en";
+    const langLabel = isEnglish
+      ? "🇬🇧 English — odpowiedz po angielsku"
+      : "🇵🇱 Polski — odpowiedz po polsku";
+
+    try {
     // ── Email 1: Confirmation to the client ──────────────────────────────
     await resend.emails.send({
       from: "EventChef <no-reply@eventchef.pl>",
@@ -73,7 +79,7 @@ export default async function handler(req, res) {
             </tr>
             <tr style="border-bottom: 1px solid #eee;">
               <td style="padding: 10px 8px; color: #888;">Język formularza</td>
-              <td style="padding: 10px 8px; font-weight: 600;">${lang === "en" ? "🇬🇧 English — odpowiedz po angielsku" : "🇵🇱 Polski — odpowiedz po polsku"}</td>
+              <td style="padding: 10px 8px; font-weight: 600;">${langLabel}</td>
             </tr>
             <tr style="background: #fafafa;">
               <td style="padding: 10px 8px; color: #888; vertical-align: top;">Wiadomość</td>
