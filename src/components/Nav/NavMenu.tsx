@@ -1,4 +1,3 @@
-// NavMenu.tsx — full rewrite
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import React from "react";
@@ -18,12 +17,12 @@ interface MenuLinkProps {
 }
 
 const links = [
-  { text: "Home",                href: "/",           type: "page" },
-  { text: "Live Cooking",        href: "/live",        type: "page" },
-  { text: "Sushi Masterclass",   href: "/masterclass", type: "page" },
-  { text: "Omakase",             href: "/omakase",     type: "page" },
-  { text: "Oferta",              href: "offer",        type: "section" },
-  { text: "Indywidualna Wycena", href: "contact",      type: "section" },
+  { text: "Home",                href: "/",            type: "page" },
+  { text: "Live Cooking",        href: "/live",         type: "page" },
+  { text: "Sushi Masterclass",   href: "/masterclass",  type: "page" },
+  { text: "Omakase",             href: "/omakase",      type: "page" },
+  { text: "Oferta",              href: "offer",         type: "section" },
+  { text: "Indywidualna Wycena", href: "contact",       type: "section" },
 ] as const;
 
 export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
@@ -35,9 +34,9 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
           animate={{ opacity: 1, scaleY: 1 }}
           exit={{ opacity: 0, scaleY: 0.96 }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="nav-menu"
+          className="fixed inset-0 z-40 flex flex-col justify-center gap-2 px-8 origin-top bg-zinc-100 dark:bg-black"
         >
-          {/* Divider at top */}
+          {/* Top divider */}
           <div className="absolute top-0 h-px left-8 right-8 bg-zinc-200 dark:bg-zinc-800" />
 
           <nav className="flex flex-col gap-1">
@@ -53,8 +52,8 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
             ))}
           </nav>
 
-          {/* Bottom legal */}
-          <p className="absolute text-xs bottom-8 left-8 text-ghost">
+          {/* Footer */}
+          <p className="absolute text-xs bottom-8 left-8 text-zinc-400 dark:text-zinc-600">
             © {new Date().getFullYear()} Event Chef
           </p>
         </motion.div>
@@ -88,8 +87,12 @@ const MenuLink: React.FC<MenuLinkProps> = ({ text, href, type, index, setIsOpen 
       initial={{ opacity: 0, x: -12 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-      className={`text-3xl font-light tracking-tight transition-colors duration-200 text-heading
-        ${isSection ? "text-muted hover:text-heading text-xl" : "hover:text-accent"}`}
+      className={[
+        "transition-colors duration-200",
+        isSection
+          ? "text-xl font-light tracking-tight text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+          : "text-3xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 hover:text-amber-500 dark:hover:text-amber-400",
+      ].join(" ")}
     >
       {text}
     </motion.span>

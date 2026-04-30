@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { TfiLineDouble } from "react-icons/tfi";
-import { NavLink } from "./NavLink";
 import { FiX } from "react-icons/fi";
 import React from "react";
+import { NavLink } from "./NavLink";
 
 interface NavLeftProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,18 +10,21 @@ interface NavLeftProps {
 }
 
 const links = [
-  { text: "Home",                  href: "/",           type: "page" },
-  { text: "Live Cooking",          href: "/live",        type: "page" },
-  { text: "Sushi Masterclass",     href: "/masterclass", type: "page" },
-  { text: "Omakase",               href: "/omakase",     type: "page" },
-  { text: "Oferta",                href: "offer",        type: "section" },
-  { text: "Wycena Twojego Eventu", href: "contact",      type: "section" },
+  { text: "Home",                  href: "/",            type: "page" },
+  { text: "Live Cooking",          href: "/live",         type: "page" },
+  { text: "Sushi Masterclass",     href: "/masterclass",  type: "page" },
+  { text: "Omakase",               href: "/omakase",      type: "page" },
+  { text: "Oferta",                href: "offer",         type: "section" },
+  { text: "Wycena Twojego Eventu", href: "contact",       type: "section" },
 ] as const;
 
 export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
   return (
-    <div className="nav-left">
+    <div className="flex items-center gap-4 ml-auto lg:ml-0">
+
+      {/* Hamburger — mobile only */}
       <motion.button
+        type="button"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="relative z-50 flex items-center justify-center w-8 h-8 lg:hidden text-zinc-800 dark:text-zinc-200"
@@ -55,11 +58,12 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
         </AnimatePresence>
       </motion.button>
 
+      {/* Desktop links */}
       {links.map((link, index) => (
         <React.Fragment key={link.href}>
           <NavLink text={link.text} href={link.href} type={link.type} />
           {index < links.length - 1 && (
-            <span className="hidden lg:inline text-accent opacity-80">•</span>
+            <span className="hidden lg:inline text-amber-500 opacity-80">•</span>
           )}
         </React.Fragment>
       ))}

@@ -9,19 +9,14 @@ interface NavLinkProps {
   type: "page" | "section";
 }
 
-
-
 export const NavLink: React.FC<NavLinkProps> = ({ text, href, type }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const handleSectionClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (pathname === "/") {
-      smoothScrollTo(href);
-    } else {
-      navigate(`/#${href}`);
-    }
+    if (pathname === "/") smoothScrollTo(href);
+    else navigate(`/#${href}`);
   };
 
   const handlePageClick = (e: React.MouseEvent) => {
@@ -33,10 +28,10 @@ export const NavLink: React.FC<NavLinkProps> = ({ text, href, type }) => {
 
   const inner = (
     <motion.div whileHover={{ y: -40 }}>
-      <span className="flex items-center h-[40px] tracking-[0.1em] opacity-80 text-xs font-medium   uppercase">
+      <span className="flex items-center h-[40px] tracking-[0.1em] opacity-80 text-xs font-medium uppercase">
         {text}
       </span>
-      <span className="flex items-center h-[40px] tracking-[0.1em] text-amber-500 dark:text-amber-400 font-medium  text-xs uppercase">
+      <span className="flex items-center h-[40px] tracking-[0.1em] text-amber-500 dark:text-amber-400 font-medium text-xs uppercase">
         {text}
       </span>
     </motion.div>
@@ -64,4 +59,3 @@ export const NavLink: React.FC<NavLinkProps> = ({ text, href, type }) => {
     </Link>
   );
 };
-
