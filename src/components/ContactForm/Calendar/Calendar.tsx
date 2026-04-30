@@ -67,6 +67,7 @@ className="top-0 right-0 p-4 bg-white border rounded-lg shadow-sm dark:bg-black 
       {/* Header */}
       <div className="flex items-center justify-between mb-3 text-xl">
         <button
+         type="button"
           disabled={isPrevMonthDisabled}
           onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
           className={isPrevMonthDisabled ? "opacity-30 " : ""}
@@ -78,7 +79,7 @@ className="top-0 right-0 p-4 bg-white border rounded-lg shadow-sm dark:bg-black 
           {format(currentMonth, "LLLL yyyy", { locale })}
         </span>
 
-        <button onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>
+        <button  type="button" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>
           <FiArrowRight />
         </button>
       </div>
@@ -96,7 +97,7 @@ className="top-0 right-0 p-4 bg-white border rounded-lg shadow-sm dark:bg-black 
       </div>
 
       {/* Grid */}
-      <div className="flex flex-wrap w-64">
+      <div className="flex flex-wrap min-w-[235px] w-full">
         {days.map((dayItem) => {
           const isCurrentMonth = isSameMonth(dayItem, monthStart);
           const isSelected = isSameDay(dayItem, selected);
@@ -106,11 +107,12 @@ className="top-0 right-0 p-4 bg-white border rounded-lg shadow-sm dark:bg-black 
 
           return (
             <button
+             type="button"
               key={dayItem.toISOString()}
               disabled={disabled}
               onClick={(e) => !disabled && onDateSelected({ date: dayItem }, e)}
               className={`
-        w-[calc(100%_/_7)] rounded py-1 transition-colors
+        w-[calc(100%_/_7)] rounded text-lg lg:text-base py-1 transition-colors
 
         ${isSelected ? "font-semibold bg-zinc-800 text-white dark:bg-zinc-300 dark:text-zinc-950" : ""}
 

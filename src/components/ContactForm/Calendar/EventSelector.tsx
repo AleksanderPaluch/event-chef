@@ -14,7 +14,7 @@ interface Props {
   placeholder: string;
 }
  
-export const CustomSelect = ({ options, value, onChange, placeholder }: Props) => {
+export const EventSelector = ({ options, value, onChange, placeholder }: Props) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const selectedOption = options.find((o) => o.value === value);

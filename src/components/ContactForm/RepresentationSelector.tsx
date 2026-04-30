@@ -5,16 +5,15 @@ import { FormTranslations } from "../Translations/FormTranslations";
 
 type RepresentType = "company" | "individual";
 
-type FormSelectProps = {
+type RepresentationSelectorProps = {
   selected: RepresentType;
-
-setSelected: (v: RepresentType) => void;
+  setSelected: (v: RepresentType) => void;
   lang: "en" | "pl";
 };
 
 const BASE_TRANSITION = { duration: 0.4, ease: easeInOut };
 
-export const FormSelect = ({ selected, setSelected, lang }: FormSelectProps) => {
+export const RepresentationSelector = ({ selected, setSelected, lang }: RepresentationSelectorProps) => {
   const t = FormTranslations[lang];
 
   return (
