@@ -30,7 +30,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
         type="button"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="relative z-50 flex items-center justify-center w-8 h-8 lg:hidden text-zinc-800 dark:text-zinc-200"
+        className="relative z-50 flex items-center justify-center w-8 h-8 lg:hidden"
         onClick={() => setIsOpen((pv) => !pv)}
         aria-label={isOpen ? "Zamknij menu" : "Otwórz menu"}
       >
