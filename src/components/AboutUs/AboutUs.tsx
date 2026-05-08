@@ -19,7 +19,7 @@ const TESTIMONIALS = [
 
     name: "Gabriella S.",
     info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
-    rating: 3.5,
+    rating: 5,
     createdAt: "2026-02-05",
   },
   {
@@ -43,7 +43,40 @@ const TESTIMONIALS = [
 
     name: "Magdalena S.",
     info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
-    rating: 4,
+    rating: 5,
+    createdAt: "2025-02-09",
+  },
+
+   {
+    id: 5,
+
+    name: "Gabriella S.",
+    info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+    rating: 5,
+    createdAt: "2026-02-05",
+  },
+  {
+    id: 6,
+
+    name: "Daniel A.",
+    info: "Bardzo dobra organizacja live sushi na imprezie urodzinowej. Goście byli zachwyceni!",
+    rating: 5,
+    createdAt: "2026-02-02",
+  },
+  {
+    id: 7,
+
+    name: "Paweł W.",
+    info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+    rating: 5,
+    createdAt: "2025-02-09",
+  },
+  {
+    id: 8,
+
+    name: "Magdalena S.",
+    info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+    rating: 5,
     createdAt: "2025-02-09",
   },
 ];
@@ -119,7 +152,7 @@ const colorClass =
   ];
 
   return (
-    <div className="flex flex-col flex-shrink-0 gap-3 p-5 bg-white border w-72 rounded-xl dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800">
+<div className="flex flex-col flex-shrink-0 gap-3 p-5 border shadow-sm bg-neutral-50 w-72 rounded-xl dark:bg-zinc-950 border-zinc-300 dark:border-zinc-800 dark:shadow-none">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -171,7 +204,7 @@ const TestimonialStrip = () => (
       <motion.div
         initial={{ translateX: "0%" }}
         animate={{ translateX: "-100%" }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
         className="flex gap-4 px-2"
       >
         {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
@@ -186,50 +219,49 @@ const TestimonialStrip = () => (
 
 export const AboutSection = () => {
   return (
-    <section className="flex flex-col gap-20 px-6 py-24 mx-auto max-w-7xl lg:py-32lg:pb-24 lg:gap-28">
-      {/* O nas — two column */}
-      <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2 lg:gap-32">
-        <Motion>
-          <p className="text-sm font-semibold  tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
-            O nas
-          </p>
-          <h2 className="text-4xl md:text-5xl font-light leading-[1.15] text-zinc-900 dark:text-zinc-100 tracking-tight">
-            Pasja do sushi,
-            <br />w każdym detalu.
-          </h2>
-        </Motion>
+   <section className="flex flex-col gap-20 px-6 py-24 mx-auto max-w-7xl lg:py-32 lg:pb-24 lg:gap-28">
+  {/* O nas — two column */}
+  <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2 lg:gap-32">
+    <Motion>
+      <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">
+        O nas
+      </p>
+      <h2 className="text-4xl md:text-5xl font-light leading-[1.15] text-heading tracking-tight">
+        Pasja do sushi,
+        <br />w każdym detalu.
+      </h2>
+    </Motion>
 
-        <Motion>
-          <p className="text-base leading-relaxed md:mt-10 text-zinc-700 dark:text-zinc-400 ">
-            Nasza firma została stworzona przez doświadczonych, utalentowanych
-            kucharzy, których pasją jest sushi. Dbamy o to, aby każde wydarzenie, które
-            obsługujemy, było wyjątkowym, niezapomnianym doświadczeniem
-            kulinarnym.
-          </p>
-        </Motion>
-      </div>
+    <Motion>
+      <p className="text-base leading-relaxed md:mt-10 text-muted">
+        Nasza firma została stworzona przez doświadczonych, utalentowanych
+        kucharzy, których pasją jest sushi. Dbamy o to, aby każde wydarzenie, które
+        obsługujemy, było wyjątkowym, niezapomnianym doświadczeniem
+        kulinarnym.
+      </p>
+    </Motion>
+  </div>
 
-      {/* Stats */}
-      <Motion>
-        <div className="flex flex-col items-center justify-between gap-3 pt-12 text-center border-t md:flex-row lg:px-0 border-zinc-200 dark:border-zinc-800">
-          {STATS.map((s) => (
-            <StatItem key={s.label} {...s} />
-          ))}
+  {/* Stats */}
+  <Motion>
+    <div className="flex flex-col items-center justify-between gap-3 pt-12 text-center border-t md:flex-row lg:px-0 border-subtle">
+      {STATS.map((s) => (
+        <StatItem key={s.label} {...s} />
+      ))}
+    </div>
+  </Motion>
+
+  {/* Divider + testimonials header */}
+  <div>
+    <Motion>
+      <div className="flex items-end justify-between mb-12">
+        <div>
+          <h3 className="text-3xl font-light tracking-tight md:text-4xl text-heading">
+            Co mówią o nas klienci?
+          </h3>
         </div>
-      </Motion>
-
-      {/* Divider + testimonials header */}
-      <div>
-        <Motion>
-          <div className="flex items-end justify-between mb-12">
-            <div>
-        
-              <h3 className="text-3xl font-light tracking-tight md:text-4xl text-zinc-900 dark:text-zinc-100">
-                Co mówią o nas klienci?
-              </h3>
-            </div>
-          </div>
-        </Motion>
+      </div>
+    </Motion>
 
         <TestimonialStrip />
       </div>
