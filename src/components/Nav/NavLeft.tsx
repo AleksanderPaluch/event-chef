@@ -80,7 +80,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
           className={`text-xs font-semibold uppercase tracking-widest transition-colors ${
             lang === "pl"
               ? "text-amber-500"
-              : "text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+              : " hover:text-amber-500 dark:hover:text-amber-400"
           }`}
         >
           PL
@@ -92,7 +92,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
           className={`text-xs font-semibold uppercase tracking-widest transition-colors ${
             lang === "en"
               ? "text-amber-500"
-              : "text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+              : " hover:text-amber-500 dark:hover:text-amber-400"
           }`}
         >
           EN
