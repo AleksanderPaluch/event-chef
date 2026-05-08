@@ -17,22 +17,22 @@ export const ContactForm = () => {
       {/* Header */}
       <div className="mb-8 lg:mb-20">
         <Motion>
-          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-4">
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">
             Kontakt
           </p>
-          <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-zinc-900 dark:text-zinc-100">
+          <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-heading">
             Indywidualna wycena
           </h2>
         </Motion>
         <Motion>
-          <p className="max-w-md text-base leading-relaxed text-zinc-400 dark:text-zinc-500">
+          <p className="max-w-md text-base leading-relaxed text-muted">
             Opisz swoje wydarzenie — a my zajmiemy się resztą. W ciągu 24 godzin
             prześlemy propozycję dopasowaną do Twoich potrzeb.
           </p>
         </Motion>
       </div>
 
-      <div className="w-full h-px mb-8 lg:mb-16 bg-zinc-200 dark:bg-zinc-800" />
+      <div className="mb-8 divider lg:mb-16" />
 
       {/* Form + Image grid */}
       <div className="grid items-stretch grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-28">
@@ -44,10 +44,10 @@ export const ContactForm = () => {
         </div>
       </div>
 
-      <div className="w-full h-px mt-4 lg:mt-8 bg-zinc-200 dark:bg-zinc-800" />
+      <div className="mt-4 divider lg:mt-8" />
 
       {/* GDPR note */}
-      <p className="max-w-full mt-6 text-xs leading-relaxed text-justify text-zinc-300 dark:text-zinc-600">
+      <p className="max-w-full mt-6 text-xs leading-relaxed text-justify text-muted">
         Administratorem danych osobowych jest Event Chef. Dane osobowe
         przetwarzane są w celu obsługi zapytania. Podanie danych jest
         dobrowolne, ale niezbędne do udzielenia odpowiedzi. Przysługuje Ci prawo

@@ -17,16 +17,16 @@ export const RepresentationSelector = ({ selected, setSelected, lang }: Represen
   const t = FormTranslations[lang];
 
   return (
-    <div className="flex border-b w-fit border-zinc-200 dark:border-zinc-800">
+    <div className="flex border-b w-fit border-subtle">
       {(["individual", "company"] as RepresentType[]).map((type) => (
         <button
           key={type}
           type="button"
           onClick={() => setSelected(type)}
-          className={`relative px-4 py-1.5  transition-colors duration-200 ${
+          className={`relative px-4 py-1.5 transition-colors duration-200 ${
             selected === type
-              ? "text-zinc-900 dark:text-zinc-100"
-              : "text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300"
+              ? "text-body"
+              : "text-muted hover:text-black dark:hover:text-zinc-300"
           }`}
         >
           <span className="relative z-10">
@@ -36,7 +36,7 @@ export const RepresentationSelector = ({ selected, setSelected, lang }: Represen
             <motion.div
               layoutId="form-tab"
               transition={BASE_TRANSITION}
-              className="absolute bottom-0 left-0 right-0 h-px bg-zinc-900 dark:bg-zinc-100"
+              className="absolute bottom-0 left-0 right-0 h-px bg-zinc-700 dark:bg-zinc-300"
             />
           )}
         </button>

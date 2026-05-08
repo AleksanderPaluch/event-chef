@@ -35,10 +35,10 @@ export const DateField = ({ value, onChange, required, lang = "pl" }: Props) => 
         onClick={() => setOpen((p) => !p)}
         className="flex items-center justify-between w-full py-2 text-sm transition-colors duration-200 bg-transparent border-b cursor-pointer border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-500"
       >
-        <span className={value ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-300 dark:text-zinc-600"}>
+        <span className={value ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-500 dark:text-zinc-600"}>
           {value ? format(value, "dd.MM.yyyy") : t.datePlaceholder}
         </span>
-        <FiCalendar className="flex-shrink-0 text-zinc-300 dark:text-zinc-600" />
+        <FiCalendar className="flex-shrink-0 text-zinc-500 dark:text-zinc-600" />
       </div>
 
       <input

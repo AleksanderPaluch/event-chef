@@ -37,11 +37,11 @@ export const EventSelector = ({ options, value, onChange, placeholder }: Props) 
         onClick={() => setOpen((p) => !p)}
         className="flex items-center justify-between w-full py-2 text-sm transition-colors duration-200 bg-transparent border-b cursor-pointer border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-zinc-400 dark:hover:border-zinc-500"
       >
-        <span className={selectedOption ? "" : "text-zinc-300 dark:text-zinc-600"}>
+        <span className={selectedOption ? "" : "text-zinc-500 dark:text-zinc-600"}>
           {selectedOption?.label ?? placeholder}
         </span>
         <FiChevronDown
-          className={`transition-transform duration-200 text-zinc-300 dark:text-zinc-600 flex-shrink-0 ${
+          className={`transition-transform duration-200 text-zinc-500 dark:text-zinc-600 flex-shrink-0 ${
             open ? "rotate-180" : ""
           }`}
         />

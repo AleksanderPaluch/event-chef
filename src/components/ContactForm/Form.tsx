@@ -13,9 +13,9 @@ import { type RepresentType, type SubmitStatus, type FormValues } from "./types"
 const BASE_TRANSITION = { duration: 0.4, ease: easeInOut };
 
 const inputClass =
-  "w-full bg-transparent border-b lg:min-w-[270px] border-zinc-200 dark:border-zinc-800 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-300 dark:placeholder:text-zinc-600 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500 transition-colors duration-200";
+  "w-full bg-transparent border-b lg:min-w-[270px] border-subtle py-2 text-sm text-heading placeholder:text-ghost focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500 transition-colors duration-200";
 
-const labelClass = "block text-base text-zinc-400 dark:text-zinc-300 mb-0";
+const labelClass = "block text-base text-muted mb-0";
 
 const ErrorMsg = ({ message }: { message?: string }) =>
   message ? <p className="mt-1 text-sm text-red-800">{message}</p> : null;
@@ -252,7 +252,7 @@ export const Form = ({
       {/* Consent + Submit */}
       <div className="flex flex-col gap-2 pt-2">
         <div className="flex items-start justify-between gap-6">
-          <div className="flex items-start gap-2">
+          <div className="flex items-start gap-2 " >
             <input
               type="checkbox"
               id="consent"
@@ -261,7 +261,7 @@ export const Form = ({
             />
             <label
               htmlFor="consent"
-              className="text-lg leading-relaxed md:text-base text-zinc-400 dark:text-zinc-500"
+              className="text-lg leading-relaxed md:text-base text-muted"
             >
               {t.agreements.contact}
             </label>
