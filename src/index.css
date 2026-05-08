@@ -47,10 +47,10 @@ input:-webkit-autofill:active {
   .text-heading       { @apply text-zinc-900 dark:text-zinc-100; }
 
   /* Body — main readable text */
-  .text-body          { @apply text-zinc-700 dark:text-zinc-400; }
+  .text-body          { @apply text-zinc-900 dark:text-zinc-400; }
 
   /* Muted — labels, captions, secondary info */
-  .text-muted         { @apply text-zinc-500 dark:text-zinc-500; }
+  .text-muted         { @apply text-zinc-800 dark:text-zinc-500; }
 
   /* Ghost — legal text, very quiet */
   .text-ghost         { @apply text-zinc-300 dark:text-zinc-600; }
@@ -68,56 +68,6 @@ input:-webkit-autofill:active {
 
 
 
-
-
-@layer components {
-
-
-
-
-  /* ===== Navigation Wrapper ===== */
-.nav {
-  @apply fixed top-0 left-0 right-0 z-40 flex justify-center px-4 py-2 transition-all duration-300 lg:py-0 ;
-}
-
-/* transparent at top of page */
-.nav--top {
-  @apply  bg-transparent border-transparent shadow-none text-zinc-300 ;
-  /* dark */
-  @apply dark:bg-transparent dark:border-transparent;
-}
-
-/* solid after scrolling */
-.nav--scrolled {
-  @apply  bg-white border-b border-zinc-200;
-  /* dark */
-  @apply dark:bg-black dark:border-zinc-900;
-}
-  /* ===== NavLeft Wrapper ===== */
-  .nav-left {
-    @apply flex items-center gap-4 ml-auto lg:ml-0 
-  }
-
-  /* ===== Mobile Menu Button ===== */
-  .nav-menu-button {
-    @apply block lg:hidden
-           text-3xl
-           transition-colors
-           text-zinc-800             /* light */
-           hover:text-zinc-950
-           dark:text-zinc-100        /* dark */
-           dark:hover:text-white;
-  }
-
-  /* ===== NavMenu Wrapper ===== */
-/* Replace nav-menu in your CSS */
-.nav-menu {
-  @apply fixed inset-0 flex flex-col justify-center gap-2 px-8 origin-top bg-zinc-100 dark:bg-black;
-}
-
-
-  
-}
 
 
 

@@ -54,7 +54,7 @@ export const Button: React.FC<ButtonProps> = ({
     return (
       <button
         onClick={handleClick}
-        className="underline transition-colors text-heading underline-offset-4 decoration-zinc-300 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 w-fit"
+        className="underline transition-colors text-heading underline-offset-4 decoration-zinc-500 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 w-fit"
       >
         {text}
       </button>
