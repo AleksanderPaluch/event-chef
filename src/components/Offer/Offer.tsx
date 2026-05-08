@@ -65,15 +65,7 @@ export const OFFERS: OfferData[] = [
 
 // ─── Tabs ─────────────────────────────────────────────────────────────────────
 
-const PeopleTabs = ({
-  tabs,
-  selected,
-  setSelected,
-}: {
-  tabs: PeopleTab[];
-  selected: PeopleTab;
-  setSelected: (t: PeopleTab) => void;
-}) => (
+const PeopleTabs = ({ tabs, selected, setSelected }) => (
   <div className="flex justify-between gap-0 md:justify-start">
     {tabs.map((tab) => (
       <button
@@ -81,15 +73,15 @@ const PeopleTabs = ({
         onClick={() => setSelected(tab)}
         className={`relative px-2 md:px-6 py-3 text-sm tracking-wide transition-colors duration-200 ${
           selected === tab
-            ? "text-zinc-900 dark:text-zinc-100"
-            : "text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300"
+            ? "text-heading"
+            : "text-muted hover:text-black dark:hover:text-zinc-300"
         }`}
       >
         {tab} os.
         {selected === tab && (
           <motion.span
             layoutId="offer-tab-underline"
-            className="absolute bottom-0 left-0 right-0 h-px bg-zinc-900 dark:bg-zinc-100"
+            className="absolute bottom-0 left-0 right-0 h-px bg-zinc-700 dark:bg-zinc-100"
           />
         )}
       </button>
@@ -97,9 +89,7 @@ const PeopleTabs = ({
   </div>
 );
 
-// ─── Animated price value ─────────────────────────────────────────────────────
-
-const PriceValue = ({ value, selectedPeople }: { value: string; selectedPeople: PeopleTab }) => (
+const PriceValue = ({ value, selectedPeople }) => (
   <AnimatePresence mode="wait">
     <motion.span
       key={`${value}-${selectedPeople}`}
@@ -107,17 +97,15 @@ const PriceValue = ({ value, selectedPeople }: { value: string; selectedPeople: 
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -6 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className="text-2xl font-light text-zinc-900 dark:text-zinc-100"
+      className="text-2xl font-light text-heading"
     >
       {value}{" "}
-      <span className="text-sm text-zinc-400">zł / os.</span>
+      <span className="text-sm text-muted">zł / os.</span>
     </motion.span>
   </AnimatePresence>
 );
 
-// ─── Animated collapsed price preview ────────────────────────────────────────
-
-const PricePreview = ({ pricing, selectedPeople }: { pricing?: PriceTier; selectedPeople: PeopleTab }) => {
+const PricePreview = ({ pricing, selectedPeople }) => {
   if (!pricing) return null;
   const value = pricing.basic ?? pricing.premium;
 
@@ -129,10 +117,10 @@ const PricePreview = ({ pricing, selectedPeople }: { pricing?: PriceTier; select
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -4 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
-        className="hidden text-sm md:block text-zinc-400 dark:text-zinc-500"
+        className="hidden text-sm md:block text-muted"
       >
         od{" "}
-        <span className="font-light text-zinc-900 dark:text-zinc-100">
+        <span className="font-light text-heading">
           {value} zł
         </span>{" "}
         / os.
@@ -141,37 +129,21 @@ const PricePreview = ({ pricing, selectedPeople }: { pricing?: PriceTier; select
   );
 };
 
-// ─── Accordion item ───────────────────────────────────────────────────────────
-
-const AccordionItem = ({
-  offer,
-  pricing,
-  index,
-  isOpen,
-  onToggle,
-  selectedPeople,
-}: {
-  offer: OfferData;
-  pricing?: PriceTier;
-  index: number;
-  isOpen: boolean;
-  onToggle: () => void;
-  selectedPeople: PeopleTab;
-}) => (
-  <div className="border-b border-zinc-200 dark:border-zinc-800">
+const AccordionItem = ({ offer, pricing, index, isOpen, onToggle, selectedPeople }) => (
+  <div className="border-b border-subtle">
     <button
       onClick={onToggle}
       className="flex items-center justify-between w-full gap-8 py-6 text-left group"
     >
       <div className="flex items-baseline gap-6">
-        <span className="w-4 text-xs text-zinc-300 dark:text-zinc-600 tabular-nums">
+        <span className="w-4 text-xs text-ghost tabular-nums">
           {String(index + 1).padStart(2, "0")}
         </span>
         <div>
-          <p className="text-2xl font-light tracking-tight md:text-3xl text-zinc-900 dark:text-zinc-100">
+          <p className="text-2xl font-light tracking-tight md:text-3xl text-heading">
             {offer.title}
           </p>
-          <p className="text-[11px] tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mt-1">
+          <p className="text-[11px] tracking-[0.2em] uppercase text-accent mt-1">
             {offer.callout}
           </p>
         </div>
@@ -181,11 +153,11 @@ const AccordionItem = ({
         {!isOpen && <PricePreview pricing={pricing} selectedPeople={selectedPeople} />}
 
         <div className="relative flex-shrink-0 w-5 h-5">
-          <span className="absolute left-0 w-full h-px transition-colors -translate-y-1/2 top-1/2 bg-zinc-400 dark:bg-zinc-500 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100" />
+          <span className="absolute left-0 w-full h-px transition-colors -translate-y-1/2 top-1/2 bg-zinc-700 dark:bg-zinc-500 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100" />
           <motion.span
             animate={{ scaleY: isOpen ? 0 : 1, opacity: isOpen ? 0 : 1 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-0 w-px h-full -translate-x-1/2 left-1/2 bg-zinc-400 dark:bg-zinc-500 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100"
+            className="absolute top-0 w-px h-full -translate-x-1/2 left-1/2 bg-zinc-400 dark:bg-zinc-700 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100"
           />
         </div>
       </div>
@@ -204,14 +176,13 @@ const AccordionItem = ({
 
             {/* Features */}
             <div className="md:col-span-1">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-4">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-muted mb-4">
                 Co zawiera
               </p>
               <ul className="space-y-2">
                 {offer.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+                  <li key={f} className="flex items-start gap-2 text-sm text-body">
                     <span className="text-green-800">✔</span>
-                  
                     {f}
                   </li>
                 ))}
@@ -220,36 +191,35 @@ const AccordionItem = ({
 
             {/* Pricing */}
             <div className="md:col-span-1">
-              <p className="text-sm  tracking-[0.2em] uppercase text-zinc-400 dark:text-zinc-500 mb-4">
+              <p className="text-sm tracking-[0.2em] uppercase text-muted mb-4">
                 Cennik
               </p>
               {pricing ? (
                 <div className="space-y-3">
                   {pricing.basic && (
                     <div className="flex items-baseline justify-between">
-                      <span className="text-xs tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500">
+                      <span className="text-xs tracking-[0.15em] uppercase text-muted">
                         Basic
                       </span>
                       <PriceValue value={pricing.basic} selectedPeople={selectedPeople} />
                     </div>
                   )}
                   <div className="flex items-baseline justify-between">
-                    <span className="text-xs tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500">
+                    <span className="text-xs tracking-[0.15em] uppercase text-muted">
                       Premium
                     </span>
                     <PriceValue value={pricing.premium} selectedPeople={selectedPeople} />
                   </div>
                 </div>
               ) : (
-                <p className="text-sm italic text-zinc-400">Zapytaj o wycenę</p>
+                <p className="text-sm italic text-muted">Zapytaj o wycenę</p>
               )}
             </div>
 
             {/* CTA */}
             <div className="flex text-sm md:col-span-1 md:justify-end md:items-end">
-           <Button variant="page" order text="Zapytaj o wycenę" />
+              <Button variant="page" order text="Zapytaj o wycenę" />
             </div>
-
           </div>
         </motion.div>
       )}
@@ -257,24 +227,20 @@ const AccordionItem = ({
   </div>
 );
 
-// ─── Section ──────────────────────────────────────────────────────────────────
-
 export const Offer = () => {
   const [selectedPeople, setSelectedPeople] = useState<PeopleTab>("30+");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="offer" className="px-6 py-24 mx-auto lg:py-24 max-w-7xl">
-
+    <section id="offer" className="py-24 section-padding lg:py-24">
       <div className="mb-20">
         <Motion>
-   
-          <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-zinc-900 dark:text-zinc-100">
+          <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-heading">
             Oferta
           </h2>
         </Motion>
         <Motion>
-          <p className="max-w-lg text-base leading-relaxed text-zinc-400 dark:text-zinc-500">
+          <p className="max-w-lg text-base leading-relaxed text-muted">
             Ceny mają charakter orientacyjny i mogą się różnić w zależności od
             lokalizacji, liczby gości oraz indywidualnych ustaleń.
           </p>
@@ -287,7 +253,7 @@ export const Offer = () => {
         setSelected={setSelectedPeople}
       />
 
-      <div className="border-t border-zinc-200 dark:border-zinc-800">
+      <div className="border-t border-subtle">
         {OFFERS.map((offer, i) => (
           <AccordionItem
             key={offer.title}
@@ -300,7 +266,6 @@ export const Offer = () => {
           />
         ))}
       </div>
-
     </section>
   );
 };
