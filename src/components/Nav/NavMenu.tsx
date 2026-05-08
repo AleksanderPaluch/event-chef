@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import React from "react";
 import { smoothScrollTo } from "../helpers";
+import { useLanguage } from "../Translations/LanguageContext";
 
 interface NavMenuProps {
   isOpen: boolean;
@@ -26,6 +27,8 @@ const links = [
 ] as const;
 
 export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
+  const { lang, setLang } = useLanguage();
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -39,6 +42,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
           {/* Top divider */}
           <div className="absolute top-0 h-px left-8 right-8 bg-zinc-200 dark:bg-zinc-800" />
 
+          {/* Links */}
           <nav className="flex flex-col gap-1">
             {links.map((link, i) => (
               <MenuLink
@@ -52,7 +56,34 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
             ))}
           </nav>
 
-          {/* Footer */}
+          {/* Language toggle */}
+          <div className="absolute flex items-center gap-3 bottom-16 left-8">
+            <button
+              type="button"
+              onClick={() => setLang("pl")}
+              className={`text-sm uppercase tracking-widest transition-colors ${
+                lang === "pl"
+                  ? "text-amber-500"
+                  : "text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+              }`}
+            >
+              PL
+            </button>
+            <span className="text-zinc-300 dark:text-zinc-700">|</span>
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              className={`text-sm uppercase tracking-widest transition-colors ${
+                lang === "en"
+                  ? "text-amber-500"
+                  : "text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+
+          {/* Copyright */}
           <p className="absolute text-xs bottom-8 left-8 text-zinc-400 dark:text-zinc-600">
             © {new Date().getFullYear()} Event Chef
           </p>

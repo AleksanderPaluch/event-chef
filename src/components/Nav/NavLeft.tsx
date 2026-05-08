@@ -3,6 +3,7 @@ import { TfiLineDouble } from "react-icons/tfi";
 import { FiX } from "react-icons/fi";
 import React from "react";
 import { NavLink } from "./NavLink";
+import { useLanguage } from "../Translations/LanguageContext";
 
 interface NavLeftProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,6 +20,8 @@ const links = [
 ] as const;
 
 export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
+  const { lang, setLang } = useLanguage();
+
   return (
     <div className="flex items-center gap-4 ml-auto lg:ml-0">
 
@@ -58,7 +61,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
         </AnimatePresence>
       </motion.button>
 
-      {/* Desktop links */}
+      {/* Desktop links + lang toggle — hidden on mobile */}
       {links.map((link, index) => (
         <React.Fragment key={link.href}>
           <NavLink text={link.text} href={link.href} type={link.type} />
@@ -67,6 +70,35 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
           )}
         </React.Fragment>
       ))}
+
+      {/* Desktop lang toggle */}
+      <div className="items-center hidden gap-2 ml-2 lg:flex">
+    
+        <button
+          type="button"
+          onClick={() => setLang("pl")}
+          className={`text-xs font-semibold uppercase tracking-widest transition-colors ${
+            lang === "pl"
+              ? "text-amber-500"
+              : "text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+          }`}
+        >
+          PL
+        </button>
+        <span className="text-xs text-zinc-300 dark:text-zinc-700">|</span>
+        <button
+          type="button"
+          onClick={() => setLang("en")}
+          className={`text-xs font-semibold uppercase tracking-widest transition-colors ${
+            lang === "en"
+              ? "text-amber-500"
+              : "text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+          }`}
+        >
+          EN
+        </button>
+      </div>
+
     </div>
   );
 };
