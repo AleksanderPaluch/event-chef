@@ -23,9 +23,9 @@ export const RepresentationSelector = ({ selected, setSelected, lang }: Represen
           key={type}
           type="button"
           onClick={() => setSelected(type)}
-          className={`relative px-4 py-1.5 transition-colors duration-200 ${
+          className={`relative px-4 py-1.5 transition-colors duration-200 font-semibold ${
             selected === type
-              ? "text-body"
+              ? "text-muted"
               : "text-muted hover:text-black dark:hover:text-zinc-300"
           }`}
         >

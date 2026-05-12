@@ -25,10 +25,10 @@ export const OFFERS: OfferData[] = [
     callout: "Sushi na żywo",
     features: ["Indywidualne menu", "Produkty premium", "Pełna organizacja kulinarna"],
     pricing: {
-      "8-14":  { basic: "130", premium: "140" },
-      "15-19": { basic: "120", premium: "130" },
-      "20-29": { basic: "110", premium: "120" },
-      "30+":   { basic: "100", premium: "110" },
+      "8-14":  { basic: "130", premium: "150" },
+      "15-19": { basic: "120", premium: "140" },
+      "20-29": { basic: "110", premium: "130" },
+      "30+":   { basic: "100", premium: "120" },
     },
   },
   {
@@ -36,10 +36,10 @@ export const OFFERS: OfferData[] = [
     callout: "Warsztaty sushi",
     features: ["Interaktywny pokaz", "Nauka krok po kroku", "Degustacja przygotowanych dań"],
     pricing: {
-      "8-14":  { basic: "140", premium: "150" },
-      "15-19": { basic: "130", premium: "140" },
-      "20-29": { basic: "120", premium: "130" },
-      "30+":   { basic: "110", premium: "120" },
+      "8-14":  { basic: "140", premium: "160" },
+      "15-19": { basic: "130", premium: "150" },
+      "20-29": { basic: "120", premium: "140" },
+      "30+":   { basic: "110", premium: "130" },
     },
   },
   {
@@ -57,8 +57,8 @@ export const OFFERS: OfferData[] = [
     callout: "Catering weselny",
     features: ["Specjalne menu weselne", "Sushi w formie bufetu", "Realizacja na terenie całej Polski"],
     pricing: {
-      "20-29": { basic: "90", premium: "110" },
-      "30+":   { basic: "70", premium: "90" },
+      "20-29": { basic: "100", premium: "120" },
+      "30+":   { basic: "80", premium: "100" },
     },
   },
 ];
@@ -78,7 +78,7 @@ const PeopleTabs = ({
       <button
         key={tab}
         onClick={() => setSelected(tab)}
-        className={`relative px-2 md:px-6 py-3 text-sm tracking-wide transition-colors duration-200 ${
+        className={`relative px-2 md:px-6 py-3 text-sm tracking-wide font-medium transition-colors duration-200 ${
           selected === tab
             ? "text-heading"
             : "text-muted hover:text-black dark:hover:text-zinc-300"
@@ -104,7 +104,7 @@ const PriceValue = ({ value, selectedPeople }: { value: string; selectedPeople: 
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -6 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className="text-2xl font-light text-heading"
+      className="text-2xl text-heading"
     >
       {value}{" "}
       <span className="text-sm text-muted">zł / os.</span>
@@ -124,10 +124,10 @@ const PricePreview = ({ pricing, selectedPeople }: { pricing?: PriceTier; select
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -4 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
-        className="hidden text-sm md:block text-muted"
+        className="hidden text-sm font-medium md:block text-muted"
       >
         od{" "}
-        <span className="font-light text-heading">
+        <span className=" text-heading">
           {value} zł
         </span>{" "}
         / os.
@@ -164,7 +164,7 @@ const AccordionItem = ({
           <p className="text-2xl font-light tracking-tight md:text-3xl text-heading">
             {offer.title}
           </p>
-          <p className="text-[11px] tracking-[0.2em] uppercase text-accent mt-1">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent mt-1">
             {offer.callout}
           </p>
         </div>
@@ -219,14 +219,14 @@ const AccordionItem = ({
                 <div className="space-y-3">
                   {pricing.basic && (
                     <div className="flex items-baseline justify-between">
-                      <span className="text-xs tracking-[0.15em] uppercase text-muted">
+                      <span className="text-xs tracking-[0.15em] uppercase font-semibold text-muted">
                         Basic
                       </span>
                       <PriceValue value={pricing.basic} selectedPeople={selectedPeople} />
                     </div>
                   )}
                   <div className="flex items-baseline justify-between">
-                    <span className="text-xs tracking-[0.15em] uppercase text-muted">
+                    <span className="text-xs tracking-[0.15em] uppercase font-semibold text-muted">
                       Premium
                     </span>
                     <PriceValue value={pricing.premium} selectedPeople={selectedPeople} />

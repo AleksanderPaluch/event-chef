@@ -107,10 +107,10 @@ const StatItem = ({
 
   return (
     <div className="flex flex-col mb-4 lg:mt-8">
-      <div className="text-4xl font-light tracking-tight lg:text-5xl text-zinc-900 dark:text-zinc-100">
+      <div className="text-4xl tracking-tight lg:text-5xl text-zinc-900 dark:text-zinc-100">
         <span ref={ref}>0</span>
         <span className="text-amber-700 dark:text-amber-400">{suffix}</span>
-            <p className="display-block text-sm  tracking-[0.15em] uppercase text-zinc-700 dark:text-zinc-400">
+            <p className="display-block text-sm mt-3 tracking-[0.15em] uppercase font-medium text-zinc-800 dark:text-zinc-400">
         {label}
       </p>
       </div>
@@ -244,7 +244,7 @@ export const AboutSection = () => {
 
   {/* Stats */}
   <Motion>
-    <div className="flex flex-col items-center justify-between gap-3 pt-12 text-center border-t md:flex-row lg:px-0 border-subtle">
+    <div className="flex flex-col items-center justify-between gap-3 pt-12 text-center border-t lg:gap-12 md:flex-row lg:px-0 border-subtle">
       {STATS.map((s) => (
         <StatItem key={s.label} {...s} />
       ))}
