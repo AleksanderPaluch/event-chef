@@ -71,7 +71,7 @@ export const Intro = () => {
       <div className="mb-20 divider" />
 
       {/* Cards */}
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-16">
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-14">
         {features.map((feature) => (
           <div key={feature.id} className="flex flex-col group">
             <h3 className="mb-4 text-4xl font-light tracking-tight text-heading">

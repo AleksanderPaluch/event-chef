@@ -25,7 +25,7 @@ export const ContactForm = () => {
           </h2>
         </Motion>
         <Motion>
-          <p className="max-w-md text-base leading-relaxed text-muted">
+          <p className="max-w-lg text-base leading-relaxed text-muted">
             Opisz swoje wydarzenie — a my zajmiemy się resztą. W ciągu 24 godzin
             prześlemy propozycję dopasowaną do Twoich potrzeb.
           </p>

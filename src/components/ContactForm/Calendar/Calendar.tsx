@@ -57,77 +57,70 @@ export const DatePicker = ({
     startOfMonth(today),
   );
 
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-className="top-0 right-0 p-4 bg-white border rounded-lg shadow-sm dark:bg-black border-zinc-200 dark:border-zinc-800 w-fit md:absolute md:mt-0 md:translate-x-full"
-    >
-      {/* Header */}
-      <div className="flex items-center justify-between mb-3 text-xl">
-        <button
-         type="button"
-          disabled={isPrevMonthDisabled}
-          onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
-          className={isPrevMonthDisabled ? "opacity-30 " : ""}
+return (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="top-0 right-0 p-4 bg-white border rounded-lg shadow-sm dark:bg-black border-subtle w-fit md:absolute md:mt-0 md:translate-x-full"
+  >
+    {/* Header */}
+    <div className="flex items-center justify-between mb-3 text-xl">
+      <button
+        type="button"
+        disabled={isPrevMonthDisabled}
+        onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
+        className={isPrevMonthDisabled ? "opacity-30" : ""}
+      >
+        <FiArrowLeft />
+      </button>
+
+      <span className="text-lg font-medium text-heading">
+        {format(currentMonth, "LLLL yyyy", { locale })}
+      </span>
+
+      <button type="button" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>
+        <FiArrowRight />
+      </button>
+    </div>
+
+    {/* Weekdays */}
+    <div className="flex mb-2">
+      {t.weekday.map((weekday) => (
+        <div
+          key={weekday}
+          className="block w-[calc(100%_/_7)] text-center text-sm font-medium text-muted"
         >
-          <FiArrowLeft />
-        </button>
+          {weekday}
+        </div>
+      ))}
+    </div>
 
-        <span className="text-lg font-medium">
-          {format(currentMonth, "LLLL yyyy", { locale })}
-        </span>
+    {/* Grid */}
+    <div className="flex flex-wrap min-w-[235px] w-full">
+      {days.map((dayItem) => {
+        const isCurrentMonth = isSameMonth(dayItem, monthStart);
+        const isSelected = isSameDay(dayItem, selected);
+        const isPast = isBefore(dayItem, today);
+        const disabled = !isCurrentMonth || isPast;
 
-        <button  type="button" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>
-          <FiArrowRight />
-        </button>
-      </div>
-
-      {/* Weekdays */}
-      <div className="flex mb-2">
-        {t.weekday.map((weekday) => (
-          <div
-            key={weekday}
-            className="block w-[calc(100%_/_7)] text-center text-sm font-medium"
+        return (
+          <button
+            type="button"
+            key={dayItem.toISOString()}
+            disabled={disabled}
+            onClick={(e) => !disabled && onDateSelected({ date: dayItem }, e)}
+            className={`
+              w-[calc(100%_/_7)] rounded text-lg lg:text-base py-1 transition-colors
+              ${isSelected ? "font-semibold bg-zinc-800 text-white dark:bg-zinc-300 dark:text-zinc-950" : ""}
+              ${disabled ? "text-ghost" : "text-heading hover:bg-zinc-300 dark:hover:bg-zinc-700"}
+            `}
           >
-            {weekday}
-          </div>
-        ))}
-      </div>
-
-      {/* Grid */}
-      <div className="flex flex-wrap min-w-[235px] w-full">
-        {days.map((dayItem) => {
-          const isCurrentMonth = isSameMonth(dayItem, monthStart);
-          const isSelected = isSameDay(dayItem, selected);
-          const isPast = isBefore(dayItem, today);
-
-          const disabled = !isCurrentMonth || isPast;
-
-          return (
-            <button
-             type="button"
-              key={dayItem.toISOString()}
-              disabled={disabled}
-              onClick={(e) => !disabled && onDateSelected({ date: dayItem }, e)}
-              className={`
-        w-[calc(100%_/_7)] rounded text-lg lg:text-base py-1 transition-colors
-
-        ${isSelected ? "font-semibold bg-zinc-800 text-white dark:bg-zinc-300 dark:text-zinc-950" : ""}
-
-        ${
-          disabled
-            ?  "text-zinc-500 dark:text-zinc-800 "
-            : "hover:bg-zinc-300 dark:hover:bg-zinc-700"
-        }
-      `}
-            >
-              {format(dayItem, "d")}
-            </button>
-          );
-        })}
-      </div>
-    </motion.div>
-  );
-};
+            {format(dayItem, "d")}
+          </button>
+        );
+      })}
+    </div>
+  </motion.div>
+);
+}

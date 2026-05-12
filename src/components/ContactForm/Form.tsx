@@ -15,7 +15,7 @@ const BASE_TRANSITION = { duration: 0.4, ease: easeInOut };
 const inputClass =
   "w-full bg-transparent border-b lg:min-w-[270px] border-subtle py-2 text-sm text-heading placeholder:text-ghost focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500 transition-colors duration-200";
 
-const labelClass = "block text-base text-muted mb-0";
+const labelClass = "font-semibold block text-base text-muted mb-0";
 
 const ErrorMsg = ({ message }: { message?: string }) =>
   message ? <p className="mt-1 text-sm text-red-800">{message}</p> : null;
