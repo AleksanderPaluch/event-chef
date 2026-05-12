@@ -4,6 +4,9 @@ import { FiX } from "react-icons/fi";
 import React from "react";
 import { NavLink } from "./NavLink";
 import { useLanguage } from "../Translations/LanguageContext";
+import { FiSun, FiMoon } from "react-icons/fi";
+import { useTheme } from "../../hooks/useTheme";
+
 
 interface NavLeftProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,8 +22,11 @@ const links = [
   { text: "Wycena Twojego Eventu", href: "contact",       type: "section" },
 ] as const;
 
+
+
 export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
   const { lang, setLang } = useLanguage();
+  const { isDark, toggle } = useTheme();
 
   return (
     <div className="flex items-center gap-4 ml-auto lg:ml-0">
@@ -61,7 +67,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
         </AnimatePresence>
       </motion.button>
 
-      {/* Desktop links + lang toggle — hidden on mobile */}
+      {/* Desktop links */}
       {links.map((link, index) => (
         <React.Fragment key={link.href}>
           <NavLink text={link.text} href={link.href} type={link.type} />
@@ -71,16 +77,13 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
         </React.Fragment>
       ))}
 
-      {/* Desktop lang toggle */}
+      {/* Desktop lang + theme toggle */}
       <div className="items-center hidden gap-2 ml-2 lg:flex">
-    
         <button
           type="button"
           onClick={() => setLang("pl")}
           className={`text-xs font-semibold uppercase tracking-widest transition-colors ${
-            lang === "pl"
-              ? "text-amber-500"
-              : " hover:text-amber-500 dark:hover:text-amber-400"
+            lang === "pl" ? "text-amber-500" : "hover:text-amber-500 dark:hover:text-amber-400"
           }`}
         >
           PL
@@ -90,13 +93,48 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
           type="button"
           onClick={() => setLang("en")}
           className={`text-xs font-semibold uppercase tracking-widest transition-colors ${
-            lang === "en"
-              ? "text-amber-500"
-              : " hover:text-amber-500 dark:hover:text-amber-400"
+            lang === "en" ? "text-amber-500" : "hover:text-amber-500 dark:hover:text-amber-400"
           }`}
         >
           EN
         </button>
+
+        <span className="text-xs text-zinc-300 dark:text-zinc-700">|</span>
+
+        {/* Theme toggle */}
+        <motion.button
+          type="button"
+          onClick={toggle}
+          whileTap={{ scale: 0.85 }}
+          aria-label="Toggle theme"
+          className="transition-colors hover:text-amber-500 dark:hover:text-amber-400"
+        >
+          <AnimatePresence mode="wait">
+            {isDark ? (
+              <motion.span
+                key="sun"
+                initial={{ opacity: 0, rotate: -45 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: 45 }}
+                transition={{ duration: 0.2 }}
+                className="block"
+              >
+                <FiSun className="text-base" />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="moon"
+                initial={{ opacity: 0, rotate: 45 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: -45 }}
+                transition={{ duration: 0.2 }}
+                className="block"
+              >
+                <FiMoon className="text-base" />
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.button>
       </div>
 
     </div>

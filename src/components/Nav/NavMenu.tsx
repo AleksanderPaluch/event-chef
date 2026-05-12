@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import React from "react";
 import { smoothScrollTo } from "../helpers";
 import { useLanguage } from "../Translations/LanguageContext";
+import { useTheme } from "../../hooks/useTheme";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 interface NavMenuProps {
   isOpen: boolean;
@@ -26,8 +28,11 @@ const links = [
   { text: "Indywidualna Wycena", href: "contact",       type: "section" },
 ] as const;
 
+
+
 export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
   const { lang, setLang } = useLanguage();
+  const { isDark, toggle } = useTheme();
 
   return (
     <AnimatePresence>
@@ -56,35 +61,69 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
             ))}
           </nav>
 
-          {/* Language toggle */}
-          <div className="absolute flex items-center gap-3 bottom-16 left-8">
+          {/* Lang + theme toggle — bottom right */}
+          <div className="absolute flex items-center gap-3 bottom-8 right-8">
             <button
               type="button"
               onClick={() => setLang("pl")}
               className={`text-sm uppercase tracking-widest transition-colors ${
                 lang === "pl"
                   ? "text-amber-500"
-                  : "text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                  : "text-muted hover:text-heading"
               }`}
             >
               PL
             </button>
-            <span className="text-zinc-300 dark:text-zinc-700">|</span>
+            <span className="text-ghost">|</span>
             <button
               type="button"
               onClick={() => setLang("en")}
               className={`text-sm uppercase tracking-widest transition-colors ${
                 lang === "en"
                   ? "text-amber-500"
-                  : "text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                  : "text-muted hover:text-heading"
               }`}
             >
               EN
             </button>
+            <span className="text-ghost">|</span>
+            <motion.button
+              type="button"
+              onClick={toggle}
+              whileTap={{ scale: 0.85 }}
+              aria-label="Toggle theme"
+              className="transition-colors text-muted hover:text-heading"
+            >
+              <AnimatePresence mode="wait">
+                {isDark ? (
+                  <motion.span
+                    key="sun"
+                    initial={{ opacity: 0, rotate: -45 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: 45 }}
+                    transition={{ duration: 0.2 }}
+                    className="block"
+                  >
+                    <FiSun className="text-base" />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="moon"
+                    initial={{ opacity: 0, rotate: 45 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: -45 }}
+                    transition={{ duration: 0.2 }}
+                    className="block"
+                  >
+                    <FiMoon className="text-base" />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
           </div>
 
-          {/* Copyright */}
-          <p className="absolute text-xs bottom-8 left-8 text-zinc-400 dark:text-zinc-600">
+          {/* Copyright — bottom left */}
+          <p className="absolute text-xs bottom-8 left-8 text-ghost">
             © {new Date().getFullYear()} Event Chef
           </p>
         </motion.div>

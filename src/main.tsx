@@ -8,6 +8,8 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 document.documentElement.classList.toggle('dark', prefersDark);
 
 document.documentElement.classList.add("dark");
+const saved = localStorage.getItem("theme");
+if (saved === "light") document.documentElement.classList.remove("dark");
 
 createRoot(document.getElementById('root')!).render(
 
