@@ -16,7 +16,7 @@ interface NavLeftProps {
 const links = [
   { text: "Home",                  href: "/",            type: "page" },
   { text: "Live Cooking",          href: "/live",         type: "page" },
-  { text: "Sushi Masterclass",     href: "/masterclass",  type: "page" },
+  { text: "Warsztaty Sushi",     href: "/masterclass",  type: "page" },
   { text: "Omakase",               href: "/omakase",      type: "page" },
   { text: "Oferta",                href: "offer",         type: "section" },
   { text: "Wycena Twojego Eventu", href: "contact",       type: "section" },

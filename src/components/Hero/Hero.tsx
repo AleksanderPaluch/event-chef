@@ -2,6 +2,8 @@ import { ReactLenis } from "lenis/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Button } from "../Button/Button";
+import { HeroTranslations } from "../Translations/HeroTranslations";
+import { useLanguage } from "../Translations/LanguageContext";
 
 const SECTION_HEIGHT = 150;
 
@@ -10,7 +12,6 @@ export interface HeroProps {
   eyebrow?: string;
   heading: React.ReactNode;
   subtitle?: string;
-
 }
 
 const useIsDesktop = () => {
@@ -27,33 +28,36 @@ const useIsDesktop = () => {
   return isDesktop;
 };
 
-const HeroContent = ({ eyebrow, heading, subtitle }: Omit<HeroProps, "image">) => (
-  <div className="absolute left-0 z-10 w-full max-w-4xl px-4 bottom-32 md:bottom-16 lg:bottom-52 md:px-12 lg:px-20">
-    {eyebrow && (
-      <span className="uppercase tracking-[0.4em] text-amber-500 dark:text-amber-400 text-sm font-semibold">
-        {eyebrow}
-      </span>
-    )}
+const HeroContent = ({ eyebrow, heading, subtitle }: Omit<HeroProps, "image">) => {
+  const { lang } = useLanguage();
+  const t = HeroTranslations[lang];
 
-    <h1 className="mt-4 text-4xl leading-tight lg:mt-5 md:text-5xl lg:text-6xl text-zinc-100">
-      {heading}
-    </h1>
+  return (
+    <div className="absolute left-0 z-10 w-full max-w-4xl px-4 bottom-32 md:bottom-16 lg:bottom-52 md:px-12 lg:px-20">
+      {eyebrow && (
+        <span className="uppercase tracking-[0.4em] text-amber-500 dark:text-amber-400 text-sm font-semibold">
+          {eyebrow}
+        </span>
+      )}
 
-    <div className="w-16 h-px mt-6 lg:mt-8 bg-amber-500/60" />
+      <h1 className="mt-4 text-4xl leading-tight lg:mt-5 md:text-5xl lg:text-6xl text-zinc-100">
+        {heading}
+      </h1>
 
-    {subtitle && (
-      <p className="mt-32 text-sm font-semibold tracking-wide uppercase md:mt-6 text-zinc-300">
-        {subtitle}
-      </p>
-    )}
+      <div className="w-16 h-px mt-6 lg:mt-8 bg-amber-500/60" />
 
-  
+      {subtitle && (
+        <p className="mt-32 text-sm font-semibold tracking-wide uppercase md:mt-6 text-zinc-300">
+          {subtitle}
+        </p>
+      )}
+
       <div className="max-w-lg mt-4 lg:mt-7">
-        <Button order  text="Otrzymaj indywidualną ofertę" />
+        <Button order text={t.cta} />
       </div>
-
-  </div>
-);
+    </div>
+  );
+};
 
 const HeroMobile = ({ image, ...contentProps }: HeroProps) => (
   <section id="home" className="relative h-[100svh] w-full">
@@ -93,7 +97,6 @@ const CenterImage = ({ image, ...contentProps }: HeroProps) => {
       <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
       <HeroContent {...contentProps} />
       <div className="absolute inset-0 bg-black/20 dark:bg-black/40" />
-    
     </div>
   );
 };
