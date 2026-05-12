@@ -66,7 +66,7 @@ const HeroMobile = ({ image, ...contentProps }: HeroProps) => (
       }}
     />
     <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
-    <div className="absolute inset-0 bg-black/50 dark:bg-black/50" />
+    <div className="absolute inset-0 bg-black/20 dark:bg-black/50" />
     <HeroContent {...contentProps} />
   </section>
 );
@@ -92,7 +92,7 @@ const CenterImage = ({ image, ...contentProps }: HeroProps) => {
       />
       <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
       <HeroContent {...contentProps} />
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/20 dark:bg-black/40" />
     
     </div>
   );

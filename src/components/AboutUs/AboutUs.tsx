@@ -110,7 +110,7 @@ const StatItem = ({
       <div className="text-4xl tracking-tight lg:text-5xl text-zinc-900 dark:text-zinc-100">
         <span ref={ref}>0</span>
         <span className="text-amber-700 dark:text-amber-400">{suffix}</span>
-            <p className="display-block text-sm mt-3 tracking-[0.15em] uppercase font-medium text-zinc-800 dark:text-zinc-400">
+            <p className="display-block text-sm mt-2 lg:mt-3 tracking-[0.15em] uppercase font-medium text-zinc-800 dark:text-zinc-400">
         {label}
       </p>
       </div>

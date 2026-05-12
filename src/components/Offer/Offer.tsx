@@ -78,7 +78,7 @@ const PeopleTabs = ({
       <button
         key={tab}
         onClick={() => setSelected(tab)}
-        className={`relative px-2 md:px-6 py-3 text-sm tracking-wide font-medium transition-colors duration-200 ${
+        className={`relative px-2 md:px-6 py-3 text-sm lg:text-base tracking-wide font-medium transition-colors duration-200 ${
           selected === tab
             ? "text-heading"
             : "text-muted hover:text-black dark:hover:text-zinc-300"

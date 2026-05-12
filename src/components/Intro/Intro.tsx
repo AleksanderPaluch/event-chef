@@ -77,7 +77,7 @@ export const Intro = () => {
             <h3 className="mb-4 text-4xl font-light tracking-tight text-heading">
               {feature.title}
             </h3>
-            <p className="text-sm  font-bold tracking-[0.15em] uppercase text-accent mb-4">
+            <p className="text-sm md:text-xs lg:text-sm font-bold tracking-[0.1em] uppercase text-accent mb-4">
               {feature.callout}
             </p>
             <p className="mb-8 text-sm leading-relaxed text-body">
