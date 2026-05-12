@@ -50,36 +50,35 @@ export const Button: React.FC<ButtonProps> = ({
     else navigate(`/#${sectionId}`);
   };
 
-  if (variant === "page") {
-    return (
-      <button
-        onClick={handleClick}
-        className="underline transition-colors text-heading underline-offset-4 decoration-zinc-500 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 w-fit"
-      >
-        {text}
-      </button>
-    );
-  }
-
+if (variant === "page") {
   return (
-    <motion.button
-      ref={ref}
-      style={{ transform }}
+    <button
       onClick={handleClick}
-      onMouseDown={handleReset}
-      className="relative flex items-center justify-between w-full max-w-sm px-5 py-3 overflow-hidden transition-colors duration-500 border rounded-lg bg-black/80 group md:ml-0 border-white/15 hover:border-white/40"
+      className="underline transition-colors text-heading underline-offset-4 decoration-zinc-400 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 w-fit"
     >
-      {/* Shimmer */}
-      <span
-        className="absolute inset-0 transition-transform duration-700 ease-in-out -translate-x-full pointer-events-none group-hover:translate-x-full"
-        style={{
-          background: "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.2) 50%, transparent 65%)",
-        }}
-      />
-      <TypewriterText text={text} />
-      <FiArrowRight className="relative flex-shrink-0 text-xl text-zinc-300" />
-    </motion.button>
+      {text}
+    </button>
   );
+}
+
+return (
+  <motion.button
+    ref={ref}
+    style={{ transform }}
+    onClick={handleClick}
+    onMouseDown={handleReset}
+    className="relative flex items-center justify-between w-full max-w-sm px-5 py-3 overflow-hidden transition-colors duration-500 border rounded-lg bg-black/80 group md:ml-0 border-white/15 hover:border-white/40"
+  >
+    <span
+      className="absolute inset-0 transition-transform duration-700 ease-in-out -translate-x-full pointer-events-none group-hover:translate-x-full"
+      style={{
+        background: "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.2) 50%, transparent 65%)",
+      }}
+    />
+    <TypewriterText text={text} />
+    <FiArrowRight className="relative flex-shrink-0 text-xl text-zinc-300" />
+  </motion.button>
+);
 };
 
 // ─── Typewriter ───────────────────────────────────────────────────────────────

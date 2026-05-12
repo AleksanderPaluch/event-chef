@@ -16,7 +16,7 @@ export const FAQ = ({ items }: FAQProps) => {
   return (
     <div className="px-4 py-12">
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm  font-semibold text-center uppercase tracking-[0.2em] opacity-50 mb-8">
+        <p className="text-sm  font-semibold text-center uppercase tracking-[0.2em] opacity-70 mb-8">
           FAQ
         </p>
         {items.map((item, i) => (
@@ -52,7 +52,7 @@ const Question = ({
       >
         <span
           className={`text-base uppercase tracking-[0.2em] text-left transition-opacity duration-200 ${
-            open ? "opacity-50" : "opacity-90"
+            open ? "opacity-80" : "opacity-90"
           }`}
         >
           {title}
