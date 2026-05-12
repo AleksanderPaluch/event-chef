@@ -64,8 +64,15 @@ export const OFFERS: OfferData[] = [
 ];
 
 // ─── Tabs ─────────────────────────────────────────────────────────────────────
-
-const PeopleTabs = ({ tabs, selected, setSelected }) => (
+const PeopleTabs = ({
+  tabs,
+  selected,
+  setSelected,
+}: {
+  tabs: PeopleTab[];
+  selected: PeopleTab;
+  setSelected: (t: PeopleTab) => void;
+}) => (
   <div className="flex justify-between gap-0 md:justify-start">
     {tabs.map((tab) => (
       <button
@@ -89,7 +96,7 @@ const PeopleTabs = ({ tabs, selected, setSelected }) => (
   </div>
 );
 
-const PriceValue = ({ value, selectedPeople }) => (
+const PriceValue = ({ value, selectedPeople }: { value: string; selectedPeople: PeopleTab }) => (
   <AnimatePresence mode="wait">
     <motion.span
       key={`${value}-${selectedPeople}`}
@@ -105,7 +112,7 @@ const PriceValue = ({ value, selectedPeople }) => (
   </AnimatePresence>
 );
 
-const PricePreview = ({ pricing, selectedPeople }) => {
+const PricePreview = ({ pricing, selectedPeople }: { pricing?: PriceTier; selectedPeople: PeopleTab }) => {
   if (!pricing) return null;
   const value = pricing.basic ?? pricing.premium;
 
@@ -129,7 +136,21 @@ const PricePreview = ({ pricing, selectedPeople }) => {
   );
 };
 
-const AccordionItem = ({ offer, pricing, index, isOpen, onToggle, selectedPeople }) => (
+const AccordionItem = ({
+  offer,
+  pricing,
+  index,
+  isOpen,
+  onToggle,
+  selectedPeople,
+}: {
+  offer: OfferData;
+  pricing?: PriceTier;
+  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
+  selectedPeople: PeopleTab;
+}) => (
   <div className="border-b border-subtle">
     <button
       onClick={onToggle}
