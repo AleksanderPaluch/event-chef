@@ -5,6 +5,7 @@ import { smoothScrollTo } from "../helpers";
 import { useLanguage } from "../Translations/LanguageContext";
 import { useTheme } from "../../hooks/useTheme";
 import { FiSun, FiMoon } from "react-icons/fi";
+import { NavTranslations } from "../Translations/NavTranslations";
 
 interface NavMenuProps {
   isOpen: boolean;
@@ -19,20 +20,10 @@ interface MenuLinkProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const links = [
-  { text: "Home",                href: "/",            type: "page" },
-  { text: "Live Cooking",        href: "/live",         type: "page" },
-  { text: "Sushi Masterclass",   href: "/masterclass",  type: "page" },
-  { text: "Omakase",             href: "/omakase",      type: "page" },
-  { text: "Oferta",              href: "offer",         type: "section" },
-  { text: "Indywidualna Wycena", href: "contact",       type: "section" },
-] as const;
-
-
-
 export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
   const { lang, setLang } = useLanguage();
   const { isDark, toggle } = useTheme();
+  const t = NavTranslations[lang];
 
   return (
     <AnimatePresence>
@@ -49,7 +40,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
 
           {/* Links */}
           <nav className="flex flex-col gap-1">
-            {links.map((link, i) => (
+            {t.links.map((link, i) => (
               <MenuLink
                 key={link.href}
                 text={link.text}
@@ -67,9 +58,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
               type="button"
               onClick={() => setLang("pl")}
               className={`text-sm uppercase tracking-widest transition-colors ${
-                lang === "pl"
-                  ? "text-amber-500"
-                  : "text-muted hover:text-heading"
+                lang === "pl" ? "text-amber-500" : "text-muted hover:text-heading"
               }`}
             >
               PL
@@ -79,9 +68,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, setIsOpen }) => {
               type="button"
               onClick={() => setLang("en")}
               className={`text-sm uppercase tracking-widest transition-colors ${
-                lang === "en"
-                  ? "text-amber-500"
-                  : "text-muted hover:text-heading"
+                lang === "en" ? "text-amber-500" : "text-muted hover:text-heading"
               }`}
             >
               EN
