@@ -9,8 +9,19 @@ const LanguageContext = createContext<{
   setLang: () => {},
 });
 
+const getSavedLang = (): Lang => {
+  const saved = localStorage.getItem("lang");
+  if (saved === "en" || saved === "pl") return saved;
+  return "pl";
+};
+
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-  const [lang, setLang] = useState<Lang>("pl");
+  const [lang, setLangState] = useState<Lang>(getSavedLang);
+
+  const setLang = (newLang: Lang) => {
+    localStorage.setItem("lang", newLang);
+    setLangState(newLang);
+  };
 
   return (
     <LanguageContext.Provider value={{ lang, setLang }}>

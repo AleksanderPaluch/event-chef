@@ -18,10 +18,10 @@ export const ContactForm = () => {
       <div className="mb-8 lg:mb-20">
         <Motion>
           <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">
-            Kontakt
+           Zaplanuj swój event
           </p>
           <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-heading">
-            Indywidualna wycena
+             Indywidualna wycena
           </h2>
         </Motion>
         <Motion>

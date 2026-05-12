@@ -257,7 +257,7 @@ export const Offer = () => {
       <div className="mb-20">
         <Motion>
           <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-heading">
-            Oferta
+            Cennik
           </h2>
         </Motion>
         <Motion>

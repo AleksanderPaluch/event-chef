@@ -1,11 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { TfiLineDouble } from "react-icons/tfi";
-import { FiX } from "react-icons/fi";
+import { FiX, FiSun, FiMoon } from "react-icons/fi";
 import React from "react";
 import { NavLink } from "./NavLink";
 import { useLanguage } from "../Translations/LanguageContext";
-import { FiSun, FiMoon } from "react-icons/fi";
 import { useTheme } from "../../hooks/useTheme";
+import { NavTranslations } from "../Translations/NavTranslations";
 
 
 interface NavLeftProps {
@@ -13,20 +13,10 @@ interface NavLeftProps {
   isOpen: boolean;
 }
 
-const links = [
-  { text: "Home",                  href: "/",            type: "page" },
-  { text: "Live Cooking",          href: "/live",         type: "page" },
-  { text: "Warsztaty Sushi",     href: "/masterclass",  type: "page" },
-  { text: "Omakase",               href: "/omakase",      type: "page" },
-  { text: "Oferta",                href: "offer",         type: "section" },
-  { text: "Wycena Twojego Eventu", href: "contact",       type: "section" },
-] as const;
-
-
-
 export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
   const { lang, setLang } = useLanguage();
   const { isDark, toggle } = useTheme();
+  const t = NavTranslations[lang];
 
   return (
     <div className="flex items-center gap-4 ml-auto lg:ml-0">
@@ -38,7 +28,7 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
         whileTap={{ scale: 0.95 }}
         className="relative z-50 flex items-center justify-center w-8 h-8 lg:hidden"
         onClick={() => setIsOpen((pv) => !pv)}
-        aria-label={isOpen ? "Zamknij menu" : "Otwórz menu"}
+        aria-label={isOpen ? t.closeMenu : t.openMenu}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
@@ -68,10 +58,10 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
       </motion.button>
 
       {/* Desktop links */}
-      {links.map((link, index) => (
+      {t.links.map((link, index) => (
         <React.Fragment key={link.href}>
           <NavLink text={link.text} href={link.href} type={link.type} />
-          {index < links.length - 1 && (
+          {index < t.links.length - 1 && (
             <span className="hidden lg:inline text-amber-500 opacity-80">•</span>
           )}
         </React.Fragment>
@@ -101,7 +91,6 @@ export const NavLeft: React.FC<NavLeftProps> = ({ setIsOpen, isOpen }) => {
 
         <span className="text-xs text-zinc-300 dark:text-zinc-700">|</span>
 
-        {/* Theme toggle */}
         <motion.button
           type="button"
           onClick={toggle}

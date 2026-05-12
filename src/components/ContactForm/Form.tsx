@@ -256,7 +256,7 @@ export const Form = ({
             <input
               type="checkbox"
               id="consent"
-              className="flex-shrink-0 w-4 h-4 mt-1.5 "
+              className="flex-shrink-0 w-4 h-4 mt-1.5 lg:mt-1"
               {...register("consent", { required: e.consent })}
             />
             <label
