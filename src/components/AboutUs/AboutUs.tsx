@@ -4,82 +4,10 @@ import { MdStar, MdStarHalf, MdStarBorder } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { Motion } from "../Motion/Motion";
 import { getRelativeDatePL } from "./helpers";
+import { useLanguage } from "../Translations/LanguageContext";
+import { AboutTranslations } from "../Translations/AboutTranslations";
 
-// ─── Data ────────────────────────────────────────────────────────────────────
 
-const STATS = [
-  { num: 100, suffix: "%", label: "Zadowolonych klientów" },
-  { num: 20, suffix: "+", label: "Eventów zorganizowanych" },
-  { num: 10, suffix: "lat+", label: "Doświadczenia zawodowego" },
-];
-
-const TESTIMONIALS = [
-  {
-    id: 1,
-
-    name: "Gabriella S.",
-    info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
-    rating: 5,
-    createdAt: "2026-02-05",
-  },
-  {
-    id: 2,
-
-    name: "Daniel A.",
-    info: "Bardzo dobra organizacja live sushi na imprezie urodzinowej. Goście byli zachwyceni!",
-    rating: 5,
-    createdAt: "2026-02-02",
-  },
-  {
-    id: 3,
-
-    name: "Paweł W.",
-    info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
-    rating: 5,
-    createdAt: "2025-02-09",
-  },
-  {
-    id: 4,
-
-    name: "Magdalena S.",
-    info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
-    rating: 5,
-    createdAt: "2025-02-09",
-  },
-
-   {
-    id: 5,
-
-    name: "Gabriella S.",
-    info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
-    rating: 5,
-    createdAt: "2026-02-05",
-  },
-  {
-    id: 6,
-
-    name: "Daniel A.",
-    info: "Bardzo dobra organizacja live sushi na imprezie urodzinowej. Goście byli zachwyceni!",
-    rating: 5,
-    createdAt: "2026-02-02",
-  },
-  {
-    id: 7,
-
-    name: "Paweł W.",
-    info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
-    rating: 5,
-    createdAt: "2025-02-09",
-  },
-  {
-    id: 8,
-
-    name: "Magdalena S.",
-    info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
-    rating: 5,
-    createdAt: "2025-02-09",
-  },
-];
 
 // ─── Stat counter ─────────────────────────────────────────────────────────────
 
@@ -110,11 +38,10 @@ const StatItem = ({
       <div className="text-4xl tracking-tight lg:text-5xl text-zinc-900 dark:text-zinc-100">
         <span ref={ref}>0</span>
         <span className="text-amber-700 dark:text-amber-400">{suffix}</span>
-            <p className="display-block text-sm mt-2 lg:mt-3 tracking-[0.15em] uppercase font-medium text-zinc-800 dark:text-zinc-400">
-        {label}
-      </p>
+        <p className="display-block text-sm mt-2 lg:mt-3 tracking-[0.15em] uppercase font-medium text-zinc-800 dark:text-zinc-400">
+          {label}
+        </p>
       </div>
-  
     </div>
   );
 };
@@ -145,15 +72,13 @@ const ReviewCard = ({
   const half = rating % 1 >= 0.5;
   const empty = 5 - full - (half ? 1 : 0);
 
-  // deterministic color per name
-const colorClass =
-  AVATAR_COLORS[
-    name.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0) % AVATAR_COLORS.length
-  ];
+  const colorClass =
+    AVATAR_COLORS[
+      name.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0) % AVATAR_COLORS.length
+    ];
 
   return (
-<div className="flex flex-col flex-shrink-0 gap-3 p-5 border shadow-sm bg-neutral-50 w-72 rounded-xl dark:bg-zinc-950 border-zinc-300 dark:border-zinc-800 dark:shadow-none">
-      {/* Header */}
+    <div className="flex flex-col flex-shrink-0 gap-3 p-5 border shadow-sm bg-neutral-50 w-72 rounded-xl dark:bg-zinc-950 border-zinc-300 dark:border-zinc-800 dark:shadow-none">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div
@@ -173,7 +98,6 @@ const colorClass =
         <FcGoogle className="flex-shrink-0 text-2xl" />
       </div>
 
-      {/* Stars — right below name, like Google */}
       <div className="flex items-center gap-0.5">
         {[...Array(full)].map((_, i) => (
           <MdStar key={`f${i}`} className="text-[#FBBC04] text-lg" />
@@ -184,7 +108,6 @@ const colorClass =
         ))}
       </div>
 
-      {/* Review text */}
       <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
         {info}
       </p>
@@ -194,9 +117,8 @@ const colorClass =
 
 // ─── Scrolling strip ──────────────────────────────────────────────────────────
 
-const TestimonialStrip = () => (
+const TestimonialStrip = ({ testimonials }: { testimonials: typeof AboutTranslations.pl.testimonials }) => (
   <div className="relative overflow-hidden">
-    {/* fade edges */}
     <div className="absolute top-0 bottom-0 left-0 z-10 w-16 pointer-events-none bg-gradient-to-r from-white dark:from-black to-transparent" />
     <div className="absolute top-0 bottom-0 right-0 z-10 w-16 pointer-events-none bg-gradient-to-l from-white dark:from-black to-transparent" />
 
@@ -207,7 +129,7 @@ const TestimonialStrip = () => (
         transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
         className="flex gap-4 px-2"
       >
-        {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
+        {[...testimonials, ...testimonials].map((t, i) => (
           <ReviewCard key={`${t.id}-${i}`} {...t} />
         ))}
       </motion.div>
@@ -218,52 +140,51 @@ const TestimonialStrip = () => (
 // ─── Main section ─────────────────────────────────────────────────────────────
 
 export const AboutSection = () => {
+  const { lang } = useLanguage();
+  const t = AboutTranslations[lang];
+
   return (
-   <section className="flex flex-col gap-20 px-6 py-24 mx-auto max-w-7xl lg:py-32 lg:pb-24 lg:gap-28">
-  {/* O nas — two column */}
-  <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2 lg:gap-32">
-    <Motion>
-      <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">
-        O nas
-      </p>
-      <h2 className="text-4xl md:text-5xl font-light leading-[1.15] text-heading tracking-tight">
-        Pasja do sushi,
-        <br />w każdym detalu.
-      </h2>
-    </Motion>
+    <section className="flex flex-col gap-20 px-6 py-24 mx-auto max-w-7xl lg:py-32 lg:pb-24 lg:gap-28">
+      {/* About us — two column */}
+      <div className="flex flex-col gap-16 md:flex-row md:justify-between">
+        <Motion>
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">
+            {t.eyebrow}
+          </p>
+          <h2 className="text-4xl md:text-4xl font-light leading-[1.15] text-heading tracking-tight">
+            {t.heading1}
+            <br />
+            {t.heading2}
+          </h2>
+        </Motion>
 
-    <Motion>
-      <p className="text-base leading-relaxed md:mt-10 text-muted">
-        Nasza firma została stworzona przez doświadczonych, utalentowanych
-        kucharzy, których pasją jest sushi. Dbamy o to, aby każde wydarzenie, które
-        obsługujemy, było wyjątkowym, niezapomnianym doświadczeniem
-        kulinarnym.
-      </p>
-    </Motion>
-  </div>
-
-  {/* Stats */}
-  <Motion>
-    <div className="flex flex-col items-center justify-between gap-3 pt-12 text-center border-t lg:gap-12 md:flex-row lg:px-0 border-subtle">
-      {STATS.map((s) => (
-        <StatItem key={s.label} {...s} />
-      ))}
-    </div>
-  </Motion>
-
-  {/* Divider + testimonials header */}
-  <div>
-    <Motion>
-      <div className="flex items-end justify-between mb-12">
-        <div>
-          <h3 className="text-3xl font-light tracking-tight md:text-4xl text-heading">
-            Co mówią o nas klienci?
-          </h3>
-        </div>
+        <Motion>
+          <p className="max-w-md text-base leading-relaxed md:mt-10 text-muted">
+            {t.description}
+          </p>
+        </Motion>
       </div>
-    </Motion>
 
-        <TestimonialStrip />
+      {/* Stats */}
+      <Motion>
+        <div className="flex flex-col items-center justify-between gap-3 pt-12 text-center border-t lg:gap-12 md:flex-row lg:px-0 border-subtle">
+          {t.stats.map((s) => (
+            <StatItem key={s.label} {...s} />
+          ))}
+        </div>
+      </Motion>
+
+      {/* Testimonials */}
+      <div>
+        <Motion>
+          <div className="flex items-end justify-between mb-12">
+            <h3 className="text-3xl font-light tracking-tight md:text-4xl text-heading">
+              {t.testimonialsHeading}
+            </h3>
+          </div>
+        </Motion>
+
+        <TestimonialStrip testimonials={t.testimonials} />
       </div>
     </section>
   );
