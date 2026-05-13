@@ -2,6 +2,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Motion } from "../Motion/Motion";
 import { Button } from "../Button/Button";
+import { useLanguage } from "../Translations/LanguageContext";
+import  { OfferTranslations } from "../Translations/OfferTranslations";
+
 
 export type PeopleTab = "8-14" | "15-19" | "20-29" | "30+";
 
@@ -19,59 +22,18 @@ export interface OfferData {
 
 export const PEOPLE_TABS: PeopleTab[] = ["8-14", "15-19", "20-29", "30+"];
 
-export const OFFERS: OfferData[] = [
-  {
-    title: "Live Cooking",
-    callout: "Sushi na żywo",
-    features: ["Indywidualne menu", "Produkty premium", "Pełna organizacja kulinarna"],
-    pricing: {
-      "8-14":  { basic: "130", premium: "150" },
-      "15-19": { basic: "120", premium: "140" },
-      "20-29": { basic: "110", premium: "130" },
-      "30+":   { basic: "100", premium: "120" },
-    },
-  },
-  {
-    title: "Masterclass",
-    callout: "Warsztaty sushi",
-    features: ["Interaktywny pokaz", "Nauka krok po kroku", "Degustacja przygotowanych dań"],
-    pricing: {
-      "8-14":  { basic: "140", premium: "160" },
-      "15-19": { basic: "130", premium: "150" },
-      "20-29": { basic: "120", premium: "140" },
-      "30+":   { basic: "110", premium: "130" },
-    },
-  },
-  {
-    title: "Omakase",
-    callout: "Ekskluzywna kolacja",
-    features: ["Autorskie menu Omakase", "Sezonowe składniki najwyższej jakości", "Indywidualny serwis szefa"],
-    pricing: {
-      "8-14":  { premium: "350" },
-      "15-19": { premium: "300" },
-     
-    },
-  },
-  {
-    title: "Wesela",
-    callout: "Catering weselny",
-    features: ["Specjalne menu weselne", "Sushi w formie bufetu", "Realizacja na terenie całej Polski"],
-    pricing: {
-      "20-29": { basic: "100", premium: "120" },
-      "30+":   { basic: "80", premium: "100" },
-    },
-  },
-];
-
 // ─── Tabs ─────────────────────────────────────────────────────────────────────
+
 const PeopleTabs = ({
   tabs,
   selected,
   setSelected,
+  personSuffix,
 }: {
   tabs: PeopleTab[];
   selected: PeopleTab;
   setSelected: (t: PeopleTab) => void;
+  personSuffix: string;
 }) => (
   <div className="flex justify-between gap-0 md:justify-start">
     {tabs.map((tab) => (
@@ -84,7 +46,7 @@ const PeopleTabs = ({
             : "text-muted hover:text-black dark:hover:text-zinc-300"
         }`}
       >
-        {tab} os.
+        {tab} {personSuffix}
         {selected === tab && (
           <motion.span
             layoutId="offer-tab-underline"
@@ -96,7 +58,15 @@ const PeopleTabs = ({
   </div>
 );
 
-const PriceValue = ({ value, selectedPeople }: { value: string; selectedPeople: PeopleTab }) => (
+const PriceValue = ({
+  value,
+  selectedPeople,
+  personTab,
+}: {
+  value: string;
+  selectedPeople: PeopleTab;
+  personTab: string;
+}) => (
   <AnimatePresence mode="wait">
     <motion.span
       key={`${value}-${selectedPeople}`}
@@ -107,12 +77,22 @@ const PriceValue = ({ value, selectedPeople }: { value: string; selectedPeople: 
       className="text-2xl text-heading"
     >
       {value}{" "}
-      <span className="text-sm text-muted">zł / os.</span>
+      <span className="text-sm text-muted">zł {personTab}</span>
     </motion.span>
   </AnimatePresence>
 );
 
-const PricePreview = ({ pricing, selectedPeople }: { pricing?: PriceTier; selectedPeople: PeopleTab }) => {
+const PricePreview = ({
+  pricing,
+  selectedPeople,
+  from,
+  personTab,
+}: {
+  pricing?: PriceTier;
+  selectedPeople: PeopleTab;
+  from: string;
+  personTab: string;
+}) => {
   if (!pricing) return null;
   const value = pricing.basic ?? pricing.premium;
 
@@ -126,11 +106,9 @@ const PricePreview = ({ pricing, selectedPeople }: { pricing?: PriceTier; select
         transition={{ duration: 0.2, ease: "easeOut" }}
         className="hidden text-sm font-medium md:block text-muted"
       >
-        od{" "}
-        <span className=" text-heading">
-          {value} zł
-        </span>{" "}
-        / os.
+        {from}{" "}
+        <span className="text-heading">{value} zł</span>{" "}
+        {personTab}
       </motion.p>
     </AnimatePresence>
   );
@@ -143,6 +121,7 @@ const AccordionItem = ({
   isOpen,
   onToggle,
   selectedPeople,
+  t,
 }: {
   offer: OfferData;
   pricing?: PriceTier;
@@ -150,6 +129,7 @@ const AccordionItem = ({
   isOpen: boolean;
   onToggle: () => void;
   selectedPeople: PeopleTab;
+  t: typeof OfferTranslations.pl;
 }) => (
   <div className="border-b border-subtle">
     <button
@@ -171,7 +151,14 @@ const AccordionItem = ({
       </div>
 
       <div className="flex items-center flex-shrink-0 gap-8">
-        {!isOpen && <PricePreview pricing={pricing} selectedPeople={selectedPeople} />}
+        {!isOpen && (
+          <PricePreview
+            pricing={pricing}
+            selectedPeople={selectedPeople}
+            from={t.from}
+            personTab={t.personTab}
+          />
+        )}
 
         <div className="relative flex-shrink-0 w-5 h-5">
           <span className="absolute left-0 w-full h-px transition-colors -translate-y-1/2 top-1/2 bg-zinc-700 dark:bg-zinc-500 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100" />
@@ -198,7 +185,7 @@ const AccordionItem = ({
             {/* Features */}
             <div className="md:col-span-1">
               <p className="text-[11px] tracking-[0.2em] uppercase text-muted mb-4">
-                Co zawiera
+                {t.includes}
               </p>
               <ul className="space-y-2">
                 {offer.features.map((f) => (
@@ -213,7 +200,7 @@ const AccordionItem = ({
             {/* Pricing */}
             <div className="md:col-span-1">
               <p className="text-sm tracking-[0.2em] uppercase text-muted mb-4">
-                Cennik
+                {t.pricing}
               </p>
               {pricing ? (
                 <div className="space-y-3">
@@ -222,24 +209,24 @@ const AccordionItem = ({
                       <span className="text-xs tracking-[0.15em] uppercase font-semibold text-muted">
                         Basic
                       </span>
-                      <PriceValue value={pricing.basic} selectedPeople={selectedPeople} />
+                      <PriceValue value={pricing.basic} selectedPeople={selectedPeople} personTab={t.personTab} />
                     </div>
                   )}
                   <div className="flex items-baseline justify-between">
                     <span className="text-xs tracking-[0.15em] uppercase font-semibold text-muted">
                       Premium
                     </span>
-                    <PriceValue value={pricing.premium} selectedPeople={selectedPeople} />
+                    <PriceValue value={pricing.premium} selectedPeople={selectedPeople} personTab={t.personTab} />
                   </div>
                 </div>
               ) : (
-                <p className="text-sm italic text-muted">Zapytaj o wycenę</p>
+                <p className="text-sm italic text-muted">{t.askForQuote}</p>
               )}
             </div>
 
             {/* CTA */}
             <div className="flex text-sm md:col-span-1 md:justify-end md:items-end">
-              <Button variant="page" order text="Zapytaj o wycenę" />
+              <Button variant="page" order text={t.cta} />
             </div>
           </div>
         </motion.div>
@@ -249,6 +236,9 @@ const AccordionItem = ({
 );
 
 export const Offer = () => {
+  const { lang } = useLanguage();
+  const t = OfferTranslations[lang];
+
   const [selectedPeople, setSelectedPeople] = useState<PeopleTab>("30+");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -257,13 +247,12 @@ export const Offer = () => {
       <div className="mb-20">
         <Motion>
           <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-heading">
-            Cennik
+            {t.heading}
           </h2>
         </Motion>
         <Motion>
           <p className="max-w-lg text-base leading-relaxed text-muted">
-            Ceny mają charakter orientacyjny i mogą się różnić w zależności od
-            lokalizacji, liczby gości oraz indywidualnych ustaleń.
+            {t.description}
           </p>
         </Motion>
       </div>
@@ -272,10 +261,11 @@ export const Offer = () => {
         tabs={PEOPLE_TABS}
         selected={selectedPeople}
         setSelected={setSelectedPeople}
+        personSuffix={t.personSuffix}
       />
 
       <div className="border-t border-subtle">
-        {OFFERS.map((offer, i) => (
+        {t.offers.map((offer, i) => (
           <AccordionItem
             key={offer.title}
             offer={offer}
@@ -284,6 +274,7 @@ export const Offer = () => {
             isOpen={openIndex === i}
             onToggle={() => setOpenIndex(openIndex === i ? null : i)}
             selectedPeople={selectedPeople}
+            t={t}
           />
         ))}
       </div>

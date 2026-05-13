@@ -1,6 +1,7 @@
 import type { Lang } from "./FormTranslations";
 
 
+
 export const AboutTranslations = {
   en: {
     eyebrow: "About us",
@@ -14,60 +15,60 @@ export const AboutTranslations = {
       { num: 20, suffix: "+", label: "Events organised" },
       { num: 10, suffix: "yrs+", label: "Professional experience" },
     ],
- testimonials: [
+    testimonials: [
       {
         id: 1,
         name: "Gabriella S.",
-        info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+        info: "Highly recommend — professional approach and quick delivery.",
         rating: 5,
         createdAt: "2026-02-05",
       },
       {
         id: 2,
         name: "Daniel A.",
-        info: "Bardzo dobra organizacja live sushi na imprezie urodzinowej. Goście byli zachwyceni!",
+        info: "Excellent live sushi organisation at a birthday party. The guests were delighted!",
         rating: 5,
         createdAt: "2026-02-02",
       },
       {
         id: 3,
         name: "Paweł W.",
-        info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+        info: "Professional service and delicious sushi. Will definitely use again!",
         rating: 5,
         createdAt: "2025-02-09",
       },
       {
         id: 4,
         name: "Magdalena S.",
-        info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+        info: "Highly recommend — professional approach and quick delivery.",
         rating: 5,
         createdAt: "2025-02-09",
       },
       {
         id: 5,
         name: "Gabriella S.",
-        info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+        info: "Highly recommend — professional approach and quick delivery.",
         rating: 5,
         createdAt: "2026-02-05",
       },
       {
         id: 6,
         name: "Daniel A.",
-        info: "Bardzo dobra organizacja live sushi na imprezie urodzinowej. Goście byli zachwyceni!",
+        info: "Excellent live sushi organisation at a birthday party. The guests were delighted!",
         rating: 5,
         createdAt: "2026-02-02",
       },
       {
         id: 7,
         name: "Paweł W.",
-        info: "Profesjonalna obsługa i pyszne sushi. Z pewnością skorzystam ponownie!",
+        info: "Professional service and delicious sushi. Will definitely use again!",
         rating: 5,
         createdAt: "2025-02-09",
       },
       {
         id: 8,
         name: "Magdalena S.",
-        info: "Polecam, profesjonalne podejście do klienta i szybka realizacja.",
+        info: "Highly recommend — professional approach and quick delivery.",
         rating: 5,
         createdAt: "2025-02-09",
       },
