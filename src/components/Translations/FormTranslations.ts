@@ -23,6 +23,8 @@ export const FormTranslations = {
     messageLabel: "I'd love to ask about...",
     messagePlaceholder: "Whatever your heart desires :)",
     submit: "Submit",
+    successTitle: "Request sent! ✅",
+    successMessage: "Thank you — we'll get back to you within 24 hours.",
     eventTypes: {
       label: "Select event type:",
       live: "Private event / Birthday / House party",
@@ -49,7 +51,8 @@ export const FormTranslations = {
       location: "Please enter a location",
       message: "Message is required",
       consent: "Consent is required",
-      sendError: "Something went wrong. Please try again or email us directly at kontakt@eventchef.pl",
+      sendError:
+        "Something went wrong. Please try again or email us directly at kontakt@eventchef.pl",
     },
     fields: "* Optional fields",
     weekday: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -76,6 +79,8 @@ export const FormTranslations = {
     messageLabel: "Chcę zapytać o...",
     messagePlaceholder: "Napisz swoją wiadomość :)",
     submit: "Poproś o wycenę",
+    successTitle: "Zapytanie wysłane! ✅",
+    successMessage: "Dziękujemy — odpiszemy do Ciebie w ciągu 24 godzin.",
     eventTypes: {
       label: "Wybierz typ eventu:",
       live: "Event prywatny / Urodziny ",
@@ -102,7 +107,8 @@ export const FormTranslations = {
       location: "Podaj lokalizację",
       message: "Wiadomość jest wymagana",
       consent: "Zgoda jest wymagana",
-      sendError: "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na kontakt@eventchef.pl",
+      sendError:
+        "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na kontakt@eventchef.pl",
     },
     fields: "* Pola nieobowiązkowe",
     weekday: ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"],

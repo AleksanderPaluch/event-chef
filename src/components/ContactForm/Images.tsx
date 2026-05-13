@@ -12,7 +12,7 @@ export const Images = ({ selected }: { selected: RepresentType }) => (
       className="absolute inset-0 bg-center bg-cover"
       style={{ backgroundImage: `url(${homeSushi})` }}
     >
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/20 dark:bg-black/40" />
     </motion.div>
     <motion.div
       initial={false}
@@ -21,7 +21,7 @@ export const Images = ({ selected }: { selected: RepresentType }) => (
       className="absolute inset-0 bg-center bg-cover"
       style={{ backgroundImage: `url(${officeSushi})` }}
     >
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/20 dark:bg-black/40" />
     </motion.div>
   </div>
 );

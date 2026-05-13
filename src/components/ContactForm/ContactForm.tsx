@@ -3,10 +3,15 @@ import { Motion } from "../Motion/Motion";
 import { Images } from "./Images";
 import { Form } from "./Form";
 import { type RepresentType } from "./types";
+import { useLanguage } from "../Translations/LanguageContext";
+import { ContactFormTranslations } from "../Translations/ContactFormTranslations";
+
 
 export const ContactForm = () => {
   const [selected, setSelected] = useState<RepresentType>("individual");
   const sectionRef = useRef<HTMLElement>(null);
+  const { lang } = useLanguage();
+  const t = ContactFormTranslations[lang];
 
   return (
     <section
@@ -18,16 +23,15 @@ export const ContactForm = () => {
       <div className="mb-8 lg:mb-20">
         <Motion>
           <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">
-           Zaplanuj swój event
+            {t.eyebrow}
           </p>
           <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-heading">
-             Indywidualna wycena
+            {t.heading}
           </h2>
         </Motion>
         <Motion>
           <p className="max-w-lg text-base leading-relaxed text-muted">
-            Opisz swoje wydarzenie — a my zajmiemy się resztą. W ciągu 24 godzin
-            prześlemy propozycję dopasowaną do Twoich potrzeb.
+            {t.description}
           </p>
         </Motion>
       </div>
@@ -48,12 +52,7 @@ export const ContactForm = () => {
 
       {/* GDPR note */}
       <p className="max-w-full mt-6 text-xs leading-relaxed text-justify text-muted">
-        Administratorem danych osobowych jest Event Chef. Dane osobowe
-        przetwarzane są w celu obsługi zapytania. Podanie danych jest
-        dobrowolne, ale niezbędne do udzielenia odpowiedzi. Przysługuje Ci prawo
-        dostępu do danych, ich poprawiania, usunięcia, ograniczenia
-        przetwarzania oraz cofnięcia zgody w dowolnym momencie. Szczegóły
-        znajdują się w Polityce Prywatności.
+        {t.gdpr}
       </p>
     </section>
   );

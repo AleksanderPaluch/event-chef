@@ -93,16 +93,14 @@ export const Form = ({
   };
 
   // ── Success state ────────────────────────────────────────────────────────
-  if (status === "success") {
-    return (
-      <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-        <p className="text-2xl font-semibold">✅ Zapytanie wysłane!</p>
-        <p className="text-zinc-400">
-          Dziękujemy — odpiszemy do Ciebie w ciągu 24 godzin.
-        </p>
-      </div>
-    );
-  }
+ if (status === "success") {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
+      <p className="text-2xl font-semibold">{t.successTitle}</p>
+      <p className="text-zinc-400">{t.successMessage}</p>
+    </div>
+  );
+}
 
   return (
     <form

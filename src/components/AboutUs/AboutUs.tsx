@@ -117,7 +117,15 @@ const ReviewCard = ({
 
 // ─── Scrolling strip ──────────────────────────────────────────────────────────
 
-const TestimonialStrip = ({ testimonials }: { testimonials: typeof AboutTranslations.pl.testimonials }) => (
+type Testimonial = {
+  id: number;
+  name: string;
+  info: string;
+  rating: number;
+  createdAt: string;
+};
+
+const TestimonialStrip = ({ testimonials }: { testimonials: readonly Testimonial[] }) => (
   <div className="relative overflow-hidden">
     <div className="absolute top-0 bottom-0 left-0 z-10 w-16 pointer-events-none bg-gradient-to-r from-white dark:from-black to-transparent" />
     <div className="absolute top-0 bottom-0 right-0 z-10 w-16 pointer-events-none bg-gradient-to-l from-white dark:from-black to-transparent" />
