@@ -1,4 +1,4 @@
-export const CardOrganization = ({ items = [] }: { items: string[] }) => (
+export const CardOrganization = ({ items = [] }: { items: readonly string[] }) => (
   <div className="flex flex-col items-center justify-center gap-2 py-12 mx-auto max-w-fit">
     {items.map((item, i) => (
       <div key={i} className="flex items-center w-full max-w-[610px] gap-4">

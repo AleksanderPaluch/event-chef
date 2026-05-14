@@ -14,6 +14,8 @@ import { CardMenu } from "./Cards/CardMenu";
 import { CardOrganization } from "./Cards/CardOrganization";
 import { CardProcess } from "./Cards/CardProcess";
 import { CardAccess } from "./Cards/CardAccess";
+import { useLanguage } from "../Translations/LanguageContext";
+import { StickyCardsTranslations, type StickyCardsT } from "../Translations/StickyCardsTranslations";
 
 // --- Types ---
 
@@ -24,12 +26,12 @@ interface ProcessItem {
 
 export interface StickyCardsProps {
   chipsTitle?: string;
-  chips?: string[];
+  chips?: readonly string[];
   secondaryChipsTitle?: string;
-  secondaryChips?: string[];
-  menu?: string[];
-  organization?: string[];
-  cardsProcess?: ProcessItem[];
+  secondaryChips?: readonly string[];
+  menu?: readonly string[];
+  organization?: readonly string[];
+  cardsProcess?: readonly ProcessItem[];
   omakase?: boolean;
 }
 
@@ -42,18 +44,18 @@ type CardType = {
 
 // ─── Builder ───────────────────────────────────────────────────────────────────
 
-function buildCards(props: StickyCardsProps): CardType[] {
+function buildCards(props: StickyCardsProps, titles: StickyCardsT["cards"]): CardType[] {
   return [
     {
       id: 1,
       Icon: FiWatch,
-      title: "Przebieg",
+      title: titles.process,
       content: <CardProcess steps={props.cardsProcess ?? []} />,
     },
     {
       id: 2,
       Icon: FiUsers,
-      title: "Dla kogo?",
+      title: titles.forWho,
       content: (
         <CardForWho
           chipsTitle={props.chipsTitle}
@@ -66,19 +68,19 @@ function buildCards(props: StickyCardsProps): CardType[] {
     {
       id: 3,
       Icon: FiBookOpen,
-      title: "Menu",
+      title: titles.menu,
       content: <CardMenu menu={props.menu ?? []} omakase={props.omakase} />,
     },
     {
       id: 4,
       Icon: FiSettings,
-      title: "Organizacja",
+      title: titles.organization,
       content: <CardOrganization items={props.organization ?? []} />,
     },
     {
       id: 5,
       Icon: FiMapPin,
-      title: "Dojazd",
+      title: titles.access,
       content: <CardAccess />,
     },
   ];
@@ -86,7 +88,7 @@ function buildCards(props: StickyCardsProps): CardType[] {
 
 // ─── Card ──────────────────────────────────────────────────────────────────────
 
-const CARD_HEIGHT = 500;
+const CARD_HEIGHT = 550;
 
 interface CardProps {
   position: number;
@@ -108,7 +110,7 @@ const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
       }}
       className={`
         sticky top-0 flex flex-col items-center justify-center w-full px-6 origin-top
-        ${isOdd ? "bg-white dark:bg-black" : "bg-zinc-50 dark:bg-zinc-950"}
+        ${isOdd ? "bg-white dark:bg-black" : "bg-zinc-100 dark:bg-zinc-950"}
       `}
     >
       <card.Icon className="mb-3 text-3xl text-center lg:text-4xl opacity-80 text-amber-500 dark:text-amber-400" />
@@ -116,26 +118,27 @@ const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
         {card.title}
       </h3>
       <div className="flex justify-center w-full lg:mb-12">{card.content}</div>
-          
     </motion.div>
-    
   );
 };
 
 // ─── StickyCards ───────────────────────────────────────────────────────────────
 
 export const StickyCards: React.FC<StickyCardsProps> = (props) => {
+  const { lang } = useLanguage();
+  const t = StickyCardsTranslations[lang];
+
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const cards = buildCards(props);
+  const cards = buildCards(props, t.cards);
 
   return (
     <>
-      <div ref={ref} className="relative ">
+      <div ref={ref} className="relative">
         {cards.map((c, idx) => (
           <Card
             key={c.id}

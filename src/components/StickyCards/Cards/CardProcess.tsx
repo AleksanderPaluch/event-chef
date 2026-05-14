@@ -5,7 +5,7 @@ interface ProcessItem {
   label: string;
 }
 
-export const CardProcess = ({ steps = [] }: { steps: ProcessItem[] }) => (
+export const CardProcess = ({ steps = [] }: { steps: readonly ProcessItem[] }) => (
   <div className="flex flex-col items-center justify-between w-full max-w-3xl gap-1 sm:flex-row">
     {steps.map((step, i) => (
       <React.Fragment key={i}>

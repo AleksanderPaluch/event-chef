@@ -1,10 +1,8 @@
-
-
 interface CardForWhoProps {
+  chips?: readonly string[];
+  secondaryChips?: readonly string[];
   chipsTitle?: string;
-  chips?: string[];
   secondaryChipsTitle?: string;
-  secondaryChips?: string[];
 }
 
 export const CardForWho = ({
@@ -14,14 +12,16 @@ export const CardForWho = ({
   secondaryChips = [],
 }: CardForWhoProps) => (
   <div className="flex flex-col items-center justify-between w-full max-w-2xl lg:max-w-3xl sm:flex-row">
-    {chipsTitle && (
-      <Section title={chipsTitle} items={chips} align="left" />
-    )}
+    {chipsTitle && <Section title={chipsTitle} items={chips} align="left" />}
     {chipsTitle && secondaryChipsTitle && (
       <div className="block w-16 h-px md:w-px md:h-16 shrink-0 bg-amber-500 dark:bg-amber-400" />
     )}
     {secondaryChipsTitle && (
-      <Section title={secondaryChipsTitle} items={secondaryChips} align="right" />
+      <Section
+        title={secondaryChipsTitle}
+        items={secondaryChips}
+        align="right"
+      />
     )}
   </div>
 );
@@ -32,7 +32,7 @@ const Section = ({
   align,
 }: {
   title: string;
-  items: string[];
+  items: readonly string[];
   align: "left" | "right";
 }) => (
   <div className="flex flex-col gap-1 px-2 py-4 md:gap-3 min-w-[300px]">
