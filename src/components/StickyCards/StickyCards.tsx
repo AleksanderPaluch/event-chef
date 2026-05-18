@@ -15,7 +15,10 @@ import { CardOrganization } from "./Cards/CardOrganization";
 import { CardProcess } from "./Cards/CardProcess";
 import { CardAccess } from "./Cards/CardAccess";
 import { useLanguage } from "../Translations/LanguageContext";
-import { StickyCardsTranslations, type StickyCardsT } from "../Translations/StickyCardsTranslations";
+import {
+  StickyCardsTranslations,
+  type StickyCardsT,
+} from "../Translations/StickyCardsTranslations";
 
 // --- Types ---
 
@@ -44,7 +47,10 @@ type CardType = {
 
 // ─── Builder ───────────────────────────────────────────────────────────────────
 
-function buildCards(props: StickyCardsProps, titles: StickyCardsT["cards"]): CardType[] {
+function buildCards(
+  props: StickyCardsProps,
+  titles: StickyCardsT["cards"],
+): CardType[] {
   return [
     {
       id: 1,
@@ -109,15 +115,30 @@ const Card = ({ position, total, card, scrollYProgress }: CardProps) => {
         y: position === total ? undefined : y,
       }}
       className={`
-        sticky top-0 flex flex-col items-center justify-center w-full px-6 origin-top
-        ${isOdd ? "bg-white dark:bg-black" : "bg-zinc-100 dark:bg-zinc-950"}
+        sticky top-0 w-full origin-top
+        ${isOdd ? "bg-neutral-100 dark:bg-black" : "bg-neutral-50 dark:bg-zinc-950"}
       `}
     >
-      <card.Icon className="mb-3 text-3xl text-center lg:text-4xl opacity-80 text-amber-500 dark:text-amber-400" />
-      <h3 className="mb-8 text-4xl font-light tracking-tight md:text-5xl text-zinc-950 dark:text-zinc-50">
-        {card.title}
-      </h3>
-      <div className="flex justify-center w-full lg:mb-12">{card.content}</div>
+      <div className="flex flex-col justify-center h-full px-6 mx-auto max-w-7xl md:px-12 lg:px-20">
+
+        {/* Header */}
+        <div className="flex items-center gap-3 mb-10 lg:mb-16">
+          <card.Icon className="text-2xl lg:text-3xl text-amber-500 dark:text-amber-400 opacity-90 shrink-0" />
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
+            {String(position).padStart(2, "0")}
+          </span>
+          <div className="w-8 h-px bg-amber-500/40 dark:bg-amber-400/40" />
+          <h3 className="text-3xl font-light tracking-tight md:text-4xl text-zinc-950 dark:text-zinc-50">
+            {card.title}
+          </h3>
+        </div>
+
+        {/* Content */}
+        <div className="w-full">
+          {card.content}
+        </div>
+
+      </div>
     </motion.div>
   );
 };
@@ -149,7 +170,7 @@ export const StickyCards: React.FC<StickyCardsProps> = (props) => {
           />
         ))}
       </div>
-      <div className="w-90% h-px mx-auto mb-20 max-w-7xl bg-zinc-200 dark:bg-zinc-800" />
+      <div className="w-90% max-w-7xl h-px mx-auto mb-20 divider " />
     </>
   );
 };

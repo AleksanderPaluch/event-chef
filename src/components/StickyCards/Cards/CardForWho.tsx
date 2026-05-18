@@ -11,7 +11,7 @@ export const CardForWho = ({
   secondaryChipsTitle,
   secondaryChips = [],
 }: CardForWhoProps) => (
-  <div className="flex flex-col items-center justify-between w-full max-w-2xl lg:max-w-3xl sm:flex-row">
+  <div className="flex flex-col items-center justify-between w-full max-w-2xl mx-auto lg:max-w-3xl sm:flex-row">
     {chipsTitle && <Section title={chipsTitle} items={chips} align="left" />}
     {chipsTitle && secondaryChipsTitle && (
       <div className="block w-16 h-px md:w-px md:h-16 shrink-0 bg-amber-500 dark:bg-amber-400" />

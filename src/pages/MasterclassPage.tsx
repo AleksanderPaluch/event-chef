@@ -3,7 +3,7 @@ import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
 import { StickyCards } from "../components/StickyCards/StickyCards";
-import { masterclassFAQ } from "../components/Translations/faq";
+import { masterclassFAQ } from "../components/Translations/FaqTranslations";
 import { useLanguage } from "../components/Translations/LanguageContext";
 import { MasterclassTranslations } from "../components/Translations/MasterclassTranslations";
 

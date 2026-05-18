@@ -1,7 +1,13 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { motion } from "framer-motion";
 import useMeasure from "react-use-measure";
+import { useLanguage } from "../Translations/LanguageContext";
+
+const faqLabels = {
+  en: { heading: "Frequently asked questions" },
+  pl: { heading: "Najczęściej zadawane pytania" },
+} as const;
 
 interface FAQItem {
   title: string;
@@ -13,19 +19,25 @@ interface FAQProps {
 }
 
 export const FAQ = ({ items }: FAQProps) => {
+  const { lang } = useLanguage();
+  const t = faqLabels[lang];
+
   return (
-    <div className="px-4 py-12">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-sm  font-semibold text-center uppercase tracking-[0.2em] opacity-70 mb-8">
-          FAQ
-        </p>
+    <section className="px-6 py-24 mx-auto max-w-7xl md:px-12 lg:px-20">
+      <div className="flex items-center gap-3 mb-12 lg:mb-16">
+        <h2 className="text-2xl font-light tracking-tight md:text-4xl text-heading">
+          {t.heading}
+        </h2>
+      </div>
+
+      <div className="max-w-7xl">
         {items.map((item, i) => (
           <Question key={i} title={item.title} defaultOpen={i === 0}>
-            <span>{item.answer}</span>
+            {item.answer}
           </Question>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -48,11 +60,13 @@ const Question = ({
     >
       <button
         onClick={() => setOpen((pv) => !pv)}
-        className="flex items-center justify-between w-full gap-4 py-4"
+        className="flex items-center justify-between w-full gap-8 py-6 text-left group"
       >
         <span
-          className={`text-base uppercase tracking-[0.2em] text-left transition-opacity duration-200 ${
-            open ? "opacity-80" : "opacity-90"
+          className={`text-sm uppercase tracking-[0.2em] transition-colors duration-200 ${
+            open
+              ? "text-zinc-400 dark:text-zinc-500"
+              : "text-zinc-900 dark:text-zinc-100"
           }`}
         >
           {title}
@@ -67,6 +81,7 @@ const Question = ({
           <FiChevronDown className="text-xl" />
         </motion.span>
       </button>
+
       <motion.div
         initial={false}
         animate={{
@@ -77,7 +92,7 @@ const Question = ({
       >
         <p
           ref={ref}
-          className="text-sm lg:text-xs  uppercase tracking-[0.15em] opacity-90 leading-relaxed"
+          className="text-sm lg:text-xs uppercase tracking-[0.15em] leading-relaxed text-muted pb-2"
         >
           {children}
         </p>

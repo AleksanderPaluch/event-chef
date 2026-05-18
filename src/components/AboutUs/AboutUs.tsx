@@ -78,7 +78,7 @@ const ReviewCard = ({
     ];
 
   return (
-    <div className="flex flex-col flex-shrink-0 gap-3 p-5 border shadow-sm bg-neutral-50 w-72 rounded-xl dark:bg-zinc-950 border-zinc-300 dark:border-zinc-800 dark:shadow-none">
+    <div className="flex flex-col flex-shrink-0 gap-3 p-5 bg-white border shadow-sm w-72 rounded-xl dark:bg-zinc-950 border-zinc-300 dark:border-zinc-800 dark:shadow-none">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div

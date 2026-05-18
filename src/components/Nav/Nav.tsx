@@ -19,7 +19,7 @@ export const Nav = () => {
       className={[
         "fixed top-0 left-0 right-0 z-40 flex items-center justify-center px-4 py-2 lg:py-0 transition-all duration-300",
         scrolled
-          ? "bg-white border-b border-zinc-200 dark:bg-black dark:border-zinc-900"
+          ? "bg-neutral-50 border-b border-zinc-200 dark:bg-black dark:border-zinc-900"
           : "bg-transparent border-transparent shadow-none text-zinc-300 dark:bg-transparent dark:border-transparent",
       ].join(" ")}
     >

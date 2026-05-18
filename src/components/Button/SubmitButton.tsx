@@ -1,6 +1,13 @@
 import { FiLoader, FiCheck } from "react-icons/fi";
+import { useLanguage } from "../Translations/LanguageContext";
+
 
 type SubmitStatus = "idle" | "sending" | "success" | "error";
+
+const statusLabels = {
+  en: { sending: "Sending...", success: "Sent!", error: "Try again" },
+  pl: { sending: "Wysyłanie...", success: "Wysłano!", error: "Spróbuj ponownie" },
+} as const;
 
 const SubmitButton = ({
   text,
@@ -9,6 +16,9 @@ const SubmitButton = ({
   text: string;
   status?: SubmitStatus;
 }) => {
+  const { lang } = useLanguage();
+  const labels = statusLabels[lang];
+
   return (
     <button
       type="submit"
@@ -23,11 +33,11 @@ const SubmitButton = ({
       )}
       <span>
         {status === "sending"
-          ? "Wysyłanie..."
+          ? labels.sending
           : status === "success"
-          ? "Wysłano!"
+          ? labels.success
           : status === "error"
-          ? "Spróbuj ponownie"
+          ? labels.error
           : text}
       </span>
     </button>

@@ -3,7 +3,7 @@ import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
 import { StickyCards } from "../components/StickyCards/StickyCards";
-import { omakaseFAQ } from "../components/Translations/faq";
+import { omakaseFAQ } from "../components/Translations/FaqTranslations.ts";
 import { useLanguage } from "../components/Translations/LanguageContext";
 import { OmakaseTranslations } from "../components/Translations/OmakaseTranslations.ts";
 

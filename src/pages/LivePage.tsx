@@ -3,13 +3,18 @@ import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
 import { StickyCards } from "../components/StickyCards/StickyCards";
-import { liveFAQ } from "../components/Translations/faq";
+import { useFAQ } from "../components/Translations/FaqTranslations";
 import { useLanguage } from "../components/Translations/LanguageContext";
 import { LiveTranslations } from "../components/Translations/LiveTranslations";
 
 export default function LivePage() {
   const { lang } = useLanguage();
   const t = LiveTranslations[lang];
+
+  
+  const faqItems = useFAQ("live", lang);
+
+
 
   const heading = {
     en: (
@@ -44,7 +49,7 @@ export default function LivePage() {
         organization={t.organization}
         cardsProcess={t.cardsProcess}
       />
-      <FAQ items={liveFAQ} />
+      <FAQ items={faqItems} />
       <Footer />
     </>
   );

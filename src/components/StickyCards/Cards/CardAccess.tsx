@@ -6,12 +6,12 @@ export const CardAccess = () => {
   const t = StickyCardsTranslations[lang].access;
 
   return (
-    <div className="flex flex-col items-center justify-between w-full max-w-md py-6 mb-16 lg:py-6 md:flex-row">
+    <div className="flex flex-col items-center justify-between w-full max-w-md py-6 mx-auto mb-16 lg:py-6 md:flex-row">
       <div className="flex flex-col items-center gap-1 py-4 w-[300px]">
         <span className="text-lg uppercase tracking-[0.25em] text-heading">
           {t.city}
         </span>
-        <span className="text-sm lg:text-xs uppercase tracking-[0.2em] text-muted dark:opacity-50">
+        <span className="text-sm lg:text-xs uppercase tracking-[0.2em] font-semibold text-muted opacity-70 dark:opacity-60">
           {t.cityLabel}
         </span>
       </div>
@@ -22,7 +22,7 @@ export const CardAccess = () => {
         <span className="text-lg uppercase tracking-[0.25em] text-heading">
           {t.country}
         </span>
-        <span className="text-sm lg:text-xs uppercase tracking-[0.2em] text-muted dark:opacity-50">
+        <span className="text-sm lg:text-xs uppercase tracking-[0.2em] font-semibold text-muted opacity-70 dark:opacity-60 ">
           {t.countryLabel}
         </span>
       </div>
