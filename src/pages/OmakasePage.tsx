@@ -3,7 +3,7 @@ import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
 import { StickyCards } from "../components/StickyCards/StickyCards";
-import { omakaseFAQ } from "../components/Translations/FaqTranslations.ts";
+import { useFAQ } from "../components/Translations/FaqTranslations.ts";
 import { useLanguage } from "../components/Translations/LanguageContext";
 import { OmakaseTranslations } from "../components/Translations/OmakaseTranslations.ts";
 
@@ -11,6 +11,8 @@ import { OmakaseTranslations } from "../components/Translations/OmakaseTranslati
 export default function OmakasePage() {
   const { lang } = useLanguage();
   const t = OmakaseTranslations[lang];
+      const faqItems = useFAQ("live", lang);
+
 
   const heading = {
     en: (
@@ -45,7 +47,7 @@ export default function OmakasePage() {
         cardsProcess={t.cardsProcess}
         omakase={true}
       />
-      <FAQ items={omakaseFAQ} />
+      <FAQ items={faqItems} />
       <Footer />
     </>
   );
