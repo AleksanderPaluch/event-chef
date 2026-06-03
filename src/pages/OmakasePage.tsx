@@ -1,4 +1,4 @@
-import omakaseImage from "../assets/omakase.jpg";
+import omakaseImage from "../assets/omakase3.png";
 import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";

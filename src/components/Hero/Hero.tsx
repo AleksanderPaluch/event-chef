@@ -66,7 +66,7 @@ const HeroMobile = ({ image, ...contentProps }: HeroProps) => (
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
-        backgroundPosition: "bottom",
+        backgroundPosition: "center",
       }}
     />
     <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
