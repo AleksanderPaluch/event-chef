@@ -1,4 +1,4 @@
-import omakaseImage from "../assets/omakase3.png";
+import omakaseImage from "../assets/omakase.png";
 import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
@@ -11,7 +11,7 @@ import { OmakaseTranslations } from "../components/Translations/OmakaseTranslati
 export default function OmakasePage() {
   const { lang } = useLanguage();
   const t = OmakaseTranslations[lang];
-      const faqItems = useFAQ("live", lang);
+      const faqItems = useFAQ("omakase", lang);
 
 
   const heading = {

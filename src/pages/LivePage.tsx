@@ -1,4 +1,4 @@
-import liveImage from "../assets/live.png";
+import liveImage from "../assets/555.png";
 import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";

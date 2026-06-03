@@ -12,6 +12,7 @@ export interface HeroProps {
   eyebrow?: string;
   heading: React.ReactNode;
   subtitle?: string;
+  mobileImage?: string;
 }
 
 const useIsDesktop = () => {
@@ -59,14 +60,14 @@ const HeroContent = ({ eyebrow, heading, subtitle }: Omit<HeroProps, "image">) =
   );
 };
 
-const HeroMobile = ({ image, ...contentProps }: HeroProps) => (
+const HeroMobile = ({ image, mobileImage, ...contentProps }: HeroProps) => (
   <section id="home" className="relative h-[100svh] w-full">
     <div
       className="absolute inset-0"
       style={{
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${mobileImage || image})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "bottom",
       }}
     />
     <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
@@ -96,7 +97,7 @@ const CenterImage = ({ image, ...contentProps }: HeroProps) => {
       />
       <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
       <HeroContent {...contentProps} />
-      <div className="absolute inset-0 bg-black/20 dark:bg-black/40" />
+      <div className="absolute inset-0 bg-black/20 dark:bg-black/50" />
     </div>
   );
 };

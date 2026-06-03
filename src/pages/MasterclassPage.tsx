@@ -1,4 +1,5 @@
-import masterclassImage from "../assets/masterclass.png";
+import masterclassImage from "../assets/masterclass2.png";
+import masterclassMobileImage from "../assets/masterclass-mobile.png.png";
 import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
@@ -34,6 +35,7 @@ export default function MasterclassPage() {
     <>
       <Hero
         image={masterclassImage}
+        mobileImage={masterclassMobileImage}
         eyebrow={t.eyebrow}
         heading={heading[lang]}
       />
