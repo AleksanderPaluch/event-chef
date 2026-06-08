@@ -1,4 +1,5 @@
 import liveImage from "../assets/555.png";
+import liveMobileImage from "../assets/live5.png";
 import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
@@ -35,6 +36,7 @@ export default function LivePage() {
     <>
       <Hero
         image={liveImage}
+        mobileImage={liveMobileImage}
         eyebrow={t.eyebrow}
         heading={heading[lang]}
         subtitle={t.subtitle}

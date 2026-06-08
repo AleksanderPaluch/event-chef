@@ -1,5 +1,5 @@
 import masterclassImage from "../assets/masterclass2.png";
-import masterclassMobileImage from "../assets/masterclass-mobile.png.png";
+import masterclassMobileImage from "../assets/masterclass-mobile.png";
 import { FAQ } from "../components/FAQ/FAQ";
 import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";

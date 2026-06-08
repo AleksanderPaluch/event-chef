@@ -41,7 +41,7 @@ const HeroContent = ({ eyebrow, heading, subtitle }: Omit<HeroProps, "image">) =
         </span>
       )}
 
-      <h1 className="mt-4 text-4xl leading-tight lg:mt-5 md:text-5xl lg:text-6xl text-zinc-100">
+      <h1 className="mt-4 text-4xl leading-tight lg:mt-5 md:text-5xl lg:text-[67px] text-zinc-100">
         {heading}
       </h1>
 
@@ -71,7 +71,7 @@ const HeroMobile = ({ image, mobileImage, ...contentProps }: HeroProps) => (
       }}
     />
     <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
-    <div className="absolute inset-0 bg-black/20 dark:bg-black/50" />
+    <div className="absolute inset-0 bg-black/30 dark:bg-black/40" />
     <HeroContent {...contentProps} />
   </section>
 );
@@ -97,7 +97,7 @@ const CenterImage = ({ image, ...contentProps }: HeroProps) => {
       />
       <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-b dark:from-black/0 dark:to-black" />
       <HeroContent {...contentProps} />
-      <div className="absolute inset-0 bg-black/20 dark:bg-black/50" />
+      <div className="absolute inset-0 bg-black/30 dark:bg-black/40" />
     </div>
   );
 };
