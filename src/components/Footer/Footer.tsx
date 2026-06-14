@@ -29,7 +29,7 @@ export const Footer = () => {
         {/* Socials */}
         <div className="flex flex-col gap-3">
           <a 
-            href="https://instagram.com/sushichef"
+            href="https://www.instagram.com/eventchef.pl/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 group"
@@ -40,7 +40,7 @@ export const Footer = () => {
             </span>
           </a>
           <a 
-            href="https://facebook.com/sushichef"
+            href="https://www.facebook.com/profile.php?id=61590571448009"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 group"
