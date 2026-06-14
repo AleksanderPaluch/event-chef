@@ -18,6 +18,7 @@ export interface OfferData {
   callout: string;
   features: string[];
   pricing: Partial<Record<PeopleTab, PriceTier>>;
+  pricePerEvent?: boolean;
 }
 
 export const PEOPLE_TABS: PeopleTab[] = ["8-14", "15-19", "20-29", "30+"];
@@ -62,10 +63,12 @@ const PriceValue = ({
   value,
   selectedPeople,
   personTab,
+  pricePerEvent,
 }: {
   value: string;
   selectedPeople: PeopleTab;
   personTab: string;
+  pricePerEvent?: boolean;
 }) => (
   <AnimatePresence mode="wait">
     <motion.span
@@ -77,7 +80,7 @@ const PriceValue = ({
       className="text-2xl text-heading"
     >
       {value}{" "}
-      <span className="text-sm text-muted">zł {personTab}</span>
+      <span className="text-sm text-muted">zł{!pricePerEvent && ` ${personTab}`}</span>
     </motion.span>
   </AnimatePresence>
 );
@@ -87,11 +90,13 @@ const PricePreview = ({
   selectedPeople,
   from,
   personTab,
+  pricePerEvent,
 }: {
   pricing?: PriceTier;
   selectedPeople: PeopleTab;
   from: string;
   personTab: string;
+  pricePerEvent?: boolean;
 }) => {
   if (!pricing) return null;
   const value = pricing.basic ?? pricing.premium;
@@ -108,7 +113,7 @@ const PricePreview = ({
       >
         {from}{" "}
         <span className="text-heading">{value} zł</span>{" "}
-        {personTab}
+        {!pricePerEvent && personTab}
       </motion.p>
     </AnimatePresence>
   );
@@ -157,6 +162,7 @@ const AccordionItem = ({
             selectedPeople={selectedPeople}
             from={t.from}
             personTab={t.personTab}
+            pricePerEvent={offer.pricePerEvent}
           />
         )}
 
@@ -209,14 +215,24 @@ const AccordionItem = ({
                       <span className="text-xs tracking-[0.15em] uppercase font-semibold text-muted">
                         Basic
                       </span>
-                      <PriceValue value={pricing.basic} selectedPeople={selectedPeople} personTab={t.personTab} />
+                      <PriceValue
+                        value={pricing.basic}
+                        selectedPeople={selectedPeople}
+                        personTab={t.personTab}
+                        pricePerEvent={offer.pricePerEvent}
+                      />
                     </div>
                   )}
                   <div className="flex items-baseline justify-between">
                     <span className="text-xs tracking-[0.15em] uppercase font-semibold text-muted">
                       Premium
                     </span>
-                    <PriceValue value={pricing.premium} selectedPeople={selectedPeople} personTab={t.personTab} />
+                    <PriceValue
+                      value={pricing.premium}
+                      selectedPeople={selectedPeople}
+                      personTab={t.personTab}
+                      pricePerEvent={offer.pricePerEvent}
+                    />
                   </div>
                 </div>
               ) : (

@@ -1,7 +1,6 @@
 import type { OfferData } from "../Offer/Offer";
 import type { Lang } from "./FormTranslations";
 
-
 interface OfferTranslation {
   heading: string;
   description: string;
@@ -31,41 +30,58 @@ export const OfferTranslations: Record<Lang, OfferTranslation> = {
       {
         title: "Live Cooking",
         callout: "Live sushi",
-        features: ["Custom menu", "Premium ingredients", "Full culinary organisation"],
+        features: [
+          "Custom menu",
+          "Premium ingredients",
+          "Full culinary organisation",
+        ],
         pricing: {
-          "8-14":  { basic: "130", premium: "150" },
-          "15-19": { basic: "120", premium: "140" },
-          "20-29": { basic: "110", premium: "130" },
-          "30+":   { basic: "100", premium: "120" },
+          "8-14": { basic: "140", premium: "160" },
+          "15-19": { basic: "130", premium: "150" },
+          "20-29": { basic: "120", premium: "140" },
+          "30+": { basic: "110", premium: "130" },
         },
       },
       {
         title: "Masterclass",
         callout: "Sushi workshop",
-        features: ["Interactive demonstration", "Step-by-step instruction", "Tasting of prepared dishes"],
+        features: [
+          "Interactive demonstration",
+          "Step-by-step instruction",
+          "Tasting of prepared dishes",
+        ],
         pricing: {
-          "8-14":  { basic: "140", premium: "160" },
+          "8-14": { basic: "140", premium: "160" },
           "15-19": { basic: "130", premium: "150" },
           "20-29": { basic: "120", premium: "140" },
-          "30+":   { basic: "110", premium: "130" },
+          "30+": { basic: "110", premium: "130" },
         },
       },
       {
         title: "Omakase",
         callout: "Exclusive dinner",
-        features: ["Signature Omakase menu", "Seasonal top-quality ingredients", "Personal chef service"],
+        features: [
+          "Signature Omakase menu",
+          "Seasonal top-quality ingredients",
+          "Personal chef service",
+        ],
         pricing: {
-          "8-14":  { premium: "350" },
+          "8-14": { premium: "350" },
           "15-19": { premium: "300" },
         },
+        pricePerEvent: true,
       },
       {
         title: "Weddings",
         callout: "Wedding catering",
-        features: ["Special wedding menu", "Sushi buffet style", "Nationwide delivery across Poland"],
+        features: [
+          "Special wedding menu",
+          "Sushi buffet style",
+          "Nationwide delivery across Poland",
+        ],
         pricing: {
-          "20-29": { basic: "100", premium: "120" },
-          "30+":   { basic: "80",  premium: "100" },
+          "20-29": { basic: "3000", premium: "3500" },
+          "30+": { basic: "3500", premium: "4000" },
         },
       },
     ],
@@ -85,42 +101,59 @@ export const OfferTranslations: Record<Lang, OfferTranslation> = {
       {
         title: "Live Cooking",
         callout: "Sushi na żywo",
-        features: ["Indywidualne menu", "Produkty premium", "Pełna organizacja kulinarna"],
+        features: [
+          "Indywidualne menu",
+          "Produkty premium",
+          "Pełna organizacja kulinarna",
+        ],
         pricing: {
-          "8-14":  { basic: "130", premium: "150" },
-          "15-19": { basic: "120", premium: "140" },
-          "20-29": { basic: "110", premium: "130" },
-          "30+":   { basic: "100", premium: "120" },
+          "8-14": { basic: "140", premium: "160" },
+          "15-19": { basic: "130", premium: "150" },
+          "20-29": { basic: "120", premium: "140" },
+          "30+": { basic: "110", premium: "130" },
         },
       },
       {
         title: "Masterclass",
         callout: "Warsztaty sushi",
-        features: ["Interaktywny pokaz", "Nauka krok po kroku", "Degustacja przygotowanych dań"],
+        features: [
+          "Interaktywny pokaz",
+          "Nauka krok po kroku",
+          "Degustacja przygotowanych dań",
+        ],
         pricing: {
-          "8-14":  { basic: "140", premium: "160" },
+          "8-14": { basic: "140", premium: "160" },
           "15-19": { basic: "130", premium: "150" },
           "20-29": { basic: "120", premium: "140" },
-          "30+":   { basic: "110", premium: "130" },
+          "30+": { basic: "110", premium: "130" },
         },
       },
       {
         title: "Omakase",
         callout: "Ekskluzywna kolacja",
-        features: ["Autorskie menu Omakase", "Sezonowe składniki najwyższej jakości", "Indywidualny serwis szefa"],
+        features: [
+          "Autorskie menu Omakase",
+          "Sezonowe składniki najwyższej jakości",
+          "Indywidualny serwis szefa",
+        ],
         pricing: {
-          "8-14":  { premium: "350" },
+          "8-14": { premium: "350" },
           "15-19": { premium: "300" },
         },
       },
       {
         title: "Wesela",
         callout: "Catering weselny",
-        features: ["Specjalne menu weselne", "Sushi w formie bufetu", "Realizacja na terenie całej Polski"],
+        features: [
+          "Specjalne menu weselne",
+          "Sushi w formie bufetu",
+          "Realizacja na terenie całej Polski",
+        ],
         pricing: {
-          "20-29": { basic: "100", premium: "120" },
-          "30+":   { basic: "80",  premium: "100" },
+          "20-29": { basic: "3000", premium: "3500" },
+          "30+": { basic: "3500", premium: "4000" },
         },
+        pricePerEvent: true,
       },
     ],
   },
