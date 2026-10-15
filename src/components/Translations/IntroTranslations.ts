@@ -5,7 +5,7 @@ export const IntroTranslations = {
   en: {
     heading1: "We create exceptional sushi",
     heading2: "at",
-    heading2Accent: "your",
+    heading2Accent: "Your",
     heading3: "event",
     description:
       "We arrive, set up our station and serve fresh sushi right in front of your guests. This isn't just catering — it's an experience.",

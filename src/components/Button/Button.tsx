@@ -102,7 +102,7 @@ const TypewriterText = ({ text }: { text: string }) => {
   }, []);
 
   return (
-    <span className="relative font-semibold text-sm uppercase tracking-[0.15em] text-zinc-300">
+    <span className="relative font-semibold text-[12px] md:text-sm uppercase tracking-[0.15em] text-zinc-300">
       {chars.slice(0, count).join("").replace(/ /g, "\u00A0")}
       {!done && (
         <motion.span

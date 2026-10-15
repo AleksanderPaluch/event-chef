@@ -259,7 +259,7 @@ export const Form = ({
             />
             <label
               htmlFor="consent"
-              className="text-lg leading-relaxed md:text-base text-muted"
+              className="text-base leading-relaxed md:text-base text-muted"
             >
               {t.agreements.contact}
             </label>

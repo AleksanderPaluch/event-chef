@@ -48,7 +48,7 @@ const HeroContent = ({ eyebrow, heading, subtitle }: Omit<HeroProps, "image">) =
       <div className="w-16 h-px mt-6 lg:mt-8 bg-amber-500/60" />
 
       {subtitle && (
-        <p className="mt-32 text-sm font-semibold tracking-wide uppercase md:mt-6 text-zinc-300">
+        <p className="mx-auto mt-32 font-semibold tracking-wide uppercase text-[12px] w-fit md:text-sm md:mt-6 text-zinc-300 md:mx-0">
           {subtitle}
         </p>
       )}
