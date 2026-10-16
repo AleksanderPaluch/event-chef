@@ -32,7 +32,7 @@ export const IntroTranslations = {
         callout: "Exclusive dinner",
         title: "Omakase",
         description:
-          "An intimate experience where you put yourself in the chef's hands. A carefully composed menu, uncompromising quality.",
+          "An  experience where you put yourself in the chef's hands. A carefully composed menu, uncompromising quality.",
         href: "/omakase",
       },
     ],
@@ -51,7 +51,7 @@ export const IntroTranslations = {
         callout: "Sushi przygotowywane na żywo",
         title: "Live Cooking",
         description:
-          "Widowiskowy pokaz przygotowywania sushi bezpośrednio przed Twoimi gośćmi. Smak, interakcja i show w jednym.",
+          " Pokaz przygotowywania sushi bezpośrednio przed Twoimi gośćmi. Smak, interakcja i show w jednym.",
         href: "/live",
       },
       {
