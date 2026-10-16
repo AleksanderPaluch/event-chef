@@ -259,7 +259,7 @@ export const Offer = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="offer" className="py-24 section-padding lg:py-24">
+    <section id="offer" className="py-24 section-padding lg:py-24 md:px-12">
       <div className="mb-20">
         <Motion>
           <h2 className="mb-6 text-4xl font-light tracking-tight md:text-5xl text-heading">

@@ -152,7 +152,7 @@ export const AboutSection = () => {
   const t = AboutTranslations[lang];
 
   return (
-    <section className="flex flex-col gap-20 px-6 py-24 mx-auto max-w-7xl lg:py-32 lg:pb-24 lg:gap-28">
+    <section className="flex flex-col gap-20 px-6 py-24 mx-auto md:px-12 max-w-7xl lg:py-32 lg:pb-24 lg:gap-28">
       {/* About us — two column */}
       <div className="flex flex-col gap-16 md:flex-row md:justify-between">
         <Motion>

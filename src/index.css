@@ -62,7 +62,7 @@ input:-webkit-autofill:active {
   .border-subtle      { @apply border-zinc-400 dark:border-zinc-800; }
 
   /* Section spacing */
-  .section-padding    { @apply px-6 py-32 mx-auto max-w-7xl; }
+  .section-padding    { @apply px-6 py-32 mx-auto md:px-12 max-w-7xl; }
 
 }
 
@@ -70,7 +70,7 @@ input:-webkit-autofill:active {
 
 
 
-
+  
 
 /* ===== Custom Scrollbar ===== */
 

@@ -16,7 +16,7 @@ export const Intro = () => {
   const t = IntroTranslations[lang];
 
   return (
-    <section className="px-6 pb-32 mx-auto max-w-7xl pt-28">
+    <section className="px-6 pb-32 mx-auto md:px-12 max-w-7xl pt-28">
       {/* Header */}
       <div className="max-w-3xl mb-20">
         <Motion>

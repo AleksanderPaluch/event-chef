@@ -17,7 +17,7 @@ export const ContactForm = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="px-6 py-24 mx-auto lg:py-32 max-w-7xl"
+      className="px-6 py-24 mx-auto md:px-12 lg:py-32 max-w-7xl"
     >
       {/* Header */}
       <div className="mb-8 lg:mb-20">
