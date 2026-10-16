@@ -34,7 +34,7 @@ const HeroContent = ({ eyebrow, heading, subtitle }: Omit<HeroProps, "image">) =
   const t = HeroTranslations[lang];
 
   return (
-    <div className="absolute left-0 z-10 w-full max-w-4xl px-4 bottom-32 md:bottom-16 lg:bottom-52 md:px-12 lg:px-20">
+    <div className="absolute left-0 z-10 w-full max-w-4xl px-2 bottom-32 md:bottom-16 lg:bottom-52 md:px-12 lg:px-20">
       {eyebrow && (
         <span className="uppercase tracking-[0.4em] text-amber-500 dark:text-amber-400 text-sm font-semibold">
           {eyebrow}
