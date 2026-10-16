@@ -40,7 +40,7 @@ export const OfferTranslations: Record<Lang, OfferTranslation> = {
           "15-19": { basic: "110", premium: "130" },
           "20-29": { basic: "100", premium: "120" },
           "30+": { basic: "90", premium: "100" },
-                  "50+": { basic: "70", premium: "100" },
+                  "50+": { basic: "80", premium: "90" },
         },
       },
       {
@@ -56,7 +56,7 @@ export const OfferTranslations: Record<Lang, OfferTranslation> = {
           "15-19": { basic: "120", premium: "130" },
           "20-29": { basic: "110", premium: "120" },
           "30+": { basic: "100", premium: "100" },
-             "50+": { basic: "70", premium: "100" },
+       
         },
       },
       {
@@ -113,7 +113,7 @@ export const OfferTranslations: Record<Lang, OfferTranslation> = {
           "15-19": { basic: "110", premium: "130" },
           "20-29": { basic: "100", premium: "120" },
           "30+": { basic: "90", premium: "100" },
-             "50+": { basic: "80", premium: "100" },
+             "50+": { basic: "80", premium: "90" },
         },
       },
       {
