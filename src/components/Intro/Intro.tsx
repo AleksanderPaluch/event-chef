@@ -41,7 +41,9 @@ export const Intro = () => {
       {/* Cards */}
       <div className="grid grid-cols-1 gap-12 md:grid-cols-3 ">
         {t.features.map((feature, index) => (
+       
           <div key={feature.id} className="flex flex-col group">
+                 <Motion>
             <h3 className="mb-4 text-4xl font-light tracking-tight text-heading">
               {feature.title}
             </h3>
@@ -51,7 +53,8 @@ export const Intro = () => {
             <p className="mb-8 text-sm leading-relaxed text-body">
               {feature.description}
             </p>
-
+</Motion>
+     <Motion>
             {/* Image */}
             <div className="relative overflow-hidden aspect-[3/4] mb-6 rounded-lg">
               <Link to={feature.href} className="block w-full h-full">
@@ -66,10 +69,14 @@ export const Intro = () => {
                 />
               </Link>
             </div>
+               <Motion>
             <div className="text-lg">
               <Button variant="page" text={t.cta} href={feature.href} />
             </div>
+            </Motion>
+                </Motion>
           </div>
+      
         ))}
       </div>
     </section>
