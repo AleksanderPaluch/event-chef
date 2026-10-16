@@ -6,7 +6,7 @@ import { useLanguage } from "../Translations/LanguageContext";
 import  { OfferTranslations } from "../Translations/OfferTranslations";
 
 
-export type PeopleTab = "8-14" | "15-19" | "20-29" | "30+";
+export type PeopleTab = "8-14" | "15-19" | "20-29" | "30+" | "50+" ;
 
 export interface PriceTier {
   basic?: string;
@@ -21,7 +21,7 @@ export interface OfferData {
   pricePerEvent?: boolean;
 }
 
-export const PEOPLE_TABS: PeopleTab[] = ["8-14", "15-19", "20-29", "30+"];
+export const PEOPLE_TABS: PeopleTab[] = ["8-14", "15-19", "20-29", "30+", "50+"];
 
 // ─── Tabs ─────────────────────────────────────────────────────────────────────
 
@@ -255,7 +255,7 @@ export const Offer = () => {
   const { lang } = useLanguage();
   const t = OfferTranslations[lang];
 
-  const [selectedPeople, setSelectedPeople] = useState<PeopleTab>("30+");
+  const [selectedPeople, setSelectedPeople] = useState<PeopleTab>("50+");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (

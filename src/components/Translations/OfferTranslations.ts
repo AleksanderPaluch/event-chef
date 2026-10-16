@@ -40,6 +40,7 @@ export const OfferTranslations: Record<Lang, OfferTranslation> = {
           "15-19": { basic: "110", premium: "130" },
           "20-29": { basic: "100", premium: "120" },
           "30+": { basic: "90", premium: "100" },
+                  "50+": { basic: "70", premium: "100" },
         },
       },
       {
@@ -51,10 +52,11 @@ export const OfferTranslations: Record<Lang, OfferTranslation> = {
           "Tasting of prepared dishes",
         ],
         pricing: {
-          "8-14": { basic: "140", premium: "160" },
-          "15-19": { basic: "120", premium: "140" },
-          "20-29": { basic: "110", premium: "130" },
-          "30+": { basic: "100", premium: "120" },
+          "8-14": { basic: "150", premium: "160" },
+          "15-19": { basic: "120", premium: "130" },
+          "20-29": { basic: "110", premium: "120" },
+          "30+": { basic: "100", premium: "100" },
+             "50+": { basic: "70", premium: "100" },
         },
       },
       {
@@ -108,9 +110,10 @@ export const OfferTranslations: Record<Lang, OfferTranslation> = {
         ],
         pricing: {
           "8-14": { basic: "140", premium: "160" },
-          "15-19": { basic: "130", premium: "150" },
-          "20-29": { basic: "120", premium: "140" },
-          "30+": { basic: "110", premium: "130" },
+          "15-19": { basic: "110", premium: "130" },
+          "20-29": { basic: "100", premium: "120" },
+          "30+": { basic: "90", premium: "100" },
+             "50+": { basic: "80", premium: "100" },
         },
       },
       {
@@ -122,10 +125,11 @@ export const OfferTranslations: Record<Lang, OfferTranslation> = {
           "Degustacja przygotowanych dań",
         ],
         pricing: {
-          "8-14": { basic: "140", premium: "160" },
-          "15-19": { basic: "130", premium: "150" },
-          "20-29": { basic: "120", premium: "140" },
-          "30+": { basic: "110", premium: "130" },
+          "8-14": { basic: "150", premium: "160" },
+          "15-19": { basic: "120", premium: "130" },
+          "20-29": { basic: "110", premium: "120" },
+          "30+": { basic: "100", premium: "110" },
+          
         },
       },
       {
