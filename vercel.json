@@ -1,3 +1,8 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/live", "destination": "/live/index.html" },
+    { "source": "/masterclass", "destination": "/masterclass/index.html" },
+    { "source": "/omakase", "destination": "/omakase/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
