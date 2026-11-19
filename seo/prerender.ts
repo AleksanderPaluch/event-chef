@@ -215,7 +215,7 @@ const contactHtml = `
 
 const nav = `<nav><a href="/">Strona główna</a> · ${SERVICES.map((s) => `<a href="/${s.slug}">${s.name}</a>`).join(" · ")}</nav>`;
 
-const STYLE = `<style>#seo-static{max-width:860px;margin:0 auto;padding:48px 20px;font-family:Manrope,system-ui,sans-serif;color:#d6d3d1;background:#0c0a09;line-height:1.6}#seo-static h1,#seo-static h2,#seo-static h3{color:#fafaf9;line-height:1.25}#seo-static a{color:#f59e0b}#seo-static table{border-collapse:collapse;margin:8px 0 16px}#seo-static td,#seo-static th{border-bottom:1px solid #292524;padding:6px 14px 6px 0;text-align:left}html.dark body{background:#0c0a09}</style>`;
+const STYLE = `<style>#seo-static{max-width:860px;margin:0 auto;padding:48px 20px;font-family:Manrope,system-ui,sans-serif;color:#d6d3d1;background:#000;line-height:1.6}#seo-static h1,#seo-static h2,#seo-static h3{color:#fafaf9;line-height:1.25}#seo-static a{color:#f59e0b}#seo-static table{border-collapse:collapse;margin:8px 0 16px}#seo-static td,#seo-static th{border-bottom:1px solid #292524;padding:6px 14px 6px 0;text-align:left}</style>`;
 
 /* ============================== JSON-LD ============================== */
 
@@ -348,7 +348,7 @@ function headTags(title: string, description: string, url: string) {
   return `
     <link rel="canonical" href="${url}" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#0c0a09" />
+    <meta name="theme-color" content="#000000" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pl_PL" />
     <meta property="og:site_name" content="Event Chef" />

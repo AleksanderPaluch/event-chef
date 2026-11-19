@@ -54,7 +54,7 @@ export const Intro = () => {
               {feature.description}
             </p>
 </Motion>
-     <Motion>
+  
             {/* Image */}
             <div className="relative overflow-hidden aspect-[3/4] mb-6 rounded-lg">
               <Link to={feature.href} className="block w-full h-full">
@@ -74,7 +74,7 @@ export const Intro = () => {
               <Button variant="page" text={t.cta} href={feature.href} />
             </div>
             </Motion>
-                </Motion>
+             
           </div>
       
         ))}
